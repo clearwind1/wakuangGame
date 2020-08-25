@@ -89,7 +89,7 @@ var Game;
         ExchangeCenter.prototype.showRecode = function () {
             var _this = this;
             this.rdcode_group.visible = true;
-            cor.Socket.getIntance().sendmsg('GET_EXCHANGE_RECODE', {}, function (rdata) {
+            cor.Socket.getIntance().sendmsg('EXCHANGE_RECORD', {}, function (rdata) {
                 Log(rdata);
                 _this.recode_list.dataProvider = new eui.ArrayCollection(rdata);
             }, this);

@@ -99,6 +99,7 @@ namespace Game {
                 GameData.UserInfo.gts_number += Number(this.exchange_num.text);
                 GameData.UserInfo.mineral -= (Number(this.exchange_num.text) * this._today_rate);
                 cor.EventManage.instance().sendEvent(UpdataGameInfo);
+                TipsSkin.instance().show("兑换成功");
             }, this)
         }
 

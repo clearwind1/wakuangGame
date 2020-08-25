@@ -3,7 +3,7 @@
 	<e:Image source="Bg_Shop01_jpg" x="0" y="0" width="100%" locked="true"/>
 	<e:Image source="gameRes_json.Frame_02_png" x="15" scale9Grid="7,7,42,42" width="406" height="632" bottom="29" alpha="0.6" locked="true"/>
 	<e:Group id="head_group" x="0" y="0" locked="true"/>
-	<e:Group width="887" height="645" y="88" right="13" locked="true">
+	<e:Group width="887" height="645" y="88" right="13">
 		<e:Image x="2" scale9Grid="7,7,42,42" bottom="29" y="1" scaleX="1" scaleY="1" source="Bg_Jiaoyisuo01_png"/>
 		<e:Button id="exchange_btn" label="确认兑换" y="509" anchorOffsetX="0" x="153" scaleX="1" scaleY="1">
 			<e:skinName>
@@ -26,19 +26,16 @@
 		<e:Label id="exchangeRate" text="GST" x="440" y="444" fontFamily="myFont" size="24"/>
 		<e:Rect width="127" height="1" x="311" y="467" fillColor="0xffffff"/>
 		<e:EditableText id="exchange_num" width="121" height="25" text="" x="313" y="444" anchorOffsetY="0" size="24" textAlign="center" textColor="0x50e0ff" fontFamily="myFont"/>
-		<e:Group id="date_group" width="751" x="67" y="341" locked="true">
-			<e:Label text="07-26" x="285" y="12" size="20" textColor="0x4777b5" fontFamily="myFont" width="56"/>
-			<e:Label text="07-26" x="285" y="12" size="20" textColor="0x4777B5" fontFamily="myFont" width="56"/>
-			<e:Label text="07-26" x="295" y="22" size="20" textColor="0x4777B5" fontFamily="myFont" width="56"/>
-			<e:Label text="07-26" x="305" y="32" size="20" textColor="0x4777B5" fontFamily="myFont" width="56"/>
-			<e:Label text="07-26" x="315" y="42" size="20" textColor="0x4777B5" fontFamily="myFont" width="56"/>
-			<e:Label text="07-26" x="325" y="52" size="20" textColor="0x4777B5" fontFamily="myFont" width="56"/>
-			<e:Label text="07-26" x="335" y="62" size="20" textColor="0x4777B5" fontFamily="myFont" width="56"/>
-			<e:layout>
-				<e:HorizontalLayout gap="54" horizontalAlign="center"/>
-			</e:layout>
+		<e:Group id="date_group" width="824" x="30" y="341" locked="true">
+			<e:Label text="07-26" x="43" y="0" size="20" textColor="0x4777b5" fontFamily="myFont" width="70" textAlign="center"/>
+			<e:Label text="07-26" x="153" y="0" size="20" textColor="0x4777B5" fontFamily="myFont" width="70" verticalAlign="justify" textAlign="center"/>
+			<e:Label text="07-26" x="262" y="0" size="20" textColor="0x4777B5" fontFamily="myFont" width="70" textAlign="center"/>
+			<e:Label text="07-26" x="372" y="0" size="20" textColor="0x4777B5" fontFamily="myFont" width="70" textAlign="center"/>
+			<e:Label text="07-26" x="481" y="0" size="20" textColor="0x4777B5" fontFamily="myFont" width="70" textAlign="center"/>
+			<e:Label text="07-26" x="591" y="0" size="20" textColor="0x4777B5" fontFamily="myFont" width="70" textAlign="center"/>
+			<e:Label text="07-26" x="700" y="0" size="20" textColor="0x4777B5" fontFamily="myFont" width="70" textAlign="center"/>
 		</e:Group>
-		<e:Group id="sharp_group" width="750" x="63" y="87">
+		<e:Group id="sharp_group" width="750" x="63" y="87" locked="true">
 			<e:Image source="gameRes_json.Bg_Jiaoyisuo02_png" x="36" y="246" anchorOffsetY="246" scaleY="0.5"/>
 			<e:Image source="gameRes_json.Bg_Jiaoyisuo02_png" x="146" y="246" anchorOffsetY="246"/>
 			<e:Image source="gameRes_json.Bg_Jiaoyisuo02_png" x="256" y="246" anchorOffsetY="246"/>
@@ -47,7 +44,7 @@
 			<e:Image source="gameRes_json.Bg_Jiaoyisuo02_png" x="585" y="246" anchorOffsetY="246"/>
 			<e:Image source="gameRes_json.Bg_Jiaoyisuo02_png" x="695" y="246" anchorOffsetY="246"/>
 		</e:Group>
-		<e:Group id="line_group" width="750" x="63" y="47">
+		<e:Group id="line_group" width="750" x="63" y="47" locked="true">
 			<e:Image source="gameRes_json.Line01_png" x="40" y="0"/>
 			<e:Image x="153" y="0" source="gameRes_json.Line02_png"/>
 			<e:Image x="263" y="0" source="gameRes_json.Line03_png"/>

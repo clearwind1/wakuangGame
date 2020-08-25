@@ -17,7 +17,7 @@
 	<e:Label id="message_tip" text="开" size="28" fontFamily="myFont" x="644" textColor="0x9b9b9b" y="345"/>
 	<e:Button id="reset_password_btn" label="" x="35" y="107" width="664" height="73" anchorOffsetX="0">
 		<e:skinName>
-			<e:Skin states="up,down,disabled">
+			<e:Skin states="up,down,disabled" width="664" height="73">
 			<e:Image source="appIcon_json.Banner_Personal_Back02_png" right="0" verticalCenter="0"/>
 			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
 			</e:Skin>
