@@ -29,6 +29,11 @@ function createDB(dbname: string, target: any = null, fun: Function = null, obj:
         dragonbonesData = RES.getRes(dbname + arr[0]);
         textureData = RES.getRes(dbname + arr[1]);
         texture = RES.getRes(dbname + arr[2]);
+
+        if (dragonbonesData == null || textureData == null || texture == null) {
+            return null;
+        }
+
         let egretFactory: dragonBones.EgretFactory = dragonBones.EgretFactory.factory;
         egretFactory.parseDragonBonesData(dragonbonesData);
         egretFactory.parseTextureAtlasData(textureData, texture);
@@ -250,6 +255,19 @@ function numberToText(num: any): string {
     }
 
     return reNum;
+}
+
+/**
+ * 数字千位加逗号
+ */
+function toThousands(num) {
+    var num = (num || 0).toString(), result = '';
+    while (num.length > 3) {
+        result = ',' + num.slice(-3) + result;
+        num = num.slice(0, num.length - 3);
+    }
+    if (num) { result = num + result; }
+    return result;
 }
 
 /**

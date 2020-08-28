@@ -25,6 +25,7 @@ var Game;
             this.exchange_num.restrict = "0-9";
             this._exchangedata = exchangedata;
             this.head_group.addChild(new Game.headComment(this, '矿石交易所', 'ORE EXCHANGE'));
+            this.addDB(this.role_group, "Jiaoyisuo");
             var sortexd = [];
             for (var i = 0; i < 7; i++) {
                 sortexd.push(exchangedata[i]);
@@ -84,6 +85,7 @@ var Game;
                 GameData.UserInfo.gts_number += Number(_this.exchange_num.text);
                 GameData.UserInfo.mineral -= (Number(_this.exchange_num.text) * _this._today_rate);
                 cor.EventManage.instance().sendEvent(UpdataGameInfo);
+                Game.TipsSkin.instance().show("兑换成功");
             }, this);
         };
         ExchangeCenter.prototype.showRecode = function () {
@@ -91,6 +93,10 @@ var Game;
             this.rdcode_group.visible = true;
             cor.Socket.getIntance().sendmsg('EXCHANGE_RECORD', {}, function (rdata) {
                 Log(rdata);
+                for (var k in rdata) {
+                    rdata[k].use_mine = "使用" + rdata[k].mineral_number + "矿石";
+                    rdata[k].exchange_gst = "兑换" + rdata[k].gst_number + "GST";
+                }
                 _this.recode_list.dataProvider = new eui.ArrayCollection(rdata);
             }, this);
         };

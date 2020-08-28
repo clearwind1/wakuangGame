@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="GetPrize" width="1334" height="750" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Group id="hideGroup" width="100%" height="100%" x="0" y="0">
+		<e:Rect width="100%" height="100%" x="0" y="0" fillAlpha="0.6" scaleX="1" scaleY="1"/>
+		<e:Label id="prizeNum" text="Label" y="395" horizontalCenter="0" fontFamily="myFont" x="633" scaleX="1" scaleY="1"/>
+	</e:Group>
+	<e:Group id="prize_group" y="273" anchorOffsetX="59.5" x="667.5">
+		<e:Image y="8" source="gameRes_json.Icon_Kuangshi_png" anchorOffsetX="35" x="44" scaleX="1" scaleY="1"/>
+		<e:Image y="19" source="gameRes_json.Icon_Kuangshi_png" anchorOffsetX="35" x="84" scaleX="1" scaleY="1"/>
+		<e:Image y="36" source="gameRes_json.Icon_Kuangshi_png" anchorOffsetX="35" x="24" scaleX="1" scaleY="1"/>
+		<e:Image y="45" source="gameRes_json.Icon_Kuangshi_png" anchorOffsetX="35" x="68" scaleX="1" scaleY="1"/>
+	</e:Group>
+</e:Skin>

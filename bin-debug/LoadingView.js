@@ -30,14 +30,12 @@ var Game;
         };
         LoadingView.prototype.showTip = function () {
             var _this = this;
-            var changeTx = ['欢迎来到Richman（有矿）',
+            var changeTx = ['欢迎来到Richman大矿场',
                 '正在招聘专属矿区管家',
-                '正在前往矿石挖掘场地',
                 '马上就要抵达目的地，请稍等',
                 '越大的矿区，越能产出更多的矿石',
-                '想要快速挖到矿石，试不试配置齐全的人员与设备如何',
-                '交易所的交易价格会不定时更新，一定留意好',
-                '想要招募或应聘矿工？去矿区管理处看看吧'];
+                '想要快速挖到矿石，试不试配置齐全设备',
+                '矿石交易所的交易价格会不定时更新，请一定留意好每日的价格走势'];
             this.tipTx.text = changeTx[this._index];
             this._tag = setTimeout(function () {
                 _this._index = (_this._index + 1) % changeTx.length;

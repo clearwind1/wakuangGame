@@ -27,7 +27,8 @@ namespace Game {
         public email_btn: eui.Button;
         public notice_info: eui.Label;
         public notic_tip_img: eui.Image;
-        public role: eui.Image;
+        public bg: eui.Image;
+        public role_group: eui.Group;
 
         private _dig_time_int = -1;
         constructor() {
@@ -44,11 +45,13 @@ namespace Game {
                 this.mine_btn.touchEnabled = false;
                 this.owner_icon.visible = false;
                 this.level.text = GameData.UserInfo.grade;
-                this.role.source = 'role_01_png';
+                this.bg.source = `Bg_MiningArea_Lv1_png`
+                this.addDB(this.role_group, "Kuangquguangli");
             } else {
                 this.mine_group.visible = false;
                 this.level.text = 'v' + GameData.UserInfo.current_hold_area_grade;
-                this.role.source = `Lv.${GameData.UserInfo.current_hold_area_grade}_png`;
+                this.bg.source = `Bg_MiningArea_Lv${GameData.UserInfo.current_hold_area_grade}_png`;
+                this.addDB(this.role_group, `Lv${GameData.UserInfo.current_hold_area_grade}`);
             }
             this.headImg.source = GameData.UserInfo.picture;
             this.nickname.text = GameData.UserInfo.nickname;
@@ -73,6 +76,10 @@ namespace Game {
             // this.mine_btn.filters = [colorFlilter];
             // this.tools_store_btn.filters = [colorFlilter];
             // this.warehouse_btn.filters = [colorFlilter];
+            if (GameData.UserInfo.identity == IDENTITY.Miner) {
+                this.tools_store_btn.filters = [colorFlilter];
+            }
+
             if (typeof (GameData.UserInfo.dig_time) === 'string') {
                 GameData.UserInfo.dig_time = TimeTonumber(GameData.UserInfo.dig_time);
             }
@@ -93,6 +100,8 @@ namespace Game {
             this.addEvent(this.setting_btn, egret.TouchEvent.TOUCH_TAP, this, this.showSetting);
             this.addEvent(this.share_btn, egret.TouchEvent.TOUCH_TAP, this, this.showShare);
             this.addEvent(this.friend_btn, egret.TouchEvent.TOUCH_TAP, this, this.showFriend);
+            this.addEvent(this.headImg, egret.TouchEvent.TOUCH_TAP, this, this.showSetting);
+
             this.addEvent(cor.EventManage.instance(), ChangeIdentity, this, this.changeIdentity);
             this.addEvent(cor.EventManage.instance(), ExitGame, this, this.exitGame);
             this.addEvent(cor.EventManage.instance(), UpdataUserInfo, this, this.updata_info);
@@ -184,6 +193,12 @@ namespace Game {
          * 工具商店
          */
         private showToolsStore() {
+
+            if (GameData.UserInfo.identity == IDENTITY.Miner) {
+                TipsSkin.instance().show("暂时不对矿工开放");
+                return;
+            }
+
             cor.Socket.getIntance().sendmsg('STORE_GOOD_LIST', {}, (rdata) => {
                 Log(rdata);
                 cor.MainScene.instance().addChild(new ToolsStore(rdata));
@@ -260,18 +275,38 @@ namespace Game {
          * 改变身份事件
          */
         private changeIdentity(e) {
+            cor.Socket.getIntance().sendmsg('GET_USER_BASE_INFO', {}, async (rdata) => {
+                Log(rdata);
+                GameData.UserInfo = rdata;
+            }, this)
+
             if (GameData.UserInfo.identity == IDENTITY.Owner) {
                 this.mine_btn.touchEnabled = true;
                 this.mine_group.visible = false;
                 this.owner_icon.visible = true;
                 this.level.text = 'v' + GameData.UserInfo.current_hold_area_grade;
-                this.role.source = `Lv.${GameData.UserInfo.current_hold_area_grade}_png`;
+                this.tools_store_btn.filters = [];
+                this.removeDB();
+                this.addDB(this.role_group, `Lv${GameData.UserInfo.current_hold_area_grade}`);
+                
             } else {
                 this.mine_btn.touchEnabled = false;
                 this.mine_group.visible = true;
                 this.owner_icon.visible = false;
                 this.level.text = GameData.UserInfo.grade;
-                this.role.source = 'role_01_png';
+                this.removeDB();
+                this.addDB(this.role_group, "Kuangquguangli");
+
+                //颜色矩阵数组
+                var colorMatrix = [
+                    0.3, 0.3, 0, 0, 0,
+                    0.3, 0.3, 0, 0, 0,
+                    0.3, 0.3, 0, 0, 0,
+                    0, 0, 0, 1, 0
+                ];
+
+                var colorFlilter = new egret.ColorMatrixFilter(colorMatrix);
+                this.tools_store_btn.filters = [colorFlilter];
             }
 
         }

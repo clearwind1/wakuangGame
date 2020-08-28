@@ -19,8 +19,12 @@
 			<e:Skin states="up,down,disabled" xmlns:w="http://ns.egret.com/wing">
 			<e:Image width="100%" height="100%" source="gameRes_json.Btn_Blue_01_png"/>
 			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
-	<e:Label id="wz" text="Label" horizontalCenter="0" verticalCenter="-1" size="32" textColor="0xffffff" fontFamily="myFont" stroke="2" strokeColor="0x5276e9"/>
+	<e:Label id="wz" text="" horizontalCenter="0" verticalCenter="-2" size="32" textColor="0xffffff" fontFamily="myFont" stroke="2" strokeColor="0x5276e9" textAlign="center" width="199" verticalAlign="middle" height="71"/>
 			</e:Skin>
 		</e:skinName>
 	</e:Button>
+	<e:Group id="time_group" width="197" height="69" x="687" y="69" visible="false">
+		<e:Label text="收益倒计时" y="9" horizontalCenter="0" size="22" fontFamily="myFont" textColor="0xe0e0e0" stroke="2" strokeColor="0x505153"/>
+		<e:Label id="time" text="03:25:36" y="38" horizontalCenter="0" size="24" fontFamily="myFont" stroke="0" strokeColor="0x505153" textColor="0xa1ffb7"/>
+	</e:Group>
 </e:Skin>

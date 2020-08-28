@@ -5,7 +5,7 @@
 	<e:Group id="role_group" x="0" bottom="0"/>
 	<e:Image source="gameRes_json.Bg_Shop04_png" y="80" scale9Grid="12,13,72,81" width="940" height="650" right="19"/>
 	<e:Scroller width="936" height="625.58" y="93" anchorOffsetX="0" anchorOffsetY="0" right="19">
-		<e:List id="ownerList" itemRendererSkinName="OwnerItem">
+		<e:List id="ownerList" itemRendererSkinName="OwnerItem" useVirtualLayout="false">
 			<e:layout>
 				<e:VerticalLayout horizontalAlign="center" gap="10"/>
 			</e:layout>

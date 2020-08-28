@@ -6,6 +6,7 @@ module cor {
 
 		private eventList: any[] = [];
 		private tweenList: any[] = [];
+		public dbList: any[] = [];
 
 		public constructor() {
 			super();
@@ -26,6 +27,7 @@ module cor {
 
 		protected removeFromStage() {
 			// Removed from the display list.
+			this.removeDB();
 			this.removeEvent();
 			this.removeEventListener(egret.Event.ADDED_TO_STAGE, this.addToStage, this);
 			this.removeEventListener(egret.Event.REMOVED_FROM_STAGE, this.removeFromStage, this);
@@ -46,6 +48,19 @@ module cor {
 		}
 		public hide() {
 			this.visible = false;
+		}
+		/**
+		 * 添加龙骨
+		 */
+		public addDB(target, name) {
+			let role = createDB(name);
+			role.x = role.width / 2;
+			target.addChild(role);
+			role.animation.play();
+			this.dbList.push({
+				db: role,
+				target: target
+			});
 		}
 		/**
 		 * 添加事件
@@ -105,7 +120,27 @@ module cor {
 				this.eventList = [];
 			}
 		}
-
+		/**
+		 * 清除龙骨
+		 */
+		public removeDB(name?) {
+			let exist = false;
+			for (var k = this.dbList.length - 1; k >= 0; k--) {
+				let db = this.dbList[k].db as dragonBones.EgretArmatureDisplay;
+				if (name && db.armature.name == name) {
+					db.dispose();
+					this.dbList[k].target.removeChild(db);
+					this.dbList.splice(k, 1);
+					exist = true;
+					break;
+				}
+				db.dispose();
+				this.dbList[k].target.removeChild(db);
+			}
+			if (!exist) {
+				this.dbList = [];
+			}
+		}
 		public dispose() {
 			if (this.parent) {
 				this.parent.removeChild(this);

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="RecodePage" width="750" height="1334" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Rect width="100%" height="100%" x="0" y="0" fillColor="0xFFFFFF"/>
+	<e:Image source="appIcon_json.Bg_Personal03_png" x="0" y="0" width="100%" height="164"/>
+	<e:Label text="交易记录" y="27" textColor="0x353535" fontFamily="myFont" size="34" x="307"/>
+	<e:Image id="close_btn" source="appIcon_json.Banner_Personal_Back01_png" x="30" y="28"/>
+	<e:Image source="appIcon_json.Line_Personal02_png" y="90" width="690" horizontalCenter="0"/>
+	<e:Image source="appIcon_json.Bg_Wallet09_png" y="94" horizontalCenter="0.5"/>
+	<e:Button id="gst_info_btn" label="GST记录" x="90" y="97">
+		<e:skinName>
+			<e:Skin states="up,down,disabled" xmlns:w="http://ns.egret.com/wing" width="244" height="55">
+			<e:Image width="100%" height="100%" source="appIcon_json.Bg_Personal03_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" fontFamily="myFont" size="28" textColor="0x349aff" visible="false"/>
+	<e:Label id="wz" text="GST记录" horizontalCenter="0" verticalCenter="0" fontFamily="myFont" size="28" textColor="0x349aff" textColor.down="0x4c4b4b"/>
+	<e:Rect width="52" height="3" includeIn="up" y="63" fillColor="0x349aff" horizontalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Button id="usdt_info_btn" label="USDT记录" x="432" y="97" currentState="down">
+		<e:skinName>
+		<e:Skin states="up,down,disabled" xmlns:w="http://ns.egret.com/wing" width="244" height="55">
+			<e:Image width="100%" height="100%" source="appIcon_json.Bg_Personal03_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" fontFamily="myFont" size="28" textColor="0x349aff" visible="false"/>
+			<e:Label id="wz" text="USDT记录" horizontalCenter="0" verticalCenter="0" fontFamily="myFont" size="28" textColor="0x349aff" textColor.down="0x4c4b4b"/>
+			<e:Rect width="52" height="3" includeIn="up" y="63" fillColor="0x349aff" horizontalCenter="0"/>
+		</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Scroller id="recode_scroller" width="750" height="401" x="0" y="164">
+		<e:List id="recode_list" itemRendererSkinName="RecodeItem">
+			<e:ArrayCollection>
+				<e:Array>
+					<e:Object a="null"/>
+					<e:Object a="null"/>
+					<e:Object a="null"/>
+					<e:Object a="null"/>
+					<e:Object a="null"/>
+					<e:Object a="null"/>
+				</e:Array>
+			</e:ArrayCollection>
+			<e:layout>
+				<e:VerticalLayout gap="0"/>
+			</e:layout>
+		</e:List>
+	</e:Scroller>
+</e:Skin>

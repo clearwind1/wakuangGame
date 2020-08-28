@@ -13,6 +13,7 @@ namespace Game {
         public head_group: eui.Group;
         public mine_area_bg: eui.Image;
         public role: eui.Image;
+        public role_group: eui.Group;
 
         private _minedata = [{
             "id": 1,
@@ -53,6 +54,7 @@ namespace Game {
         }
         //显示矿区信息
         private showMineInfo() {
+            this.removeDB();
             let mineData = this._minedata[this._currentIndex];
             this.surplus.text = '剩余:' + mineData.surplus;
             this.mine_name.text = mineData.name;
@@ -60,6 +62,7 @@ namespace Game {
             this.total_output.text = mineData.total_output + '';
             this.mine_area_bg.source = `Banner_Kuangquguanli_lv.${mineData.grade}_png`
             this.role.source = `Lv.${mineData.grade}_png`;
+            this.addDB(this.role_group, `Lv${mineData.grade}`);
             // this.is_can_buy.text = '矿区管理处：' + (mineData.is_can_buy ? '可购买矿区' : '已售罄矿区');
             this.price.text = mineData.price.split('.')[0] + 'GST';
             this.buy_btn.label = (mineData.is_can_buy ? '购买' : '已售罄');

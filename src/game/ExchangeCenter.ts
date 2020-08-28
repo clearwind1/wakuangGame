@@ -13,10 +13,10 @@ namespace Game {
         public sharp_group: eui.Group;
         public point_group: eui.Group;
         public line_group: eui.Group;
-        public role: eui.Image;
         public rdcode_group: eui.Group;
         public recode_list: eui.List;
         public close_btn: eui.Image;
+        public role_group: eui.Group;
 
         private _exchangedata;
         private _today_rate;
@@ -32,6 +32,8 @@ namespace Game {
             this.exchange_num.restrict = "0-9";
             this._exchangedata = exchangedata;
             this.head_group.addChild(new headComment(this, '矿石交易所', 'ORE EXCHANGE'));
+
+            this.addDB(this.role_group, "Jiaoyisuo");
 
             let sortexd = [];
             for (let i = 0; i < 7; i++) {
@@ -107,6 +109,10 @@ namespace Game {
             this.rdcode_group.visible = true;
             cor.Socket.getIntance().sendmsg('EXCHANGE_RECORD', {}, (rdata) => {
                 Log(rdata);
+                for (var k in rdata) {
+                    rdata[k].use_mine = "使用" + rdata[k].mineral_number + "矿石";
+                    rdata[k].exchange_gst = "兑换" + rdata[k].gst_number + "GST";
+                }
                 this.recode_list.dataProvider = new eui.ArrayCollection(rdata);
             }, this)
         }

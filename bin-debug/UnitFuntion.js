@@ -63,6 +63,9 @@ function createDB(dbname, target, fun, obj) {
         dragonbonesData = RES.getRes(dbname + arr[0]);
         textureData = RES.getRes(dbname + arr[1]);
         texture = RES.getRes(dbname + arr[2]);
+        if (dragonbonesData == null || textureData == null || texture == null) {
+            return null;
+        }
         var egretFactory_1 = dragonBones.EgretFactory.factory;
         egretFactory_1.parseDragonBonesData(dragonbonesData);
         egretFactory_1.parseTextureAtlasData(textureData, texture);
@@ -275,6 +278,20 @@ function numberToText(num) {
         reNum = reNum.split(".")[0] + "." + floatNum + tail;
     }
     return reNum;
+}
+/**
+ * 数字千位加逗号
+ */
+function toThousands(num) {
+    var num = (num || 0).toString(), result = '';
+    while (num.length > 3) {
+        result = ',' + num.slice(-3) + result;
+        num = num.slice(0, num.length - 3);
+    }
+    if (num) {
+        result = num + result;
+    }
+    return result;
 }
 /**
  * 数字单位换算

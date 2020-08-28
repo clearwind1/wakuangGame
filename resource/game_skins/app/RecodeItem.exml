@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="RecodeItem" width="750" height="141" xmlns:e="http://ns.egret.com/eui">
+	<e:Label text="{data.time}" x="30" y="86" size="26" textColor="0x9b9b9b"/>
+	<e:Label x="30" y="26" size="34" textColor="0x353535" text="{data.reason}"/>
+	<e:Label y="86" size="26" textColor="0x9B9B9B" right="30" text="{data.after_amount}"/>
+	<e:Label y="26" size="34" right="30" text="{data.change_amount}" textColor="{data.cacolor}"/>
+	<e:Image source="appIcon_json.Line_Personal02_png" y="140" width="690" horizontalCenter="0"/>
+</e:Skin>

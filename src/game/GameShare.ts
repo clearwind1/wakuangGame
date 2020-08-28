@@ -34,7 +34,7 @@ namespace Game {
             egret.ExternalInterface.call("sendToNative", "shareGroup$" + GameData.UserInfo.invitation_code);
         }
         private shareUrl() {
-            egret.ExternalInterface.call("sendToNative", "shareUrl$" + GameData.UserInfo.invitation_code);
+            egret.ExternalInterface.call("sendToNative", "copyStr$" + GameData.UserInfo.invitation_code);
         }
     }
 }

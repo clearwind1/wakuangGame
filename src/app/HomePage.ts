@@ -22,12 +22,12 @@ namespace Game {
         public personal_group: eui.Group;
         public headMask: eui.Image;
         public headImg: eui.Image;
-        public purseManage_btn: eui.Button;
-        public cardManage_btn: eui.Button;
+        public purseManage_btn: eui.Group;
+        public cardManage_btn: eui.Group;
         public my_invite_code: eui.Label;
-        public invite_code_btn: eui.Button;
-        public about_btn: eui.Button;
-        public setting_btn: eui.Button;
+        public invite_code_btn: eui.Group;
+        public about_btn: eui.Group;
+        public setting_btn: eui.Group;
         public nickName: eui.Label;
         public telNum: eui.Label;
 
@@ -68,9 +68,11 @@ namespace Game {
             this.addEvent(this.news_list, eui.ItemTapEvent.ITEM_TAP, this, this.showNewsContant);
             this.addEvent(this.news_list0, eui.ItemTapEvent.ITEM_TAP, this, this.showNewsContant);
 
+            this.addEvent(this.invite_code_btn, egret.TouchEvent.TOUCH_TAP, this, this.copyCode);
             this.addEvent(this.setting_btn, egret.TouchEvent.TOUCH_TAP, this, this.showSettingPage);
 
             this.addEvent(cor.EventManage.instance(), UpdataUserInfo, this, this.updata_info);
+
         }
         //获取资讯
         private getNews() {
@@ -263,13 +265,19 @@ namespace Game {
 
         //显示钱包界面
         private showPurse() {
-            TipsSkin.instance().show("暂未开放");
+            cor.Socket.getIntance().sendmsg('WALLET_LIST', {}, async (rdata) => {
+                Log(rdata);
+                cor.MainScene.instance().addChild(new PursePage(rdata));
+            }, this)
         }
         //显示卡界面
         private showCard() {
             TipsSkin.instance().show("暂未开放");
         }
-
+        //复制邀请码
+        private copyCode() {
+            egret.ExternalInterface.call("sendToNative", "copyStr$" + GameData.UserInfo.invitation_code);   
+        }
         //设置界面
         private showSettingPage() {
             cor.MainScene.instance().addChild(new SettingPage());

@@ -64,6 +64,12 @@ declare class NewsContant extends eui.Skin{
 }
 declare class NewsItem extends eui.Skin{
 }
+declare class PursePage extends eui.Skin{
+}
+declare class RecodeItem extends eui.Skin{
+}
+declare class RecodePage extends eui.Skin{
+}
 declare class ResetPassword extends eui.Skin{
 }
 declare class SettingPage extends eui.Skin{
@@ -81,6 +87,8 @@ declare class GameScene extends eui.Skin{
 declare class GameSetting extends eui.Skin{
 }
 declare class GameShare extends eui.Skin{
+}
+declare class GetPrize extends eui.Skin{
 }
 declare class GoodsInfo extends eui.Skin{
 }

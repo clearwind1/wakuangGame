@@ -80,6 +80,7 @@ var Game;
             this.addEvent(this.card_btn, egret.TouchEvent.TOUCH_TAP, this, this.showCard);
             this.addEvent(this.news_list, eui.ItemTapEvent.ITEM_TAP, this, this.showNewsContant);
             this.addEvent(this.news_list0, eui.ItemTapEvent.ITEM_TAP, this, this.showNewsContant);
+            this.addEvent(this.invite_code_btn, egret.TouchEvent.TOUCH_TAP, this, this.copyCode);
             this.addEvent(this.setting_btn, egret.TouchEvent.TOUCH_TAP, this, this.showSettingPage);
             this.addEvent(cor.EventManage.instance(), UpdataUserInfo, this, this.updata_info);
         };
@@ -282,11 +283,22 @@ var Game;
         };
         //显示钱包界面
         HomePage.prototype.showPurse = function () {
-            Game.TipsSkin.instance().show("暂未开放");
+            var _this = this;
+            cor.Socket.getIntance().sendmsg('WALLET_LIST', {}, function (rdata) { return __awaiter(_this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    Log(rdata);
+                    cor.MainScene.instance().addChild(new Game.PursePage(rdata));
+                    return [2 /*return*/];
+                });
+            }); }, this);
         };
         //显示卡界面
         HomePage.prototype.showCard = function () {
             Game.TipsSkin.instance().show("暂未开放");
+        };
+        //复制邀请码
+        HomePage.prototype.copyCode = function () {
+            egret.ExternalInterface.call("sendToNative", "copyStr$" + GameData.UserInfo.invitation_code);
         };
         //设置界面
         HomePage.prototype.showSettingPage = function () {

@@ -72,9 +72,9 @@ namespace Game {
             this.addEvent(this.month_select, egret.TouchEvent.TOUCH_TAP, this, this.showSelect, [1]);
             this.addEvent(this.day_select, egret.TouchEvent.TOUCH_TAP, this, this.showSelect, [2]);
             this.addEvent(this.birth_list, eui.ItemTapEvent.ITEM_TAP, this, this.itemSelect);
-            // this.addEvent(cor.EventManage.instance(), UpdataHead, this, this.updata_head);
+            this.addEvent(cor.EventManage.instance(), UpdataUserInfo, this, this.updata_head);
             egret.ExternalInterface.addCallback("selectImg_head_result", (message: string) => {
-                TipsSkin.instance().show(message);
+                // TipsSkin.instance().show(message);
                 cor.Socket.getIntance().sendmsg('UPDATE_USER_PROFILE', {
                     "picture": "data:image/png;base64," + message
                 }, (rdata) => {

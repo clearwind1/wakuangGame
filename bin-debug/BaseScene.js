@@ -19,6 +19,7 @@ var cor;
             var _this = _super.call(this) || this;
             _this.eventList = [];
             _this.tweenList = [];
+            _this.dbList = [];
             // this.visible = false;
             _this.touchEnabled = false;
             _this.width = GameData.GameWidth;
@@ -34,6 +35,7 @@ var cor;
         };
         BaseScene.prototype.removeFromStage = function () {
             // Removed from the display list.
+            this.removeDB();
             this.removeEvent();
             this.removeEventListener(egret.Event.ADDED_TO_STAGE, this.addToStage, this);
             this.removeEventListener(egret.Event.REMOVED_FROM_STAGE, this.removeFromStage, this);
@@ -50,6 +52,19 @@ var cor;
         };
         BaseScene.prototype.hide = function () {
             this.visible = false;
+        };
+        /**
+         * 添加龙骨
+         */
+        BaseScene.prototype.addDB = function (target, name) {
+            var role = createDB(name);
+            role.x = role.width / 2;
+            target.addChild(role);
+            role.animation.play();
+            this.dbList.push({
+                db: role,
+                target: target
+            });
         };
         /**
          * 添加事件
@@ -106,6 +121,27 @@ var cor;
                     (parm.target).removeEventListener(parm.event, this.touchEnd, parm.obj);
                 }
                 this.eventList = [];
+            }
+        };
+        /**
+         * 清除龙骨
+         */
+        BaseScene.prototype.removeDB = function (name) {
+            var exist = false;
+            for (var k = this.dbList.length - 1; k >= 0; k--) {
+                var db = this.dbList[k].db;
+                if (name && db.armature.name == name) {
+                    db.dispose();
+                    this.dbList[k].target.removeChild(db);
+                    this.dbList.splice(k, 1);
+                    exist = true;
+                    break;
+                }
+                db.dispose();
+                this.dbList[k].target.removeChild(db);
+            }
+            if (!exist) {
+                this.dbList = [];
             }
         };
         BaseScene.prototype.dispose = function () {

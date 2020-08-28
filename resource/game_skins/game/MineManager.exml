@@ -3,7 +3,9 @@
 	<e:Image source="Bg_Shop01_jpg" x="0" y="0" width="100%"/>
 	<e:Image source="gameRes_json.Frame_02_png" x="15" scale9Grid="7,7,42,42" width="406" height="632" bottom="29" alpha="0.6"/>
 	<e:Group id="head_group" x="0" y="0"/>
-	<e:Image id="role" x="-89" bottom="0" source="Lv.6_png"/>
+	<e:Image id="role" x="-89" bottom="0" source="Lv.6_png" visible="false"/>
+	<e:Group id="role_group" width="644" bottom="0" horizontalCenter="-375">
+	</e:Group>
 	<e:Group width="887" height="645" y="88" right="13">
 		<e:Image source="gameRes_json.Frame_02_png" x="2" scale9Grid="7,7,42,42" width="884" height="632" bottom="29" alpha="0.6" y="1" scaleX="1" scaleY="1"/>
 		<e:Image id="mine_area_bg" x="13" y="8" scaleX="1" scaleY="1" source="Banner_Kuangquguanli_lv.1_png"/>
