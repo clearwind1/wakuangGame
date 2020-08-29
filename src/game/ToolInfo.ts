@@ -60,7 +60,7 @@ namespace Game {
                 "number": cur_num
             }, (rdata) => {
                 TipsSkin.instance().show('租用成功');
-                GameData.UserInfo.gts_number -= price;
+                GameData.UserInfo.gst -= price;
                 cor.EventManage.instance().sendEvent(UpdataGameInfo);
                 this.dispose();
             }, this)

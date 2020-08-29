@@ -57,7 +57,7 @@ var Game;
                 "number": cur_num
             }, function (rdata) {
                 Game.TipsSkin.instance().show('租用成功');
-                GameData.UserInfo.gts_number -= price;
+                GameData.UserInfo.gst -= price;
                 cor.EventManage.instance().sendEvent(UpdataGameInfo);
                 _this.dispose();
             }, this);

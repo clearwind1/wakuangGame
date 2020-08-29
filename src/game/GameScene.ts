@@ -55,7 +55,7 @@ namespace Game {
             }
             this.headImg.source = GameData.UserInfo.picture;
             this.nickname.text = GameData.UserInfo.nickname;
-            this.gst_num.text = GameData.UserInfo.gts_number + '';
+            this.gst_num.text = GameData.UserInfo.gst + '';
             this.mine_num.text = GameData.UserInfo.mineral + '';
 
             this.setExpbar();
@@ -312,7 +312,7 @@ namespace Game {
          * 更新游戏信息
          */
         private updata_gameinfo() {
-            this.gst_num.text = GameData.UserInfo.gts_number + '';
+            this.gst_num.text = GameData.UserInfo.gst + '';
             this.mine_num.text = GameData.UserInfo.mineral + '';
         }
         /**

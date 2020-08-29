@@ -140,15 +140,21 @@ namespace Game {
             if (this.isRestPsw) {
                 type = "force_password";
             }
+            if (this.isRestPsw) {
+                if (this.reset_code_time > 0) {
+                    return;
+                }
+            } else {
+                if (this.regist_code_time > 0) {
+                    return;
+                }
+            }
             cor.Socket.getIntance().sendmsg('SEND_SMS_CODE', {
                 "mobile": this.phone_input.text,
                 "type": type
             }, (rdata) => {
                 this.code_key = rdata.key;
                 if (this.isRestPsw) {
-                    if (this.reset_code_time > 0) {
-                        return;
-                    }
                     this.reset_code_time = 60;
                     this.reset_code_btn['wz'].text = this.reset_code_time + '秒后重新获取';
                     this.reset_code_btn['wz'].size = 18;
@@ -162,9 +168,6 @@ namespace Game {
                         }
                     }, 1000);
                 } else {
-                    if (this.regist_code_time > 0) {
-                        return;
-                    }
                     this.regist_code_time = 60;
                     this.code_btn['wz'].text = this.regist_code_time + '秒后重新获取';
                     this.code_btn['wz'].size = 18;

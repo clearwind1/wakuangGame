@@ -17,7 +17,7 @@ namespace Game {
 
         public init( title, title_en) {
             // init
-            this.gst_num.text = GameData.UserInfo.gts_number + '';
+            this.gst_num.text = GameData.UserInfo.gst + '';
             this.mine_num.text = GameData.UserInfo.mineral + '';
             this.title.text = title;
             this.title_en.text = title_en;
@@ -34,7 +34,7 @@ namespace Game {
          * 更新游戏信息
          */
         private updata_gameinfo() {
-            this.gst_num.text = GameData.UserInfo.gts_number + '';
+            this.gst_num.text = GameData.UserInfo.gst + '';
             this.mine_num.text = GameData.UserInfo.mineral + '';
         }
     }

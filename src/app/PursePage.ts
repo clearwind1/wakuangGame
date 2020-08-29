@@ -29,6 +29,20 @@ namespace Game {
             }
         }
 
+        public updataInfo() {
+            cor.Socket.getIntance().sendmsg('WALLET_LIST', {}, async (rdata) => {
+                Log(rdata);
+                this._purseInfo = rdata;
+                for (var k in rdata) {
+                    if (rdata[k].coin_name == "GST") {
+                        this.gst_info_btn['num'].text = toThousands(Math.round(rdata[k].available_balance));
+                    } else {
+                        this.usdt_info_btn['num'].text = toThousands(Math.round(rdata[k].available_balance));
+                    }
+                }
+            }, this)
+        }
+
         private initEvent() {
             this.addEvent(this.close_btn, egret.TouchEvent.TOUCH_TAP, this, this.dispose);
             this.addEvent(this.scan_btn, egret.TouchEvent.TOUCH_TAP, this, this.scan);
@@ -36,7 +50,8 @@ namespace Game {
             this.addEvent(this.usdt_info_btn, egret.TouchEvent.TOUCH_TAP, this, this.usdt_info);
             this.addEvent(this.income_btn, egret.TouchEvent.TOUCH_TAP, this, this.income);
             this.addEvent(this.output_btn, egret.TouchEvent.TOUCH_TAP, this, this.output);
-
+            this.addEvent(cor.EventManage.instance(), PurseUpdataInfo, this, this.updataInfo);
+            
             egret.ExternalInterface.addCallback("scanResult", (message: string) => {
                 // TipsSkin.instance().show(message);
                 if (cor.MainScene.instance().getChildIndex(this) == cor.MainScene.instance().numChildren - 1) {

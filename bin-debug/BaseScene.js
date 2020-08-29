@@ -20,6 +20,7 @@ var cor;
             _this.eventList = [];
             _this.tweenList = [];
             _this.dbList = [];
+            _this.IntervalList = [];
             // this.visible = false;
             _this.touchEnabled = false;
             _this.width = GameData.GameWidth;
@@ -36,6 +37,7 @@ var cor;
         BaseScene.prototype.removeFromStage = function () {
             // Removed from the display list.
             this.removeDB();
+            this.removeInterval();
             this.removeEvent();
             this.removeEventListener(egret.Event.ADDED_TO_STAGE, this.addToStage, this);
             this.removeEventListener(egret.Event.REMOVED_FROM_STAGE, this.removeFromStage, this);
@@ -65,6 +67,59 @@ var cor;
                 db: role,
                 target: target
             });
+        };
+        /**
+         * 清除龙骨
+         */
+        BaseScene.prototype.removeDB = function (name) {
+            var exist = false;
+            for (var k = this.dbList.length - 1; k >= 0; k--) {
+                var db = this.dbList[k].db;
+                if (name && db.armature.name == name) {
+                    db.dispose();
+                    this.dbList[k].target.removeChild(db);
+                    this.dbList.splice(k, 1);
+                    exist = true;
+                    break;
+                }
+                db.dispose();
+                this.dbList[k].target.removeChild(db);
+            }
+            if (!exist) {
+                this.dbList = [];
+            }
+        };
+        /**
+         * 添加定时器
+         * */
+        BaseScene.prototype.addInterval = function (handle, timeout, name) {
+            var inter = setInterval(handle, timeout);
+            this.IntervalList.push({
+                inter: inter,
+                name: name
+            });
+        };
+        /**
+         * 清除定时器
+         */
+        BaseScene.prototype.removeInterval = function (name) {
+            if (name) {
+                for (var i = this.IntervalList.length - 1; i >= 0; i--) {
+                    var item = this.IntervalList[i];
+                    if (item.name == name) {
+                        var inter = item.inter;
+                        clearInterval(inter);
+                        this.IntervalList.splice(i, 1);
+                        break;
+                    }
+                }
+            }
+            else {
+                for (var i in this.IntervalList) {
+                    clearInterval(this.IntervalList[i].inter);
+                }
+                this.IntervalList = [];
+            }
         };
         /**
          * 添加事件
@@ -121,27 +176,6 @@ var cor;
                     (parm.target).removeEventListener(parm.event, this.touchEnd, parm.obj);
                 }
                 this.eventList = [];
-            }
-        };
-        /**
-         * 清除龙骨
-         */
-        BaseScene.prototype.removeDB = function (name) {
-            var exist = false;
-            for (var k = this.dbList.length - 1; k >= 0; k--) {
-                var db = this.dbList[k].db;
-                if (name && db.armature.name == name) {
-                    db.dispose();
-                    this.dbList[k].target.removeChild(db);
-                    this.dbList.splice(k, 1);
-                    exist = true;
-                    break;
-                }
-                db.dispose();
-                this.dbList[k].target.removeChild(db);
-            }
-            if (!exist) {
-                this.dbList = [];
             }
         };
         BaseScene.prototype.dispose = function () {

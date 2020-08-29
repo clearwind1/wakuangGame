@@ -7,6 +7,7 @@ module cor {
 		private eventList: any[] = [];
 		private tweenList: any[] = [];
 		public dbList: any[] = [];
+		public IntervalList: any[] = [];
 
 		public constructor() {
 			super();
@@ -28,6 +29,7 @@ module cor {
 		protected removeFromStage() {
 			// Removed from the display list.
 			this.removeDB();
+			this.removeInterval();
 			this.removeEvent();
 			this.removeEventListener(egret.Event.ADDED_TO_STAGE, this.addToStage, this);
 			this.removeEventListener(egret.Event.REMOVED_FROM_STAGE, this.removeFromStage, this);
@@ -61,6 +63,59 @@ module cor {
 				db: role,
 				target: target
 			});
+		}
+		/**
+		 * 清除龙骨
+		 */
+		public removeDB(name?) {
+			let exist = false;
+			for (var k = this.dbList.length - 1; k >= 0; k--) {
+				let db = this.dbList[k].db as dragonBones.EgretArmatureDisplay;
+				if (name && db.armature.name == name) {
+					db.dispose();
+					this.dbList[k].target.removeChild(db);
+					this.dbList.splice(k, 1);
+					exist = true;
+					break;
+				}
+				db.dispose();
+				this.dbList[k].target.removeChild(db);
+			}
+			if (!exist) {
+				this.dbList = [];
+			}
+		}
+		/** 
+		 * 添加定时器
+		 * */
+		public addInterval(handle, timeout, name) {
+			let inter = setInterval(handle, timeout);
+			this.IntervalList.push({
+				inter: inter,
+				name: name
+			})
+		}
+		/**
+		 * 清除定时器
+		 */
+		public removeInterval(name?) {
+			if (name) {
+				for (let i = this.IntervalList.length - 1; i >= 0; i--) {
+					let item = this.IntervalList[i];
+					if (item.name == name) {
+						let inter = item.inter;
+						clearInterval(inter);
+						this.IntervalList.splice(i, 1);
+						break;
+					}
+				}
+			} else {
+				for (let i in this.IntervalList) {
+					clearInterval(this.IntervalList[i].inter);
+				}	
+				this.IntervalList = [];
+			}
+
 		}
 		/**
 		 * 添加事件
@@ -120,27 +175,7 @@ module cor {
 				this.eventList = [];
 			}
 		}
-		/**
-		 * 清除龙骨
-		 */
-		public removeDB(name?) {
-			let exist = false;
-			for (var k = this.dbList.length - 1; k >= 0; k--) {
-				let db = this.dbList[k].db as dragonBones.EgretArmatureDisplay;
-				if (name && db.armature.name == name) {
-					db.dispose();
-					this.dbList[k].target.removeChild(db);
-					this.dbList.splice(k, 1);
-					exist = true;
-					break;
-				}
-				db.dispose();
-				this.dbList[k].target.removeChild(db);
-			}
-			if (!exist) {
-				this.dbList = [];
-			}
-		}
+
 		public dispose() {
 			if (this.parent) {
 				this.parent.removeChild(this);

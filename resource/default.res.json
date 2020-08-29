@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,logo_bg_png,Bg_Logon_01_png,appIcon_json",
+			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,logo_bg_png,Bg_Logon_01_png,appIcon_json,Bg_Dutiao1_png,Bg_Dutiao2_png",
 			"name": "preload"
 		},
 		{
@@ -153,7 +153,7 @@
 			"url": "assets/edugameRes/appIcon.json",
 			"type": "sheet",
 			"name": "appIcon_json",
-			"subkeys": "Banner_Information_Back01_png,Banner_Personal_Back01_png,Banner_Personal_Back02_png,Banner_Switch_png,Bg_Logon_02_png,Bg_Logon_03_png,Bg_Logon_04_png,Bg_Logon_05_png,Bg_Logon_06_png,Bg_Main01_png,Bg_Main02_png,Bg_Main03_png,Bg_Main03_xz_png,Bg_Personal01_png,Bg_Personal02_png,Bg_Personal03_png,Bg_Personal04_png,Bg_Wallet01_png,Bg_Wallet02_png,Bg_Wallet03_png,Bg_Wallet04_png,Bg_Wallet05_png,Bg_Wallet06_png,Bg_Wallet07_png,Bg_Wallet08_png,Bg_Wallet09_png,Bg_Wallet10_png,Btn_Logon_01_png,Btn_Personal01_png,Btn_Wallet01_png,Btn_Wallet02_png,Btn_Wallet03_png,Btn_Wallet04_png,Icon_GRKabao_png,Icon_GRQianbao_png,Icon_GRShezhi_png,Icon_GRXiangqing_png,Icon_GRYaoqingma_png,Icon_Gerenzhongxin_png,Icon_Gerenzhongxin_xz_png,Icon_Jiaoyihang_png,Icon_Jiaoyihang_xz_png,Icon_Kabao_png,Icon_Mima_png,Icon_Qianbao_png,Icon_Saoma_png,Icon_Shouji01_png,Icon_Shouji02_png,Icon_Shouye_png,Icon_Shouye_xz_png,Icon_Weixin_png,Icon_Yanzhengma_png,Icon_Yaoqingma_png,Icon_Youxi_png,Icon_Zixun_png,Icon_Zixun_xz_png,Line_Information01_png,Line_Main01_png,Line_Personal01_png,Line_Personal02_png,Logo_Main_png"
+			"subkeys": "Banner_Information_Back01_png,Banner_Personal_Back01_png,Banner_Personal_Back02_png,Banner_Switch_png,Bg_Dutiao3_png,Bg_Dutiao4_png,Bg_Dutiao5_png,Bg_Logon_02_png,Bg_Logon_03_png,Bg_Logon_04_png,Bg_Logon_05_png,Bg_Logon_06_png,Bg_Main01_png,Bg_Main02_png,Bg_Main03_png,Bg_Main03_xz_png,Bg_Personal01_png,Bg_Personal02_png,Bg_Personal03_png,Bg_Personal04_png,Bg_Wallet01_png,Bg_Wallet02_png,Bg_Wallet03_png,Bg_Wallet04_png,Bg_Wallet05_png,Bg_Wallet06_png,Bg_Wallet07_png,Bg_Wallet08_png,Bg_Wallet09_png,Bg_Wallet10_png,Btn_Logon_01_png,Btn_Personal01_png,Btn_Wallet01_png,Btn_Wallet02_png,Btn_Wallet03_png,Btn_Wallet04_png,Icon_GRKabao_png,Icon_GRQianbao_png,Icon_GRShezhi_png,Icon_GRXiangqing_png,Icon_GRYaoqingma_png,Icon_Gerenzhongxin_png,Icon_Gerenzhongxin_xz_png,Icon_Jiaoyihang_png,Icon_Jiaoyihang_xz_png,Icon_Kabao_png,Icon_Mima_png,Icon_Qianbao_png,Icon_Saoma_png,Icon_Shouji01_png,Icon_Shouji02_png,Icon_Shouye_png,Icon_Shouye_xz_png,Icon_Weixin_png,Icon_Yanzhengma_png,Icon_Yaoqingma_png,Icon_Youxi_png,Icon_Zixun_png,Icon_Zixun_xz_png,Line_Information01_png,Line_Main01_png,Line_Personal01_png,Line_Personal02_png,Logo_Main_png,kuangshi1_png,kuangshi2_png,kuangshi3_png"
 		},
 		{
 			"url": "assets/edugameRes/Loadinglogo.png",
@@ -515,6 +515,16 @@
 			"url": "assets/edugameRes/dragonb/Jiaoyisuo_tex.json",
 			"type": "json",
 			"name": "Jiaoyisuo_tex_json"
+		},
+		{
+			"url": "assets/edugameRes/Bg_Dutiao1.png",
+			"type": "image",
+			"name": "Bg_Dutiao1_png"
+		},
+		{
+			"url": "assets/edugameRes/Bg_Dutiao2.png",
+			"type": "image",
+			"name": "Bg_Dutiao2_png"
 		}
 	]
 }

@@ -45,7 +45,7 @@ var GameData = (function () {
         "designation": "初级学徒",
         "sex": 1,
         "birthday": "",
-        "gts_number": 0,
+        "gst": 0,
         "mineral": 0,
         "current_grade_max_experience": 2427,
         "current_hold_area_grade": 1,

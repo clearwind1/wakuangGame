@@ -82,7 +82,7 @@ var Game;
                 "number": Number(this.exchange_num.text)
             }, function (rdata) {
                 Log(rdata);
-                GameData.UserInfo.gts_number += Number(_this.exchange_num.text);
+                GameData.UserInfo.gst += Number(_this.exchange_num.text);
                 GameData.UserInfo.mineral -= (Number(_this.exchange_num.text) * _this._today_rate);
                 cor.EventManage.instance().sendEvent(UpdataGameInfo);
                 Game.TipsSkin.instance().show("兑换成功");

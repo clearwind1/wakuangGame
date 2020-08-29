@@ -31,14 +31,24 @@ namespace Game {
             this.gst_select.group = this._radioGroup;
             this.usdt_select.group = this._radioGroup;
 
-            if (!readLocalData(PursePassword)) {
-                cor.MainScene.instance().addChild(new Purse_setPayPasswordPage());
-            }
+            cor.Socket.getIntance().sendmsg('CHECK_IS_SET_PAY_PASSWORD', {}, (rdata) => {
+                Log(rdata);
+                if (!rdata) {
+                    cor.MainScene.instance().addChild(new Purse_setPayPasswordPage());
+                }
+            }, this, false)
+
+            // setTimeout(() => {
+            //     if (!readLocalData(PursePassword)) {
+            //         cor.MainScene.instance().addChild(new Purse_setPayPasswordPage());
+            //     }
+            // }, 200);
+
         }
 
         private initEvent() {
             this.addEvent(this.close_btn, egret.TouchEvent.TOUCH_TAP, this, this.dispose);
-            this.addEvent(this.output_btn, egret.TouchEvent.TOUCH_TAP, this, this.output);
+            this.addEvent(this.output_btn, egret.TouchEvent.TOUCH_TAP, this, this.pay);
             this.addEvent(this.scan_btn, egret.TouchEvent.TOUCH_TAP, this, this.scan);
             this.addEvent(this._radioGroup, eui.UIEvent.CHANGE, this, (evt: eui.UIEvent) => {
                 var radioGroup: eui.RadioButtonGroup = evt.target;
@@ -55,20 +65,20 @@ namespace Game {
         private scan() {
             egret.ExternalInterface.call("scanQRCode", "");
         }
-        private output() {
-            if (!readLocalData(PursePassword)) {
-                cor.MainScene.instance().addChild(new Purse_setPayPasswordPage());
-                return;
-            }
-            cor.Socket.getIntance().sendmsg('TRANSFER_OUT', {
-                "coin_name": this._selectType,
-                "address": this.address_input.text,
-                "number": Number(this.money_input.text),
-                "pay_password": "123456"
-            }, (rdata) => {
+        private pay() {
+            cor.Socket.getIntance().sendmsg('CHECK_IS_SET_PAY_PASSWORD', {}, (rdata) => {
                 Log(rdata);
-                TipsSkin.instance().show("已提交");
-            }, this)
+                if (!rdata) {
+                    cor.MainScene.instance().addChild(new Purse_setPayPasswordPage());
+                } else {
+                    let payInfo = {
+                        coin_num: Number(this.money_input.text),
+                        coin_type: this._selectType,
+                        address: this.address_input.text
+                    }
+                    cor.MainScene.instance().addChild(new Purse_PayPage(payInfo));
+                }
+            }, this, false)
         }
     }
 }
