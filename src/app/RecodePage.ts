@@ -53,8 +53,31 @@ namespace Game {
 
         private initEvent() {
             this.addEvent(this.close_btn, egret.TouchEvent.TOUCH_TAP, this, this.dispose);
-            // this.addEvent(this.gst_info_btn, egret.TouchEvent.TOUCH_TAP, this, this.gst_info);
-            // this.addEvent(this.usdt_info_btn, egret.TouchEvent.TOUCH_TAP, this, this.usdt_info);
+            this.addEvent(this.gst_info_btn, egret.TouchEvent.TOUCH_TAP, this, this.gst_info);
+            this.addEvent(this.usdt_info_btn, egret.TouchEvent.TOUCH_TAP, this, this.usdt_info);
+        }
+
+        private gst_info() {
+            cor.Socket.getIntance().sendmsg('TRANSACTION_RECORDS', {
+                "coin_name": "GST",
+                "page": 1,
+                "page_size": 100
+            }, async (rdata) => {
+                Log(rdata);
+                this._recodeInfo = this._gst_recodeInfo = rdata;
+                this.showInfo('GST');
+            }, this)
+        }
+        private usdt_info() {
+            cor.Socket.getIntance().sendmsg('TRANSACTION_RECORDS', {
+                "coin_name": "USDT",
+                "page": 1,
+                "page_size": 100
+            }, async (rdata) => {
+                Log(rdata);
+                this._recodeInfo = this._usdt_recodeInfo = rdata;
+                this.showInfo('USDT');
+            }, this)
         }
     }
 }

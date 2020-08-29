@@ -170,6 +170,7 @@ var cor;
             if (this.connectCount >= 12) {
                 this.connectCount = 0;
                 core.Covershap.getInstance().hide();
+                Game.TipsSkin.instance().hide();
             }
             else {
                 // this.webSocket.connectByUrl(GameData.ServerSocketUrl);

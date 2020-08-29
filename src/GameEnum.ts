@@ -13,6 +13,7 @@ const UpdataGameInfo = 'UpdataGameInfo';
 const StartDigMine = 'StartDigMine';
 const DigMineTime = 'DigMineTime';
 
+const PursePassword = 'PursePassword';
 /**
  * 性别：男：1，女：2
  */

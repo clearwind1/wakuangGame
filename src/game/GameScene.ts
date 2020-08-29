@@ -109,13 +109,6 @@ namespace Game {
             this.addEvent(cor.EventManage.instance(), NEW_NOTICE, this, this.noticTip);
             this.addEvent(cor.EventManage.instance(), StartDigMine, this, this.startDigMine);
 
-            egret.ExternalInterface.addCallback("creatQRCode", (message: string) => {
-                // alert("message from Native is = " + message);
-                console.log(message);
-                let qr = new eui.Image();
-                qr.source = "data:image/png;base64," + message;
-                this.addChild(qr);
-            });
         }
 
         private setExpbar() {
@@ -217,7 +210,6 @@ namespace Game {
          * 服务中心
          */
         private showServer_center() {
-            // egret.ExternalInterface.call("creatQRCode", "test");
             cor.Socket.getIntance().sendmsg('USER_HOLD_AREA_LIST', {}, (rdata) => {
                 Log(rdata);
                 cor.MainScene.instance().addChild(new MinerServerCenter(rdata));

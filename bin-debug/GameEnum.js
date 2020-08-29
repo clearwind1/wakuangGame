@@ -8,6 +8,7 @@ var GameMusic = 'GameMusic';
 var UpdataGameInfo = 'UpdataGameInfo';
 var StartDigMine = 'StartDigMine';
 var DigMineTime = 'DigMineTime';
+var PursePassword = 'PursePassword';
 /**
  * 性别：男：1，女：2
  */

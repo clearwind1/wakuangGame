@@ -1504,7 +1504,7 @@ window.skins=window.skins||{};
 		t.percentWidth = 100;
 		t.x = 0;
 		t.y = 0;
-		t.elementsContent = [this._Image6_i(),this._Image7_i(),this._Image8_i(),this._Image9_i(),this._Image10_i(),this.headImg_i(),this.headMask_i(),this._Image11_i(),this._Image12_i(),this._Image13_i(),this._Group2_i(),this._Group3_i(),this._Group4_i(),this._Group5_i(),this._Group6_i(),this.nickName_i(),this.telNum_i()];
+		t.elementsContent = [this._Image6_i(),this._Image7_i(),this._Image8_i(),this._Image9_i(),this._Image10_i(),this.headImg_i(),this.headMask_i(),this._Image11_i(),this._Image12_i(),this._Image13_i(),this.purseManage_btn_i(),this.cardManage_btn_i(),this.invite_code_btn_i(),this.about_btn_i(),this.setting_btn_i(),this.nickName_i(),this.telNum_i()];
 		return t;
 	};
 	_proto._Image6_i = function () {
@@ -1598,20 +1598,21 @@ window.skins=window.skins||{};
 		t.y = 822;
 		return t;
 	};
-	_proto._Group2_i = function () {
+	_proto.purseManage_btn_i = function () {
 		var t = new eui.Group();
+		this.purseManage_btn = t;
 		t.height = 108;
 		t.width = 645;
 		t.x = 54;
 		t.y = 378;
-		t.elementsContent = [this._Image14_i(),this._Label2_i(),this.purseManage_btn_i()];
+		t.elementsContent = [this._Image14_i(),this._Label2_i(),this._Button1_i()];
 		return t;
 	};
 	_proto._Image14_i = function () {
 		var t = new eui.Image();
 		t.source = "appIcon_json.Icon_GRQianbao_png";
-		t.verticalCenter = 0;
 		t.x = 0;
+		t.y = 24;
 		return t;
 	};
 	_proto._Label2_i = function () {
@@ -1620,28 +1621,28 @@ window.skins=window.skins||{};
 		t.size = 28;
 		t.text = "钱包管理";
 		t.textColor = 0x353535;
-		t.verticalCenter = 0;
 		t.x = 90;
+		t.y = 40;
 		return t;
 	};
-	_proto.purseManage_btn_i = function () {
+	_proto._Button1_i = function () {
 		var t = new eui.Button();
-		this.purseManage_btn = t;
 		t.height = 42;
 		t.label = "";
-		t.verticalCenter = 0;
 		t.width = 32;
 		t.x = 622;
+		t.y = 33;
 		t.skinName = HomePage$Skin4;
 		return t;
 	};
-	_proto._Group3_i = function () {
+	_proto.cardManage_btn_i = function () {
 		var t = new eui.Group();
+		this.cardManage_btn = t;
 		t.height = 108;
 		t.width = 645;
 		t.x = 54;
 		t.y = 486;
-		t.elementsContent = [this._Image15_i(),this._Label3_i(),this.cardManage_btn_i()];
+		t.elementsContent = [this._Image15_i(),this._Label3_i(),this._Button2_i()];
 		return t;
 	};
 	_proto._Image15_i = function () {
@@ -1661,9 +1662,8 @@ window.skins=window.skins||{};
 		t.x = 90;
 		return t;
 	};
-	_proto.cardManage_btn_i = function () {
+	_proto._Button2_i = function () {
 		var t = new eui.Button();
-		this.cardManage_btn = t;
 		t.height = 42;
 		t.label = "";
 		t.verticalCenter = 0;
@@ -1672,13 +1672,14 @@ window.skins=window.skins||{};
 		t.skinName = HomePage$Skin5;
 		return t;
 	};
-	_proto._Group4_i = function () {
+	_proto.invite_code_btn_i = function () {
 		var t = new eui.Group();
+		this.invite_code_btn = t;
 		t.height = 108;
 		t.width = 645;
 		t.x = 54;
 		t.y = 607;
-		t.elementsContent = [this._Image16_i(),this._Label4_i(),this.my_invite_code_i(),this.invite_code_btn_i()];
+		t.elementsContent = [this._Image16_i(),this._Label4_i(),this.my_invite_code_i(),this._Label5_i(),this._Button3_i()];
 		return t;
 	};
 	_proto._Image16_i = function () {
@@ -1709,9 +1710,18 @@ window.skins=window.skins||{};
 		t.x = 90;
 		return t;
 	};
-	_proto.invite_code_btn_i = function () {
+	_proto._Label5_i = function () {
+		var t = new eui.Label();
+		t.fontFamily = "myFont";
+		t.size = 20;
+		t.text = "复制";
+		t.textColor = 0x9B9B9B;
+		t.x = 588;
+		t.y = 43;
+		return t;
+	};
+	_proto._Button3_i = function () {
 		var t = new eui.Button();
-		this.invite_code_btn = t;
 		t.height = 42;
 		t.label = "";
 		t.verticalCenter = 0;
@@ -1720,13 +1730,14 @@ window.skins=window.skins||{};
 		t.skinName = HomePage$Skin6;
 		return t;
 	};
-	_proto._Group5_i = function () {
+	_proto.about_btn_i = function () {
 		var t = new eui.Group();
+		this.about_btn = t;
 		t.height = 108;
 		t.width = 645;
 		t.x = 54;
 		t.y = 715;
-		t.elementsContent = [this._Image17_i(),this._Label5_i(),this.about_btn_i()];
+		t.elementsContent = [this._Image17_i(),this._Label6_i(),this._Button4_i()];
 		return t;
 	};
 	_proto._Image17_i = function () {
@@ -1736,7 +1747,7 @@ window.skins=window.skins||{};
 		t.x = 0;
 		return t;
 	};
-	_proto._Label5_i = function () {
+	_proto._Label6_i = function () {
 		var t = new eui.Label();
 		t.fontFamily = "myFont";
 		t.size = 28;
@@ -1746,9 +1757,8 @@ window.skins=window.skins||{};
 		t.x = 90;
 		return t;
 	};
-	_proto.about_btn_i = function () {
+	_proto._Button4_i = function () {
 		var t = new eui.Button();
-		this.about_btn = t;
 		t.height = 42;
 		t.label = "";
 		t.verticalCenter = 0;
@@ -1757,13 +1767,14 @@ window.skins=window.skins||{};
 		t.skinName = HomePage$Skin7;
 		return t;
 	};
-	_proto._Group6_i = function () {
+	_proto.setting_btn_i = function () {
 		var t = new eui.Group();
+		this.setting_btn = t;
 		t.height = 108;
 		t.width = 645;
 		t.x = 54;
 		t.y = 823;
-		t.elementsContent = [this._Image18_i(),this._Label6_i(),this.setting_btn_i()];
+		t.elementsContent = [this._Image18_i(),this._Label7_i(),this._Button5_i()];
 		return t;
 	};
 	_proto._Image18_i = function () {
@@ -1773,7 +1784,7 @@ window.skins=window.skins||{};
 		t.x = 0;
 		return t;
 	};
-	_proto._Label6_i = function () {
+	_proto._Label7_i = function () {
 		var t = new eui.Label();
 		t.fontFamily = "myFont";
 		t.size = 28;
@@ -1783,9 +1794,8 @@ window.skins=window.skins||{};
 		t.x = 90;
 		return t;
 	};
-	_proto.setting_btn_i = function () {
+	_proto._Button5_i = function () {
 		var t = new eui.Button();
-		this.setting_btn = t;
 		t.height = 60;
 		t.label = "";
 		t.right = 0;
@@ -1823,10 +1833,10 @@ window.skins=window.skins||{};
 		t.height = 100;
 		t.percentWidth = 100;
 		t.x = 0;
-		t.elementsContent = [this._Group7_i()];
+		t.elementsContent = [this._Group2_i()];
 		return t;
 	};
-	_proto._Group7_i = function () {
+	_proto._Group2_i = function () {
 		var t = new eui.Group();
 		t.percentHeight = 100;
 		t.percentWidth = 100;
@@ -1896,7 +1906,7 @@ window.skins=window.skins||{};
 			_super.call(this);
 			this.skinParts = ["labelDisplay"];
 			
-			this.elementsContent = [this._Image1_i(),this.labelDisplay_i()];
+			this.elementsContent = [this._Rect1_i(),this._Image1_i(),this.labelDisplay_i()];
 			this.states = [
 				new eui.State ("up",
 					[
@@ -1913,6 +1923,16 @@ window.skins=window.skins||{};
 		}
 		var _proto = InfoSettingPage$Skin13.prototype;
 
+		_proto._Rect1_i = function () {
+			var t = new eui.Rect();
+			t.fillAlpha = 0.1;
+			t.fillColor = 0xFFFFFF;
+			t.percentHeight = 100;
+			t.percentWidth = 100;
+			t.x = 0;
+			t.y = 0;
+			return t;
+		};
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
 			t.right = 0;
@@ -1936,7 +1956,7 @@ window.skins=window.skins||{};
 			_super.call(this);
 			this.skinParts = ["labelDisplay"];
 			
-			this.elementsContent = [this._Image1_i(),this.labelDisplay_i()];
+			this.elementsContent = [this._Rect1_i(),this._Image1_i(),this.labelDisplay_i()];
 			this.states = [
 				new eui.State ("up",
 					[
@@ -1953,6 +1973,16 @@ window.skins=window.skins||{};
 		}
 		var _proto = InfoSettingPage$Skin14.prototype;
 
+		_proto._Rect1_i = function () {
+			var t = new eui.Rect();
+			t.fillAlpha = 0.1;
+			t.fillColor = 0xFFFFFF;
+			t.percentHeight = 100;
+			t.percentWidth = 100;
+			t.x = 0;
+			t.y = 0;
+			return t;
+		};
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
 			t.right = 0;
@@ -1976,7 +2006,7 @@ window.skins=window.skins||{};
 			_super.call(this);
 			this.skinParts = ["labelDisplay"];
 			
-			this.elementsContent = [this._Image1_i(),this.labelDisplay_i()];
+			this.elementsContent = [this._Rect1_i(),this._Image1_i(),this.labelDisplay_i()];
 			this.states = [
 				new eui.State ("up",
 					[
@@ -1993,6 +2023,16 @@ window.skins=window.skins||{};
 		}
 		var _proto = InfoSettingPage$Skin15.prototype;
 
+		_proto._Rect1_i = function () {
+			var t = new eui.Rect();
+			t.fillAlpha = 0.1;
+			t.fillColor = 0xFFFFFF;
+			t.percentHeight = 100;
+			t.percentWidth = 100;
+			t.x = 0;
+			t.y = 0;
+			return t;
+		};
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
 			t.right = 0;
@@ -2016,7 +2056,7 @@ window.skins=window.skins||{};
 			_super.call(this);
 			this.skinParts = ["labelDisplay"];
 			
-			this.elementsContent = [this._Image1_i(),this.labelDisplay_i()];
+			this.elementsContent = [this._Rect1_i(),this._Image1_i(),this.labelDisplay_i()];
 			this.states = [
 				new eui.State ("up",
 					[
@@ -2033,6 +2073,16 @@ window.skins=window.skins||{};
 		}
 		var _proto = InfoSettingPage$Skin16.prototype;
 
+		_proto._Rect1_i = function () {
+			var t = new eui.Rect();
+			t.fillAlpha = 0.1;
+			t.fillColor = 0xFFFFFF;
+			t.percentHeight = 100;
+			t.percentWidth = 100;
+			t.x = 0;
+			t.y = 0;
+			return t;
+		};
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
 			t.right = 0;
@@ -2298,11 +2348,11 @@ window.skins=window.skins||{};
 
 	function InfoSettingPage() {
 		_super.call(this);
-		this.skinParts = ["back_btn","headImg","headMask","nickname","sex","birth","reset_head_btn","reset_nickname_btn","reset_sex_btn","reset_birth_btn","nickname_input","changeNickname_btn","nickname_cancel_btn","change_nickname_group","changeSex_btn","changeSex_cancel_btn","rdb_man","rdb_woman","change_sex_group","changeBirth_btn","changeBirth_cancel_btn","year_select","month_select","day_select","birth_list","birth_scroller","change_birth_group"];
+		this.skinParts = ["reset_head_btn","reset_nickname_btn","reset_sex_btn","reset_birth_btn","back_btn","headImg","headMask","nickname","sex","birth","nickname_input","changeNickname_btn","nickname_cancel_btn","change_nickname_group","changeSex_btn","changeSex_cancel_btn","rdb_man","rdb_woman","change_sex_group","changeBirth_btn","changeBirth_cancel_btn","year_select","month_select","day_select","birth_list","birth_scroller","change_birth_group"];
 		
 		this.height = 1334;
 		this.width = 750;
-		this.elementsContent = [this._Image1_i(),this._Scroller1_i(),this.back_btn_i(),this._Image3_i(),this._Image4_i(),this._Image5_i(),this._Image6_i(),this.headImg_i(),this.headMask_i(),this._Label1_i(),this._Label2_i(),this._Label3_i(),this._Label4_i(),this._Label5_i(),this.nickname_i(),this.sex_i(),this.birth_i(),this.reset_head_btn_i(),this.reset_nickname_btn_i(),this.reset_sex_btn_i(),this.reset_birth_btn_i(),this.change_nickname_group_i(),this.change_sex_group_i(),this.change_birth_group_i()];
+		this.elementsContent = [this._Image1_i(),this._Scroller1_i(),this.reset_head_btn_i(),this.reset_nickname_btn_i(),this.reset_sex_btn_i(),this.reset_birth_btn_i(),this.back_btn_i(),this._Image3_i(),this._Image4_i(),this._Image5_i(),this._Image6_i(),this.headImg_i(),this.headMask_i(),this._Label1_i(),this._Label2_i(),this._Label3_i(),this._Label4_i(),this._Label5_i(),this.nickname_i(),this.sex_i(),this.birth_i(),this.change_nickname_group_i(),this.change_sex_group_i(),this.change_birth_group_i()];
 	}
 	var _proto = InfoSettingPage.prototype;
 
@@ -2341,6 +2391,54 @@ window.skins=window.skins||{};
 		t.source = "appIcon_json.Bg_Personal02_png";
 		t.width = 785;
 		t.y = 0;
+		return t;
+	};
+	_proto.reset_head_btn_i = function () {
+		var t = new eui.Button();
+		this.reset_head_btn = t;
+		t.anchorOffsetX = 0;
+		t.height = 73;
+		t.label = "";
+		t.width = 664;
+		t.x = 35;
+		t.y = 107;
+		t.skinName = InfoSettingPage$Skin13;
+		return t;
+	};
+	_proto.reset_nickname_btn_i = function () {
+		var t = new eui.Button();
+		this.reset_nickname_btn = t;
+		t.anchorOffsetX = 0;
+		t.height = 73;
+		t.label = "";
+		t.width = 664;
+		t.x = 35;
+		t.y = 215;
+		t.skinName = InfoSettingPage$Skin14;
+		return t;
+	};
+	_proto.reset_sex_btn_i = function () {
+		var t = new eui.Button();
+		this.reset_sex_btn = t;
+		t.anchorOffsetX = 0;
+		t.height = 73;
+		t.label = "";
+		t.width = 664;
+		t.x = 35;
+		t.y = 323;
+		t.skinName = InfoSettingPage$Skin15;
+		return t;
+	};
+	_proto.reset_birth_btn_i = function () {
+		var t = new eui.Button();
+		this.reset_birth_btn = t;
+		t.anchorOffsetX = 0;
+		t.height = 73;
+		t.label = "";
+		t.width = 664;
+		t.x = 35;
+		t.y = 431;
+		t.skinName = InfoSettingPage$Skin16;
 		return t;
 	};
 	_proto.back_btn_i = function () {
@@ -2484,54 +2582,6 @@ window.skins=window.skins||{};
 		t.text = "1900-01-01";
 		t.textColor = 0x9B9B9B;
 		t.y = 453;
-		return t;
-	};
-	_proto.reset_head_btn_i = function () {
-		var t = new eui.Button();
-		this.reset_head_btn = t;
-		t.anchorOffsetX = 0;
-		t.height = 73;
-		t.label = "";
-		t.width = 664;
-		t.x = 35;
-		t.y = 107;
-		t.skinName = InfoSettingPage$Skin13;
-		return t;
-	};
-	_proto.reset_nickname_btn_i = function () {
-		var t = new eui.Button();
-		this.reset_nickname_btn = t;
-		t.anchorOffsetX = 0;
-		t.height = 73;
-		t.label = "";
-		t.width = 664;
-		t.x = 35;
-		t.y = 215;
-		t.skinName = InfoSettingPage$Skin14;
-		return t;
-	};
-	_proto.reset_sex_btn_i = function () {
-		var t = new eui.Button();
-		this.reset_sex_btn = t;
-		t.anchorOffsetX = 0;
-		t.height = 73;
-		t.label = "";
-		t.width = 664;
-		t.x = 35;
-		t.y = 323;
-		t.skinName = InfoSettingPage$Skin15;
-		return t;
-	};
-	_proto.reset_birth_btn_i = function () {
-		var t = new eui.Button();
-		this.reset_birth_btn = t;
-		t.anchorOffsetX = 0;
-		t.height = 73;
-		t.label = "";
-		t.width = 664;
-		t.x = 35;
-		t.y = 431;
-		t.skinName = InfoSettingPage$Skin16;
 		return t;
 	};
 	_proto.change_nickname_group_i = function () {
@@ -3977,15 +4027,15 @@ window.skins=window.skins||{};
 		return t;
 	};
 	return NewsItem;
-})(eui.Skin);generateEUI.paths['resource/game_skins/app/ResetPassword.exml'] = window.ResetPassword = (function (_super) {
-	__extends(ResetPassword, _super);
-	var ResetPassword$Skin33 = 	(function (_super) {
-		__extends(ResetPassword$Skin33, _super);
-		function ResetPassword$Skin33() {
+})(eui.Skin);generateEUI.paths['resource/game_skins/app/PursePage.exml'] = window.PursePage = (function (_super) {
+	__extends(PursePage, _super);
+	var PursePage$Skin33 = 	(function (_super) {
+		__extends(PursePage$Skin33, _super);
+		function PursePage$Skin33() {
 			_super.call(this);
-			this.skinParts = ["labelDisplay"];
+			this.skinParts = ["labelDisplay","num"];
 			
-			this.elementsContent = [this._Image1_i(),this.labelDisplay_i()];
+			this.elementsContent = [this._Image1_i(),this.labelDisplay_i(),this._Label1_i(),this.num_i(),this._Image2_i()];
 			this.states = [
 				new eui.State ("up",
 					[
@@ -4000,29 +4050,126 @@ window.skins=window.skins||{};
 					])
 			];
 		}
-		var _proto = ResetPassword$Skin33.prototype;
+		var _proto = PursePage$Skin33.prototype;
 
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
 			t.percentHeight = 100;
-			t.source = "Btn_Logon_01_png";
+			t.source = "appIcon_json.Bg_Wallet02_png";
 			t.percentWidth = 100;
 			return t;
 		};
 		_proto.labelDisplay_i = function () {
 			var t = new eui.Label();
 			this.labelDisplay = t;
-			t.fontFamily = "myFont";
 			t.horizontalCenter = 0;
 			t.verticalCenter = 0;
 			return t;
 		};
-		return ResetPassword$Skin33;
+		_proto._Label1_i = function () {
+			var t = new eui.Label();
+			t.fontFamily = "myFont";
+			t.horizontalCenter = 0;
+			t.size = 26;
+			t.text = "GST余额";
+			t.textColor = 0x353535;
+			t.y = 48;
+			return t;
+		};
+		_proto.num_i = function () {
+			var t = new eui.Label();
+			this.num = t;
+			t.bold = true;
+			t.fontFamily = "myFont";
+			t.horizontalCenter = 0;
+			t.size = 46;
+			t.text = "30000";
+			t.textColor = 0x3d9fff;
+			t.y = 137;
+			return t;
+		};
+		_proto._Image2_i = function () {
+			var t = new eui.Image();
+			t.source = "appIcon_json.Banner_Personal_Back02_png";
+			t.x = 245;
+			t.y = 51;
+			return t;
+		};
+		return PursePage$Skin33;
 	})(eui.Skin);
 
-	var ResetPassword$Skin34 = 	(function (_super) {
-		__extends(ResetPassword$Skin34, _super);
-		function ResetPassword$Skin34() {
+	var PursePage$Skin34 = 	(function (_super) {
+		__extends(PursePage$Skin34, _super);
+		function PursePage$Skin34() {
+			_super.call(this);
+			this.skinParts = ["labelDisplay","num"];
+			
+			this.elementsContent = [this._Image1_i(),this.labelDisplay_i(),this._Label1_i(),this.num_i(),this._Image2_i()];
+			this.states = [
+				new eui.State ("up",
+					[
+					])
+				,
+				new eui.State ("down",
+					[
+					])
+				,
+				new eui.State ("disabled",
+					[
+					])
+			];
+		}
+		var _proto = PursePage$Skin34.prototype;
+
+		_proto._Image1_i = function () {
+			var t = new eui.Image();
+			t.percentHeight = 100;
+			t.source = "appIcon_json.Bg_Wallet02_png";
+			t.percentWidth = 100;
+			return t;
+		};
+		_proto.labelDisplay_i = function () {
+			var t = new eui.Label();
+			this.labelDisplay = t;
+			t.horizontalCenter = 0;
+			t.verticalCenter = 0;
+			return t;
+		};
+		_proto._Label1_i = function () {
+			var t = new eui.Label();
+			t.fontFamily = "myFont";
+			t.horizontalCenter = 0;
+			t.size = 26;
+			t.text = "USDT余额";
+			t.textColor = 0x353535;
+			t.y = 48;
+			return t;
+		};
+		_proto.num_i = function () {
+			var t = new eui.Label();
+			this.num = t;
+			t.bold = true;
+			t.fontFamily = "myFont";
+			t.horizontalCenter = 0;
+			t.size = 46;
+			t.text = "30000";
+			t.textColor = 0x3d9fff;
+			t.y = 137;
+			return t;
+		};
+		_proto._Image2_i = function () {
+			var t = new eui.Image();
+			t.source = "appIcon_json.Banner_Personal_Back02_png";
+			t.x = 245;
+			t.y = 51;
+			return t;
+		};
+		return PursePage$Skin34;
+	})(eui.Skin);
+
+	var PursePage$Skin35 = 	(function (_super) {
+		__extends(PursePage$Skin35, _super);
+		function PursePage$Skin35() {
 			_super.call(this);
 			this.skinParts = ["labelDisplay"];
 			
@@ -4041,7 +4188,529 @@ window.skins=window.skins||{};
 					])
 			];
 		}
-		var _proto = ResetPassword$Skin34.prototype;
+		var _proto = PursePage$Skin35.prototype;
+
+		_proto._Image1_i = function () {
+			var t = new eui.Image();
+			t.percentHeight = 100;
+			t.source = "appIcon_json.Btn_Wallet01_png";
+			t.percentWidth = 100;
+			return t;
+		};
+		_proto.labelDisplay_i = function () {
+			var t = new eui.Label();
+			this.labelDisplay = t;
+			t.fontFamily = "myFont";
+			t.horizontalCenter = 0;
+			t.size = 34;
+			t.verticalCenter = 0;
+			return t;
+		};
+		return PursePage$Skin35;
+	})(eui.Skin);
+
+	var PursePage$Skin36 = 	(function (_super) {
+		__extends(PursePage$Skin36, _super);
+		function PursePage$Skin36() {
+			_super.call(this);
+			this.skinParts = ["labelDisplay"];
+			
+			this.elementsContent = [this._Image1_i(),this.labelDisplay_i()];
+			this.states = [
+				new eui.State ("up",
+					[
+					])
+				,
+				new eui.State ("down",
+					[
+					])
+				,
+				new eui.State ("disabled",
+					[
+					])
+			];
+		}
+		var _proto = PursePage$Skin36.prototype;
+
+		_proto._Image1_i = function () {
+			var t = new eui.Image();
+			t.percentHeight = 100;
+			t.source = "appIcon_json.Btn_Wallet02_png";
+			t.percentWidth = 100;
+			return t;
+		};
+		_proto.labelDisplay_i = function () {
+			var t = new eui.Label();
+			this.labelDisplay = t;
+			t.fontFamily = "myFont";
+			t.horizontalCenter = 0;
+			t.size = 34;
+			t.textColor = 0x349aff;
+			t.verticalCenter = 0;
+			return t;
+		};
+		return PursePage$Skin36;
+	})(eui.Skin);
+
+	function PursePage() {
+		_super.call(this);
+		this.skinParts = ["close_btn","scan_btn","gst_info_btn","usdt_info_btn","income_btn","output_btn"];
+		
+		this.height = 1334;
+		this.width = 750;
+		this.elementsContent = [this._Rect1_i(),this._Label1_i(),this.close_btn_i(),this.scan_btn_i(),this._Image1_i(),this.gst_info_btn_i(),this.usdt_info_btn_i(),this.income_btn_i(),this.output_btn_i()];
+	}
+	var _proto = PursePage.prototype;
+
+	_proto._Rect1_i = function () {
+		var t = new eui.Rect();
+		t.fillColor = 0xffffff;
+		t.percentHeight = 100;
+		t.percentWidth = 100;
+		t.x = 0;
+		t.y = 0;
+		return t;
+	};
+	_proto._Label1_i = function () {
+		var t = new eui.Label();
+		t.fontFamily = "myFont";
+		t.size = 34;
+		t.text = "我的钱包";
+		t.textColor = 0x353535;
+		t.x = 307;
+		t.y = 27;
+		return t;
+	};
+	_proto.close_btn_i = function () {
+		var t = new eui.Image();
+		this.close_btn = t;
+		t.source = "appIcon_json.Banner_Personal_Back01_png";
+		t.x = 30;
+		t.y = 28;
+		return t;
+	};
+	_proto.scan_btn_i = function () {
+		var t = new eui.Image();
+		this.scan_btn = t;
+		t.source = "appIcon_json.Icon_Saoma_png";
+		t.x = 672;
+		t.y = 30;
+		return t;
+	};
+	_proto._Image1_i = function () {
+		var t = new eui.Image();
+		t.horizontalCenter = 0;
+		t.source = "appIcon_json.Line_Personal01_png";
+		t.width = 690;
+		t.y = 89;
+		return t;
+	};
+	_proto.gst_info_btn_i = function () {
+		var t = new eui.Button();
+		this.gst_info_btn = t;
+		t.label = "";
+		t.x = 42;
+		t.y = 257;
+		t.skinName = PursePage$Skin33;
+		return t;
+	};
+	_proto.usdt_info_btn_i = function () {
+		var t = new eui.Button();
+		this.usdt_info_btn = t;
+		t.label = "";
+		t.x = 388;
+		t.y = 257;
+		t.skinName = PursePage$Skin34;
+		return t;
+	};
+	_proto.income_btn_i = function () {
+		var t = new eui.Button();
+		this.income_btn = t;
+		t.bottom = 439;
+		t.horizontalCenter = 0;
+		t.label = "收钱";
+		t.skinName = PursePage$Skin35;
+		return t;
+	};
+	_proto.output_btn_i = function () {
+		var t = new eui.Button();
+		this.output_btn = t;
+		t.bottom = 319;
+		t.horizontalCenter = 0;
+		t.label = "转出";
+		t.skinName = PursePage$Skin36;
+		return t;
+	};
+	return PursePage;
+})(eui.Skin);generateEUI.paths['resource/game_skins/app/RecodeItem.exml'] = window.RecodeItem = (function (_super) {
+	__extends(RecodeItem, _super);
+	function RecodeItem() {
+		_super.call(this);
+		this.skinParts = [];
+		
+		this.height = 141;
+		this.width = 750;
+		this.elementsContent = [this._Label1_i(),this._Label2_i(),this._Label3_i(),this._Label4_i(),this._Image1_i()];
+		
+		eui.Binding.$bindProperties(this, ["hostComponent.data.time"],[0],this._Label1,"text");
+		eui.Binding.$bindProperties(this, ["hostComponent.data.comment"],[0],this._Label2,"text");
+		eui.Binding.$bindProperties(this, ["hostComponent.data.after_amount"],[0],this._Label3,"text");
+		eui.Binding.$bindProperties(this, ["hostComponent.data.change_amount"],[0],this._Label4,"text");
+		eui.Binding.$bindProperties(this, ["hostComponent.data.cacolor"],[0],this._Label4,"textColor");
+	}
+	var _proto = RecodeItem.prototype;
+
+	_proto._Label1_i = function () {
+		var t = new eui.Label();
+		this._Label1 = t;
+		t.size = 26;
+		t.textColor = 0x9b9b9b;
+		t.x = 30;
+		t.y = 86;
+		return t;
+	};
+	_proto._Label2_i = function () {
+		var t = new eui.Label();
+		this._Label2 = t;
+		t.size = 34;
+		t.textColor = 0x353535;
+		t.x = 30;
+		t.y = 26;
+		return t;
+	};
+	_proto._Label3_i = function () {
+		var t = new eui.Label();
+		this._Label3 = t;
+		t.right = 30;
+		t.size = 26;
+		t.textColor = 0x9B9B9B;
+		t.y = 86;
+		return t;
+	};
+	_proto._Label4_i = function () {
+		var t = new eui.Label();
+		this._Label4 = t;
+		t.right = 30;
+		t.size = 34;
+		t.y = 26;
+		return t;
+	};
+	_proto._Image1_i = function () {
+		var t = new eui.Image();
+		t.horizontalCenter = 0;
+		t.source = "appIcon_json.Line_Personal02_png";
+		t.width = 690;
+		t.y = 140;
+		return t;
+	};
+	return RecodeItem;
+})(eui.Skin);generateEUI.paths['resource/game_skins/app/RecodePage.exml'] = window.RecodePage = (function (_super) {
+	__extends(RecodePage, _super);
+	var RecodePage$Skin37 = 	(function (_super) {
+		__extends(RecodePage$Skin37, _super);
+		function RecodePage$Skin37() {
+			_super.call(this);
+			this.skinParts = ["labelDisplay","wz"];
+			
+			this.height = 55;
+			this.width = 244;
+			this.elementsContent = [this._Image1_i(),this.labelDisplay_i(),this.wz_i()];
+			this._Rect1_i();
+			
+			this.states = [
+				new eui.State ("up",
+					[
+						new eui.AddItems("_Rect1","",1,"")
+					])
+				,
+				new eui.State ("down",
+					[
+						new eui.SetProperty("wz","textColor",0x4c4b4b)
+					])
+				,
+				new eui.State ("disabled",
+					[
+					])
+			];
+		}
+		var _proto = RecodePage$Skin37.prototype;
+
+		_proto._Image1_i = function () {
+			var t = new eui.Image();
+			t.percentHeight = 100;
+			t.source = "appIcon_json.Bg_Personal03_png";
+			t.percentWidth = 100;
+			return t;
+		};
+		_proto.labelDisplay_i = function () {
+			var t = new eui.Label();
+			this.labelDisplay = t;
+			t.fontFamily = "myFont";
+			t.horizontalCenter = 0;
+			t.size = 28;
+			t.textColor = 0x349aff;
+			t.verticalCenter = 0;
+			t.visible = false;
+			return t;
+		};
+		_proto.wz_i = function () {
+			var t = new eui.Label();
+			this.wz = t;
+			t.fontFamily = "myFont";
+			t.horizontalCenter = 0;
+			t.size = 28;
+			t.text = "GST记录";
+			t.textColor = 0x349aff;
+			t.verticalCenter = 0;
+			return t;
+		};
+		_proto._Rect1_i = function () {
+			var t = new eui.Rect();
+			this._Rect1 = t;
+			t.fillColor = 0x349aff;
+			t.height = 3;
+			t.horizontalCenter = 0;
+			t.width = 52;
+			t.y = 63;
+			return t;
+		};
+		return RecodePage$Skin37;
+	})(eui.Skin);
+
+	var RecodePage$Skin38 = 	(function (_super) {
+		__extends(RecodePage$Skin38, _super);
+		function RecodePage$Skin38() {
+			_super.call(this);
+			this.skinParts = ["labelDisplay","wz"];
+			
+			this.height = 55;
+			this.width = 244;
+			this.elementsContent = [this._Image1_i(),this.labelDisplay_i(),this.wz_i()];
+			this._Rect1_i();
+			
+			this.states = [
+				new eui.State ("up",
+					[
+						new eui.AddItems("_Rect1","",1,"")
+					])
+				,
+				new eui.State ("down",
+					[
+						new eui.SetProperty("wz","textColor",0x4c4b4b)
+					])
+				,
+				new eui.State ("disabled",
+					[
+					])
+			];
+		}
+		var _proto = RecodePage$Skin38.prototype;
+
+		_proto._Image1_i = function () {
+			var t = new eui.Image();
+			t.percentHeight = 100;
+			t.source = "appIcon_json.Bg_Personal03_png";
+			t.percentWidth = 100;
+			return t;
+		};
+		_proto.labelDisplay_i = function () {
+			var t = new eui.Label();
+			this.labelDisplay = t;
+			t.fontFamily = "myFont";
+			t.horizontalCenter = 0;
+			t.size = 28;
+			t.textColor = 0x349aff;
+			t.verticalCenter = 0;
+			t.visible = false;
+			return t;
+		};
+		_proto.wz_i = function () {
+			var t = new eui.Label();
+			this.wz = t;
+			t.fontFamily = "myFont";
+			t.horizontalCenter = 0;
+			t.size = 28;
+			t.text = "USDT记录";
+			t.textColor = 0x349aff;
+			t.verticalCenter = 0;
+			return t;
+		};
+		_proto._Rect1_i = function () {
+			var t = new eui.Rect();
+			this._Rect1 = t;
+			t.fillColor = 0x349aff;
+			t.height = 3;
+			t.horizontalCenter = 0;
+			t.width = 52;
+			t.y = 63;
+			return t;
+		};
+		return RecodePage$Skin38;
+	})(eui.Skin);
+
+	function RecodePage() {
+		_super.call(this);
+		this.skinParts = ["close_btn","gst_info_btn","usdt_info_btn","recode_list","recode_scroller"];
+		
+		this.height = 1334;
+		this.width = 750;
+		this.elementsContent = [this._Rect1_i(),this._Image1_i(),this._Label1_i(),this.close_btn_i(),this._Image2_i(),this._Image3_i(),this.gst_info_btn_i(),this.usdt_info_btn_i(),this.recode_scroller_i()];
+	}
+	var _proto = RecodePage.prototype;
+
+	_proto._Rect1_i = function () {
+		var t = new eui.Rect();
+		t.fillColor = 0xFFFFFF;
+		t.percentHeight = 100;
+		t.percentWidth = 100;
+		t.x = 0;
+		t.y = 0;
+		return t;
+	};
+	_proto._Image1_i = function () {
+		var t = new eui.Image();
+		t.height = 164;
+		t.source = "appIcon_json.Bg_Personal03_png";
+		t.percentWidth = 100;
+		t.x = 0;
+		t.y = 0;
+		return t;
+	};
+	_proto._Label1_i = function () {
+		var t = new eui.Label();
+		t.fontFamily = "myFont";
+		t.size = 34;
+		t.text = "交易记录";
+		t.textColor = 0x353535;
+		t.x = 307;
+		t.y = 27;
+		return t;
+	};
+	_proto.close_btn_i = function () {
+		var t = new eui.Image();
+		this.close_btn = t;
+		t.source = "appIcon_json.Banner_Personal_Back01_png";
+		t.x = 30;
+		t.y = 28;
+		return t;
+	};
+	_proto._Image2_i = function () {
+		var t = new eui.Image();
+		t.horizontalCenter = 0;
+		t.source = "appIcon_json.Line_Personal02_png";
+		t.width = 690;
+		t.y = 90;
+		return t;
+	};
+	_proto._Image3_i = function () {
+		var t = new eui.Image();
+		t.horizontalCenter = 0.5;
+		t.source = "appIcon_json.Bg_Wallet09_png";
+		t.y = 94;
+		return t;
+	};
+	_proto.gst_info_btn_i = function () {
+		var t = new eui.Button();
+		this.gst_info_btn = t;
+		t.label = "GST记录";
+		t.x = 90;
+		t.y = 97;
+		t.skinName = RecodePage$Skin37;
+		return t;
+	};
+	_proto.usdt_info_btn_i = function () {
+		var t = new eui.Button();
+		this.usdt_info_btn = t;
+		t.currentState = "down";
+		t.label = "USDT记录";
+		t.x = 432;
+		t.y = 97;
+		t.skinName = RecodePage$Skin38;
+		return t;
+	};
+	_proto.recode_scroller_i = function () {
+		var t = new eui.Scroller();
+		this.recode_scroller = t;
+		t.height = 401;
+		t.width = 750;
+		t.x = 0;
+		t.y = 164;
+		t.viewport = this.recode_list_i();
+		return t;
+	};
+	_proto.recode_list_i = function () {
+		var t = new eui.List();
+		this.recode_list = t;
+		t.itemRendererSkinName = RecodeItem;
+		t.layout = this._VerticalLayout1_i();
+		t.dataProvider = this._ArrayCollection1_i();
+		return t;
+	};
+	_proto._VerticalLayout1_i = function () {
+		var t = new eui.VerticalLayout();
+		t.gap = 0;
+		return t;
+	};
+	_proto._ArrayCollection1_i = function () {
+		var t = new eui.ArrayCollection();
+		t.source = [this._Object1_i(),this._Object2_i(),this._Object3_i(),this._Object4_i(),this._Object5_i(),this._Object6_i()];
+		return t;
+	};
+	_proto._Object1_i = function () {
+		var t = {};
+		t.a = "null";
+		return t;
+	};
+	_proto._Object2_i = function () {
+		var t = {};
+		t.a = "null";
+		return t;
+	};
+	_proto._Object3_i = function () {
+		var t = {};
+		t.a = "null";
+		return t;
+	};
+	_proto._Object4_i = function () {
+		var t = {};
+		t.a = "null";
+		return t;
+	};
+	_proto._Object5_i = function () {
+		var t = {};
+		t.a = "null";
+		return t;
+	};
+	_proto._Object6_i = function () {
+		var t = {};
+		t.a = "null";
+		return t;
+	};
+	return RecodePage;
+})(eui.Skin);generateEUI.paths['resource/game_skins/app/ResetPassword.exml'] = window.ResetPassword = (function (_super) {
+	__extends(ResetPassword, _super);
+	var ResetPassword$Skin39 = 	(function (_super) {
+		__extends(ResetPassword$Skin39, _super);
+		function ResetPassword$Skin39() {
+			_super.call(this);
+			this.skinParts = ["labelDisplay"];
+			
+			this.elementsContent = [this._Image1_i(),this.labelDisplay_i()];
+			this.states = [
+				new eui.State ("up",
+					[
+					])
+				,
+				new eui.State ("down",
+					[
+					])
+				,
+				new eui.State ("disabled",
+					[
+					])
+			];
+		}
+		var _proto = ResetPassword$Skin39.prototype;
 
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
@@ -4058,7 +4727,48 @@ window.skins=window.skins||{};
 			t.verticalCenter = 0;
 			return t;
 		};
-		return ResetPassword$Skin34;
+		return ResetPassword$Skin39;
+	})(eui.Skin);
+
+	var ResetPassword$Skin40 = 	(function (_super) {
+		__extends(ResetPassword$Skin40, _super);
+		function ResetPassword$Skin40() {
+			_super.call(this);
+			this.skinParts = ["labelDisplay"];
+			
+			this.elementsContent = [this._Image1_i(),this.labelDisplay_i()];
+			this.states = [
+				new eui.State ("up",
+					[
+					])
+				,
+				new eui.State ("down",
+					[
+					])
+				,
+				new eui.State ("disabled",
+					[
+					])
+			];
+		}
+		var _proto = ResetPassword$Skin40.prototype;
+
+		_proto._Image1_i = function () {
+			var t = new eui.Image();
+			t.percentHeight = 100;
+			t.source = "Btn_Logon_01_png";
+			t.percentWidth = 100;
+			return t;
+		};
+		_proto.labelDisplay_i = function () {
+			var t = new eui.Label();
+			this.labelDisplay = t;
+			t.fontFamily = "myFont";
+			t.horizontalCenter = 0;
+			t.verticalCenter = 0;
+			return t;
+		};
+		return ResetPassword$Skin40;
 	})(eui.Skin);
 
 	function ResetPassword() {
@@ -4161,7 +4871,7 @@ window.skins=window.skins||{};
 		t.horizontalCenter = 0;
 		t.label = "确认修改";
 		t.y = 576;
-		t.skinName = ResetPassword$Skin33;
+		t.skinName = ResetPassword$Skin39;
 		return t;
 	};
 	_proto.changepassword_cancel_btn_i = function () {
@@ -4170,21 +4880,21 @@ window.skins=window.skins||{};
 		t.horizontalCenter = 0;
 		t.label = "取消";
 		t.y = 706;
-		t.skinName = ResetPassword$Skin34;
+		t.skinName = ResetPassword$Skin40;
 		return t;
 	};
 	return ResetPassword;
 })(eui.Skin);generateEUI.paths['resource/game_skins/app/SettingPage.exml'] = window.SettingPage = (function (_super) {
 	__extends(SettingPage, _super);
-	var SettingPage$Skin35 = 	(function (_super) {
-		__extends(SettingPage$Skin35, _super);
-		function SettingPage$Skin35() {
+	var SettingPage$Skin41 = 	(function (_super) {
+		__extends(SettingPage$Skin41, _super);
+		function SettingPage$Skin41() {
 			_super.call(this);
 			this.skinParts = ["labelDisplay"];
 			
 			this.height = 73;
 			this.width = 664;
-			this.elementsContent = [this._Image1_i(),this.labelDisplay_i()];
+			this.elementsContent = [this._Rect1_i(),this._Image1_i(),this.labelDisplay_i()];
 			this.states = [
 				new eui.State ("up",
 					[
@@ -4199,8 +4909,18 @@ window.skins=window.skins||{};
 					])
 			];
 		}
-		var _proto = SettingPage$Skin35.prototype;
+		var _proto = SettingPage$Skin41.prototype;
 
+		_proto._Rect1_i = function () {
+			var t = new eui.Rect();
+			t.fillAlpha = 0.1;
+			t.fillColor = 0xffffff;
+			t.percentHeight = 100;
+			t.percentWidth = 100;
+			t.x = 0;
+			t.y = 0;
+			return t;
+		};
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
 			t.right = 0;
@@ -4215,12 +4935,112 @@ window.skins=window.skins||{};
 			t.verticalCenter = 0;
 			return t;
 		};
-		return SettingPage$Skin35;
+		return SettingPage$Skin41;
 	})(eui.Skin);
 
-	var SettingPage$Skin36 = 	(function (_super) {
-		__extends(SettingPage$Skin36, _super);
-		function SettingPage$Skin36() {
+	var SettingPage$Skin42 = 	(function (_super) {
+		__extends(SettingPage$Skin42, _super);
+		function SettingPage$Skin42() {
+			_super.call(this);
+			this.skinParts = ["labelDisplay"];
+			
+			this.elementsContent = [this._Rect1_i(),this._Image1_i(),this.labelDisplay_i()];
+			this.states = [
+				new eui.State ("up",
+					[
+					])
+				,
+				new eui.State ("down",
+					[
+					])
+				,
+				new eui.State ("disabled",
+					[
+					])
+			];
+		}
+		var _proto = SettingPage$Skin42.prototype;
+
+		_proto._Rect1_i = function () {
+			var t = new eui.Rect();
+			t.fillAlpha = 0.1;
+			t.fillColor = 0xFFFFFF;
+			t.percentHeight = 100;
+			t.percentWidth = 100;
+			t.x = 0;
+			t.y = 0;
+			return t;
+		};
+		_proto._Image1_i = function () {
+			var t = new eui.Image();
+			t.right = 0;
+			t.source = "appIcon_json.Banner_Personal_Back02_png";
+			t.verticalCenter = 0;
+			return t;
+		};
+		_proto.labelDisplay_i = function () {
+			var t = new eui.Label();
+			this.labelDisplay = t;
+			t.horizontalCenter = 0;
+			t.verticalCenter = 0;
+			return t;
+		};
+		return SettingPage$Skin42;
+	})(eui.Skin);
+
+	var SettingPage$Skin43 = 	(function (_super) {
+		__extends(SettingPage$Skin43, _super);
+		function SettingPage$Skin43() {
+			_super.call(this);
+			this.skinParts = ["labelDisplay"];
+			
+			this.elementsContent = [this._Rect1_i(),this._Image1_i(),this.labelDisplay_i()];
+			this.states = [
+				new eui.State ("up",
+					[
+					])
+				,
+				new eui.State ("down",
+					[
+					])
+				,
+				new eui.State ("disabled",
+					[
+					])
+			];
+		}
+		var _proto = SettingPage$Skin43.prototype;
+
+		_proto._Rect1_i = function () {
+			var t = new eui.Rect();
+			t.fillAlpha = 0.1;
+			t.fillColor = 0xFFFFFF;
+			t.percentHeight = 100;
+			t.percentWidth = 100;
+			t.x = 0;
+			t.y = 0;
+			return t;
+		};
+		_proto._Image1_i = function () {
+			var t = new eui.Image();
+			t.right = 0;
+			t.source = "appIcon_json.Banner_Personal_Back02_png";
+			t.verticalCenter = 0;
+			return t;
+		};
+		_proto.labelDisplay_i = function () {
+			var t = new eui.Label();
+			this.labelDisplay = t;
+			t.horizontalCenter = 0;
+			t.verticalCenter = 0;
+			return t;
+		};
+		return SettingPage$Skin43;
+	})(eui.Skin);
+
+	var SettingPage$Skin44 = 	(function (_super) {
+		__extends(SettingPage$Skin44, _super);
+		function SettingPage$Skin44() {
 			_super.call(this);
 			this.skinParts = ["labelDisplay"];
 			
@@ -4239,87 +5059,7 @@ window.skins=window.skins||{};
 					])
 			];
 		}
-		var _proto = SettingPage$Skin36.prototype;
-
-		_proto._Image1_i = function () {
-			var t = new eui.Image();
-			t.right = 0;
-			t.source = "appIcon_json.Banner_Personal_Back02_png";
-			t.verticalCenter = 0;
-			return t;
-		};
-		_proto.labelDisplay_i = function () {
-			var t = new eui.Label();
-			this.labelDisplay = t;
-			t.horizontalCenter = 0;
-			t.verticalCenter = 0;
-			return t;
-		};
-		return SettingPage$Skin36;
-	})(eui.Skin);
-
-	var SettingPage$Skin37 = 	(function (_super) {
-		__extends(SettingPage$Skin37, _super);
-		function SettingPage$Skin37() {
-			_super.call(this);
-			this.skinParts = ["labelDisplay"];
-			
-			this.elementsContent = [this._Image1_i(),this.labelDisplay_i()];
-			this.states = [
-				new eui.State ("up",
-					[
-					])
-				,
-				new eui.State ("down",
-					[
-					])
-				,
-				new eui.State ("disabled",
-					[
-					])
-			];
-		}
-		var _proto = SettingPage$Skin37.prototype;
-
-		_proto._Image1_i = function () {
-			var t = new eui.Image();
-			t.right = 0;
-			t.source = "appIcon_json.Banner_Personal_Back02_png";
-			t.verticalCenter = 0;
-			return t;
-		};
-		_proto.labelDisplay_i = function () {
-			var t = new eui.Label();
-			this.labelDisplay = t;
-			t.horizontalCenter = 0;
-			t.verticalCenter = 0;
-			return t;
-		};
-		return SettingPage$Skin37;
-	})(eui.Skin);
-
-	var SettingPage$Skin38 = 	(function (_super) {
-		__extends(SettingPage$Skin38, _super);
-		function SettingPage$Skin38() {
-			_super.call(this);
-			this.skinParts = ["labelDisplay"];
-			
-			this.elementsContent = [this._Image1_i(),this.labelDisplay_i()];
-			this.states = [
-				new eui.State ("up",
-					[
-					])
-				,
-				new eui.State ("down",
-					[
-					])
-				,
-				new eui.State ("disabled",
-					[
-					])
-			];
-		}
-		var _proto = SettingPage$Skin38.prototype;
+		var _proto = SettingPage$Skin44.prototype;
 
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
@@ -4338,16 +5078,16 @@ window.skins=window.skins||{};
 			t.verticalCenter = -7;
 			return t;
 		};
-		return SettingPage$Skin38;
+		return SettingPage$Skin44;
 	})(eui.Skin);
 
 	function SettingPage() {
 		_super.call(this);
-		this.skinParts = ["back_btn","message_tip","reset_password_btn","info_setting_btn","message_tip_btn","exit_login_btn"];
+		this.skinParts = ["back_btn","reset_password_btn","info_setting_btn","message_tip_btn","exit_login_btn","message_tip"];
 		
 		this.height = 1334;
 		this.width = 750;
-		this.elementsContent = [this._Image1_i(),this._Scroller1_i(),this.back_btn_i(),this._Image3_i(),this._Image4_i(),this._Image5_i(),this._Label1_i(),this._Label2_i(),this._Label3_i(),this._Label4_i(),this.message_tip_i(),this.reset_password_btn_i(),this.info_setting_btn_i(),this.message_tip_btn_i(),this.exit_login_btn_i()];
+		this.elementsContent = [this._Image1_i(),this._Scroller1_i(),this.back_btn_i(),this._Image3_i(),this._Image4_i(),this._Image5_i(),this.reset_password_btn_i(),this.info_setting_btn_i(),this.message_tip_btn_i(),this.exit_login_btn_i(),this._Label1_i(),this._Label2_i(),this._Label3_i(),this._Label4_i(),this.message_tip_i()];
 	}
 	var _proto = SettingPage.prototype;
 
@@ -4420,6 +5160,51 @@ window.skins=window.skins||{};
 		t.y = 306;
 		return t;
 	};
+	_proto.reset_password_btn_i = function () {
+		var t = new eui.Button();
+		this.reset_password_btn = t;
+		t.anchorOffsetX = 0;
+		t.height = 73;
+		t.label = "";
+		t.width = 664;
+		t.x = 35;
+		t.y = 107;
+		t.skinName = SettingPage$Skin41;
+		return t;
+	};
+	_proto.info_setting_btn_i = function () {
+		var t = new eui.Button();
+		this.info_setting_btn = t;
+		t.anchorOffsetX = 0;
+		t.height = 73;
+		t.label = "";
+		t.width = 664;
+		t.x = 35;
+		t.y = 215;
+		t.skinName = SettingPage$Skin42;
+		return t;
+	};
+	_proto.message_tip_btn_i = function () {
+		var t = new eui.Button();
+		this.message_tip_btn = t;
+		t.anchorOffsetX = 0;
+		t.height = 73;
+		t.label = "";
+		t.width = 664;
+		t.x = 35;
+		t.y = 323;
+		t.skinName = SettingPage$Skin43;
+		return t;
+	};
+	_proto.exit_login_btn_i = function () {
+		var t = new eui.Button();
+		this.exit_login_btn = t;
+		t.horizontalCenter = 0;
+		t.label = "退出登录";
+		t.y = 525;
+		t.skinName = SettingPage$Skin44;
+		return t;
+	};
 	_proto._Label1_i = function () {
 		var t = new eui.Label();
 		t.fontFamily = "myFont";
@@ -4471,57 +5256,12 @@ window.skins=window.skins||{};
 		t.y = 345;
 		return t;
 	};
-	_proto.reset_password_btn_i = function () {
-		var t = new eui.Button();
-		this.reset_password_btn = t;
-		t.anchorOffsetX = 0;
-		t.height = 73;
-		t.label = "";
-		t.width = 664;
-		t.x = 35;
-		t.y = 107;
-		t.skinName = SettingPage$Skin35;
-		return t;
-	};
-	_proto.info_setting_btn_i = function () {
-		var t = new eui.Button();
-		this.info_setting_btn = t;
-		t.anchorOffsetX = 0;
-		t.height = 73;
-		t.label = "";
-		t.width = 664;
-		t.x = 35;
-		t.y = 215;
-		t.skinName = SettingPage$Skin36;
-		return t;
-	};
-	_proto.message_tip_btn_i = function () {
-		var t = new eui.Button();
-		this.message_tip_btn = t;
-		t.anchorOffsetX = 0;
-		t.height = 73;
-		t.label = "";
-		t.width = 664;
-		t.x = 35;
-		t.y = 323;
-		t.skinName = SettingPage$Skin37;
-		return t;
-	};
-	_proto.exit_login_btn_i = function () {
-		var t = new eui.Button();
-		this.exit_login_btn = t;
-		t.horizontalCenter = 0;
-		t.label = "退出登录";
-		t.y = 525;
-		t.skinName = SettingPage$Skin38;
-		return t;
-	};
 	return SettingPage;
 })(eui.Skin);generateEUI.paths['resource/game_skins/game/ExchangeCenter.exml'] = window.ExchangeCenter = (function (_super) {
 	__extends(ExchangeCenter, _super);
-	var ExchangeCenter$Skin39 = 	(function (_super) {
-		__extends(ExchangeCenter$Skin39, _super);
-		function ExchangeCenter$Skin39() {
+	var ExchangeCenter$Skin45 = 	(function (_super) {
+		__extends(ExchangeCenter$Skin45, _super);
+		function ExchangeCenter$Skin45() {
 			_super.call(this);
 			this.skinParts = ["labelDisplay"];
 			
@@ -4540,7 +5280,7 @@ window.skins=window.skins||{};
 					])
 			];
 		}
-		var _proto = ExchangeCenter$Skin39.prototype;
+		var _proto = ExchangeCenter$Skin45.prototype;
 
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
@@ -4560,12 +5300,12 @@ window.skins=window.skins||{};
 			t.verticalCenter = 0;
 			return t;
 		};
-		return ExchangeCenter$Skin39;
+		return ExchangeCenter$Skin45;
 	})(eui.Skin);
 
-	var ExchangeCenter$Skin40 = 	(function (_super) {
-		__extends(ExchangeCenter$Skin40, _super);
-		function ExchangeCenter$Skin40() {
+	var ExchangeCenter$Skin46 = 	(function (_super) {
+		__extends(ExchangeCenter$Skin46, _super);
+		function ExchangeCenter$Skin46() {
 			_super.call(this);
 			this.skinParts = ["labelDisplay"];
 			
@@ -4584,7 +5324,7 @@ window.skins=window.skins||{};
 					])
 			];
 		}
-		var _proto = ExchangeCenter$Skin40.prototype;
+		var _proto = ExchangeCenter$Skin46.prototype;
 
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
@@ -4604,16 +5344,16 @@ window.skins=window.skins||{};
 			t.verticalCenter = 0;
 			return t;
 		};
-		return ExchangeCenter$Skin40;
+		return ExchangeCenter$Skin46;
 	})(eui.Skin);
 
 	function ExchangeCenter() {
 		_super.call(this);
-		this.skinParts = ["head_group","exchange_btn","recode_btn","rateTx","exchangeRate","exchange_num","date_group","sharp_group","line_group","point_group","rate_group","role","recode_list","close_btn","rdcode_group"];
+		this.skinParts = ["head_group","exchange_btn","recode_btn","rateTx","exchangeRate","exchange_num","date_group","sharp_group","line_group","point_group","rate_group","role_group","recode_list","close_btn","rdcode_group"];
 		
 		this.height = 750;
 		this.width = 1334;
-		this.elementsContent = [this._Image1_i(),this._Image2_i(),this.head_group_i(),this._Group1_i(),this.role_i(),this.rdcode_group_i()];
+		this.elementsContent = [this._Image1_i(),this._Image2_i(),this.head_group_i(),this._Group1_i(),this.role_group_i(),this.rdcode_group_i()];
 	}
 	var _proto = ExchangeCenter.prototype;
 
@@ -4672,7 +5412,7 @@ window.skins=window.skins||{};
 		t.scaleY = 1;
 		t.x = 153;
 		t.y = 509;
-		t.skinName = ExchangeCenter$Skin39;
+		t.skinName = ExchangeCenter$Skin45;
 		return t;
 	};
 	_proto.recode_btn_i = function () {
@@ -4684,7 +5424,7 @@ window.skins=window.skins||{};
 		t.scaleY = 1;
 		t.x = 493;
 		t.y = 509;
-		t.skinName = ExchangeCenter$Skin40;
+		t.skinName = ExchangeCenter$Skin46;
 		return t;
 	};
 	_proto.rateTx_i = function () {
@@ -5081,12 +5821,12 @@ window.skins=window.skins||{};
 		t.y = 0;
 		return t;
 	};
-	_proto.role_i = function () {
-		var t = new eui.Image();
-		this.role = t;
+	_proto.role_group_i = function () {
+		var t = new eui.Group();
+		this.role_group = t;
 		t.bottom = 0;
-		t.source = "Jiaoyisuo_png";
-		t.x = 0;
+		t.horizontalCenter = -351;
+		t.width = 644;
 		return t;
 	};
 	_proto.rdcode_group_i = function () {
@@ -5315,9 +6055,9 @@ window.skins=window.skins||{};
 	return FriendItem;
 })(eui.Skin);generateEUI.paths['resource/game_skins/game/GameFriend.exml'] = window.GameFriend = (function (_super) {
 	__extends(GameFriend, _super);
-	var GameFriend$Skin41 = 	(function (_super) {
-		__extends(GameFriend$Skin41, _super);
-		function GameFriend$Skin41() {
+	var GameFriend$Skin47 = 	(function (_super) {
+		__extends(GameFriend$Skin47, _super);
+		function GameFriend$Skin47() {
 			_super.call(this);
 			this.skinParts = ["labelDisplay"];
 			
@@ -5336,7 +6076,7 @@ window.skins=window.skins||{};
 					])
 			];
 		}
-		var _proto = GameFriend$Skin41.prototype;
+		var _proto = GameFriend$Skin47.prototype;
 
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
@@ -5352,7 +6092,7 @@ window.skins=window.skins||{};
 			t.verticalCenter = 0;
 			return t;
 		};
-		return GameFriend$Skin41;
+		return GameFriend$Skin47;
 	})(eui.Skin);
 
 	function GameFriend() {
@@ -5409,7 +6149,7 @@ window.skins=window.skins||{};
 		t.label = "";
 		t.x = 987;
 		t.y = 78;
-		t.skinName = GameFriend$Skin41;
+		t.skinName = GameFriend$Skin47;
 		return t;
 	};
 	_proto._Scroller1_i = function () {
@@ -5439,247 +6179,6 @@ window.skins=window.skins||{};
 	return GameFriend;
 })(eui.Skin);generateEUI.paths['resource/game_skins/game/GameScene.exml'] = window.GameScene = (function (_super) {
 	__extends(GameScene, _super);
-	var GameScene$Skin42 = 	(function (_super) {
-		__extends(GameScene$Skin42, _super);
-		function GameScene$Skin42() {
-			_super.call(this);
-			this.skinParts = ["labelDisplay"];
-			
-			this.elementsContent = [this._Image1_i(),this.labelDisplay_i()];
-			this.states = [
-				new eui.State ("up",
-					[
-					])
-				,
-				new eui.State ("down",
-					[
-					])
-				,
-				new eui.State ("disabled",
-					[
-					])
-			];
-		}
-		var _proto = GameScene$Skin42.prototype;
-
-		_proto._Image1_i = function () {
-			var t = new eui.Image();
-			t.percentHeight = 100;
-			t.source = "gameRes_json.Frame_01_png";
-			t.percentWidth = 100;
-			return t;
-		};
-		_proto.labelDisplay_i = function () {
-			var t = new eui.Label();
-			this.labelDisplay = t;
-			t.fontFamily = "myFont";
-			t.horizontalCenter = 0;
-			t.verticalCenter = 0;
-			return t;
-		};
-		return GameScene$Skin42;
-	})(eui.Skin);
-
-	var GameScene$Skin43 = 	(function (_super) {
-		__extends(GameScene$Skin43, _super);
-		function GameScene$Skin43() {
-			_super.call(this);
-			this.skinParts = ["labelDisplay"];
-			
-			this.elementsContent = [this._Image1_i(),this.labelDisplay_i()];
-			this.states = [
-				new eui.State ("up",
-					[
-					])
-				,
-				new eui.State ("down",
-					[
-					])
-				,
-				new eui.State ("disabled",
-					[
-					])
-			];
-		}
-		var _proto = GameScene$Skin43.prototype;
-
-		_proto._Image1_i = function () {
-			var t = new eui.Image();
-			t.percentHeight = 100;
-			t.source = "gameRes_json.Btn_Main_Kuangqu_png";
-			t.percentWidth = 100;
-			return t;
-		};
-		_proto.labelDisplay_i = function () {
-			var t = new eui.Label();
-			this.labelDisplay = t;
-			t.horizontalCenter = 0;
-			t.verticalCenter = 0;
-			return t;
-		};
-		return GameScene$Skin43;
-	})(eui.Skin);
-
-	var GameScene$Skin44 = 	(function (_super) {
-		__extends(GameScene$Skin44, _super);
-		function GameScene$Skin44() {
-			_super.call(this);
-			this.skinParts = ["labelDisplay"];
-			
-			this.elementsContent = [this._Image1_i(),this.labelDisplay_i()];
-			this.states = [
-				new eui.State ("up",
-					[
-					])
-				,
-				new eui.State ("down",
-					[
-					])
-				,
-				new eui.State ("disabled",
-					[
-					])
-			];
-		}
-		var _proto = GameScene$Skin44.prototype;
-
-		_proto._Image1_i = function () {
-			var t = new eui.Image();
-			t.percentHeight = 100;
-			t.source = "gameRes_json.Btn_Main_Gongju_png";
-			t.percentWidth = 100;
-			return t;
-		};
-		_proto.labelDisplay_i = function () {
-			var t = new eui.Label();
-			this.labelDisplay = t;
-			t.horizontalCenter = 0;
-			t.verticalCenter = 0;
-			return t;
-		};
-		return GameScene$Skin44;
-	})(eui.Skin);
-
-	var GameScene$Skin45 = 	(function (_super) {
-		__extends(GameScene$Skin45, _super);
-		function GameScene$Skin45() {
-			_super.call(this);
-			this.skinParts = ["labelDisplay"];
-			
-			this.elementsContent = [this._Image1_i(),this.labelDisplay_i()];
-			this.states = [
-				new eui.State ("up",
-					[
-					])
-				,
-				new eui.State ("down",
-					[
-					])
-				,
-				new eui.State ("disabled",
-					[
-					])
-			];
-		}
-		var _proto = GameScene$Skin45.prototype;
-
-		_proto._Image1_i = function () {
-			var t = new eui.Image();
-			t.percentHeight = 100;
-			t.source = "gameRes_json.Btn_Main_Jiaoyisuo_png";
-			t.percentWidth = 100;
-			return t;
-		};
-		_proto.labelDisplay_i = function () {
-			var t = new eui.Label();
-			this.labelDisplay = t;
-			t.horizontalCenter = 0;
-			t.verticalCenter = 0;
-			return t;
-		};
-		return GameScene$Skin45;
-	})(eui.Skin);
-
-	var GameScene$Skin46 = 	(function (_super) {
-		__extends(GameScene$Skin46, _super);
-		function GameScene$Skin46() {
-			_super.call(this);
-			this.skinParts = ["labelDisplay"];
-			
-			this.elementsContent = [this._Image1_i(),this.labelDisplay_i()];
-			this.states = [
-				new eui.State ("up",
-					[
-					])
-				,
-				new eui.State ("down",
-					[
-					])
-				,
-				new eui.State ("disabled",
-					[
-					])
-			];
-		}
-		var _proto = GameScene$Skin46.prototype;
-
-		_proto._Image1_i = function () {
-			var t = new eui.Image();
-			t.percentHeight = 100;
-			t.source = "gameRes_json.Btn_Main_Kuangquguangli_png";
-			t.percentWidth = 100;
-			return t;
-		};
-		_proto.labelDisplay_i = function () {
-			var t = new eui.Label();
-			this.labelDisplay = t;
-			t.horizontalCenter = 0;
-			t.verticalCenter = 0;
-			return t;
-		};
-		return GameScene$Skin46;
-	})(eui.Skin);
-
-	var GameScene$Skin47 = 	(function (_super) {
-		__extends(GameScene$Skin47, _super);
-		function GameScene$Skin47() {
-			_super.call(this);
-			this.skinParts = ["labelDisplay"];
-			
-			this.elementsContent = [this._Image1_i(),this.labelDisplay_i()];
-			this.states = [
-				new eui.State ("up",
-					[
-					])
-				,
-				new eui.State ("down",
-					[
-					])
-				,
-				new eui.State ("disabled",
-					[
-					])
-			];
-		}
-		var _proto = GameScene$Skin47.prototype;
-
-		_proto._Image1_i = function () {
-			var t = new eui.Image();
-			t.percentHeight = 100;
-			t.source = "gameRes_json.Btn_Main_Cangku_png";
-			t.percentWidth = 100;
-			return t;
-		};
-		_proto.labelDisplay_i = function () {
-			var t = new eui.Label();
-			this.labelDisplay = t;
-			t.horizontalCenter = 0;
-			t.verticalCenter = 0;
-			return t;
-		};
-		return GameScene$Skin47;
-	})(eui.Skin);
-
 	var GameScene$Skin48 = 	(function (_super) {
 		__extends(GameScene$Skin48, _super);
 		function GameScene$Skin48() {
@@ -5706,7 +6205,7 @@ window.skins=window.skins||{};
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
 			t.percentHeight = 100;
-			t.source = "gameRes_json.Btn_Main_Kuanggong_png";
+			t.source = "gameRes_json.Btn_Main_Kuangqu_png";
 			t.percentWidth = 100;
 			return t;
 		};
@@ -5746,7 +6245,7 @@ window.skins=window.skins||{};
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
 			t.percentHeight = 100;
-			t.source = "gameRes_json.Btn_Fenxiang_png";
+			t.source = "gameRes_json.Btn_Main_Gongju_png";
 			t.percentWidth = 100;
 			return t;
 		};
@@ -5786,7 +6285,7 @@ window.skins=window.skins||{};
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
 			t.percentHeight = 100;
-			t.source = "gameRes_json.Btn_Haoyou_png";
+			t.source = "gameRes_json.Btn_Main_Jiaoyisuo_png";
 			t.percentWidth = 100;
 			return t;
 		};
@@ -5826,7 +6325,7 @@ window.skins=window.skins||{};
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
 			t.percentHeight = 100;
-			t.source = "gameRes_json.Btn_Shezhi_png";
+			t.source = "gameRes_json.Btn_Main_Kuangquguangli_png";
 			t.percentWidth = 100;
 			return t;
 		};
@@ -5866,7 +6365,7 @@ window.skins=window.skins||{};
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
 			t.percentHeight = 100;
-			t.source = "gameRes_json.Btn_Gonggao_png";
+			t.source = "gameRes_json.Btn_Main_Cangku_png";
 			t.percentWidth = 100;
 			return t;
 		};
@@ -5880,13 +6379,254 @@ window.skins=window.skins||{};
 		return GameScene$Skin52;
 	})(eui.Skin);
 
+	var GameScene$Skin53 = 	(function (_super) {
+		__extends(GameScene$Skin53, _super);
+		function GameScene$Skin53() {
+			_super.call(this);
+			this.skinParts = ["labelDisplay"];
+			
+			this.elementsContent = [this._Image1_i(),this.labelDisplay_i()];
+			this.states = [
+				new eui.State ("up",
+					[
+					])
+				,
+				new eui.State ("down",
+					[
+					])
+				,
+				new eui.State ("disabled",
+					[
+					])
+			];
+		}
+		var _proto = GameScene$Skin53.prototype;
+
+		_proto._Image1_i = function () {
+			var t = new eui.Image();
+			t.percentHeight = 100;
+			t.source = "gameRes_json.Btn_Main_Kuanggong_png";
+			t.percentWidth = 100;
+			return t;
+		};
+		_proto.labelDisplay_i = function () {
+			var t = new eui.Label();
+			this.labelDisplay = t;
+			t.horizontalCenter = 0;
+			t.verticalCenter = 0;
+			return t;
+		};
+		return GameScene$Skin53;
+	})(eui.Skin);
+
+	var GameScene$Skin54 = 	(function (_super) {
+		__extends(GameScene$Skin54, _super);
+		function GameScene$Skin54() {
+			_super.call(this);
+			this.skinParts = ["labelDisplay"];
+			
+			this.elementsContent = [this._Image1_i(),this.labelDisplay_i()];
+			this.states = [
+				new eui.State ("up",
+					[
+					])
+				,
+				new eui.State ("down",
+					[
+					])
+				,
+				new eui.State ("disabled",
+					[
+					])
+			];
+		}
+		var _proto = GameScene$Skin54.prototype;
+
+		_proto._Image1_i = function () {
+			var t = new eui.Image();
+			t.percentHeight = 100;
+			t.source = "gameRes_json.Btn_Fenxiang_png";
+			t.percentWidth = 100;
+			return t;
+		};
+		_proto.labelDisplay_i = function () {
+			var t = new eui.Label();
+			this.labelDisplay = t;
+			t.horizontalCenter = 0;
+			t.verticalCenter = 0;
+			return t;
+		};
+		return GameScene$Skin54;
+	})(eui.Skin);
+
+	var GameScene$Skin55 = 	(function (_super) {
+		__extends(GameScene$Skin55, _super);
+		function GameScene$Skin55() {
+			_super.call(this);
+			this.skinParts = ["labelDisplay"];
+			
+			this.elementsContent = [this._Image1_i(),this.labelDisplay_i()];
+			this.states = [
+				new eui.State ("up",
+					[
+					])
+				,
+				new eui.State ("down",
+					[
+					])
+				,
+				new eui.State ("disabled",
+					[
+					])
+			];
+		}
+		var _proto = GameScene$Skin55.prototype;
+
+		_proto._Image1_i = function () {
+			var t = new eui.Image();
+			t.percentHeight = 100;
+			t.source = "gameRes_json.Btn_Haoyou_png";
+			t.percentWidth = 100;
+			return t;
+		};
+		_proto.labelDisplay_i = function () {
+			var t = new eui.Label();
+			this.labelDisplay = t;
+			t.horizontalCenter = 0;
+			t.verticalCenter = 0;
+			return t;
+		};
+		return GameScene$Skin55;
+	})(eui.Skin);
+
+	var GameScene$Skin56 = 	(function (_super) {
+		__extends(GameScene$Skin56, _super);
+		function GameScene$Skin56() {
+			_super.call(this);
+			this.skinParts = ["labelDisplay"];
+			
+			this.elementsContent = [this._Image1_i(),this.labelDisplay_i()];
+			this.states = [
+				new eui.State ("up",
+					[
+					])
+				,
+				new eui.State ("down",
+					[
+					])
+				,
+				new eui.State ("disabled",
+					[
+					])
+			];
+		}
+		var _proto = GameScene$Skin56.prototype;
+
+		_proto._Image1_i = function () {
+			var t = new eui.Image();
+			t.percentHeight = 100;
+			t.source = "gameRes_json.Btn_Shezhi_png";
+			t.percentWidth = 100;
+			return t;
+		};
+		_proto.labelDisplay_i = function () {
+			var t = new eui.Label();
+			this.labelDisplay = t;
+			t.horizontalCenter = 0;
+			t.verticalCenter = 0;
+			return t;
+		};
+		return GameScene$Skin56;
+	})(eui.Skin);
+
+	var GameScene$Skin57 = 	(function (_super) {
+		__extends(GameScene$Skin57, _super);
+		function GameScene$Skin57() {
+			_super.call(this);
+			this.skinParts = ["labelDisplay"];
+			
+			this.elementsContent = [this._Image1_i(),this.labelDisplay_i()];
+			this.states = [
+				new eui.State ("up",
+					[
+					])
+				,
+				new eui.State ("down",
+					[
+					])
+				,
+				new eui.State ("disabled",
+					[
+					])
+			];
+		}
+		var _proto = GameScene$Skin57.prototype;
+
+		_proto._Image1_i = function () {
+			var t = new eui.Image();
+			t.percentHeight = 100;
+			t.source = "gameRes_json.Btn_Guanbi_png";
+			t.percentWidth = 100;
+			return t;
+		};
+		_proto.labelDisplay_i = function () {
+			var t = new eui.Label();
+			this.labelDisplay = t;
+			t.fontFamily = "myFont";
+			t.horizontalCenter = 0;
+			t.verticalCenter = 0;
+			return t;
+		};
+		return GameScene$Skin57;
+	})(eui.Skin);
+
+	var GameScene$Skin58 = 	(function (_super) {
+		__extends(GameScene$Skin58, _super);
+		function GameScene$Skin58() {
+			_super.call(this);
+			this.skinParts = ["labelDisplay"];
+			
+			this.elementsContent = [this._Image1_i(),this.labelDisplay_i()];
+			this.states = [
+				new eui.State ("up",
+					[
+					])
+				,
+				new eui.State ("down",
+					[
+					])
+				,
+				new eui.State ("disabled",
+					[
+					])
+			];
+		}
+		var _proto = GameScene$Skin58.prototype;
+
+		_proto._Image1_i = function () {
+			var t = new eui.Image();
+			t.percentHeight = 100;
+			t.source = "gameRes_json.Btn_Gonggao_png";
+			t.percentWidth = 100;
+			return t;
+		};
+		_proto.labelDisplay_i = function () {
+			var t = new eui.Label();
+			this.labelDisplay = t;
+			t.horizontalCenter = 0;
+			t.verticalCenter = 0;
+			return t;
+		};
+		return GameScene$Skin58;
+	})(eui.Skin);
+
 	function GameScene() {
 		_super.call(this);
-		this.skinParts = ["bg","role","headMask","headImg","expbar","mine_group","owner_icon","gst_num","mine_num","level","nickname","exitbtn","mine_btn","tools_store_btn","exchange_center_btn","manager_btn","warehouse_btn","server_center_btn","share_btn","friend_btn","setting_btn","email_btn","notice_info","notic_tip_img","notice_group"];
+		this.skinParts = ["bg","role_group","headMask","headImg","expbar","mine_group","owner_icon","gst_num","mine_num","level","nickname","mine_btn","tools_store_btn","exchange_center_btn","manager_btn","warehouse_btn","server_center_btn","share_btn","friend_btn","setting_btn","exitbtn","email_btn","notice_info","notic_tip_img","notice_group"];
 		
 		this.height = 750;
 		this.width = 1334;
-		this.elementsContent = [this.bg_i(),this._Image1_i(),this._Image2_i(),this._Image3_i(),this._Image4_i(),this.role_i(),this.headMask_i(),this.headImg_i(),this._Image5_i(),this.mine_group_i(),this.owner_icon_i(),this._Group1_i(),this.level_i(),this.nickname_i(),this.exitbtn_i(),this._Group2_i(),this.notice_group_i()];
+		this.elementsContent = [this.bg_i(),this._Image1_i(),this._Image2_i(),this._Image3_i(),this._Image4_i(),this.role_group_i(),this.headMask_i(),this.headImg_i(),this._Image5_i(),this.mine_group_i(),this.owner_icon_i(),this._Group1_i(),this.level_i(),this.nickname_i(),this._Group2_i(),this.notice_group_i()];
 		
 		eui.Binding.$bindProperties(this, ["headMask"],[0],this.headImg,"mask");
 	}
@@ -5896,7 +6636,7 @@ window.skins=window.skins||{};
 		var t = new eui.Image();
 		this.bg = t;
 		t.fillMode = "scale";
-		t.source = "Bg_Main_01_jpg";
+		t.source = "Bg_MiningArea_Lv1_png";
 		t.percentWidth = 100;
 		t.x = 0;
 		t.y = 0;
@@ -5929,12 +6669,12 @@ window.skins=window.skins||{};
 		t.y = 0;
 		return t;
 	};
-	_proto.role_i = function () {
-		var t = new eui.Image();
-		this.role = t;
+	_proto.role_group_i = function () {
+		var t = new eui.Group();
+		this.role_group = t;
 		t.bottom = 0;
-		t.horizontalCenter = -333;
-		t.source = "role_01_png";
+		t.horizontalCenter = -297;
+		t.width = 644;
 		return t;
 	};
 	_proto.headMask_i = function () {
@@ -6091,24 +6831,13 @@ window.skins=window.skins||{};
 		t.y = 15;
 		return t;
 	};
-	_proto.exitbtn_i = function () {
-		var t = new eui.Button();
-		this.exitbtn = t;
-		t.height = 78;
-		t.label = "退出";
-		t.width = 152;
-		t.x = 1.5;
-		t.y = 665.88;
-		t.skinName = GameScene$Skin42;
-		return t;
-	};
 	_proto._Group2_i = function () {
 		var t = new eui.Group();
 		t.bottom = -1;
 		t.height = 666;
 		t.right = 1;
 		t.width = 640;
-		t.elementsContent = [this.mine_btn_i(),this.tools_store_btn_i(),this.exchange_center_btn_i(),this.manager_btn_i(),this.warehouse_btn_i(),this.server_center_btn_i(),this.share_btn_i(),this.friend_btn_i(),this.setting_btn_i()];
+		t.elementsContent = [this.mine_btn_i(),this.tools_store_btn_i(),this.exchange_center_btn_i(),this.manager_btn_i(),this.warehouse_btn_i(),this.server_center_btn_i(),this.share_btn_i(),this.friend_btn_i(),this.setting_btn_i(),this.exitbtn_i(),this._Image11_i()];
 		return t;
 	};
 	_proto.mine_btn_i = function () {
@@ -6117,9 +6846,9 @@ window.skins=window.skins||{};
 		t.label = "";
 		t.scaleX = 1;
 		t.scaleY = 1;
-		t.x = 18;
-		t.y = 27;
-		t.skinName = GameScene$Skin43;
+		t.x = 15;
+		t.y = 39.3;
+		t.skinName = GameScene$Skin48;
 		return t;
 	};
 	_proto.tools_store_btn_i = function () {
@@ -6128,9 +6857,9 @@ window.skins=window.skins||{};
 		t.label = "";
 		t.scaleX = 1;
 		t.scaleY = 1;
-		t.x = 316;
-		t.y = 347;
-		t.skinName = GameScene$Skin44;
+		t.x = 15;
+		t.y = 399.66;
+		t.skinName = GameScene$Skin49;
 		return t;
 	};
 	_proto.exchange_center_btn_i = function () {
@@ -6139,9 +6868,9 @@ window.skins=window.skins||{};
 		t.label = "";
 		t.scaleX = 1;
 		t.scaleY = 1;
-		t.x = 316;
-		t.y = 187;
-		t.skinName = GameScene$Skin45;
+		t.x = 382;
+		t.y = 253.65;
+		t.skinName = GameScene$Skin50;
 		return t;
 	};
 	_proto.manager_btn_i = function () {
@@ -6150,9 +6879,9 @@ window.skins=window.skins||{};
 		t.label = "";
 		t.scaleX = 1;
 		t.scaleY = 1;
-		t.x = 18;
-		t.y = 187;
-		t.skinName = GameScene$Skin46;
+		t.x = 15;
+		t.y = 253.65;
+		t.skinName = GameScene$Skin51;
 		return t;
 	};
 	_proto.warehouse_btn_i = function () {
@@ -6161,9 +6890,9 @@ window.skins=window.skins||{};
 		t.label = "";
 		t.scaleX = 1;
 		t.scaleY = 1;
-		t.x = 316;
-		t.y = 27;
-		t.skinName = GameScene$Skin47;
+		t.x = 350;
+		t.y = 102.3;
+		t.skinName = GameScene$Skin52;
 		return t;
 	};
 	_proto.server_center_btn_i = function () {
@@ -6172,9 +6901,9 @@ window.skins=window.skins||{};
 		t.label = "";
 		t.scaleX = 1;
 		t.scaleY = 1;
-		t.x = 18;
-		t.y = 347;
-		t.skinName = GameScene$Skin48;
+		t.x = 305;
+		t.y = 399.66;
+		t.skinName = GameScene$Skin53;
 		return t;
 	};
 	_proto.share_btn_i = function () {
@@ -6183,9 +6912,9 @@ window.skins=window.skins||{};
 		t.label = "";
 		t.scaleX = 1;
 		t.scaleY = 1;
-		t.x = 182.80999999999995;
-		t.y = 572.8799999999999;
-		t.skinName = GameScene$Skin49;
+		t.x = 49;
+		t.y = 572.88;
+		t.skinName = GameScene$Skin54;
 		return t;
 	};
 	_proto.friend_btn_i = function () {
@@ -6194,9 +6923,9 @@ window.skins=window.skins||{};
 		t.label = "";
 		t.scaleX = 1;
 		t.scaleY = 1;
-		t.x = -47.190000000000055;
+		t.x = -152.52;
 		t.y = 572.8799999999999;
-		t.skinName = GameScene$Skin50;
+		t.skinName = GameScene$Skin55;
 		return t;
 	};
 	_proto.setting_btn_i = function () {
@@ -6205,9 +6934,25 @@ window.skins=window.skins||{};
 		t.label = "";
 		t.scaleX = 1;
 		t.scaleY = 1;
-		t.x = 412.80999999999995;
+		t.x = 251;
 		t.y = 572.8799999999999;
-		t.skinName = GameScene$Skin51;
+		t.skinName = GameScene$Skin56;
+		return t;
+	};
+	_proto.exitbtn_i = function () {
+		var t = new eui.Button();
+		this.exitbtn = t;
+		t.label = "";
+		t.x = 452.5;
+		t.y = 572.88;
+		t.skinName = GameScene$Skin57;
+		return t;
+	};
+	_proto._Image11_i = function () {
+		var t = new eui.Image();
+		t.source = "gameRes_json.Bg_Main_05_png";
+		t.x = 368;
+		t.y = 39.3;
 		return t;
 	};
 	_proto.notice_group_i = function () {
@@ -6219,7 +6964,7 @@ window.skins=window.skins||{};
 		t.width = 333.33;
 		t.x = -311;
 		t.y = 207;
-		t.elementsContent = [this.email_btn_i(),this._Image11_i(),this._Scroller1_i(),this.notic_tip_img_i()];
+		t.elementsContent = [this.email_btn_i(),this._Image12_i(),this._Scroller1_i(),this.notic_tip_img_i()];
 		return t;
 	};
 	_proto.email_btn_i = function () {
@@ -6228,10 +6973,10 @@ window.skins=window.skins||{};
 		t.label = "";
 		t.x = 310.84;
 		t.y = 86;
-		t.skinName = GameScene$Skin52;
+		t.skinName = GameScene$Skin58;
 		return t;
 	};
-	_proto._Image11_i = function () {
+	_proto._Image12_i = function () {
 		var t = new eui.Image();
 		t.source = "gameRes_json.Bg_Main_04_png";
 		t.x = 0;
@@ -6262,16 +7007,16 @@ window.skins=window.skins||{};
 		this.notic_tip_img = t;
 		t.source = "gameRes_json.Point_png";
 		t.visible = false;
-		t.x = 375;
-		t.y = 133;
+		t.x = 342.99;
+		t.y = 107.67;
 		return t;
 	};
 	return GameScene;
 })(eui.Skin);generateEUI.paths['resource/game_skins/game/GameSetting.exml'] = window.GameSetting = (function (_super) {
 	__extends(GameSetting, _super);
-	var GameSetting$Skin53 = 	(function (_super) {
-		__extends(GameSetting$Skin53, _super);
-		function GameSetting$Skin53() {
+	var GameSetting$Skin59 = 	(function (_super) {
+		__extends(GameSetting$Skin59, _super);
+		function GameSetting$Skin59() {
 			_super.call(this);
 			this.skinParts = ["labelDisplay"];
 			
@@ -6290,7 +7035,7 @@ window.skins=window.skins||{};
 					])
 			];
 		}
-		var _proto = GameSetting$Skin53.prototype;
+		var _proto = GameSetting$Skin59.prototype;
 
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
@@ -6306,12 +7051,12 @@ window.skins=window.skins||{};
 			t.verticalCenter = 0;
 			return t;
 		};
-		return GameSetting$Skin53;
+		return GameSetting$Skin59;
 	})(eui.Skin);
 
-	var GameSetting$Skin54 = 	(function (_super) {
-		__extends(GameSetting$Skin54, _super);
-		function GameSetting$Skin54() {
+	var GameSetting$Skin60 = 	(function (_super) {
+		__extends(GameSetting$Skin60, _super);
+		function GameSetting$Skin60() {
 			_super.call(this);
 			this.skinParts = ["labelDisplay"];
 			
@@ -6330,7 +7075,7 @@ window.skins=window.skins||{};
 					])
 			];
 		}
-		var _proto = GameSetting$Skin54.prototype;
+		var _proto = GameSetting$Skin60.prototype;
 
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
@@ -6350,12 +7095,12 @@ window.skins=window.skins||{};
 			t.verticalCenter = -5;
 			return t;
 		};
-		return GameSetting$Skin54;
+		return GameSetting$Skin60;
 	})(eui.Skin);
 
-	var GameSetting$Skin55 = 	(function (_super) {
-		__extends(GameSetting$Skin55, _super);
-		function GameSetting$Skin55() {
+	var GameSetting$Skin61 = 	(function (_super) {
+		__extends(GameSetting$Skin61, _super);
+		function GameSetting$Skin61() {
 			_super.call(this);
 			this.skinParts = ["labelDisplay"];
 			
@@ -6374,7 +7119,7 @@ window.skins=window.skins||{};
 					])
 			];
 		}
-		var _proto = GameSetting$Skin55.prototype;
+		var _proto = GameSetting$Skin61.prototype;
 
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
@@ -6394,12 +7139,12 @@ window.skins=window.skins||{};
 			t.verticalCenter = -5;
 			return t;
 		};
-		return GameSetting$Skin55;
+		return GameSetting$Skin61;
 	})(eui.Skin);
 
-	var GameSetting$Skin56 = 	(function (_super) {
-		__extends(GameSetting$Skin56, _super);
-		function GameSetting$Skin56() {
+	var GameSetting$Skin62 = 	(function (_super) {
+		__extends(GameSetting$Skin62, _super);
+		function GameSetting$Skin62() {
 			_super.call(this);
 			this.skinParts = ["labelDisplay"];
 			
@@ -6419,7 +7164,7 @@ window.skins=window.skins||{};
 					])
 			];
 		}
-		var _proto = GameSetting$Skin56.prototype;
+		var _proto = GameSetting$Skin62.prototype;
 
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
@@ -6436,7 +7181,7 @@ window.skins=window.skins||{};
 			t.verticalCenter = 0;
 			return t;
 		};
-		return GameSetting$Skin56;
+		return GameSetting$Skin62;
 	})(eui.Skin);
 
 	function GameSetting() {
@@ -6530,7 +7275,7 @@ window.skins=window.skins||{};
 		t.label = "";
 		t.x = 987;
 		t.y = 172;
-		t.skinName = GameSetting$Skin53;
+		t.skinName = GameSetting$Skin59;
 		return t;
 	};
 	_proto.exit_game_btn_i = function () {
@@ -6539,7 +7284,7 @@ window.skins=window.skins||{};
 		t.label = "退出游戏";
 		t.x = 386;
 		t.y = 461;
-		t.skinName = GameSetting$Skin54;
+		t.skinName = GameSetting$Skin60;
 		return t;
 	};
 	_proto.return_game_btn_i = function () {
@@ -6548,7 +7293,7 @@ window.skins=window.skins||{};
 		t.label = "返回游戏";
 		t.x = 746;
 		t.y = 461;
-		t.skinName = GameSetting$Skin55;
+		t.skinName = GameSetting$Skin61;
 		return t;
 	};
 	_proto.nickname_edt_i = function () {
@@ -6572,15 +7317,15 @@ window.skins=window.skins||{};
 		t.label = "";
 		t.x = 483;
 		t.y = 371;
-		t.skinName = GameSetting$Skin56;
+		t.skinName = GameSetting$Skin62;
 		return t;
 	};
 	return GameSetting;
 })(eui.Skin);generateEUI.paths['resource/game_skins/game/GameShare.exml'] = window.GameShare = (function (_super) {
 	__extends(GameShare, _super);
-	var GameShare$Skin57 = 	(function (_super) {
-		__extends(GameShare$Skin57, _super);
-		function GameShare$Skin57() {
+	var GameShare$Skin63 = 	(function (_super) {
+		__extends(GameShare$Skin63, _super);
+		function GameShare$Skin63() {
 			_super.call(this);
 			this.skinParts = ["labelDisplay"];
 			
@@ -6599,7 +7344,7 @@ window.skins=window.skins||{};
 					])
 			];
 		}
-		var _proto = GameShare$Skin57.prototype;
+		var _proto = GameShare$Skin63.prototype;
 
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
@@ -6615,12 +7360,12 @@ window.skins=window.skins||{};
 			t.verticalCenter = 0;
 			return t;
 		};
-		return GameShare$Skin57;
+		return GameShare$Skin63;
 	})(eui.Skin);
 
-	var GameShare$Skin58 = 	(function (_super) {
-		__extends(GameShare$Skin58, _super);
-		function GameShare$Skin58() {
+	var GameShare$Skin64 = 	(function (_super) {
+		__extends(GameShare$Skin64, _super);
+		function GameShare$Skin64() {
 			_super.call(this);
 			this.skinParts = ["labelDisplay"];
 			
@@ -6641,7 +7386,7 @@ window.skins=window.skins||{};
 					])
 			];
 		}
-		var _proto = GameShare$Skin58.prototype;
+		var _proto = GameShare$Skin64.prototype;
 
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
@@ -6668,12 +7413,12 @@ window.skins=window.skins||{};
 			t.y = 136;
 			return t;
 		};
-		return GameShare$Skin58;
+		return GameShare$Skin64;
 	})(eui.Skin);
 
-	var GameShare$Skin59 = 	(function (_super) {
-		__extends(GameShare$Skin59, _super);
-		function GameShare$Skin59() {
+	var GameShare$Skin65 = 	(function (_super) {
+		__extends(GameShare$Skin65, _super);
+		function GameShare$Skin65() {
 			_super.call(this);
 			this.skinParts = ["labelDisplay"];
 			
@@ -6694,7 +7439,7 @@ window.skins=window.skins||{};
 					])
 			];
 		}
-		var _proto = GameShare$Skin59.prototype;
+		var _proto = GameShare$Skin65.prototype;
 
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
@@ -6721,12 +7466,12 @@ window.skins=window.skins||{};
 			t.y = 136;
 			return t;
 		};
-		return GameShare$Skin59;
+		return GameShare$Skin65;
 	})(eui.Skin);
 
-	var GameShare$Skin60 = 	(function (_super) {
-		__extends(GameShare$Skin60, _super);
-		function GameShare$Skin60() {
+	var GameShare$Skin66 = 	(function (_super) {
+		__extends(GameShare$Skin66, _super);
+		function GameShare$Skin66() {
 			_super.call(this);
 			this.skinParts = ["labelDisplay"];
 			
@@ -6747,7 +7492,7 @@ window.skins=window.skins||{};
 					])
 			];
 		}
-		var _proto = GameShare$Skin60.prototype;
+		var _proto = GameShare$Skin66.prototype;
 
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
@@ -6774,7 +7519,7 @@ window.skins=window.skins||{};
 			t.y = 136;
 			return t;
 		};
-		return GameShare$Skin60;
+		return GameShare$Skin66;
 	})(eui.Skin);
 
 	function GameShare() {
@@ -6828,7 +7573,7 @@ window.skins=window.skins||{};
 		t.label = "";
 		t.x = 949;
 		t.y = 74;
-		t.skinName = GameShare$Skin57;
+		t.skinName = GameShare$Skin63;
 		return t;
 	};
 	_proto.shareUrl_btn_i = function () {
@@ -6837,7 +7582,7 @@ window.skins=window.skins||{};
 		t.label = "复制链接";
 		t.x = 798;
 		t.y = 462;
-		t.skinName = GameShare$Skin58;
+		t.skinName = GameShare$Skin64;
 		return t;
 	};
 	_proto.shareFriend_btn_i = function () {
@@ -6846,7 +7591,7 @@ window.skins=window.skins||{};
 		t.label = "微信消息";
 		t.x = 408;
 		t.y = 462;
-		t.skinName = GameShare$Skin59;
+		t.skinName = GameShare$Skin65;
 		return t;
 	};
 	_proto.shareGroup_btn_i = function () {
@@ -6855,15 +7600,110 @@ window.skins=window.skins||{};
 		t.label = "微信朋友圈";
 		t.x = 604;
 		t.y = 462;
-		t.skinName = GameShare$Skin60;
+		t.skinName = GameShare$Skin66;
 		return t;
 	};
 	return GameShare;
+})(eui.Skin);generateEUI.paths['resource/game_skins/game/GetPrize.exml'] = window.GetPrize = (function (_super) {
+	__extends(GetPrize, _super);
+	function GetPrize() {
+		_super.call(this);
+		this.skinParts = ["prizeNum","hideGroup","prize_group"];
+		
+		this.height = 750;
+		this.width = 1334;
+		this.elementsContent = [this.hideGroup_i(),this.prize_group_i()];
+	}
+	var _proto = GetPrize.prototype;
+
+	_proto.hideGroup_i = function () {
+		var t = new eui.Group();
+		this.hideGroup = t;
+		t.percentHeight = 100;
+		t.percentWidth = 100;
+		t.x = 0;
+		t.y = 0;
+		t.elementsContent = [this._Rect1_i(),this.prizeNum_i()];
+		return t;
+	};
+	_proto._Rect1_i = function () {
+		var t = new eui.Rect();
+		t.fillAlpha = 0.6;
+		t.percentHeight = 100;
+		t.scaleX = 1;
+		t.scaleY = 1;
+		t.percentWidth = 100;
+		t.x = 0;
+		t.y = 0;
+		return t;
+	};
+	_proto.prizeNum_i = function () {
+		var t = new eui.Label();
+		this.prizeNum = t;
+		t.fontFamily = "myFont";
+		t.horizontalCenter = 0;
+		t.scaleX = 1;
+		t.scaleY = 1;
+		t.text = "Label";
+		t.x = 633;
+		t.y = 395;
+		return t;
+	};
+	_proto.prize_group_i = function () {
+		var t = new eui.Group();
+		this.prize_group = t;
+		t.anchorOffsetX = 59.5;
+		t.x = 667.5;
+		t.y = 273;
+		t.elementsContent = [this._Image1_i(),this._Image2_i(),this._Image3_i(),this._Image4_i()];
+		return t;
+	};
+	_proto._Image1_i = function () {
+		var t = new eui.Image();
+		t.anchorOffsetX = 35;
+		t.scaleX = 1;
+		t.scaleY = 1;
+		t.source = "gameRes_json.Icon_Kuangshi_png";
+		t.x = 44;
+		t.y = 8;
+		return t;
+	};
+	_proto._Image2_i = function () {
+		var t = new eui.Image();
+		t.anchorOffsetX = 35;
+		t.scaleX = 1;
+		t.scaleY = 1;
+		t.source = "gameRes_json.Icon_Kuangshi_png";
+		t.x = 84;
+		t.y = 19;
+		return t;
+	};
+	_proto._Image3_i = function () {
+		var t = new eui.Image();
+		t.anchorOffsetX = 35;
+		t.scaleX = 1;
+		t.scaleY = 1;
+		t.source = "gameRes_json.Icon_Kuangshi_png";
+		t.x = 24;
+		t.y = 36;
+		return t;
+	};
+	_proto._Image4_i = function () {
+		var t = new eui.Image();
+		t.anchorOffsetX = 35;
+		t.scaleX = 1;
+		t.scaleY = 1;
+		t.source = "gameRes_json.Icon_Kuangshi_png";
+		t.x = 68;
+		t.y = 45;
+		return t;
+	};
+	return GetPrize;
 })(eui.Skin);generateEUI.paths['resource/game_skins/game/GoodsInfo.exml'] = window.GoodsInfo = (function (_super) {
 	__extends(GoodsInfo, _super);
-	var GoodsInfo$Skin61 = 	(function (_super) {
-		__extends(GoodsInfo$Skin61, _super);
-		function GoodsInfo$Skin61() {
+	var GoodsInfo$Skin67 = 	(function (_super) {
+		__extends(GoodsInfo$Skin67, _super);
+		function GoodsInfo$Skin67() {
 			_super.call(this);
 			this.skinParts = ["labelDisplay"];
 			
@@ -6882,7 +7722,7 @@ window.skins=window.skins||{};
 					])
 			];
 		}
-		var _proto = GoodsInfo$Skin61.prototype;
+		var _proto = GoodsInfo$Skin67.prototype;
 
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
@@ -6898,7 +7738,7 @@ window.skins=window.skins||{};
 			t.verticalCenter = 0;
 			return t;
 		};
-		return GoodsInfo$Skin61;
+		return GoodsInfo$Skin67;
 	})(eui.Skin);
 
 	function GoodsInfo() {
@@ -6991,7 +7831,7 @@ window.skins=window.skins||{};
 		t.scaleY = 1;
 		t.x = 877;
 		t.y = 112;
-		t.skinName = GoodsInfo$Skin61;
+		t.skinName = GoodsInfo$Skin67;
 		return t;
 	};
 	return GoodsInfo;
@@ -7057,9 +7897,9 @@ window.skins=window.skins||{};
 	return GoodsItem;
 })(eui.Skin);generateEUI.paths['resource/game_skins/game/headComment.exml'] = window.headComment = (function (_super) {
 	__extends(headComment, _super);
-	var headComment$Skin62 = 	(function (_super) {
-		__extends(headComment$Skin62, _super);
-		function headComment$Skin62() {
+	var headComment$Skin68 = 	(function (_super) {
+		__extends(headComment$Skin68, _super);
+		function headComment$Skin68() {
 			_super.call(this);
 			this.skinParts = ["labelDisplay"];
 			
@@ -7078,7 +7918,7 @@ window.skins=window.skins||{};
 					])
 			];
 		}
-		var _proto = headComment$Skin62.prototype;
+		var _proto = headComment$Skin68.prototype;
 
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
@@ -7094,7 +7934,7 @@ window.skins=window.skins||{};
 			t.verticalCenter = 0;
 			return t;
 		};
-		return headComment$Skin62;
+		return headComment$Skin68;
 	})(eui.Skin);
 
 	function headComment() {
@@ -7208,15 +8048,15 @@ window.skins=window.skins||{};
 		t.label = "";
 		t.x = 0;
 		t.y = 0;
-		t.skinName = headComment$Skin62;
+		t.skinName = headComment$Skin68;
 		return t;
 	};
 	return headComment;
 })(eui.Skin);generateEUI.paths['resource/game_skins/game/MineArea.exml'] = window.MineArea = (function (_super) {
 	__extends(MineArea, _super);
-	var MineArea$Skin63 = 	(function (_super) {
-		__extends(MineArea$Skin63, _super);
-		function MineArea$Skin63() {
+	var MineArea$Skin69 = 	(function (_super) {
+		__extends(MineArea$Skin69, _super);
+		function MineArea$Skin69() {
 			_super.call(this);
 			this.skinParts = ["labelDisplay"];
 			
@@ -7235,7 +8075,7 @@ window.skins=window.skins||{};
 					])
 			];
 		}
-		var _proto = MineArea$Skin63.prototype;
+		var _proto = MineArea$Skin69.prototype;
 
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
@@ -7255,12 +8095,12 @@ window.skins=window.skins||{};
 			t.verticalCenter = -5;
 			return t;
 		};
-		return MineArea$Skin63;
+		return MineArea$Skin69;
 	})(eui.Skin);
 
-	var MineArea$Skin64 = 	(function (_super) {
-		__extends(MineArea$Skin64, _super);
-		function MineArea$Skin64() {
+	var MineArea$Skin70 = 	(function (_super) {
+		__extends(MineArea$Skin70, _super);
+		function MineArea$Skin70() {
 			_super.call(this);
 			this.skinParts = ["labelDisplay"];
 			
@@ -7279,7 +8119,7 @@ window.skins=window.skins||{};
 					])
 			];
 		}
-		var _proto = MineArea$Skin64.prototype;
+		var _proto = MineArea$Skin70.prototype;
 
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
@@ -7299,12 +8139,12 @@ window.skins=window.skins||{};
 			t.verticalCenter = -5;
 			return t;
 		};
-		return MineArea$Skin64;
+		return MineArea$Skin70;
 	})(eui.Skin);
 
-	var MineArea$Skin65 = 	(function (_super) {
-		__extends(MineArea$Skin65, _super);
-		function MineArea$Skin65() {
+	var MineArea$Skin71 = 	(function (_super) {
+		__extends(MineArea$Skin71, _super);
+		function MineArea$Skin71() {
 			_super.call(this);
 			this.skinParts = ["labelDisplay","tx"];
 			
@@ -7323,7 +8163,7 @@ window.skins=window.skins||{};
 					])
 			];
 		}
-		var _proto = MineArea$Skin65.prototype;
+		var _proto = MineArea$Skin71.prototype;
 
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
@@ -7355,7 +8195,7 @@ window.skins=window.skins||{};
 			t.width = 218;
 			return t;
 		};
-		return MineArea$Skin65;
+		return MineArea$Skin71;
 	})(eui.Skin);
 
 	function MineArea() {
@@ -7398,7 +8238,7 @@ window.skins=window.skins||{};
 		t.horizontalCenter = 0;
 		t.label = "配置挖掘机";
 		t.y = 258;
-		t.skinName = MineArea$Skin63;
+		t.skinName = MineArea$Skin69;
 		return t;
 	};
 	_proto.config_panning_engine_btn_i = function () {
@@ -7407,7 +8247,7 @@ window.skins=window.skins||{};
 		t.horizontalCenter = 0;
 		t.label = "配置淘洗机器";
 		t.y = 258;
-		t.skinName = MineArea$Skin64;
+		t.skinName = MineArea$Skin70;
 		return t;
 	};
 	_proto.start_dig_btn_i = function () {
@@ -7416,7 +8256,7 @@ window.skins=window.skins||{};
 		t.horizontalCenter = 0;
 		t.label = "";
 		t.y = 611.33;
-		t.skinName = MineArea$Skin65;
+		t.skinName = MineArea$Skin71;
 		return t;
 	};
 	_proto.panning_engine_i = function () {
@@ -7542,9 +8382,9 @@ window.skins=window.skins||{};
 	return MineArea;
 })(eui.Skin);generateEUI.paths['resource/game_skins/game/MineManager.exml'] = window.MineManager = (function (_super) {
 	__extends(MineManager, _super);
-	var MineManager$Skin66 = 	(function (_super) {
-		__extends(MineManager$Skin66, _super);
-		function MineManager$Skin66() {
+	var MineManager$Skin72 = 	(function (_super) {
+		__extends(MineManager$Skin72, _super);
+		function MineManager$Skin72() {
 			_super.call(this);
 			this.skinParts = ["labelDisplay"];
 			
@@ -7563,7 +8403,7 @@ window.skins=window.skins||{};
 					])
 			];
 		}
-		var _proto = MineManager$Skin66.prototype;
+		var _proto = MineManager$Skin72.prototype;
 
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
@@ -7579,12 +8419,12 @@ window.skins=window.skins||{};
 			t.verticalCenter = 0;
 			return t;
 		};
-		return MineManager$Skin66;
+		return MineManager$Skin72;
 	})(eui.Skin);
 
-	var MineManager$Skin67 = 	(function (_super) {
-		__extends(MineManager$Skin67, _super);
-		function MineManager$Skin67() {
+	var MineManager$Skin73 = 	(function (_super) {
+		__extends(MineManager$Skin73, _super);
+		function MineManager$Skin73() {
 			_super.call(this);
 			this.skinParts = ["labelDisplay"];
 			
@@ -7603,7 +8443,7 @@ window.skins=window.skins||{};
 					])
 			];
 		}
-		var _proto = MineManager$Skin67.prototype;
+		var _proto = MineManager$Skin73.prototype;
 
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
@@ -7619,12 +8459,12 @@ window.skins=window.skins||{};
 			t.verticalCenter = 0;
 			return t;
 		};
-		return MineManager$Skin67;
+		return MineManager$Skin73;
 	})(eui.Skin);
 
-	var MineManager$Skin68 = 	(function (_super) {
-		__extends(MineManager$Skin68, _super);
-		function MineManager$Skin68() {
+	var MineManager$Skin74 = 	(function (_super) {
+		__extends(MineManager$Skin74, _super);
+		function MineManager$Skin74() {
 			_super.call(this);
 			this.skinParts = ["labelDisplay"];
 			
@@ -7643,7 +8483,7 @@ window.skins=window.skins||{};
 					])
 			];
 		}
-		var _proto = MineManager$Skin68.prototype;
+		var _proto = MineManager$Skin74.prototype;
 
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
@@ -7662,16 +8502,16 @@ window.skins=window.skins||{};
 			t.verticalCenter = 0;
 			return t;
 		};
-		return MineManager$Skin68;
+		return MineManager$Skin74;
 	})(eui.Skin);
 
 	function MineManager() {
 		_super.call(this);
-		this.skinParts = ["head_group","role","mine_area_bg","mine_name","description","price","total_output","surplus","last_btn","next_btn","buy_btn"];
+		this.skinParts = ["head_group","role","role_group","mine_area_bg","mine_name","description","price","total_output","surplus","last_btn","next_btn","buy_btn"];
 		
 		this.height = 750;
 		this.width = 1334;
-		this.elementsContent = [this._Image1_i(),this._Image2_i(),this.head_group_i(),this.role_i(),this._Group1_i()];
+		this.elementsContent = [this._Image1_i(),this._Image2_i(),this.head_group_i(),this.role_i(),this.role_group_i(),this._Group1_i()];
 	}
 	var _proto = MineManager.prototype;
 
@@ -7706,7 +8546,16 @@ window.skins=window.skins||{};
 		this.role = t;
 		t.bottom = 0;
 		t.source = "Lv.6_png";
+		t.visible = false;
 		t.x = -89;
+		return t;
+	};
+	_proto.role_group_i = function () {
+		var t = new eui.Group();
+		this.role_group = t;
+		t.bottom = 0;
+		t.horizontalCenter = -375;
+		t.width = 644;
 		return t;
 	};
 	_proto._Group1_i = function () {
@@ -7877,7 +8726,7 @@ window.skins=window.skins||{};
 		t.width = 56;
 		t.x = 47;
 		t.y = 217;
-		t.skinName = MineManager$Skin66;
+		t.skinName = MineManager$Skin72;
 		return t;
 	};
 	_proto.next_btn_i = function () {
@@ -7889,7 +8738,7 @@ window.skins=window.skins||{};
 		t.scaleY = 1;
 		t.x = 835;
 		t.y = 217;
-		t.skinName = MineManager$Skin67;
+		t.skinName = MineManager$Skin73;
 		return t;
 	};
 	_proto.buy_btn_i = function () {
@@ -7901,7 +8750,7 @@ window.skins=window.skins||{};
 		t.scaleY = 1;
 		t.x = 336;
 		t.y = 509;
-		t.skinName = MineManager$Skin68;
+		t.skinName = MineManager$Skin74;
 		return t;
 	};
 	return MineManager;
@@ -7977,9 +8826,9 @@ window.skins=window.skins||{};
 	return MinerServerCenter;
 })(eui.Skin);generateEUI.paths['resource/game_skins/game/OwnerItem.exml'] = window.OwnerItem = (function (_super) {
 	__extends(OwnerItem, _super);
-	var OwnerItem$Skin69 = 	(function (_super) {
-		__extends(OwnerItem$Skin69, _super);
-		function OwnerItem$Skin69() {
+	var OwnerItem$Skin75 = 	(function (_super) {
+		__extends(OwnerItem$Skin75, _super);
+		function OwnerItem$Skin75() {
 			_super.call(this);
 			this.skinParts = ["labelDisplay","wz"];
 			
@@ -7998,7 +8847,7 @@ window.skins=window.skins||{};
 					])
 			];
 		}
-		var _proto = OwnerItem$Skin69.prototype;
+		var _proto = OwnerItem$Skin75.prototype;
 
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
@@ -8031,7 +8880,7 @@ window.skins=window.skins||{};
 			t.width = 199;
 			return t;
 		};
-		return OwnerItem$Skin69;
+		return OwnerItem$Skin75;
 	})(eui.Skin);
 
 	function OwnerItem() {
@@ -8161,7 +9010,7 @@ window.skins=window.skins||{};
 		t.label = "";
 		t.x = 683;
 		t.y = 68;
-		t.skinName = OwnerItem$Skin69;
+		t.skinName = OwnerItem$Skin75;
 		return t;
 	};
 	_proto.time_group_i = function () {
@@ -8203,9 +9052,9 @@ window.skins=window.skins||{};
 	return OwnerItem;
 })(eui.Skin);generateEUI.paths['resource/game_skins/game/ToolInfo.exml'] = window.ToolInfo = (function (_super) {
 	__extends(ToolInfo, _super);
-	var ToolInfo$Skin70 = 	(function (_super) {
-		__extends(ToolInfo$Skin70, _super);
-		function ToolInfo$Skin70() {
+	var ToolInfo$Skin76 = 	(function (_super) {
+		__extends(ToolInfo$Skin76, _super);
+		function ToolInfo$Skin76() {
 			_super.call(this);
 			this.skinParts = ["labelDisplay"];
 			
@@ -8224,7 +9073,7 @@ window.skins=window.skins||{};
 					])
 			];
 		}
-		var _proto = ToolInfo$Skin70.prototype;
+		var _proto = ToolInfo$Skin76.prototype;
 
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
@@ -8240,12 +9089,12 @@ window.skins=window.skins||{};
 			t.verticalCenter = 0;
 			return t;
 		};
-		return ToolInfo$Skin70;
+		return ToolInfo$Skin76;
 	})(eui.Skin);
 
-	var ToolInfo$Skin71 = 	(function (_super) {
-		__extends(ToolInfo$Skin71, _super);
-		function ToolInfo$Skin71() {
+	var ToolInfo$Skin77 = 	(function (_super) {
+		__extends(ToolInfo$Skin77, _super);
+		function ToolInfo$Skin77() {
 			_super.call(this);
 			this.skinParts = ["labelDisplay"];
 			
@@ -8264,7 +9113,7 @@ window.skins=window.skins||{};
 					])
 			];
 		}
-		var _proto = ToolInfo$Skin71.prototype;
+		var _proto = ToolInfo$Skin77.prototype;
 
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
@@ -8280,12 +9129,12 @@ window.skins=window.skins||{};
 			t.verticalCenter = 0;
 			return t;
 		};
-		return ToolInfo$Skin71;
+		return ToolInfo$Skin77;
 	})(eui.Skin);
 
-	var ToolInfo$Skin72 = 	(function (_super) {
-		__extends(ToolInfo$Skin72, _super);
-		function ToolInfo$Skin72() {
+	var ToolInfo$Skin78 = 	(function (_super) {
+		__extends(ToolInfo$Skin78, _super);
+		function ToolInfo$Skin78() {
 			_super.call(this);
 			this.skinParts = ["labelDisplay"];
 			
@@ -8304,7 +9153,7 @@ window.skins=window.skins||{};
 					])
 			];
 		}
-		var _proto = ToolInfo$Skin72.prototype;
+		var _proto = ToolInfo$Skin78.prototype;
 
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
@@ -8320,12 +9169,12 @@ window.skins=window.skins||{};
 			t.verticalCenter = 0;
 			return t;
 		};
-		return ToolInfo$Skin72;
+		return ToolInfo$Skin78;
 	})(eui.Skin);
 
-	var ToolInfo$Skin73 = 	(function (_super) {
-		__extends(ToolInfo$Skin73, _super);
-		function ToolInfo$Skin73() {
+	var ToolInfo$Skin79 = 	(function (_super) {
+		__extends(ToolInfo$Skin79, _super);
+		function ToolInfo$Skin79() {
 			_super.call(this);
 			this.skinParts = ["labelDisplay"];
 			
@@ -8344,7 +9193,7 @@ window.skins=window.skins||{};
 					])
 			];
 		}
-		var _proto = ToolInfo$Skin73.prototype;
+		var _proto = ToolInfo$Skin79.prototype;
 
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
@@ -8360,7 +9209,7 @@ window.skins=window.skins||{};
 			t.verticalCenter = 0;
 			return t;
 		};
-		return ToolInfo$Skin73;
+		return ToolInfo$Skin79;
 	})(eui.Skin);
 
 	function ToolInfo() {
@@ -8478,7 +9327,7 @@ window.skins=window.skins||{};
 		t.scaleY = 1;
 		t.x = 877;
 		t.y = 112;
-		t.skinName = ToolInfo$Skin70;
+		t.skinName = ToolInfo$Skin76;
 		return t;
 	};
 	_proto.buy_one_btn_i = function () {
@@ -8491,7 +9340,7 @@ window.skins=window.skins||{};
 		t.scaleY = 1;
 		t.x = 530;
 		t.y = 540;
-		t.skinName = ToolInfo$Skin71;
+		t.skinName = ToolInfo$Skin77;
 		return t;
 	};
 	_proto.sub_btn_i = function () {
@@ -8504,7 +9353,7 @@ window.skins=window.skins||{};
 		t.scaleY = 1;
 		t.x = 507.5;
 		t.y = 460.5;
-		t.skinName = ToolInfo$Skin72;
+		t.skinName = ToolInfo$Skin78;
 		return t;
 	};
 	_proto.add_btn_i = function () {
@@ -8517,7 +9366,7 @@ window.skins=window.skins||{};
 		t.scaleY = 1;
 		t.x = 782.5;
 		t.y = 460.5;
-		t.skinName = ToolInfo$Skin73;
+		t.skinName = ToolInfo$Skin79;
 		return t;
 	};
 	return ToolInfo;

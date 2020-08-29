@@ -2,10 +2,12 @@
 <e:Skin class="RecodePage" width="750" height="1334" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
 	<e:Rect width="100%" height="100%" x="0" y="0" fillColor="0xFFFFFF"/>
 	<e:Image source="appIcon_json.Bg_Personal03_png" x="0" y="0" width="100%" height="164"/>
-	<e:Label text="交易记录" y="27" textColor="0x353535" fontFamily="myFont" size="34" x="307"/>
-	<e:Image id="close_btn" source="appIcon_json.Banner_Personal_Back01_png" x="30" y="28"/>
 	<e:Image source="appIcon_json.Line_Personal02_png" y="90" width="690" horizontalCenter="0"/>
 	<e:Image source="appIcon_json.Bg_Wallet09_png" y="94" horizontalCenter="0.5"/>
+	<e:Group id="close_btn" width="72" height="68" x="13" y="17" anchorOffsetX="0" anchorOffsetY="0">
+		<e:Image source="appIcon_json.Banner_Personal_Back01_png" x="17" y="11" scaleX="1" scaleY="1"/>
+	</e:Group>
+	<e:Label text="交易记录" y="27" textColor="0x353535" fontFamily="myFont" size="34" x="307"/>
 	<e:Button id="gst_info_btn" label="GST记录" x="90" y="97">
 		<e:skinName>
 			<e:Skin states="up,down,disabled" xmlns:w="http://ns.egret.com/wing" width="244" height="55">

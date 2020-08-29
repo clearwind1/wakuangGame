@@ -64,6 +64,12 @@ declare class NewsContant extends eui.Skin{
 }
 declare class NewsItem extends eui.Skin{
 }
+declare class Purse_incomPage extends eui.Skin{
+}
+declare class Purse_outputPage extends eui.Skin{
+}
+declare class Purse_setPayPasswordPage extends eui.Skin{
+}
 declare class PursePage extends eui.Skin{
 }
 declare class RecodeItem extends eui.Skin{

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="Purse_incomPage" width="750" height="1334" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Image source="appIcon_json.Bg_Main01_png" y="0" width="100%" height="100%" x="0" scale9Grid="15,37,7,4"/>
+	<e:Image source="appIcon_json.Bg_Main02_png" x="0" y="0" width="750"/>
+	<e:Image source="appIcon_json.Line_Information01_png" y="90" width="690" horizontalCenter="0"/>
+	<e:Image source="appIcon_json.Bg_Wallet01_png" y="192" scale9Grid="12,12,76,76" width="608" height="1002" horizontalCenter="0"/>
+	<e:Image id="headImg" source="appIcon_json.Bg_Personal04_png" y="252" horizontalCenter="0" width="142" height="142"/>
+	<e:Image id="headMask" source="appIcon_json.Bg_Personal04_png" y="252" horizontalCenter="0"/>
+	<e:Image id="address_qrcode" width="324" height="324" y="534" horizontalCenter="0"/>
+	<e:Image source="appIcon_json.Bg_Wallet06_png" y="914" horizontalCenter="0"/>
+	<e:Group id="back_btn" width="74" height="73" x="10" y="10" anchorOffsetX="0" anchorOffsetY="0">
+		<e:Image source="appIcon_json.Banner_Information_Back01_png" x="20" y="22" scaleX="1" scaleY="1"/>
+	</e:Group>
+	<e:Label text="收钱" y="28" size="34" horizontalCenter="0" fontFamily="myFont"/>
+	<e:Label id="nickname" text="name" y="425" size="40" horizontalCenter="0" fontFamily="myFont" textColor="0x353535"/>
+	<e:Label text="钱包地址" y="967" size="26" horizontalCenter="0" fontFamily="myFont" textColor="0x9b9b9b"/>
+	<e:Label id="address" text="钱包地址" y="1019" size="24" horizontalCenter="0" fontFamily="myFont" textColor="0x353535"/>
+</e:Skin>

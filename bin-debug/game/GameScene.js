@@ -104,7 +104,6 @@ var Game;
             }
         };
         GameScene.prototype.initEnent = function () {
-            var _this = this;
             this.addEvent(this.exitbtn, egret.TouchEvent.TOUCH_TAP, this, this.exitGame);
             this.addEvent(this.manager_btn, egret.TouchEvent.TOUCH_TAP, this, this.showManager);
             this.addEvent(this.mine_btn, egret.TouchEvent.TOUCH_TAP, this, this.showMine);
@@ -123,13 +122,6 @@ var Game;
             this.addEvent(cor.EventManage.instance(), UpdataGameInfo, this, this.updata_gameinfo);
             this.addEvent(cor.EventManage.instance(), NEW_NOTICE, this, this.noticTip);
             this.addEvent(cor.EventManage.instance(), StartDigMine, this, this.startDigMine);
-            egret.ExternalInterface.addCallback("creatQRCode", function (message) {
-                // alert("message from Native is = " + message);
-                console.log(message);
-                var qr = new eui.Image();
-                qr.source = "data:image/png;base64," + message;
-                _this.addChild(qr);
-            });
         };
         GameScene.prototype.setExpbar = function () {
             this.expbar.width = (GameData.UserInfo.experience / GameData.UserInfo.current_grade_max_experience) * 248;
@@ -229,7 +221,6 @@ var Game;
          * 服务中心
          */
         GameScene.prototype.showServer_center = function () {
-            // egret.ExternalInterface.call("creatQRCode", "test");
             cor.Socket.getIntance().sendmsg('USER_HOLD_AREA_LIST', {}, function (rdata) {
                 Log(rdata);
                 cor.MainScene.instance().addChild(new Game.MinerServerCenter(rdata));

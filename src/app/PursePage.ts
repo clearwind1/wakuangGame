@@ -39,6 +39,9 @@ namespace Game {
 
             egret.ExternalInterface.addCallback("scanResult", (message: string) => {
                 // TipsSkin.instance().show(message);
+                if (cor.MainScene.instance().getChildIndex(this) == cor.MainScene.instance().numChildren - 1) {
+                    cor.MainScene.instance().addChild(new Purse_outputPage(message));
+                }
             });
         }
 
@@ -66,10 +69,17 @@ namespace Game {
             }, this)
         }
         private income() {
+            let purseInfo = this._purseInfo;
+            for (var k in purseInfo) {
+                if (purseInfo[k].coin_name == "GST") {
+                    cor.MainScene.instance().addChild(new Purse_incomPage(purseInfo[k]));
+                    break;
+                }
+            }
 
         }
         private output() {
-
+            cor.MainScene.instance().addChild(new Purse_outputPage());
         }
     }
 }

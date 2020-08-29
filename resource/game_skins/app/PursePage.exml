@@ -2,7 +2,9 @@
 <e:Skin class="PursePage" width="750" height="1334" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
 	<e:Rect width="100%" height="100%" x="0" y="0" fillColor="0xffffff"/>
 	<e:Label text="我的钱包" y="27" textColor="0x353535" fontFamily="myFont" size="34" x="307"/>
-	<e:Image id="close_btn" source="appIcon_json.Banner_Personal_Back01_png" x="30" y="28"/>
+	<e:Group id="close_btn" width="78" height="76" x="7" y="6" anchorOffsetX="0" anchorOffsetY="0">
+		<e:Image source="appIcon_json.Banner_Personal_Back01_png" x="23" y="22" scaleX="1" scaleY="1"/>
+	</e:Group>
 	<e:Image id="scan_btn" source="appIcon_json.Icon_Saoma_png" y="30" x="672"/>
 	<e:Image source="appIcon_json.Line_Personal01_png" y="89" width="690" horizontalCenter="0"/>
 	<e:Button id="gst_info_btn" label="" x="42" y="257">

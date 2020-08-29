@@ -282,14 +282,17 @@ function numberToText(num) {
 /**
  * 数字千位加逗号
  */
-function toThousands(num) {
-    var num = (num || 0).toString(), result = '';
+function toThousands(so_num) {
+    var num = (Math.abs(so_num) || 0).toString(), result = '';
     while (num.length > 3) {
         result = ',' + num.slice(-3) + result;
         num = num.slice(0, num.length - 3);
     }
     if (num) {
         result = num + result;
+    }
+    if (so_num < 0) {
+        result = '-' + result;
     }
     return result;
 }
