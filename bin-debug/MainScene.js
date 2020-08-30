@@ -52,3 +52,4 @@ var cor;
     cor.MainScene = MainScene;
     __reflect(MainScene.prototype, "cor.MainScene");
 })(cor || (cor = {}));
+//# sourceMappingURL=MainScene.js.map

@@ -80,8 +80,8 @@ namespace Game {
 
         //微信登录
         private wxLogin() {
-            // TipsSkin.instance().show("暂未开放,请使用手机账号登录");
-            // return;
+            TipsSkin.instance().show("暂未开放,请使用手机账号登录");
+            return;
             cor.Socket.getIntance().sendmsg('LOGIN', {
                 "mobile": '15017557355',
                 "password": '123456'

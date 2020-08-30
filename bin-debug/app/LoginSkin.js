@@ -250,3 +250,4 @@ var Game;
     Game.LoginSkin = LoginSkin;
     __reflect(LoginSkin.prototype, "Game.LoginSkin");
 })(Game || (Game = {}));
+//# sourceMappingURL=LoginSkin.js.map

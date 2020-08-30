@@ -68,6 +68,7 @@ namespace Game {
             this.addEvent(this.news_list, eui.ItemTapEvent.ITEM_TAP, this, this.showNewsContant);
             this.addEvent(this.news_list0, eui.ItemTapEvent.ITEM_TAP, this, this.showNewsContant);
 
+            this.addEvent(this.purseManage_btn, egret.TouchEvent.TOUCH_TAP, this, this.showPurse);
             this.addEvent(this.invite_code_btn, egret.TouchEvent.TOUCH_TAP, this, this.copyCode);
             this.addEvent(this.setting_btn, egret.TouchEvent.TOUCH_TAP, this, this.showSettingPage);
 
@@ -245,6 +246,18 @@ namespace Game {
 
         //进入游戏
         private gotoGame() {
+
+            // egret.MainContext.instance.stage.setContentSize(1334, 750);
+            // egret.MainContext.instance.stage.orientation = egret.OrientationMode.LANDSCAPE;
+            // egret.MainContext.instance.stage.scaleMode = egret.StageScaleMode.FIXED_HEIGHT;
+
+            // GameData.GameWidth = egret.MainContext.instance.stage.stageWidth;
+            // GameData.GameHeigth = egret.MainContext.instance.stage.stageHeight;
+            // GameData.BGame = true;
+            // let loadingScene = new LoadingView();
+            // cor.MainScene.instance().addChild(loadingScene);
+            // RES.loadGroup("gameres", 0, loadingScene);
+            // return;
             cor.Socket.getIntance().sendmsg('GET_USER_BASE_INFO', {}, async (rdata) => {
                 Log(rdata);
                 egret.MainContext.instance.stage.setContentSize(1334, 750);
@@ -276,7 +289,7 @@ namespace Game {
         }
         //复制邀请码
         private copyCode() {
-            egret.ExternalInterface.call("sendToNative", "copyStr$" + GameData.UserInfo.invitation_code);   
+            egret.ExternalInterface.call("sendToNative", "copyStr$" + GameData.UserInfo.invitation_code);
         }
         //设置界面
         private showSettingPage() {

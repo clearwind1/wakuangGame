@@ -55,6 +55,9 @@ namespace Game {
         }
 
         private addToStage() {
+            if (GameData.UserInfo.identity == IDENTITY.Owner) {
+                this.btn.visible = false;
+            }
             this.btn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.btn_touch, this);            
         }
 

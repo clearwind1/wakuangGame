@@ -62,6 +62,7 @@ var cor;
             var role = createDB(name);
             role.x = role.width / 2;
             target.addChild(role);
+            role.touchEnabled = false;
             role.animation.play();
             this.dbList.push({
                 db: role,
@@ -188,3 +189,4 @@ var cor;
     cor.BaseScene = BaseScene;
     __reflect(BaseScene.prototype, "cor.BaseScene");
 })(cor || (cor = {}));
+//# sourceMappingURL=BaseScene.js.map

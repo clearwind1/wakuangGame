@@ -61,7 +61,6 @@ var Game;
         GameScene.prototype.init = function () {
             // init
             if (GameData.UserInfo.identity == IDENTITY.Miner) {
-                this.mine_btn.touchEnabled = false;
                 this.owner_icon.visible = false;
                 this.level.text = GameData.UserInfo.grade;
                 this.bg.source = "Bg_MiningArea_Lv1_png";
@@ -95,12 +94,16 @@ var Game;
             // this.warehouse_btn.filters = [colorFlilter];
             if (GameData.UserInfo.identity == IDENTITY.Miner) {
                 this.tools_store_btn.filters = [colorFlilter];
+                this.mine_btn.filters = [colorFlilter];
             }
-            if (typeof (GameData.UserInfo.dig_time) === 'string') {
-                GameData.UserInfo.dig_time = TimeTonumber(GameData.UserInfo.dig_time);
-            }
-            if (GameData.UserInfo.dig_time > 0) {
-                this.startDigMine();
+            // if (typeof (GameData.UserInfo.dig_time) === 'string') {
+            //     GameData.UserInfo.dig_time = TimeTonumber(GameData.UserInfo.dig_time);
+            // }
+            // if (GameData.UserInfo.dig_time > 0) {
+            //     this.startDigMine();
+            // }
+            if (GameData.UserInfo.hold_area_reward > 0) {
+                cor.MainScene.instance().addChild(new Game.GetPrize(GameData.UserInfo.hold_area_reward, 1));
             }
         };
         GameScene.prototype.initEnent = function () {
@@ -190,6 +193,10 @@ var Game;
          * 矿区
          */
         GameScene.prototype.showMine = function () {
+            if (GameData.UserInfo.identity == IDENTITY.Miner) {
+                Game.TipsSkin.instance().show("您还没有矿区，请前往购买");
+                return;
+            }
             cor.Socket.getIntance().sendmsg('GET_USER_HOLD_AREA_CONFIG', {}, function (rdata) {
                 Log(rdata);
                 cor.MainScene.instance().addChild(new Game.MineArea(rdata));
@@ -245,6 +252,12 @@ var Game;
          * 分享
          */
         GameScene.prototype.showShare = function () {
+            // GameData.UserInfo.current_hold_area_grade = 1;
+            // GameData.UserInfo.identity = IDENTITY.Owner;
+            // cor.EventManage.instance().sendEvent(ChangeIdentity);
+            // cor.EventManage.instance().sendEvent(UpdataGameInfo);
+            Game.TipsSkin.instance().show("暂未开放");
+            return;
             this.addChild(new Game.GameShare);
         };
         /**
@@ -284,16 +297,15 @@ var Game;
                 });
             }); }, this);
             if (GameData.UserInfo.identity == IDENTITY.Owner) {
-                this.mine_btn.touchEnabled = true;
                 this.mine_group.visible = false;
                 this.owner_icon.visible = true;
                 this.level.text = 'v' + GameData.UserInfo.current_hold_area_grade;
                 this.tools_store_btn.filters = [];
+                this.mine_btn.filters = [];
                 this.removeDB();
                 this.addDB(this.role_group, "Lv" + GameData.UserInfo.current_hold_area_grade);
             }
             else {
-                this.mine_btn.touchEnabled = false;
                 this.mine_group.visible = true;
                 this.owner_icon.visible = false;
                 this.level.text = GameData.UserInfo.grade;
@@ -308,6 +320,7 @@ var Game;
                 ];
                 var colorFlilter = new egret.ColorMatrixFilter(colorMatrix);
                 this.tools_store_btn.filters = [colorFlilter];
+                this.mine_btn.filters = [colorFlilter];
             }
         };
         /**
@@ -343,3 +356,4 @@ var Game;
     Game.GameScene = GameScene;
     __reflect(GameScene.prototype, "Game.GameScene");
 })(Game || (Game = {}));
+//# sourceMappingURL=GameScene.js.map

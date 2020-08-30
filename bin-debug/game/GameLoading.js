@@ -29,3 +29,4 @@ var Game;
     Game.GameLoading = GameLoading;
     __reflect(GameLoading.prototype, "Game.GameLoading");
 })(Game || (Game = {}));
+//# sourceMappingURL=GameLoading.js.map

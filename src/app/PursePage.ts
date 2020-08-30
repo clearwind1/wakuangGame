@@ -6,10 +6,12 @@ namespace Game {
         public scan_btn: eui.Image;
         public gst_info_btn: eui.Button;
         public usdt_info_btn: eui.Button;
+        public exchange_btn: eui.Button;
         public income_btn: eui.Button;
         public output_btn: eui.Button;
 
         private _purseInfo;
+        private _rateInfo;
         constructor(purseInfo) {
             super();
 
@@ -22,11 +24,19 @@ namespace Game {
             this._purseInfo = purseInfo;
             for (var k in purseInfo) {
                 if (purseInfo[k].coin_name == "GST") {
-                    this.gst_info_btn['num'].text = toThousands(Math.round(purseInfo[k].available_balance));
+                    this.gst_info_btn['num'].text = toThousands(purseInfo[k].available_balance);
                 } else {
-                    this.usdt_info_btn['num'].text = toThousands(Math.round(purseInfo[k].available_balance));
+                    this.usdt_info_btn['num'].text = toThousands(purseInfo[k].available_balance);
                 }
             }
+            this.exchange_btn['num'].text = "";
+            cor.Socket.getIntance().sendmsg('GET_GST_USDT_RATE', {
+            }, (rdata) => {
+                Log(rdata);
+                this._rateInfo = rdata;
+                this.exchange_btn['num'].text = rdata.usdt + "USDT:" + rdata.gst + "GST";
+                // cor.MainScene.instance().addChild(new RecodePage(rdata, "USDT"));
+            }, this)
         }
 
         public updataInfo() {
@@ -35,9 +45,9 @@ namespace Game {
                 this._purseInfo = rdata;
                 for (var k in rdata) {
                     if (rdata[k].coin_name == "GST") {
-                        this.gst_info_btn['num'].text = toThousands(Math.round(rdata[k].available_balance));
+                        this.gst_info_btn['num'].text = toThousands((rdata[k].available_balance));
                     } else {
-                        this.usdt_info_btn['num'].text = toThousands(Math.round(rdata[k].available_balance));
+                        this.usdt_info_btn['num'].text = toThousands((rdata[k].available_balance));
                     }
                 }
             }, this)
@@ -48,10 +58,11 @@ namespace Game {
             this.addEvent(this.scan_btn, egret.TouchEvent.TOUCH_TAP, this, this.scan);
             this.addEvent(this.gst_info_btn, egret.TouchEvent.TOUCH_TAP, this, this.gst_info);
             this.addEvent(this.usdt_info_btn, egret.TouchEvent.TOUCH_TAP, this, this.usdt_info);
+            this.addEvent(this.exchange_btn, egret.TouchEvent.TOUCH_TAP, this, this.exchange);
             this.addEvent(this.income_btn, egret.TouchEvent.TOUCH_TAP, this, this.income);
             this.addEvent(this.output_btn, egret.TouchEvent.TOUCH_TAP, this, this.output);
             this.addEvent(cor.EventManage.instance(), PurseUpdataInfo, this, this.updataInfo);
-            
+
             egret.ExternalInterface.addCallback("scanResult", (message: string) => {
                 // TipsSkin.instance().show(message);
                 if (cor.MainScene.instance().getChildIndex(this) == cor.MainScene.instance().numChildren - 1) {
@@ -95,6 +106,10 @@ namespace Game {
         }
         private output() {
             cor.MainScene.instance().addChild(new Purse_outputPage());
+        }
+
+        private exchange() {
+            cor.MainScene.instance().addChild(new Purse_exchangePage(this._rateInfo,this._purseInfo));
         }
     }
 }

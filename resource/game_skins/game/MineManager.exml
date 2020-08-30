@@ -37,5 +37,5 @@
 			</e:skinName>
 		</e:Button>
 	</e:Group>
-	<e:Group id="role_group" width="644" bottom="0" horizontalCenter="-218"/>
+	<e:Group id="role_group" width="644" bottom="0" horizontalCenter="-218" touchEnabled="false"/>
 </e:Skin>

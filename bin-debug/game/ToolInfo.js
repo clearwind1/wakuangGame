@@ -67,3 +67,4 @@ var Game;
     Game.ToolInfo = ToolInfo;
     __reflect(ToolInfo.prototype, "Game.ToolInfo");
 })(Game || (Game = {}));
+//# sourceMappingURL=ToolInfo.js.map

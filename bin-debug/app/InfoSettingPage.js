@@ -177,3 +177,4 @@ var Game;
     Game.InfoSettingPage = InfoSettingPage;
     __reflect(InfoSettingPage.prototype, "Game.InfoSettingPage");
 })(Game || (Game = {}));
+//# sourceMappingURL=InfoSettingPage.js.map

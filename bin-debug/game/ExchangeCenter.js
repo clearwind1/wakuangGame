@@ -105,3 +105,4 @@ var Game;
     Game.ExchangeCenter = ExchangeCenter;
     __reflect(ExchangeCenter.prototype, "Game.ExchangeCenter");
 })(Game || (Game = {}));
+//# sourceMappingURL=ExchangeCenter.js.map

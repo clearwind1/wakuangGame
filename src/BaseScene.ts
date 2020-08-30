@@ -58,6 +58,7 @@ module cor {
 			let role = createDB(name);
 			role.x = role.width / 2;
 			target.addChild(role);
+			role.touchEnabled = false;
 			role.animation.play();
 			this.dbList.push({
 				db: role,

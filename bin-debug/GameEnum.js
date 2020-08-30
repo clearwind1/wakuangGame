@@ -34,3 +34,4 @@ var ENGINE_TYPE;
     ENGINE_TYPE[ENGINE_TYPE["EXCAVATE"] = 1] = "EXCAVATE";
     ENGINE_TYPE[ENGINE_TYPE["PANNING"] = 2] = "PANNING";
 })(ENGINE_TYPE || (ENGINE_TYPE = {}));
+//# sourceMappingURL=GameEnum.js.map

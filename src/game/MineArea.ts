@@ -69,17 +69,14 @@ namespace Game {
             let count = 0;
             for (var k in configdata) {
                 let item = configdata[k];
-                if (item.good_type == ENGINE_TYPE.PANNING) {
-                    this.panning_engine.visible = true;
-                    this.config_panning_engine_btn.visible = false;
-                } else {
+                if (item.good_type == ENGINE_TYPE.EXCAVATE) {
                     this['excavate_engine' + count].source = item.good.id_card;
                     this['excavate_engine' + count].visible = true;
                     this['excavate_engine' + count].name = item.id;
                     count++;
                 }
             }
-            if (this.config_panning_engine_btn.visible || count == 5 || GameData.UserInfo.dig_time != -1) {
+            if (count == 5) {
                 this.config_excavate_engine_btn.visible = false;
             }
         }

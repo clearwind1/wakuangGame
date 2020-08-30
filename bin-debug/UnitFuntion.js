@@ -284,6 +284,12 @@ function numberToText(num) {
  */
 function toThousands(so_num) {
     var num = (Math.abs(so_num) || 0).toString(), result = '';
+    var dou = "";
+    if (num.indexOf(".") != -1) {
+        var arr = num.split(".");
+        dou = arr[1];
+        num = arr[0];
+    }
     while (num.length > 3) {
         result = ',' + num.slice(-3) + result;
         num = num.slice(0, num.length - 3);
@@ -293,6 +299,9 @@ function toThousands(so_num) {
     }
     if (so_num < 0) {
         result = '-' + result;
+    }
+    if (dou != "") {
+        result += ("." + dou);
     }
     return result;
 }
@@ -1227,3 +1236,4 @@ function drawGradient(w, h) {
     shape.graphics.endFill();
     return shape;
 }
+//# sourceMappingURL=UnitFuntion.js.map

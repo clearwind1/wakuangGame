@@ -33,3 +33,4 @@ var Game;
     Game.GoodsInfo = GoodsInfo;
     __reflect(GoodsInfo.prototype, "Game.GoodsInfo");
 })(Game || (Game = {}));
+//# sourceMappingURL=GoodsInfo.js.map

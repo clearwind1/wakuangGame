@@ -2,12 +2,26 @@
 <e:Skin class="GetPrize" width="1334" height="750" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
 	<e:Group id="hideGroup" width="100%" height="100%" x="0" y="0">
 		<e:Rect width="100%" height="100%" x="0" y="0" fillAlpha="0.6" scaleX="1" scaleY="1"/>
-		<e:Label id="prizeNum" text="Label" y="395" horizontalCenter="0" fontFamily="myFont" x="633" scaleX="1" scaleY="1"/>
+		<e:Group width="1334" height="750" horizontalCenter="0" verticalCenter="0">
+			<e:Image source="gameRes_json.Frame_01_png" scale9Grid="337,187,34,110" width="813" height="439" x="261" y="156" scaleX="1" scaleY="1"/>
+			<e:Label id="prizeTip" text="Label" y="261" horizontalCenter="0" fontFamily="myFont" x="643" scaleX="1" scaleY="1" size="28" textColor="0x92b5f0"/>
+			<e:Label text="恭喜你！" y="178" horizontalCenter="0" fontFamily="myFont" x="633" scaleX="1" scaleY="1" size="32"/>
+			<e:Image id="close_btn" source="gameRes_json.close_png" x="995" y="172"/>
+			<e:Button id="sure_btn" label="确认领取" y="461" anchorOffsetX="0" scaleX="1" scaleY="1" horizontalCenter="0">
+				<e:skinName>
+				<e:Skin states="up,down,disabled">
+					<e:Image width="100%" height="100%" source="gameRes_json.Btn_Yellow_01_png"/>
+					<e:Label id="labelDisplay" verticalCenter="-5" stroke="2" strokeColor="#E99652" fontFamily="myFont" horizontalCenter="0"/>
+				</e:Skin>
+				</e:skinName>
+			</e:Button>
+		</e:Group>
 	</e:Group>
-	<e:Group id="prize_group" y="273" anchorOffsetX="59.5" x="667.5">
-		<e:Image y="8" source="gameRes_json.Icon_Kuangshi_png" anchorOffsetX="35" x="44" scaleX="1" scaleY="1"/>
-		<e:Image y="19" source="gameRes_json.Icon_Kuangshi_png" anchorOffsetX="35" x="84" scaleX="1" scaleY="1"/>
-		<e:Image y="36" source="gameRes_json.Icon_Kuangshi_png" anchorOffsetX="35" x="24" scaleX="1" scaleY="1"/>
+	<e:Group id="prize_group" y="318" anchorOffsetX="381" width="762" x="667">
+		<e:Label id="prizeNum" text="Label" y="0" horizontalCenter="0" fontFamily="myFont" x="633" scaleX="1" scaleY="1" size="52"/>
 		<e:Image y="45" source="gameRes_json.Icon_Kuangshi_png" anchorOffsetX="35" x="68" scaleX="1" scaleY="1"/>
+		<e:layout>
+			<e:HorizontalLayout verticalAlign="middle" horizontalAlign="center"/>
+		</e:layout>
 	</e:Group>
 </e:Skin>

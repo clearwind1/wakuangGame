@@ -45,8 +45,8 @@ namespace Game {
                 let item = recodeinfo[k];
                 let fh = Number(item.change_amount) >= 0 ? "+" : "";
                 item.cacolor = Number(item.change_amount) >= 0 ? 0x3dafff : 0x000000;
-                item.change_amount = fh + Math.round(Number(item.change_amount));
-                item.after_amount = item.after_amount ? (item.coin_name + "余额  " + Math.round(Number(item.after_amount))) : "";
+                item.change_amount = fh + (Number(item.change_amount));
+                item.after_amount = item.after_amount ? (item.coin_name + "余额  " + (Number(item.after_amount))) : "";
             }
             this.recode_list.dataProvider = new eui.ArrayCollection(this._recodeInfo);
         }

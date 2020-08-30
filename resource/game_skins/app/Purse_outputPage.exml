@@ -9,7 +9,7 @@
 	<e:Label text="温馨提示" textColor="0x9B9B9B" fontFamily="myFont" size="32" horizontalCenter="0" bottom="208"/>
 	<e:Label text="1.请妥善保管您的支付密码，保护好您的个人资产" textColor="0x9B9B9B" fontFamily="myFont" size="24" bottom="150" x="65"/>
 	<e:Label text="2.转出前，请仔细检查对方的钱包地址是否正确，以免对您造成不必要的损失" textColor="0x9B9B9B" fontFamily="myFont" size="24" x="65" width="623" lineSpacing="20" bottom="60"/>
-	<e:Group id="close_btn" width="78" height="74" x="8" y="8" anchorOffsetX="0" anchorOffsetY="0" locked="true">
+	<e:Group id="close_btn" width="78" height="74" x="8" y="8" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Image source="appIcon_json.Banner_Personal_Back01_png" x="22" y="20" scaleX="1" scaleY="1"/>
 	</e:Group>
 	<e:Image id="scan_btn" source="appIcon_json.Icon_Saoma_png" y="30" x="672"/>

@@ -80,6 +80,7 @@ var Game;
             this.addEvent(this.card_btn, egret.TouchEvent.TOUCH_TAP, this, this.showCard);
             this.addEvent(this.news_list, eui.ItemTapEvent.ITEM_TAP, this, this.showNewsContant);
             this.addEvent(this.news_list0, eui.ItemTapEvent.ITEM_TAP, this, this.showNewsContant);
+            this.addEvent(this.purseManage_btn, egret.TouchEvent.TOUCH_TAP, this, this.showPurse);
             this.addEvent(this.invite_code_btn, egret.TouchEvent.TOUCH_TAP, this, this.copyCode);
             this.addEvent(this.setting_btn, egret.TouchEvent.TOUCH_TAP, this, this.showSettingPage);
             this.addEvent(cor.EventManage.instance(), UpdataUserInfo, this, this.updata_info);
@@ -255,7 +256,17 @@ var Game;
         };
         //进入游戏
         HomePage.prototype.gotoGame = function () {
+            // egret.MainContext.instance.stage.setContentSize(1334, 750);
+            // egret.MainContext.instance.stage.orientation = egret.OrientationMode.LANDSCAPE;
+            // egret.MainContext.instance.stage.scaleMode = egret.StageScaleMode.FIXED_HEIGHT;
             var _this = this;
+            // GameData.GameWidth = egret.MainContext.instance.stage.stageWidth;
+            // GameData.GameHeigth = egret.MainContext.instance.stage.stageHeight;
+            // GameData.BGame = true;
+            // let loadingScene = new LoadingView();
+            // cor.MainScene.instance().addChild(loadingScene);
+            // RES.loadGroup("gameres", 0, loadingScene);
+            // return;
             cor.Socket.getIntance().sendmsg('GET_USER_BASE_INFO', {}, function (rdata) { return __awaiter(_this, void 0, void 0, function () {
                 var loadingScene;
                 return __generator(this, function (_a) {
@@ -307,3 +318,4 @@ var Game;
     Game.HomePage = HomePage;
     __reflect(HomePage.prototype, "Game.HomePage");
 })(Game || (Game = {}));
+//# sourceMappingURL=HomePage.js.map

@@ -53,6 +53,9 @@ var Game;
             return _this;
         }
         OwnerItem.prototype.addToStage = function () {
+            if (GameData.UserInfo.identity == IDENTITY.Owner) {
+                this.btn.visible = false;
+            }
             this.btn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.btn_touch, this);
         };
         OwnerItem.prototype.btn_touch = function (e) {
@@ -122,3 +125,4 @@ var Game;
     }(eui.ItemRenderer));
     __reflect(OwnerItem.prototype, "OwnerItem");
 })(Game || (Game = {}));
+//# sourceMappingURL=MinerServerCenter.js.map

@@ -55,16 +55,24 @@ var Game;
             return _this;
         }
         PursePage.prototype.init = function (purseInfo) {
+            var _this = this;
             // init
             this._purseInfo = purseInfo;
             for (var k in purseInfo) {
                 if (purseInfo[k].coin_name == "GST") {
-                    this.gst_info_btn['num'].text = toThousands(Math.round(purseInfo[k].available_balance));
+                    this.gst_info_btn['num'].text = toThousands(purseInfo[k].available_balance);
                 }
                 else {
-                    this.usdt_info_btn['num'].text = toThousands(Math.round(purseInfo[k].available_balance));
+                    this.usdt_info_btn['num'].text = toThousands(purseInfo[k].available_balance);
                 }
             }
+            this.exchange_btn['num'].text = "";
+            cor.Socket.getIntance().sendmsg('GET_GST_USDT_RATE', {}, function (rdata) {
+                Log(rdata);
+                _this._rateInfo = rdata;
+                _this.exchange_btn['num'].text = rdata.usdt + "USDT:" + rdata.gst + "GST";
+                // cor.MainScene.instance().addChild(new RecodePage(rdata, "USDT"));
+            }, this);
         };
         PursePage.prototype.updataInfo = function () {
             var _this = this;
@@ -75,10 +83,10 @@ var Game;
                     this._purseInfo = rdata;
                     for (k in rdata) {
                         if (rdata[k].coin_name == "GST") {
-                            this.gst_info_btn['num'].text = toThousands(Math.round(rdata[k].available_balance));
+                            this.gst_info_btn['num'].text = toThousands((rdata[k].available_balance));
                         }
                         else {
-                            this.usdt_info_btn['num'].text = toThousands(Math.round(rdata[k].available_balance));
+                            this.usdt_info_btn['num'].text = toThousands((rdata[k].available_balance));
                         }
                     }
                     return [2 /*return*/];
@@ -91,6 +99,7 @@ var Game;
             this.addEvent(this.scan_btn, egret.TouchEvent.TOUCH_TAP, this, this.scan);
             this.addEvent(this.gst_info_btn, egret.TouchEvent.TOUCH_TAP, this, this.gst_info);
             this.addEvent(this.usdt_info_btn, egret.TouchEvent.TOUCH_TAP, this, this.usdt_info);
+            this.addEvent(this.exchange_btn, egret.TouchEvent.TOUCH_TAP, this, this.exchange);
             this.addEvent(this.income_btn, egret.TouchEvent.TOUCH_TAP, this, this.income);
             this.addEvent(this.output_btn, egret.TouchEvent.TOUCH_TAP, this, this.output);
             this.addEvent(cor.EventManage.instance(), PurseUpdataInfo, this, this.updataInfo);
@@ -144,8 +153,12 @@ var Game;
         PursePage.prototype.output = function () {
             cor.MainScene.instance().addChild(new Game.Purse_outputPage());
         };
+        PursePage.prototype.exchange = function () {
+            cor.MainScene.instance().addChild(new Game.Purse_exchangePage(this._rateInfo, this._purseInfo));
+        };
         return PursePage;
     }(cor.BaseScene));
     Game.PursePage = PursePage;
     __reflect(PursePage.prototype, "Game.PursePage");
 })(Game || (Game = {}));
+//# sourceMappingURL=PursePage.js.map

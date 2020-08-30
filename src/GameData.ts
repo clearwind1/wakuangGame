@@ -50,7 +50,10 @@ class GameData {
 		"current_grade_max_experience": 2427,
 		"current_hold_area_grade": 1,
 		"dig_time": -1,
-		"current_hold_area_code": ""
+		"current_hold_area_code": "",
+		"hold_area_reward": 10000,
+		"hold_area_work_reward": 1000
+
 	}
 
 }

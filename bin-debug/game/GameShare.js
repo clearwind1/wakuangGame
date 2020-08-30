@@ -42,3 +42,4 @@ var Game;
     Game.GameShare = GameShare;
     __reflect(GameShare.prototype, "Game.GameShare");
 })(Game || (Game = {}));
+//# sourceMappingURL=GameShare.js.map
