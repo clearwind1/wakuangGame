@@ -2,10 +2,11 @@ namespace Game {
     export class LoadingView extends cor.BaseScene implements RES.PromiseTaskReporter {
         public readonly skinName = "LoadingView";
 
-        public loadingBar: eui.Rect;
         public loadingTx: eui.Label;
         public tipTx: eui.Label;
-
+        public hideGroup: eui.Group;
+        public top_img: eui.Image;
+        public bottom_img: eui.Image;
 
         constructor() {
             super();
@@ -20,8 +21,10 @@ namespace Game {
             // init
             this.loadingTx.text = "";
             this.tipTx.text = "";
-            this.loadingBar.width = 0;
             this._index = 0;
+
+            this._shape = new egret.Shape();
+            this.hideGroup.addChildAt(this._shape, 2);
 
             this.showTip();
         }
@@ -47,8 +50,33 @@ namespace Game {
         }
 
         public onProgress(current: number, total: number): void {
-            this.loadingTx.text = `Loading...${Math.floor(current / total * 100)}%`;
-            this.loadingBar.width = 600 * (current / total);
+            this.loadingTx.text = `${Math.floor(current / total * 100)}%`;
+            this.getSectorProgress(360 * (current / total) - 90);
+
+            if (total == current) {
+                this.showMove();
+            }
+        }
+        private _shape: egret.Shape;
+        private getSectorProgress(angle) {
+            this._shape.graphics.clear();
+            this._shape.graphics.beginFill(0x2C5091);
+            this._shape.graphics.moveTo(667, 375);
+            this._shape.graphics.lineTo(667, 308);
+            this._shape.graphics.drawArc(667, 375, 67, -Math.PI / 2, angle * Math.PI / 180, false);
+            this._shape.graphics.lineTo(667, 375);
+            this._shape.graphics.endFill();
+        }
+
+        private async showMove() {
+            let index = cor.MainScene.instance().numChildren - 1;
+            cor.MainScene.instance().addChildAt(new GameScene(), index);
+            await wait(300);
+            egret.Tween.get(this.top_img).to({ y: -375 }, 500);
+            egret.Tween.get(this.bottom_img).to({ y: 750 }, 500);
+            egret.Tween.get(this.hideGroup).to({ alpha: 0 }, 500).call(() => { 
+                this.dispose();
+            });
         }
 
         public dispose() {

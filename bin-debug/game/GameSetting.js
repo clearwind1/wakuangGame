@@ -61,4 +61,3 @@ var Game;
     Game.GameSetting = GameSetting;
     __reflect(GameSetting.prototype, "Game.GameSetting");
 })(Game || (Game = {}));
-//# sourceMappingURL=GameSetting.js.map

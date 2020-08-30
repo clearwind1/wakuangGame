@@ -117,7 +117,7 @@ var Game;
                 "hold_area_id": id
             }, function (rdata) {
                 Game.TipsSkin.instance().show('购买成功');
-                GameData.UserInfo.gts_number -= price;
+                GameData.UserInfo.gst -= price;
                 GameData.UserInfo.current_hold_area_grade = grade;
                 GameData.UserInfo.identity = IDENTITY.Owner;
                 cor.EventManage.instance().sendEvent(ChangeIdentity);
@@ -130,4 +130,3 @@ var Game;
     Game.MineManager = MineManager;
     __reflect(MineManager.prototype, "Game.MineManager");
 })(Game || (Game = {}));
-//# sourceMappingURL=MineManager.js.map

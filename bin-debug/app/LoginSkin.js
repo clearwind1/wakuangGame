@@ -123,15 +123,22 @@ var Game;
             if (this.isRestPsw) {
                 type = "force_password";
             }
+            if (this.isRestPsw) {
+                if (this.reset_code_time > 0) {
+                    return;
+                }
+            }
+            else {
+                if (this.regist_code_time > 0) {
+                    return;
+                }
+            }
             cor.Socket.getIntance().sendmsg('SEND_SMS_CODE', {
                 "mobile": this.phone_input.text,
                 "type": type
             }, function (rdata) {
                 _this.code_key = rdata.key;
                 if (_this.isRestPsw) {
-                    if (_this.reset_code_time > 0) {
-                        return;
-                    }
                     _this.reset_code_time = 60;
                     _this.reset_code_btn['wz'].text = _this.reset_code_time + '秒后重新获取';
                     _this.reset_code_btn['wz'].size = 18;
@@ -146,9 +153,6 @@ var Game;
                     }, 1000);
                 }
                 else {
-                    if (_this.regist_code_time > 0) {
-                        return;
-                    }
                     _this.regist_code_time = 60;
                     _this.code_btn['wz'].text = _this.regist_code_time + '秒后重新获取';
                     _this.code_btn['wz'].size = 18;
@@ -246,4 +250,3 @@ var Game;
     Game.LoginSkin = LoginSkin;
     __reflect(LoginSkin.prototype, "Game.LoginSkin");
 })(Game || (Game = {}));
-//# sourceMappingURL=LoginSkin.js.map

@@ -30,6 +30,7 @@ var Game;
                 info[k].user_nickname = "矿主：" + info[k].user_nickname;
                 info[k].name = "矿区等级：" + info[k].name;
                 info[k].miner_num = info[k].current_work_count + '/' + info[k].max_work_count;
+                info[k].earnings = info[k].can_get_income;
                 info[k].state = 1;
             }
             this.ownerList.dataProvider = new eui.ArrayCollection(info);
@@ -121,4 +122,3 @@ var Game;
     }(eui.ItemRenderer));
     __reflect(OwnerItem.prototype, "OwnerItem");
 })(Game || (Game = {}));
-//# sourceMappingURL=MinerServerCenter.js.map

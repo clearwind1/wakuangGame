@@ -33,6 +33,7 @@
 		"bin-debug/app/NewsItem.js",
 		"bin-debug/app/Purse_incomPage.js",
 		"bin-debug/app/Purse_outputPage.js",
+		"bin-debug/app/Purse_PayPage.js",
 		"bin-debug/AssetAdapter.js",
 		"bin-debug/app/PursePage.js",
 		"bin-debug/app/RecodePage.js",

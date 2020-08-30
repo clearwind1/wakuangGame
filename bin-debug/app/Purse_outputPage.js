@@ -30,14 +30,22 @@ var Game;
             this._radioGroup = new eui.RadioButtonGroup();
             this.gst_select.group = this._radioGroup;
             this.usdt_select.group = this._radioGroup;
-            if (!readLocalData(PursePassword)) {
-                cor.MainScene.instance().addChild(new Game.Purse_setPayPasswordPage());
-            }
+            cor.Socket.getIntance().sendmsg('CHECK_IS_SET_PAY_PASSWORD', {}, function (rdata) {
+                Log(rdata);
+                if (!rdata) {
+                    cor.MainScene.instance().addChild(new Game.Purse_setPayPasswordPage());
+                }
+            }, this, false);
+            // setTimeout(() => {
+            //     if (!readLocalData(PursePassword)) {
+            //         cor.MainScene.instance().addChild(new Purse_setPayPasswordPage());
+            //     }
+            // }, 200);
         };
         Purse_outputPage.prototype.initEvent = function () {
             var _this = this;
             this.addEvent(this.close_btn, egret.TouchEvent.TOUCH_TAP, this, this.dispose);
-            this.addEvent(this.output_btn, egret.TouchEvent.TOUCH_TAP, this, this.output);
+            this.addEvent(this.output_btn, egret.TouchEvent.TOUCH_TAP, this, this.pay);
             this.addEvent(this.scan_btn, egret.TouchEvent.TOUCH_TAP, this, this.scan);
             this.addEvent(this._radioGroup, eui.UIEvent.CHANGE, this, function (evt) {
                 var radioGroup = evt.target;
@@ -51,24 +59,25 @@ var Game;
         Purse_outputPage.prototype.scan = function () {
             egret.ExternalInterface.call("scanQRCode", "");
         };
-        Purse_outputPage.prototype.output = function () {
-            if (!readLocalData(PursePassword)) {
-                cor.MainScene.instance().addChild(new Game.Purse_setPayPasswordPage());
-                return;
-            }
-            cor.Socket.getIntance().sendmsg('TRANSFER_OUT', {
-                "coin_name": this._selectType,
-                "address": this.address_input.text,
-                "number": Number(this.money_input.text),
-                "pay_password": "123456"
-            }, function (rdata) {
+        Purse_outputPage.prototype.pay = function () {
+            var _this = this;
+            cor.Socket.getIntance().sendmsg('CHECK_IS_SET_PAY_PASSWORD', {}, function (rdata) {
                 Log(rdata);
-                Game.TipsSkin.instance().show("已提交");
-            }, this);
+                if (!rdata) {
+                    cor.MainScene.instance().addChild(new Game.Purse_setPayPasswordPage());
+                }
+                else {
+                    var payInfo = {
+                        coin_num: Number(_this.money_input.text),
+                        coin_type: _this._selectType,
+                        address: _this.address_input.text
+                    };
+                    cor.MainScene.instance().addChild(new Game.Purse_PayPage(payInfo));
+                }
+            }, this, false);
         };
         return Purse_outputPage;
     }(cor.BaseScene));
     Game.Purse_outputPage = Purse_outputPage;
     __reflect(Purse_outputPage.prototype, "Game.Purse_outputPage");
 })(Game || (Game = {}));
-//# sourceMappingURL=Purse_outputPage.js.map

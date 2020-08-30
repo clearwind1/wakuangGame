@@ -51,4 +51,3 @@ var Game;
     Game.Purse_incomPage = Purse_incomPage;
     __reflect(Purse_incomPage.prototype, "Game.Purse_incomPage");
 })(Game || (Game = {}));
-//# sourceMappingURL=Purse_incomPage.js.map

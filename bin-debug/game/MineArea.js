@@ -58,7 +58,7 @@ var Game;
         };
         MineArea.prototype.config_engine = function () {
             this.config_excavate_engine_btn.visible = true;
-            var configdata = this._configdata;
+            var configdata = this._configdata['goods'];
             var count = 0;
             for (var k in configdata) {
                 var item = configdata[k];
@@ -157,4 +157,3 @@ var Game;
     Game.MineArea = MineArea;
     __reflect(MineArea.prototype, "Game.MineArea");
 })(Game || (Game = {}));
-//# sourceMappingURL=MineArea.js.map

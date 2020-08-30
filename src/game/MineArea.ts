@@ -65,7 +65,7 @@ namespace Game {
 
         private config_engine() {
             this.config_excavate_engine_btn.visible = true;
-            let configdata = this._configdata;
+            let configdata = this._configdata['goods'];
             let count = 0;
             for (var k in configdata) {
                 let item = configdata[k];

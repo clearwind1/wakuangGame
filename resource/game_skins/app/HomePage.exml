@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="HomePage" width="750" height="1334" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
 	<e:Image source="appIcon_json.Bg_Main01_png" y="0" width="100%" height="100%" x="0" scale9Grid="15,37,7,4"/>
-	<e:Group id="home_group" width="100%" x="0" y="0" scaleX="1" scaleY="1" height="1234" locked="true">
-		<e:Image source="appIcon_json.Logo_Main_png" y="26" horizontalCenter="0" x="313" scaleX="1" scaleY="1"/>
+	<e:Group id="home_group" width="100%" x="0" y="0" scaleX="1" scaleY="1" height="1234">
+		<e:Image source="appIcon_json.Logo_Main_png" y="6" horizontalCenter="0.5" x="313" scaleX="1" scaleY="1"/>
 		<e:Image source="appIcon_json.Bg_Main02_png" x="0" y="0" scaleX="1" scaleY="1"/>
 		<e:Group id="banner_group" width="100%" height="390" x="0" y="96" scaleX="1" scaleY="1"/>
 		<e:Group id="bannerIndex_group" width="100%" height="16" x="0" y="472" scaleX="1" scaleY="1">

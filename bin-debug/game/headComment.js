@@ -21,7 +21,7 @@ var Game;
         }
         headComment.prototype.init = function (title, title_en) {
             // init
-            this.gst_num.text = GameData.UserInfo.gts_number + '';
+            this.gst_num.text = GameData.UserInfo.gst + '';
             this.mine_num.text = GameData.UserInfo.mineral + '';
             this.title.text = title;
             this.title_en.text = title_en;
@@ -38,7 +38,7 @@ var Game;
          * 更新游戏信息
          */
         headComment.prototype.updata_gameinfo = function () {
-            this.gst_num.text = GameData.UserInfo.gts_number + '';
+            this.gst_num.text = GameData.UserInfo.gst + '';
             this.mine_num.text = GameData.UserInfo.mineral + '';
         };
         return headComment;
@@ -46,4 +46,3 @@ var Game;
     Game.headComment = headComment;
     __reflect(headComment.prototype, "Game.headComment");
 })(Game || (Game = {}));
-//# sourceMappingURL=headComment.js.map

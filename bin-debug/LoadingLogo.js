@@ -51,4 +51,3 @@ var Game;
     Game.LoadingLogo = LoadingLogo;
     __reflect(LoadingLogo.prototype, "Game.LoadingLogo");
 })(Game || (Game = {}));
-//# sourceMappingURL=LoadingLogo.js.map

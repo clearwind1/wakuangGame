@@ -26,4 +26,3 @@ var cor;
     cor.EventManage = EventManage;
     __reflect(EventManage.prototype, "cor.EventManage");
 })(cor || (cor = {}));
-//# sourceMappingURL=EventManage.js.map

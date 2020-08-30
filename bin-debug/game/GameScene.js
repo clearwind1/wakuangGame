@@ -75,7 +75,7 @@ var Game;
             }
             this.headImg.source = GameData.UserInfo.picture;
             this.nickname.text = GameData.UserInfo.nickname;
-            this.gst_num.text = GameData.UserInfo.gts_number + '';
+            this.gst_num.text = GameData.UserInfo.gst + '';
             this.mine_num.text = GameData.UserInfo.mineral + '';
             this.setExpbar();
             //颜色矩阵数组
@@ -320,7 +320,7 @@ var Game;
          * 更新游戏信息
          */
         GameScene.prototype.updata_gameinfo = function () {
-            this.gst_num.text = GameData.UserInfo.gts_number + '';
+            this.gst_num.text = GameData.UserInfo.gst + '';
             this.mine_num.text = GameData.UserInfo.mineral + '';
         };
         /**
@@ -343,4 +343,3 @@ var Game;
     Game.GameScene = GameScene;
     __reflect(GameScene.prototype, "Game.GameScene");
 })(Game || (Game = {}));
-//# sourceMappingURL=GameScene.js.map

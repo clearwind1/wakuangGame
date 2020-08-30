@@ -66,6 +66,25 @@ var Game;
                 }
             }
         };
+        PursePage.prototype.updataInfo = function () {
+            var _this = this;
+            cor.Socket.getIntance().sendmsg('WALLET_LIST', {}, function (rdata) { return __awaiter(_this, void 0, void 0, function () {
+                var k;
+                return __generator(this, function (_a) {
+                    Log(rdata);
+                    this._purseInfo = rdata;
+                    for (k in rdata) {
+                        if (rdata[k].coin_name == "GST") {
+                            this.gst_info_btn['num'].text = toThousands(Math.round(rdata[k].available_balance));
+                        }
+                        else {
+                            this.usdt_info_btn['num'].text = toThousands(Math.round(rdata[k].available_balance));
+                        }
+                    }
+                    return [2 /*return*/];
+                });
+            }); }, this);
+        };
         PursePage.prototype.initEvent = function () {
             var _this = this;
             this.addEvent(this.close_btn, egret.TouchEvent.TOUCH_TAP, this, this.dispose);
@@ -74,6 +93,7 @@ var Game;
             this.addEvent(this.usdt_info_btn, egret.TouchEvent.TOUCH_TAP, this, this.usdt_info);
             this.addEvent(this.income_btn, egret.TouchEvent.TOUCH_TAP, this, this.income);
             this.addEvent(this.output_btn, egret.TouchEvent.TOUCH_TAP, this, this.output);
+            this.addEvent(cor.EventManage.instance(), PurseUpdataInfo, this, this.updataInfo);
             egret.ExternalInterface.addCallback("scanResult", function (message) {
                 // TipsSkin.instance().show(message);
                 if (cor.MainScene.instance().getChildIndex(_this) == cor.MainScene.instance().numChildren - 1) {
@@ -129,4 +149,3 @@ var Game;
     Game.PursePage = PursePage;
     __reflect(PursePage.prototype, "Game.PursePage");
 })(Game || (Game = {}));
-//# sourceMappingURL=PursePage.js.map

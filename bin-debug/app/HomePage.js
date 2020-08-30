@@ -270,12 +270,10 @@ var Game;
                             GameData.BGame = true;
                             GameData.UserInfo = rdata;
                             loadingScene = new Game.LoadingView();
-                            this.addChild(loadingScene);
+                            cor.MainScene.instance().addChild(loadingScene);
                             return [4 /*yield*/, RES.loadGroup("gameres", 0, loadingScene)];
                         case 1:
                             _a.sent();
-                            loadingScene.dispose();
-                            cor.MainScene.instance().addChild(new Game.GameScene);
                             return [2 /*return*/];
                     }
                 });
@@ -309,4 +307,3 @@ var Game;
     Game.HomePage = HomePage;
     __reflect(HomePage.prototype, "Game.HomePage");
 })(Game || (Game = {}));
-//# sourceMappingURL=HomePage.js.map

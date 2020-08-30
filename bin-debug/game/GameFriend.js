@@ -36,4 +36,3 @@ var Game;
     Game.GameFriend = GameFriend;
     __reflect(GameFriend.prototype, "Game.GameFriend");
 })(Game || (Game = {}));
-//# sourceMappingURL=GameFriend.js.map
