@@ -20,8 +20,8 @@ class GameData {
 	/**主场景高度偏移量 */
 	public static HeigthOFFY: number = 0;
 	/**服务器连接地址 */
-	public static ServerUrl: string = "http://47.107.80.152:8082/";
-	public static ServerSocketUrl: string = "ws://148.70.80.204:9001/app";
+	public static ServerUrl: string = "http://game.test/";
+	public static ServerSocketUrl: string = "ws://game.test:9001/app";
 	///
 	/**游戏界面 */
 	public static BGame: boolean = false;

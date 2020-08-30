@@ -22,8 +22,8 @@ var GameData = (function () {
     /**主场景高度偏移量 */
     GameData.HeigthOFFY = 0;
     /**服务器连接地址 */
-    GameData.ServerUrl = "http://47.107.80.152:8082/";
-    GameData.ServerSocketUrl = "ws://148.70.80.204:9001/app";
+    GameData.ServerUrl = "http://game.test/";
+    GameData.ServerSocketUrl = "ws://game.test:9001/app";
     ///
     /**游戏界面 */
     GameData.BGame = false;
