@@ -60,6 +60,11 @@ var Game;
         OwnerItem.prototype.btn_touch = function (e) {
             switch (this.data.status) {
                 case 0:
+                    cor.Socket.getIntance().sendmsg("START_MINING", {
+                        "user_hold_area_id": this.data.id
+                    }, function (rdata) {
+                        Log(rdata);
+                    }, this);
                     Log("开始挖矿");
                     break;
                 case 2:
@@ -86,7 +91,7 @@ var Game;
             ];
             var colorFlilter = new egret.ColorMatrixFilter(colorMatrix);
             this.btn.filters = [];
-            switch (this.data.state) {
+            switch (this.data.status) {
                 case 0:
                     this.btn['wz'].text = "开始挖矿";
                     this.btn['wz'].textColor = 0xffffff;
