@@ -348,4 +348,3 @@ var game;
     game.Socket = Socket;
     __reflect(Socket.prototype, "game.Socket");
 })(game || (game = {}));
-//# sourceMappingURL=Socket_bin.js.map

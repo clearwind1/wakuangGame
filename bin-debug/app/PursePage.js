@@ -161,4 +161,3 @@ var Game;
     Game.PursePage = PursePage;
     __reflect(PursePage.prototype, "Game.PursePage");
 })(Game || (Game = {}));
-//# sourceMappingURL=PursePage.js.map

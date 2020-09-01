@@ -81,4 +81,3 @@ var Game;
     Game.Purse_outputPage = Purse_outputPage;
     __reflect(Purse_outputPage.prototype, "Game.Purse_outputPage");
 })(Game || (Game = {}));
-//# sourceMappingURL=Purse_outputPage.js.map

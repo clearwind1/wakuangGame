@@ -53,4 +53,3 @@ var Game;
     Game.Purse_PayPage = Purse_PayPage;
     __reflect(Purse_PayPage.prototype, "Game.Purse_PayPage");
 })(Game || (Game = {}));
-//# sourceMappingURL=Purse_PayPage.js.map

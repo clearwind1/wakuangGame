@@ -198,4 +198,3 @@ var cor;
     cor.Socket = Socket;
     __reflect(Socket.prototype, "cor.Socket");
 })(cor || (cor = {}));
-//# sourceMappingURL=Socket.js.map

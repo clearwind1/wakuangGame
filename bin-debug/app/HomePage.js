@@ -318,4 +318,3 @@ var Game;
     Game.HomePage = HomePage;
     __reflect(HomePage.prototype, "Game.HomePage");
 })(Game || (Game = {}));
-//# sourceMappingURL=HomePage.js.map

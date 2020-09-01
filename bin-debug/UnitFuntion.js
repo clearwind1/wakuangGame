@@ -1236,4 +1236,3 @@ function drawGradient(w, h) {
     shape.graphics.endFill();
     return shape;
 }
-//# sourceMappingURL=UnitFuntion.js.map

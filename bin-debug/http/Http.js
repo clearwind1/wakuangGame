@@ -252,4 +252,3 @@ var core;
     }());
     __reflect(HttpGet.prototype, "HttpGet");
 })(core || (core = {}));
-//# sourceMappingURL=Http.js.map

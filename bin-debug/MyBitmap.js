@@ -40,4 +40,3 @@ var GameUtil;
     GameUtil.MyBitmap = MyBitmap;
     __reflect(MyBitmap.prototype, "GameUtil.MyBitmap");
 })(GameUtil || (GameUtil = {}));
-//# sourceMappingURL=MyBitmap.js.map

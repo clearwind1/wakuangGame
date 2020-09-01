@@ -47,4 +47,3 @@ var Game;
     Game.SettingPage = SettingPage;
     __reflect(SettingPage.prototype, "Game.SettingPage");
 })(Game || (Game = {}));
-//# sourceMappingURL=SettingPage.js.map

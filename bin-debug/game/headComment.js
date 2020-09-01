@@ -46,4 +46,3 @@ var Game;
     Game.headComment = headComment;
     __reflect(headComment.prototype, "Game.headComment");
 })(Game || (Game = {}));
-//# sourceMappingURL=headComment.js.map

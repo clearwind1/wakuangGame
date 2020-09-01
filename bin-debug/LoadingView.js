@@ -127,4 +127,3 @@ var Game;
     Game.LoadingView = LoadingView;
     __reflect(LoadingView.prototype, "Game.LoadingView", ["RES.PromiseTaskReporter"]);
 })(Game || (Game = {}));
-//# sourceMappingURL=LoadingView.js.map
