@@ -61,8 +61,8 @@ var Game;
         //微信登录
         LoginSkin.prototype.wxLogin = function () {
             var _this = this;
-            // TipsSkin.instance().show("暂未开放,请使用手机账号登录");
-            // return;
+            Game.TipsSkin.instance().show("暂未开放,请使用手机账号登录");
+            return;
             cor.Socket.getIntance().sendmsg('LOGIN', {
                 "mobile": '15017557355',
                 "password": '123456'

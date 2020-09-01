@@ -31,7 +31,6 @@ var Game;
                 info[k].name = "矿区等级：" + info[k].name;
                 info[k].miner_num = info[k].current_work_count + '/' + info[k].max_work_count;
                 info[k].earnings = info[k].can_get_income;
-                info[k].state = 1;
             }
             this.ownerList.dataProvider = new eui.ArrayCollection(info);
         };
@@ -59,21 +58,25 @@ var Game;
             this.btn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.btn_touch, this);
         };
         OwnerItem.prototype.btn_touch = function (e) {
-            switch (this.data.state) {
-                case 1:
+            switch (this.data.status) {
+                case 0:
                     Log("开始挖矿");
                     break;
                 case 2:
                     Log("领取收益");
                     break;
                 case 3:
+                    Log("放弃打工");
+                    break;
                 case 4:
+                case 1:
                     break;
             }
         };
         OwnerItem.prototype.checkbtn = function () {
             var _this = this;
             this.time_group.visible = false;
+            this.btn.visible = true;
             //颜色矩阵数组
             var colorMatrix = [
                 0.3, 0.3, 0, 0, 0,
@@ -84,7 +87,7 @@ var Game;
             var colorFlilter = new egret.ColorMatrixFilter(colorMatrix);
             this.btn.filters = [];
             switch (this.data.state) {
-                case 1:
+                case 0:
                     this.btn['wz'].text = "开始挖矿";
                     this.btn['wz'].textColor = 0xffffff;
                     this.btn['wz'].stroke = 2;
@@ -106,9 +109,12 @@ var Game;
                         _this.time.text = numberToTime(_this._leftTime, 1);
                     }, 1000);
                     break;
-                case 4:
+                case 1:
                     this.btn.filters = [colorFlilter];
                     this.btn['wz'].text = "已满";
+                    break;
+                case 4:
+                    this.btn.visible = false;
                     break;
             }
         };
@@ -119,7 +125,10 @@ var Game;
             clearInterval(this._time_inter);
         };
         OwnerItem.prototype.dataChanged = function () {
-            this.checkbtn();
+            this._leftTime = this.data.time;
+            if (GameData.UserInfo.identity != IDENTITY.Owner) {
+                this.checkbtn();
+            }
         };
         return OwnerItem;
     }(eui.ItemRenderer));

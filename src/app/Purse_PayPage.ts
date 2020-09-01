@@ -33,7 +33,8 @@ namespace Game {
         }
 
         private reset_password() {
-            
+            cor.MainScene.instance().addChild(new Purse_resetPassword());
+            this.dispose();
         }
         private pay() {
             let info = this._info;

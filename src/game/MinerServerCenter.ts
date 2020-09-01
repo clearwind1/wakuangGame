@@ -27,7 +27,6 @@ namespace Game {
                 info[k].name = "矿区等级：" + info[k].name;
                 info[k].miner_num = info[k].current_work_count + '/' + info[k].max_work_count;
                 info[k].earnings = info[k].can_get_income;
-                info[k].state = 1;
             }
             this.ownerList.dataProvider = new eui.ArrayCollection(info);
         }
@@ -62,21 +61,25 @@ namespace Game {
         }
 
         private btn_touch(e: egret.TouchEvent) {
-            switch (this.data.state) {
-                case 1:
+            switch (this.data.status) {
+                case 0:
                     Log("开始挖矿");    
                     break;
                 case 2:
                     Log("领取收益");
                     break;
                 case 3:
+                    Log("放弃打工")    
+                    break;    
                 case 4:
+                case 1:    
                     break;
             }
         }
 
         public checkbtn() {
             this.time_group.visible = false;
+            this.btn.visible = true;
             //颜色矩阵数组
             var colorMatrix = [
                 0.3, 0.3, 0, 0, 0,
@@ -89,7 +92,7 @@ namespace Game {
 
             this.btn.filters = [];
             switch (this.data.state) {
-                case 1:
+                case 0:
                     this.btn['wz'].text = "开始挖矿";
                     this.btn['wz'].textColor = 0xffffff;
                     this.btn['wz'].stroke = 2;
@@ -111,9 +114,12 @@ namespace Game {
                         this.time.text = numberToTime(this._leftTime, 1);
                     }, 1000);
                     break;
-                case 4:
+                case 1:
                     this.btn.filters = [colorFlilter];
                     this.btn['wz'].text = "已满";
+                    break;
+                case 4:
+                    this.btn.visible = false;
                     break;
             }
         }
@@ -126,7 +132,10 @@ namespace Game {
         }
 
         protected dataChanged() {
-            this.checkbtn();
+            this._leftTime = this.data.time;
+            if (GameData.UserInfo.identity != IDENTITY.Owner) {
+                this.checkbtn();
+            }
         }
 
     }
