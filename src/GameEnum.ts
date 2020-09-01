@@ -15,6 +15,8 @@ const DigMineTime = 'DigMineTime';
 
 const PursePassword = 'PursePassword';
 const PurseUpdataInfo = 'PurseUpdataInfo';
+
+const OwnerListUpdata = 'OwnerListUpdata';
 /**
  * 性别：男：1，女：2
  */

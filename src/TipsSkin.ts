@@ -41,7 +41,7 @@ namespace Game {
             this.tipsLabel.text = str;
             this.alpha = 1;
             if (dis) {
-                egret.Tween.get(this).wait(300).to({ alpha: 0 }, 500).call(() => { 
+                egret.Tween.get(this).wait(500).to({ alpha: 0 }, 500).call(() => { 
                     this.hide();
                 });
             }

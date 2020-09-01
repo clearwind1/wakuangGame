@@ -47,15 +47,17 @@ var Game;
         };
         //显示矿区信息
         MineManager.prototype.showMineInfo = function () {
-            this.removeDB();
+            var _this = this;
             var mineData = this._minedata[this._currentIndex];
             this.surplus.text = '剩余:' + mineData.surplus;
             this.mine_name.text = mineData.name;
             this.description.text = mineData.description;
             this.total_output.text = mineData.total_output + '';
             this.mine_area_bg.source = "Banner_Kuangquguanli_lv." + mineData.grade + "_png";
-            this.role.source = "Lv." + mineData.grade + "_png";
-            this.addDB(this.role_group, "Lv" + mineData.grade);
+            egret.Tween.get(this.role_group).to({ x: -700 }, 350).call(function () {
+                _this.removeDB();
+                _this.addDB(_this.role_group, "Lv" + mineData.grade);
+            }).to({ x: 127 }, 350);
             // this.is_can_buy.text = '矿区管理处：' + (mineData.is_can_buy ? '可购买矿区' : '已售罄矿区');
             this.price.text = mineData.price.split('.')[0] + 'GST';
             this.buy_btn.label = (mineData.is_can_buy ? '购买' : '已售罄');

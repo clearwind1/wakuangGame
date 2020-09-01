@@ -21,7 +21,8 @@ namespace Game {
             // init
             this.prize_group.x = this.width / 2;
             this.prizeNum.text = '+' + toThousands(num);
-            this.prizeTip.text = type == 1 ? "矿区产出收益" : "矿工产出收益";
+            let tips = ["矿区产出收益", "矿工产出收益", "打工获得"];
+            this.prizeTip.text = tips[type - 1];
             this._type = type;
         }
 

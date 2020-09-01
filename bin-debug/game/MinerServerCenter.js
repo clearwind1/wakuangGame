@@ -21,7 +21,7 @@ var Game;
         }
         MinerServerCenter.prototype.init = function (info) {
             // init
-            this.addDB(this.role_group, 'Lv1');
+            this.addDB(this.role_group, 'Kuangquguangli');
             this.head_group.addChild(new Game.headComment(this, '矿工管理处', 'MINER'));
             this.ownerList.itemRenderer = OwnerItem;
             for (var k in info) {
@@ -35,6 +35,22 @@ var Game;
         };
         MinerServerCenter.prototype.initEvent = function () {
             this.addEvent(this.seach_btn, egret.TouchEvent.TOUCH_TAP, this, this.seach);
+            this.addEvent(cor.EventManage.instance(), OwnerListUpdata, this, this.refresh);
+        };
+        MinerServerCenter.prototype.refresh = function () {
+            var _this = this;
+            cor.Socket.getIntance().sendmsg('USER_HOLD_AREA_LIST', {}, function (rdata) {
+                Log(rdata);
+                var info = rdata;
+                for (var k in info) {
+                    info[k].code = info[k].code + "矿区";
+                    info[k].user_nickname = "矿主：" + info[k].user_nickname;
+                    info[k].name = "矿区等级：" + info[k].name;
+                    info[k].miner_num = info[k].current_work_count + '/' + info[k].max_work_count;
+                    info[k].earnings = info[k].can_get_income;
+                }
+                _this.ownerList.dataProvider = new eui.ArrayCollection(info);
+            }, this);
         };
         MinerServerCenter.prototype.seach = function () {
             var _this = this;
@@ -56,7 +72,18 @@ var Game;
                     info[k].miner_num = info[k].current_work_count + '/' + info[k].max_work_count;
                     info[k].earnings = info[k].can_get_income;
                 }
-                _this.ownerList.dataProvider = new eui.ArrayCollection(info);
+                if (info.length == 0) {
+                    Game.TipsSkin.instance().show("没有找到该矿区");
+                }
+                else {
+                    _this.ownerList.dataProvider = new eui.ArrayCollection(info);
+                }
+                _this.code.text = "";
+                // if (info.length == 0) {
+                //     this.searchTips.text = "没有找到该矿区";
+                // } else {
+                //     this.searchTips.text = "";
+                // }
             }, this);
         };
         return MinerServerCenter;
@@ -81,15 +108,16 @@ var Game;
             this.btn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.btn_touch, this);
         };
         OwnerItem.prototype.btn_touch = function (e) {
-            var _this = this;
             switch (this.data.status) {
                 case 0:
                     cor.Socket.getIntance().sendmsg("START_MINING", {
                         "user_hold_area_id": this.data.id
                     }, function (rdata) {
                         Log(rdata);
-                        _this.data.status = 3;
-                        _this.data.time = "4:00:00";
+                        // this.data.status = 3;
+                        // this.data.time = rdata;
+                        // this.dataChanged();
+                        cor.EventManage.instance().sendEvent(OwnerListUpdata);
                     }, this);
                     Log("开始挖矿");
                     break;
@@ -98,6 +126,12 @@ var Game;
                         "user_hold_area_id": this.data.id
                     }, function (rdata) {
                         Log(rdata);
+                        if (rdata.incom > 0) {
+                            cor.MainScene.instance().addChild(new Game.GetPrize(rdata.incom, 3));
+                        }
+                        // this.data.status = 0;
+                        // this.dataChanged();
+                        cor.EventManage.instance().sendEvent(OwnerListUpdata);
                     }, this);
                     Log("领取收益");
                     break;
@@ -106,8 +140,13 @@ var Game;
                         "user_hold_area_id": this.data.id
                     }, function (rdata) {
                         Log(rdata);
-                        _this.data.status = 2;
-                        _this.dataChanged();
+                        // if (rdata.income > 0) {
+                        //     this.data.status = 2;
+                        // } else {
+                        //     this.data.status = 0;
+                        // }
+                        // this.dataChanged();
+                        cor.EventManage.instance().sendEvent(OwnerListUpdata);
                     }, this);
                     Log("放弃打工");
                     break;
@@ -135,7 +174,7 @@ var Game;
                     this.btn['wz'].text = "开始挖矿";
                     this.btn['wz'].textColor = 0xffffff;
                     this.btn['wz'].stroke = 2;
-                    this.btn['wz'].strokeColor = 0x5276e9;
+                    this.btn['wz'].strokeColor = 0x3dc1b0;
                     break;
                 case 2:
                     this.btn['img'].source = "Btn_Yellow_01_png";

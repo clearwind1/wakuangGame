@@ -53,7 +53,12 @@ class GameData {
 		"current_hold_area_code": "",
 		"hold_area_reward": 10000,
 		"hold_area_work_reward": 1000
+	}
 
+	public static Share_config = {
+		"link": "http://hardymonkey.cn:8081/download/app?code=178f3735",
+        "app": "我正在有矿APP测试，快来和我一起玩耍吧，点击下方链接注册：\r\n\r\nhttp://hardymonkey.cn:8081/download/app?code=178f3735\r\n\r\n输入邀请码立即获取矿区，邀请码：178f3735",
+        "game": "我正在有矿APP里玩挖矿游戏，快来和我一起挖矿吧，点击下方链接注册：\r\n\r\nhttp://hardymonkey.cn:8081/download/app?code=178f3735\r\n\r\n输入邀请码立即获取矿区，邀请码：178f3735"
 	}
 
 }

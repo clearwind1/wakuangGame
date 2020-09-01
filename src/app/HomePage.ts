@@ -41,6 +41,7 @@ namespace Game {
             this.initEnent();
             this.getNews();
             this.getBanners();
+            this.getShareConfig();
         }
 
         public init() {
@@ -192,6 +193,13 @@ namespace Game {
             this.currentNav = btn;
             cor.MainScene.instance().clearPage();
             return true;
+        }
+        //获取分享配置
+        private getShareConfig() { 
+            cor.Socket.getIntance().sendmsg('GET_SHARE_CONFIG', {}, (rdata) => {
+                Log(rdata);
+                GameData.Share_config = rdata;
+            }, this)
         }
         //显示主页
         private showHome() {

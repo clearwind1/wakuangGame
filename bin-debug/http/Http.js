@@ -69,7 +69,7 @@ var core;
             this.height = GameData.GameHeigth;
             this.addChild(createRect(0, 0, this.width, this.height, 0.6));
             //动画
-            // this.createan();
+            this.createan();
         };
         Covershap.prototype.createan = function () {
             this.loading = createBitmap("loadingIcon_png");

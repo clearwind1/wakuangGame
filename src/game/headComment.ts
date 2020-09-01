@@ -21,6 +21,8 @@ namespace Game {
             this.mine_num.text = GameData.UserInfo.mineral + '';
             this.title.text = title;
             this.title_en.text = title_en;
+
+            this.height = 121;
         }
 
         private initEvent(parent: cor.BaseScene) {
