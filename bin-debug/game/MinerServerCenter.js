@@ -23,7 +23,6 @@ var Game;
             // init
             this.addDB(this.role_group, 'Lv1');
             this.head_group.addChild(new Game.headComment(this, '矿工管理处', 'MINER'));
-            this._minerserverInfo = info;
             this.ownerList.itemRenderer = OwnerItem;
             for (var k in info) {
                 info[k].code = info[k].code + "矿区";
@@ -35,6 +34,30 @@ var Game;
             this.ownerList.dataProvider = new eui.ArrayCollection(info);
         };
         MinerServerCenter.prototype.initEvent = function () {
+            this.addEvent(this.seach_btn, egret.TouchEvent.TOUCH_TAP, this, this.seach);
+        };
+        MinerServerCenter.prototype.seach = function () {
+            var _this = this;
+            if (this.code.text == "") {
+                Game.TipsSkin.instance().show("请输入要搜索的矿区编号");
+                return;
+            }
+            cor.Socket.getIntance().sendmsg('USER_HOLD_AREA_LIST', {
+                "keyword": this.code.text,
+                "page": 1,
+                "page_size": 100
+            }, function (rdata) {
+                Log(rdata);
+                var info = rdata;
+                for (var k in info) {
+                    info[k].code = info[k].code + "矿区";
+                    info[k].user_nickname = "矿主：" + info[k].user_nickname;
+                    info[k].name = "矿区等级：" + info[k].name;
+                    info[k].miner_num = info[k].current_work_count + '/' + info[k].max_work_count;
+                    info[k].earnings = info[k].can_get_income;
+                }
+                _this.ownerList.dataProvider = new eui.ArrayCollection(info);
+            }, this);
         };
         return MinerServerCenter;
     }(cor.BaseScene));
@@ -58,19 +81,34 @@ var Game;
             this.btn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.btn_touch, this);
         };
         OwnerItem.prototype.btn_touch = function (e) {
+            var _this = this;
             switch (this.data.status) {
                 case 0:
                     cor.Socket.getIntance().sendmsg("START_MINING", {
                         "user_hold_area_id": this.data.id
                     }, function (rdata) {
                         Log(rdata);
+                        _this.data.status = 3;
+                        _this.data.time = "4:00:00";
                     }, this);
                     Log("开始挖矿");
                     break;
                 case 2:
+                    cor.Socket.getIntance().sendmsg("RECEIVE_REWARD_MINING", {
+                        "user_hold_area_id": this.data.id
+                    }, function (rdata) {
+                        Log(rdata);
+                    }, this);
                     Log("领取收益");
                     break;
                 case 3:
+                    cor.Socket.getIntance().sendmsg("CANCEL_MINING", {
+                        "user_hold_area_id": this.data.id
+                    }, function (rdata) {
+                        Log(rdata);
+                        _this.data.status = 2;
+                        _this.dataChanged();
+                    }, this);
                     Log("放弃打工");
                     break;
                 case 4:
@@ -93,19 +131,21 @@ var Game;
             this.btn.filters = [];
             switch (this.data.status) {
                 case 0:
+                    this.btn['img'].source = "btn_green_png";
                     this.btn['wz'].text = "开始挖矿";
                     this.btn['wz'].textColor = 0xffffff;
                     this.btn['wz'].stroke = 2;
                     this.btn['wz'].strokeColor = 0x5276e9;
                     break;
                 case 2:
+                    this.btn['img'].source = "Btn_Yellow_01_png";
                     this.btn['wz'].text = "领取收益";
                     this.btn['wz'].textColor = 0xffffff;
                     this.btn['wz'].stroke = 2;
                     this.btn['wz'].strokeColor = 0xe99652;
                     break;
                 case 3:
-                    this.btn.filters = [colorFlilter];
+                    this.btn['img'].source = "Btn_Blue_01_png";
                     this.btn['wz'].text = "";
                     this.time_group.visible = true;
                     this.time.text = numberToTime(this._leftTime, 1);
@@ -130,7 +170,8 @@ var Game;
             clearInterval(this._time_inter);
         };
         OwnerItem.prototype.dataChanged = function () {
-            this._leftTime = this.data.time;
+            if (this.data.status == 3)
+                this._leftTime = TimeTonumber(this.data.time) * 1000;
             if (GameData.UserInfo.identity != IDENTITY.Owner) {
                 this.checkbtn();
             }

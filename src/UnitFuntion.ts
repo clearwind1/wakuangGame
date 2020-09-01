@@ -1198,7 +1198,8 @@ function checkSameDay(d1, d2): boolean {
 
 /**
  * 数字转换时间格式
- * @param value: 时间，毫秒
+ * @param value: 时间，h:m:s
+ * 返回秒
  */
 function TimeTonumber(value): number {
     let timeArr = value.split(":");
