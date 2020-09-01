@@ -2,7 +2,7 @@
 <e:Skin class="OwnerItem" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" width="914">
 	<e:Image source="gameRes_json.Bg_Miner01_png" x="0" y="0"/>
 	<e:Label x="35" y="19" fontFamily="myFont" size="26" textColor="0xcbf9ff" text="{data.code}"/>
-	<e:Label y="19" fontFamily="myFont" size="26" textColor="0xCBF9FF" horizontalCenter="0" text="{data.user_nickname}"/>
+	<e:Label y="19" fontFamily="myFont" size="26" textColor="0xCBF9FF" horizontalCenter="0" text="{data.user_nickname}" visible="false"/>
 	<e:Label y="19" fontFamily="myFont" size="26" textColor="0xCBF9FF" x="672" text="{data.name}"/>
 	<e:Label text="可获得收益：" x="35" y="94" fontFamily="myFont" size="24" textColor="0x52a9ca"/>
 	<e:Label text="当前已有矿工：" x="419" y="94" fontFamily="myFont" size="24" textColor="0x52A9CA"/>
@@ -17,14 +17,14 @@
 	<e:Button id="btn" label="" x="683" y="68">
 		<e:skinName>
 			<e:Skin states="up,down,disabled" xmlns:w="http://ns.egret.com/wing">
-			<e:Image width="100%" height="100%" source="gameRes_json.Btn_Blue_01_png"/>
+			<e:Image id="img" width="100%" height="100%" source="gameRes_json.Btn_Blue_01_png"/>
 			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
 	<e:Label id="wz" text="" horizontalCenter="0" verticalCenter="-2" size="32" textColor="0xffffff" fontFamily="myFont" stroke="2" strokeColor="0x5276e9" textAlign="center" width="199" verticalAlign="middle" height="71"/>
 			</e:Skin>
 		</e:skinName>
 	</e:Button>
-	<e:Group id="time_group" width="197" height="69" x="687" y="69" visible="false">
-		<e:Label text="收益倒计时" y="9" horizontalCenter="0" size="22" fontFamily="myFont" textColor="0xe0e0e0" stroke="2" strokeColor="0x505153"/>
+	<e:Group id="time_group" width="197" height="69" x="687" y="69" touchEnabled="false" touchChildren="false">
+		<e:Label text="取消打工" y="9" horizontalCenter="0" size="22" fontFamily="myFont" stroke="2" strokeColor="0x5276e9" textColor="0xffffff"/>
 		<e:Label id="time" text="03:25:36" y="38" horizontalCenter="0" size="24" fontFamily="myFont" stroke="0" strokeColor="0x505153" textColor="0xa1ffb7"/>
 	</e:Group>
 </e:Skin>

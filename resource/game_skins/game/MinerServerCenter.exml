@@ -3,12 +3,23 @@
 	<e:Image source="Bg_Shop01_jpg" x="0" y="0" width="100%"/>
 	<e:Group id="head_group" x="0" y="0"/>
 	<e:Group id="role_group" x="0" bottom="0"/>
-	<e:Image source="gameRes_json.Bg_Shop04_png" y="80" scale9Grid="12,13,72,81" width="940" height="650" right="19"/>
-	<e:Scroller width="936" height="625.58" y="93" anchorOffsetX="0" anchorOffsetY="0" right="19">
+	<e:Image source="gameRes_json.Bg_Shop04_png" scale9Grid="12,13,72,81" width="940" height="588" right="19" y="142"/>
+	<e:Scroller width="936" height="569.58" anchorOffsetX="0" anchorOffsetY="0" right="19" y="149.41999999999996">
 		<e:List id="ownerList" itemRendererSkinName="OwnerItem" useVirtualLayout="false">
 			<e:layout>
 				<e:VerticalLayout horizontalAlign="center" gap="10"/>
 			</e:layout>
 		</e:List>
 	</e:Scroller>
+	<e:Image source="gameRes_json.Frame_02_png" y="80" width="374" scale9Grid="7,7,42,42" right="204"/>
+	<e:Button id="seach_btn" label="" y="84" scaleX="0.65" scaleY="0.65" right="61">
+		<e:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image id="img" width="100%" height="100%" source="gameRes_json.Btn_Blue_01_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			<e:Label id="wz" text="搜索" horizontalCenter="0" verticalCenter="-2" size="32" textColor="0xffffff" fontFamily="myFont" stroke="2" strokeColor="0x5276e9" textAlign="center" width="199" verticalAlign="middle" height="71"/>
+		</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:EditableText id="code" width="354" height="29" text="" y="93" anchorOffsetY="0" size="28" fontFamily="myFont" right="212" textColor="0xa5ccfb" prompt="请输入矿区编号" promptColor="0x9b9b9b"/>
 </e:Skin>
