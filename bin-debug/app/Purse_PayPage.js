@@ -32,6 +32,8 @@ var Game;
             this.addEvent(this.reset_password_btn, egret.TouchEvent.TOUCH_TAP, this, this.reset_password);
         };
         Purse_PayPage.prototype.reset_password = function () {
+            cor.MainScene.instance().addChild(new Game.Purse_resetPassword());
+            this.dispose();
         };
         Purse_PayPage.prototype.pay = function () {
             var _this = this;

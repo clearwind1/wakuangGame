@@ -27,7 +27,6 @@ namespace Game {
                 info[k].name = "矿区等级：" + info[k].name;
                 info[k].miner_num = info[k].current_work_count + '/' + info[k].max_work_count;
                 info[k].earnings = info[k].can_get_income;
-                info[k].state = 1;
             }
             this.ownerList.dataProvider = new eui.ArrayCollection(info);
         }
@@ -58,25 +57,34 @@ namespace Game {
             if (GameData.UserInfo.identity == IDENTITY.Owner) {
                 this.btn.visible = false;
             }
-            this.btn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.btn_touch, this);            
+            this.btn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.btn_touch, this);
         }
 
         private btn_touch(e: egret.TouchEvent) {
-            switch (this.data.state) {
-                case 1:
-                    Log("开始挖矿");    
+            switch (this.data.status) {
+                case 0:
+                    cor.Socket.getIntance().sendmsg("START_MINING", {
+                        "user_hold_area_id": this.data.id
+                    }, (rdata) => {
+                        Log(rdata);
+                    }, this)
+                    Log("开始挖矿");
                     break;
                 case 2:
                     Log("领取收益");
                     break;
                 case 3:
+                    Log("放弃打工")
+                    break;
                 case 4:
+                case 1:
                     break;
             }
         }
 
         public checkbtn() {
             this.time_group.visible = false;
+            this.btn.visible = true;
             //颜色矩阵数组
             var colorMatrix = [
                 0.3, 0.3, 0, 0, 0,
@@ -88,8 +96,8 @@ namespace Game {
             var colorFlilter = new egret.ColorMatrixFilter(colorMatrix);
 
             this.btn.filters = [];
-            switch (this.data.state) {
-                case 1:
+            switch (this.data.status) {
+                case 0:
                     this.btn['wz'].text = "开始挖矿";
                     this.btn['wz'].textColor = 0xffffff;
                     this.btn['wz'].stroke = 2;
@@ -106,14 +114,17 @@ namespace Game {
                     this.btn['wz'].text = "";
                     this.time_group.visible = true;
                     this.time.text = numberToTime(this._leftTime, 1);
-                    this._time_inter = setInterval(() => { 
+                    this._time_inter = setInterval(() => {
                         this._leftTime -= 1000;
                         this.time.text = numberToTime(this._leftTime, 1);
                     }, 1000);
                     break;
-                case 4:
+                case 1:
                     this.btn.filters = [colorFlilter];
                     this.btn['wz'].text = "已满";
+                    break;
+                case 4:
+                    this.btn.visible = false;
                     break;
             }
         }
@@ -121,12 +132,15 @@ namespace Game {
         private removeFromStage() {
             this.removeEventListener(egret.Event.ADDED_TO_STAGE, this.addToStage, this);
             this.removeEventListener(egret.Event.REMOVED_FROM_STAGE, this.removeFromStage, this);
-            this.btn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.btn_touch, this);            
+            this.btn.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.btn_touch, this);
             clearInterval(this._time_inter);
         }
 
         protected dataChanged() {
-            this.checkbtn();
+            this._leftTime = this.data.time;
+            if (GameData.UserInfo.identity != IDENTITY.Owner) {
+                this.checkbtn();
+            }
         }
 
     }
