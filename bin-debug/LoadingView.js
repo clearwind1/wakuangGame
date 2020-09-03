@@ -76,7 +76,7 @@ var Game;
             this._tag = setTimeout(function () {
                 _this._index = (_this._index + 1) % changeTx.length;
                 _this.showTip();
-            }, 1500);
+            }, 1800);
         };
         LoadingView.prototype.initEnent = function () {
         };

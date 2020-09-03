@@ -9,6 +9,8 @@ namespace Game {
         public exchange_btn: eui.Button;
         public income_btn: eui.Button;
         public output_btn: eui.Button;
+        public address: eui.Label;
+        public money: eui.Label;
 
         private _purseInfo;
         private _rateInfo;
@@ -24,17 +26,19 @@ namespace Game {
             this._purseInfo = purseInfo;
             for (var k in purseInfo) {
                 if (purseInfo[k].coin_name == "GST") {
-                    this.gst_info_btn['num'].text = toThousands(purseInfo[k].available_balance);
+                    this.gst_info_btn['money'].text = toThousands(purseInfo[k].available_balance);
+                    this.address.text = purseInfo[k].bind_address;
+                    this.money.text = toThousands(purseInfo[k].available_balance);
                 } else {
-                    this.usdt_info_btn['num'].text = toThousands(purseInfo[k].available_balance);
+                    this.usdt_info_btn['money'].text = toThousands(purseInfo[k].available_balance);
                 }
             }
-            this.exchange_btn['num'].text = "";
+            // this.exchange_btn['num'].text = "";
             cor.Socket.getIntance().sendmsg('GET_GST_USDT_RATE', {
             }, (rdata) => {
                 Log(rdata);
                 this._rateInfo = rdata;
-                this.exchange_btn['num'].text = rdata.usdt + "USDT:" + rdata.gst + "GST";
+                // this.exchange_btn['num'].text = rdata.usdt + "USDT:" + rdata.gst + "GST";
                 // cor.MainScene.instance().addChild(new RecodePage(rdata, "USDT"));
             }, this)
         }
@@ -45,9 +49,11 @@ namespace Game {
                 this._purseInfo = rdata;
                 for (var k in rdata) {
                     if (rdata[k].coin_name == "GST") {
-                        this.gst_info_btn['num'].text = toThousands((rdata[k].available_balance));
+                        this.gst_info_btn['money'].text = toThousands(rdata[k].available_balance);
+                        this.address.text = rdata[k].address;
+                        this.money.text = toThousands(rdata[k].available_balance);
                     } else {
-                        this.usdt_info_btn['num'].text = toThousands((rdata[k].available_balance));
+                        this.usdt_info_btn['money'].text = toThousands(rdata[k].available_balance);
                     }
                 }
             }, this)
@@ -60,14 +66,18 @@ namespace Game {
             this.addEvent(this.usdt_info_btn, egret.TouchEvent.TOUCH_TAP, this, this.usdt_info);
             this.addEvent(this.exchange_btn, egret.TouchEvent.TOUCH_TAP, this, this.exchange);
             this.addEvent(this.income_btn, egret.TouchEvent.TOUCH_TAP, this, this.income);
+            this.addEvent(this.address, egret.TouchEvent.TOUCH_TAP, this, this.income);
             this.addEvent(this.output_btn, egret.TouchEvent.TOUCH_TAP, this, this.output);
             this.addEvent(cor.EventManage.instance(), PurseUpdataInfo, this, this.updataInfo);
 
             egret.ExternalInterface.addCallback("scanResult", (message: string) => {
                 // TipsSkin.instance().show(message);
-                if (cor.MainScene.instance().getChildIndex(this) == cor.MainScene.instance().numChildren - 1) {
-                    cor.MainScene.instance().addChild(new Purse_outputPage(message));
+                if (cor.MainScene.instance().getChildIndex(this) != cor.MainScene.instance().numChildren - 1) {
+                    let lastpage = cor.MainScene.instance().getChildAt(cor.MainScene.instance().numChildren - 1) as cor.BaseScene;
+                    lastpage.dispose();
                 }
+
+                cor.MainScene.instance().addChild(new Purse_outputPage("GST",message));
             });
         }
 
@@ -105,11 +115,11 @@ namespace Game {
 
         }
         private output() {
-            cor.MainScene.instance().addChild(new Purse_outputPage());
+            // cor.MainScene.instance().addChild(new Purse_outputPage());
         }
 
         private exchange() {
-            cor.MainScene.instance().addChild(new Purse_exchangePage(this._rateInfo,this._purseInfo));
+            cor.MainScene.instance().addChild(new Purse_exchangePage(this._rateInfo, this._purseInfo));
         }
     }
 }

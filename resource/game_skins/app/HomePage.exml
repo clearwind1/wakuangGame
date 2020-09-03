@@ -16,7 +16,7 @@
 				<e:Skin states="up,down,disabled" width="114" height="120">
 				<e:Image width="100%" height="100%" source="appIcon_json.Bg_Main03_png" source.down="appIcon_json.Bg_Main03_xz_png"/>
 				<e:Image source="appIcon_json.Icon_Youxi_png" horizontalCenter="0" verticalCenter="0"/>
-				<e:Label id="labelDisplay" horizontalCenter="0" y="132" text="游戏" fontFamily="myFont" size="20"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" y="132" text="游戏" size="20" fontFamily="myFont"/>
 				</e:Skin>
 			</e:skinName>
 			</e:Button>

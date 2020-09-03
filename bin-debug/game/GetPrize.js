@@ -17,6 +17,7 @@ var Game;
             _this.skinName = "GetPrize";
             _this.init(num, type);
             _this.initEvent();
+            _this.comein();
             return _this;
         }
         GetPrize.prototype.init = function (num, type) {
@@ -30,6 +31,15 @@ var Game;
         GetPrize.prototype.initEvent = function () {
             this.addEvent(this.close_btn, egret.TouchEvent.TOUCH_TAP, this, this.showMove);
             this.addEvent(this.sure_btn, egret.TouchEvent.TOUCH_TAP, this, this.showMove);
+        };
+        GetPrize.prototype.comein = function () {
+            var _this = this;
+            this.windows_group.scaleX = 0;
+            this.windows_group.scaleY = 0;
+            this.prize_group.visible = false;
+            egret.Tween.get(this.windows_group).to({ scaleX: 1, scaleY: 1 }, 300).call(function () {
+                _this.prize_group.visible = true;
+            });
         };
         GetPrize.prototype.showMove = function () {
             var _this = this;

@@ -42,7 +42,7 @@ namespace Game {
             this._tag = setTimeout(() => {
                 this._index = (this._index + 1) % changeTx.length;
                 this.showTip();
-            }, 1500);
+            }, 1800);
         }
 
         private initEnent() {

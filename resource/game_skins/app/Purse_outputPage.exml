@@ -19,7 +19,7 @@
 	<e:Image source="appIcon_json.Line_Personal02_png" y="493" horizontalCenter="0" width="690"/>
 	<e:Image source="appIcon_json.Line_Personal02_png" width="264" x="30" bottom="223"/>
 	<e:Image source="appIcon_json.Line_Personal02_png" width="264" x="456" bottom="223"/>
-	<e:Button id="output_btn" label="确认转出" horizontalCenter="0" y="581">
+	<e:Button id="output_btn" label="确认转出" horizontalCenter="0" bottom="286">
 		<e:skinName>
 		<e:Skin states="up,down,disabled" xmlns:w="http://ns.egret.com/wing">
 			<e:Image width="100%" height="100%" source="appIcon_json.Btn_Wallet01_png"/>

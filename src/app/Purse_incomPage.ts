@@ -3,11 +3,9 @@ namespace Game {
         public readonly skinName = "Purse_incomPage";
 
         public back_btn: eui.Image;
-        public headImg: eui.Image;
-        public headMask: eui.Image;
-        public nickname: eui.Label;
         public address: eui.Label;
         public address_qrcode: eui.Image;
+        public address_group: eui.Group;
 
         constructor(purseInfo) {
             super();
@@ -18,19 +16,6 @@ namespace Game {
 
         public init(purseInfo) {
             // init
-
-            this.headImg.mask = this.headMask;
-            if (GameData.UserInfo.nickname == "") {
-                cor.Socket.getIntance().sendmsg('GET_ME', {}, (rdata) => {
-                    Log(rdata);
-                    GameData.UserInfo = rdata;
-                    this.headImg.source = GameData.UserInfo.picture;
-                    this.nickname.text = GameData.UserInfo.nickname;
-                }, this)
-            } else {
-                this.headImg.source = GameData.UserInfo.picture;
-                this.nickname.text = GameData.UserInfo.nickname;
-            }
 
             this.address.text = purseInfo.bind_address;
 
@@ -44,6 +29,11 @@ namespace Game {
 
         private initEvent() {
             this.addEvent(this.back_btn, egret.TouchEvent.TOUCH_TAP, this, this.dispose);
+            this.addEvent(this.address_group, egret.TouchEvent.TOUCH_TAP, this, this.copy);
+        }
+
+        private copy() {
+            egret.ExternalInterface.call("sendToNative", "copyStr$" + this.address.text);
         }
     }
 }

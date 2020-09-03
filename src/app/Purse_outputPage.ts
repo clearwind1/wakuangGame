@@ -12,20 +12,20 @@ namespace Game {
 
         private _radioGroup: eui.RadioButtonGroup;
         private _selectType;
-        constructor(address?) {
+        constructor(type?, address?) {
             super();
 
-            this.init(address);
+            this.init(type,address);
             this.initEvent();
         }
 
-        public init(address) {
+        public init(type,address) {
             // init
             if (address) {
                 this.address_input.text = address;
             }
             this.money_input.restrict = "0-9";
-            this._selectType = "GST";
+            this._selectType = type;
             this.gst_select.selected = true;
             this._radioGroup = new eui.RadioButtonGroup();
             this.gst_select.group = this._radioGroup;
@@ -54,12 +54,6 @@ namespace Game {
                 var radioGroup: eui.RadioButtonGroup = evt.target;
                 this._selectType = radioGroup.selectedValue;
             })
-
-            egret.ExternalInterface.addCallback("scanResult", (message: string) => {
-                // TipsSkin.instance().show(message);
-                this.address_input.text = message;
-            });
-
         }
 
         private scan() {

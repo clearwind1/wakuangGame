@@ -126,8 +126,10 @@ var Game;
                         "user_hold_area_id": this.data.id
                     }, function (rdata) {
                         Log(rdata);
-                        if (rdata.incom > 0) {
-                            cor.MainScene.instance().addChild(new Game.GetPrize(rdata.incom, 3));
+                        if (rdata.income > 0) {
+                            GameData.UserInfo.mineral += Number(rdata.income);
+                            cor.MainScene.instance().addChild(new Game.GetPrize(rdata.income, 3));
+                            cor.EventManage.instance().sendEvent(UpdataGameInfo);
                         }
                         // this.data.status = 0;
                         // this.dataChanged();

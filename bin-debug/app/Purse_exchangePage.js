@@ -30,6 +30,7 @@ var Game;
             this.addEvent(this.close_btn, egret.TouchEvent.TOUCH_TAP, this, this.dispose);
             this.addEvent(this.change_btn, egret.TouchEvent.TOUCH_TAP, this, this.change);
             this.addEvent(this.exchange_btn, egret.TouchEvent.TOUCH_TAP, this, this.exchange);
+            this.addEvent(this.change_all_btn, egret.TouchEvent.TOUCH_TAP, this, this.change_all);
         };
         Purse_exchangePage.prototype.exchange = function () {
             var _this = this;
@@ -48,16 +49,33 @@ var Game;
             this._isGST = !this._isGST;
             this.showInfo();
         };
+        Purse_exchangePage.prototype.change_all = function () {
+            var r = 0;
+            if (this._isGST) {
+                r = (this._money0 * this._rateInfo.usdt) / this._rateInfo.gst;
+            }
+            else {
+                r = (this._money0 * this._rateInfo.gst) / this._rateInfo.usdt;
+            }
+            this.money_input.text = Math.floor(r) + "";
+        };
         Purse_exchangePage.prototype.showInfo = function () {
             var rateinfo = this._rateInfo;
             var purseInfo = this._purseInfo;
+            this.money_input.text = "";
             this.coin_type1.text = this._isGST ? "GST" : "USDT";
             this.coin_type2.text = this._isGST ? "USDT" : "GST";
-            this.rate.text = (this._isGST ? rateinfo.gst : rateinfo.usdt) + ":" + (this._isGST ? rateinfo.usdt : rateinfo.gst);
+            this.rate_type.text = "兑换" + this.coin_type2.text;
+            this.money_type0.text = "您当前持有" + this.coin_type1.text + "：";
+            this.money_type1.text = "您当前持有" + this.coin_type2.text + "：";
+            this.rate.text = (this._isGST ? rateinfo.gst : rateinfo.usdt) + this.coin_type1.text + "≈" + (this._isGST ? rateinfo.usdt : rateinfo.gst) + this.coin_type2.text;
             for (var k in purseInfo) {
                 if (purseInfo[k].coin_name == this.coin_type1.text) {
-                    this.money.text = "余额：" + toThousands(purseInfo[k].available_balance);
-                    break;
+                    this.money0.text = toThousands(purseInfo[k].available_balance);
+                    this._money0 = Number(purseInfo[k].available_balance);
+                }
+                else {
+                    this.money1.text = toThousands(purseInfo[k].available_balance);
                 }
             }
         };

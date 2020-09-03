@@ -4,19 +4,24 @@
 	<e:Group id="close_btn" width="78" height="74" x="8" y="8" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Image source="appIcon_json.Banner_Personal_Back01_png" x="22" y="20" scaleX="1" scaleY="1"/>
 	</e:Group>
-	<e:Image source="appIcon_json.Bg_Wallet13_png" y="124" horizontalCenter="0"/>
-	<e:Image source="appIcon_json.Line_Personal01_png" y="89" width="690" horizontalCenter="0"/>
-	<e:Image source="appIcon_json.Line_Personal02_png" y="545" horizontalCenter="0" width="690"/>
-	<e:Image source="appIcon_json.Bg_Wallet12_png" y="246" horizontalCenter="0"/>
-	<e:Image source="appIcon_json.Bg_Wallet12_png" y="282" horizontalCenter="0" scaleX="-1" scaleY="-1"/>
+	<e:Image source="appIcon_json.Bg_Wallet13_png" y="124" horizontalCenter="0" height="412" scale9Grid="88,152,532,20"/>
+	<e:Image y="89" width="690" horizontalCenter="0" source="appIcon_json.Line_Personal02_png"/>
+	<e:Image source="appIcon_json.Line_Personal02_png" y="682" width="690" horizontalCenter="0"/>
+	<e:Image source="appIcon_json.Line_Personal02_png" y="820" width="690" horizontalCenter="0"/>
+	<e:Image source="appIcon_json.Line_Personal02_png" y="955" width="690" horizontalCenter="0"/>
+	<e:Image y="457" horizontalCenter="0" width="506" source="appIcon_json.Bg_Wallet14_png"/>
+	<e:Image id="scan_btn" source="appIcon_json.Icon_Saoma_png" y="30" x="672"/>
 	<e:Label text="兑换货币" y="27" textColor="0x353535" fontFamily="myFont" size="34" x="307"/>
-	<e:Label text="请输入需要兑换的数量：" y="426" textColor="0x9B9B9B" fontFamily="myFont" size="28" horizontalCenter="0"/>
-	<e:Label text="兑换比例" y="144" fontFamily="myFont" size="26" horizontalCenter="0" textColor="0x627abd"/>
-	<e:Label id="rate" text="1:1" y="200" fontFamily="myFont" size="42" horizontalCenter="0" textColor="0xffffff"/>
-	<e:Label id="money" text="余额" y="317" textColor="0xFFFFFF" fontFamily="myFont" size="24" horizontalCenter="0"/>
-	<e:Label id="coin_type1" text="USDT" y="249" fontFamily="myFont" size="32" textColor="0xbea369" right="519"/>
-	<e:Label id="coin_type2" text="GST" y="249" textColor="0xBEA369" fontFamily="myFont" size="32" x="522"/>
-	<e:Button id="exchange_btn" label="确认兑换" horizontalCenter="0" y="620">
+	<e:Label id="money_type0" text="您当前持有GST：" y="575" fontFamily="myFont" size="24" x="36" textColor="0x9b9b9b"/>
+	<e:Label id="money_type1" text="您当前持有UDST：" y="710" textColor="0x9B9B9B" fontFamily="myFont" size="24" x="36"/>
+	<e:Label text="当前兑换比例：" y="848" textColor="0x9B9B9B" fontFamily="myFont" size="24" x="36"/>
+	<e:Label id="rate_type" text="兑换GST" y="178" fontFamily="myFont" size="28" horizontalCenter="0" textColor="0xffffff"/>
+	<e:Label id="rate" text="1:1" y="908" fontFamily="myFont" size="36" textColor="0x353535" x="36" bold="true"/>
+	<e:Label id="money0" text="2555" y="635" fontFamily="myFont" size="36" textColor="0x353535" x="36" bold="true"/>
+	<e:Label id="money1" text="2555" y="772" textColor="0x353535" fontFamily="myFont" size="36" x="36" bold="true"/>
+	<e:Label id="coin_type1" text="USDT" y="276" fontFamily="myFont" size="48" x="92" bold="true" textColor="0xffffff"/>
+	<e:Label id="coin_type2" text="GST" y="276" fontFamily="myFont" size="48" bold="true" textColor="0xffffff" x="561"/>
+	<e:Button id="exchange_btn" label="确认兑换" horizontalCenter="0" bottom="127">
 		<e:skinName>
 		<e:Skin states="up,down,disabled" xmlns:w="http://ns.egret.com/wing">
 			<e:Image width="100%" height="100%" source="appIcon_json.Btn_Wallet01_png"/>
@@ -24,13 +29,22 @@
 		</e:Skin>
 		</e:skinName>
 	</e:Button>
-	<e:EditableText id="money_input" width="690" height="43" text="" y="491" textColor="0x353535" fontFamily="myFont" size="42" verticalAlign="bottom" prompt="请输入额度" promptColor="0x9B9B9B" textAlign="center" horizontalCenter="0"/>
-	<e:Button id="change_btn" label="切换" x="623" y="132" width="90" height="36">
+	<e:Button id="change_btn" label="" y="268" x="346">
 		<e:skinName>
-			<e:Skin states="up,down,disabled">
-			<e:Image width="100%" height="100%" source="appIcon_json.Btn_Wallet05_png"/>
+		<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="appIcon_json.Icon_Duihuan01_png"/>
 			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" fontFamily="myFont" textColor="0x5e9afc" size="20"/>
-			</e:Skin>
+			<e:Image source="appIcon_json.Icon_Duihuan02_png" x="0" y="0"/>
+		</e:Skin>
 		</e:skinName>
 	</e:Button>
+	<e:Button id="change_all_btn" label="全部兑换" x="531" y="614">
+		<e:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="appIcon_json.Btn_Wallet05_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" fontFamily="myFont" textColor="0x609bfc"/>
+		</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:EditableText id="money_input" width="632" height="28" text="" y="413" fontFamily="myFont" size="28" verticalAlign="bottom" prompt="请输入需要兑换的数量" promptColor="0x9B9B9B" textAlign="center" horizontalCenter="0" textColor="0xffffff"/>
 </e:Skin>

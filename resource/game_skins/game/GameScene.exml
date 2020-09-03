@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="GameScene" width="1334" height="750" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
-	<e:Image id="bg" x="0" y="0" width="100%" fillMode="scale" source="Bg_MiningArea_Lv1_png"/>
+	<e:Image id="bg" x="0" fillMode="scale" source="Bg_Main_01_jpg" bottom="0" height="687" width="1332"/>
 	<e:Image source="gameRes_json.Bg_down_png" bottom="0" right="0"/>
 	<e:Image source="gameRes_json.Bg_up_png" y="0"/>
 	<e:Image source="gameRes_json.Head_Main_01_png" x="6.32" y="0"/>
 	<e:Image source="gameRes_json.Head_Main_02_png" x="6.32" y="0"/>
-	<e:Group id="role_group" width="644" bottom="0" horizontalCenter="-297">
+	<e:Group id="role_group" width="644" bottom="0" horizontalCenter="-297" visible="false">
 	</e:Group>
 	<e:Image id="headMask" source="gameRes_json.Head_Main_01_png" x="6.32" y="0"/>
 	<e:Image id="headImg" source="gameRes_json.Head_Main_01_png" x="6.32" y="0" width="111" height="111" mask="{this.headMask}">
 	</e:Image>
 	<e:Image source="gameRes_json.Bg_Main_02_png" x="90" y="1.33"/>
-	<e:Group id="mine_group" x="132" y="41">
+	<e:Group id="mine_group" x="132" y="41" locked="true">
 		<e:Image source="gameRes_json.Bar_Main_01_png" x="-3" y="7" scaleX="1" scaleY="1"/>
 		<e:Image id="expbar" source="gameRes_json.Bar_Main_02_png" x="-3" y="7" scaleX="1" scaleY="1" fillMode="clip" width="208"/>
 	</e:Group>
 	<e:Image id="owner_icon" source="gameRes_json.Icon_level01_png" x="310" y="9"/>
-	<e:Group width="546" height="56" y="6" anchorOffsetY="0" anchorOffsetX="0" right="5">
+	<e:Group width="546" height="56" y="6" anchorOffsetY="0" anchorOffsetX="0" right="5" locked="true">
 		<e:Image source="gameRes_json.Bg_Main_03_png" y="4" scale9Grid="62,5,39,33" width="264" x="246" scaleX="1" scaleY="1"/>
 		<e:Image source="gameRes_json.Bg_Main_03_png" y="4" scale9Grid="62,5,39,33" x="0" scaleX="1" scaleY="1"/>
 		<e:Image source="gameRes_json.Icon_G_png" x="-26" y="-7"/>
@@ -26,8 +26,8 @@
 	</e:Group>
 	<e:Label id="level" text="99级" y="15" fontFamily="myFont" textColor="0x000000" size="22" x="82" textAlign="center" width="66"/>
 	<e:Label id="nickname" text="名字" y="15" textColor="0xfefeff" x="167" size="22" fontFamily="myFont"/>
-	<e:Group width="640" height="666" bottom="-1" right="1">
-		<e:Button id="mine_btn" label="" x="15" y="39.3" scaleX="1" scaleY="1">
+	<e:Group width="814.24" height="90.85" right="1" anchorOffsetY="0" bottom="0" anchorOffsetX="0">
+		<e:Button id="mine_btn" label="" x="15" y="39.3" scaleX="1" scaleY="1" visible="false">
 			<e:skinName>
 			<e:Skin states="up,down,disabled">
 				<e:Image width="100%" height="100%" source="gameRes_json.Btn_Main_Kuangqu_png"/>
@@ -35,7 +35,7 @@
 			</e:Skin>
 			</e:skinName>
 		</e:Button>
-		<e:Button id="tools_store_btn" label="" x="15" y="399.66" scaleX="1" scaleY="1">
+		<e:Button id="tools_store_btn" label="" x="15" y="399.66" scaleX="1" scaleY="1" visible="false">
 			<e:skinName>
 			<e:Skin states="up,down,disabled">
 				<e:Image width="100%" height="100%" source="gameRes_json.Btn_Main_Gongju_png"/>
@@ -43,7 +43,7 @@
 			</e:Skin>
 			</e:skinName>
 		</e:Button>
-		<e:Button id="exchange_center_btn" label="" x="382" y="253.65" scaleX="1" scaleY="1">
+		<e:Button label="" x="382" y="253.65" scaleX="1" scaleY="1" visible="false">
 			<e:skinName>
 			<e:Skin states="up,down,disabled">
 				<e:Image width="100%" height="100%" source="gameRes_json.Btn_Main_Jiaoyisuo_png"/>
@@ -51,7 +51,7 @@
 			</e:Skin>
 			</e:skinName>
 		</e:Button>
-		<e:Button id="manager_btn" label="" x="15" y="253.65" scaleX="1" scaleY="1">
+		<e:Button id="manager_btn" label="" x="15" y="253.65" scaleX="1" scaleY="1" visible="false">
 			<e:skinName>
 			<e:Skin states="up,down,disabled">
 				<e:Image width="100%" height="100%" source="gameRes_json.Btn_Main_Kuangquguangli_png"/>
@@ -59,7 +59,7 @@
 			</e:Skin>
 			</e:skinName>
 		</e:Button>
-		<e:Button id="warehouse_btn" label="" x="350" y="102.3" scaleX="1" scaleY="1">
+		<e:Button label="" x="350" y="102.3" scaleX="1" scaleY="1" visible="false">
 			<e:skinName>
 			<e:Skin states="up,down,disabled">
 				<e:Image width="100%" height="100%" source="gameRes_json.Btn_Main_Cangku_png"/>
@@ -67,7 +67,7 @@
 			</e:Skin>
 			</e:skinName>
 		</e:Button>
-		<e:Button id="server_center_btn" label="" x="305" y="399.66" scaleX="1" scaleY="1">
+		<e:Button id="server_center_btn" label="" x="305" y="399.66" scaleX="1" scaleY="1" visible="false">
 			<e:skinName>
 			<e:Skin states="up,down,disabled">
 				<e:Image width="100%" height="100%" source="gameRes_json.Btn_Main_Kuanggong_png"/>
@@ -75,7 +75,7 @@
 			</e:Skin>
 			</e:skinName>
 		</e:Button>
-		<e:Button id="share_btn" label="" x="49" y="572.88" scaleX="1" scaleY="1">
+		<e:Button id="warehouse_btn" label="" x="15.65" y="0" scaleX="1" scaleY="1">
 			<e:skinName>
 			<e:Skin states="up,down,disabled">
 				<e:Image width="100%" height="100%" source="gameRes_json.Btn_Fenxiang_png"/>
@@ -83,7 +83,7 @@
 			</e:Skin>
 			</e:skinName>
 		</e:Button>
-		<e:Button id="friend_btn" label="" x="-152.52" y="572.8799999999999" scaleX="1" scaleY="1">
+		<e:Button id="friend_btn" label="" x="217.17" y="0" scaleX="1" scaleY="1">
 			<e:skinName>
 			<e:Skin states="up,down,disabled">
 				<e:Image width="100%" height="100%" source="gameRes_json.Btn_Haoyou_png"/>
@@ -91,7 +91,7 @@
 			</e:Skin>
 			</e:skinName>
 		</e:Button>
-		<e:Button id="setting_btn" label="" x="251" y="572.8799999999999" scaleX="1" scaleY="1">
+		<e:Button id="setting_btn" label="" x="419.17" y="0" scaleX="1" scaleY="1">
 			<e:skinName>
 			<e:Skin states="up,down,disabled">
 				<e:Image width="100%" height="100%" source="gameRes_json.Btn_Shezhi_png"/>
@@ -99,7 +99,7 @@
 			</e:Skin>
 			</e:skinName>
 		</e:Button>
-		<e:Button id="exitbtn" label="" x="452.5" y="572.88">
+		<e:Button id="exitbtn" label="" x="620.67" y="0">
 			<e:skinName>
 			<e:Skin states="up,down,disabled">
 				<e:Image width="100%" height="100%" source="gameRes_json.Btn_Guanbi_png"/>
@@ -107,9 +107,9 @@
 			</e:Skin>
 			</e:skinName>
 		</e:Button>
-		<e:Image source="gameRes_json.Bg_Main_05_png" x="368" y="39.3"/>
+		<e:Image source="gameRes_json.Bg_Main_05_png" x="368" y="39.3" visible="false"/>
 	</e:Group>
-	<e:Group id="notice_group" width="333.33" height="453" x="-311" y="207" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="notice_group" width="333.33" height="453" x="-311" y="207" anchorOffsetX="0" anchorOffsetY="0" locked="true">
 		<e:Button id="email_btn" label="" x="310.84" y="86">
 			<e:skinName>
 			<e:Skin states="up,down,disabled">
@@ -124,4 +124,7 @@
 		</e:Scroller>
 		<e:Image id="notic_tip_img" source="gameRes_json.Point_png" x="342.99" y="107.67" visible="false"/>
 	</e:Group>
+	<e:Group id="manageCenter_btn" width="154.54" height="110.61" x="335.94" y="94.24" anchorOffsetX="0" anchorOffsetY="0"/>
+	<e:Group id="mine_manageCenter_btn" width="301.51" height="150" x="164.67" y="541" anchorOffsetX="0" anchorOffsetY="0"/>
+	<e:Group id="exchange_center_btn" width="396.33" height="329.67" x="729.94" y="267.24" anchorOffsetX="0" anchorOffsetY="0"/>
 </e:Skin>
