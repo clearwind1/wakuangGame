@@ -22,19 +22,6 @@ var Game;
         Purse_incomPage.prototype.init = function (purseInfo) {
             // init
             var _this = this;
-            this.headImg.mask = this.headMask;
-            if (GameData.UserInfo.nickname == "") {
-                cor.Socket.getIntance().sendmsg('GET_ME', {}, function (rdata) {
-                    Log(rdata);
-                    GameData.UserInfo = rdata;
-                    _this.headImg.source = GameData.UserInfo.picture;
-                    _this.nickname.text = GameData.UserInfo.nickname;
-                }, this);
-            }
-            else {
-                this.headImg.source = GameData.UserInfo.picture;
-                this.nickname.text = GameData.UserInfo.nickname;
-            }
             this.address.text = purseInfo.bind_address;
             egret.ExternalInterface.call("creatQRCode", purseInfo.bind_address);
             egret.ExternalInterface.addCallback("creatQRCode", function (message) {
@@ -45,6 +32,10 @@ var Game;
         };
         Purse_incomPage.prototype.initEvent = function () {
             this.addEvent(this.back_btn, egret.TouchEvent.TOUCH_TAP, this, this.dispose);
+            this.addEvent(this.address_group, egret.TouchEvent.TOUCH_TAP, this, this.copy);
+        };
+        Purse_incomPage.prototype.copy = function () {
+            egret.ExternalInterface.call("sendToNative", "copyStr$" + this.address.text);
         };
         return Purse_incomPage;
     }(cor.BaseScene));

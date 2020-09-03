@@ -31,6 +31,10 @@ var Game;
             this.addEvent(this.change_btn, egret.TouchEvent.TOUCH_TAP, this, this.change);
             this.addEvent(this.exchange_btn, egret.TouchEvent.TOUCH_TAP, this, this.exchange);
             this.addEvent(this.change_all_btn, egret.TouchEvent.TOUCH_TAP, this, this.change_all);
+            this.addEvent(this.scan_btn, egret.TouchEvent.TOUCH_TAP, this, this.scan);
+        };
+        Purse_exchangePage.prototype.scan = function () {
+            egret.ExternalInterface.call("scanQRCode", "");
         };
         Purse_exchangePage.prototype.exchange = function () {
             var _this = this;

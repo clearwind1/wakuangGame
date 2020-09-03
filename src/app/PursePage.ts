@@ -91,7 +91,7 @@ namespace Game {
                 "page_size": 100
             }, async (rdata) => {
                 Log(rdata);
-                cor.MainScene.instance().addChild(new RecodePage(rdata, "GST"));
+                cor.MainScene.instance().addChild(new RecodePage(this.gst_info_btn['money'].text,rdata, "GST"));
             }, this)
         }
         private usdt_info() {
@@ -101,7 +101,7 @@ namespace Game {
                 "page_size": 100
             }, async (rdata) => {
                 Log(rdata);
-                cor.MainScene.instance().addChild(new RecodePage(rdata, "USDT"));
+                cor.MainScene.instance().addChild(new RecodePage(this.usdt_info_btn['money'].text,rdata, "USDT"));
             }, this)
         }
         private income() {

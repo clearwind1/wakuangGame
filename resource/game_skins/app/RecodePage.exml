@@ -3,32 +3,45 @@
 	<e:Rect width="100%" height="100%" x="0" y="0" fillColor="0xFFFFFF"/>
 	<e:Image source="appIcon_json.Bg_Personal03_png" x="0" y="0" width="100%" height="164"/>
 	<e:Image source="appIcon_json.Line_Personal02_png" y="90" width="690" horizontalCenter="0"/>
-	<e:Image source="appIcon_json.Bg_Wallet09_png" y="94" horizontalCenter="0.5"/>
+	<e:Image source="appIcon_json.Line_Personal02_png" y="542" width="690" horizontalCenter="0"/>
+	<e:Image source="appIcon_json.Bg_Wallet09_png" y="545" height="76" x="250"/>
+	<e:Image source="appIcon_json.Bg_Wallet09_png" y="545" height="76" x="500"/>
+	<e:Image source="appIcon_json.Bg_Personal03_png" x="0" y="620" width="100%" height="100%"/>
 	<e:Group id="close_btn" width="72" height="68" x="13" y="17" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Image source="appIcon_json.Banner_Personal_Back01_png" x="17" y="11" scaleX="1" scaleY="1"/>
 	</e:Group>
 	<e:Label text="交易记录" y="27" textColor="0x353535" fontFamily="myFont" size="34" x="307"/>
-	<e:Button id="gst_info_btn" label="GST记录" x="90" y="97">
+	<e:Button id="all_info_btn" label="全部" x="0" y="543">
 		<e:skinName>
-			<e:Skin states="up,down,disabled" xmlns:w="http://ns.egret.com/wing" width="244" height="55">
-			<e:Image width="100%" height="100%" source="appIcon_json.Bg_Personal03_png"/>
+			<e:Skin states="up,down,disabled" currentState="up" xmlns:w="http://ns.egret.com/wing" width="250" height="76">
+			<e:Image width="100%" height="100%" source="appIcon_json.Bg_Personal03_png" visible="false"/>
 			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" fontFamily="myFont" size="28" textColor="0x349aff" visible="false"/>
-	<e:Label id="wz" text="GST记录" horizontalCenter="0" verticalCenter="0" fontFamily="myFont" size="28" textColor="0x349aff" textColor.down="0x4c4b4b"/>
-	<e:Rect width="52" height="3" includeIn="up" y="63" fillColor="0x349aff" horizontalCenter="0"/>
+	<e:Label id="wz" text="全部" horizontalCenter="0" verticalCenter="0" fontFamily="myFont" size="28" textColor="0x349aff" textColor.down="0x4c4b4b"/>
+	<e:Rect width="52" height="3" includeIn="up" y="73" fillColor="0x349aff" horizontalCenter="0"/>
 			</e:Skin>
 		</e:skinName>
 	</e:Button>
-	<e:Button id="usdt_info_btn" label="USDT记录" x="432" y="97" currentState="down">
+	<e:Button id="in_info_btn" label="全部" x="250" y="543">
 		<e:skinName>
-		<e:Skin states="up,down,disabled" xmlns:w="http://ns.egret.com/wing" width="244" height="55">
-			<e:Image width="100%" height="100%" source="appIcon_json.Bg_Personal03_png"/>
+		<e:Skin states="up,down,disabled" currentState="up" width="250" height="76">
+			<e:Image width="100%" height="100%" source="appIcon_json.Bg_Personal03_png" visible="false"/>
 			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" fontFamily="myFont" size="28" textColor="0x349aff" visible="false"/>
-			<e:Label id="wz" text="USDT记录" horizontalCenter="0" verticalCenter="0" fontFamily="myFont" size="28" textColor="0x349aff" textColor.down="0x4c4b4b"/>
-			<e:Rect width="52" height="3" includeIn="up" y="63" fillColor="0x349aff" horizontalCenter="0"/>
+			<e:Label id="wz" text="转入" horizontalCenter="0" verticalCenter="0" fontFamily="myFont" size="28" textColor="0x349aff" textColor.down="0x4c4b4b"/>
+			<e:Rect width="52" height="3" includeIn="up" y="73" fillColor="0x349aff" horizontalCenter="0"/>
 		</e:Skin>
 		</e:skinName>
 	</e:Button>
-	<e:Scroller id="recode_scroller" width="750" height="401" x="0" y="164">
+	<e:Button id="out_info_btn" label="全部" x="500" y="543">
+		<e:skinName>
+		<e:Skin states="up,down,disabled" currentState="up" width="250" height="76">
+			<e:Image width="100%" height="100%" source="appIcon_json.Bg_Personal03_png" visible="false"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" fontFamily="myFont" size="28" textColor="0x349aff" visible="false"/>
+			<e:Label id="wz" text="转出" horizontalCenter="0" verticalCenter="0" fontFamily="myFont" size="28" textColor="0x349aff" textColor.down="0x4c4b4b"/>
+			<e:Rect width="52" height="3" includeIn="up" y="73" fillColor="0x349aff" horizontalCenter="0"/>
+		</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Scroller id="recode_scroller" width="750" height="401" x="0" y="620">
 		<e:List id="recode_list" itemRendererSkinName="RecodeItem">
 			<e:ArrayCollection>
 				<e:Array>
@@ -45,4 +58,21 @@
 			</e:layout>
 		</e:List>
 	</e:Scroller>
+	<e:Button id="exchange_btn" label="GST" y="149" horizontalCenter="0">
+		<e:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="appIcon_json.Bg_Wallet11_png"/>
+			<e:Label id="labelDisplay" text="GST" fontFamily="myFont" size="42" x="62" y="54"/>
+		</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Button id="output_btn" label="转出" y="198" x="499">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="appIcon_json.Btn_Zhuanchu_png"/>
+			<e:Label id="labelDisplay" verticalCenter="0" fontFamily="myFont" size="32" x="43" text="转出"/>
+			</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Label id="money" text="150,000" y="364" fontFamily="myFont" size="60" horizontalCenter="0" bold="true" textColor="0xFFFFFF"/>
 </e:Skin>

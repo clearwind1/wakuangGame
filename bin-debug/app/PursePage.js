@@ -110,9 +110,11 @@ var Game;
             this.addEvent(cor.EventManage.instance(), PurseUpdataInfo, this, this.updataInfo);
             egret.ExternalInterface.addCallback("scanResult", function (message) {
                 // TipsSkin.instance().show(message);
-                if (cor.MainScene.instance().getChildIndex(_this) == cor.MainScene.instance().numChildren - 1) {
-                    cor.MainScene.instance().addChild(new Game.Purse_outputPage(message));
+                if (cor.MainScene.instance().getChildIndex(_this) != cor.MainScene.instance().numChildren - 1) {
+                    var lastpage = cor.MainScene.instance().getChildAt(cor.MainScene.instance().numChildren - 1);
+                    lastpage.dispose();
                 }
+                cor.MainScene.instance().addChild(new Game.Purse_outputPage("GST", message));
             });
         };
         PursePage.prototype.scan = function () {
@@ -127,7 +129,7 @@ var Game;
             }, function (rdata) { return __awaiter(_this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
                     Log(rdata);
-                    cor.MainScene.instance().addChild(new Game.RecodePage(rdata, "GST"));
+                    cor.MainScene.instance().addChild(new Game.RecodePage(this.gst_info_btn['money'].text, rdata, "GST"));
                     return [2 /*return*/];
                 });
             }); }, this);
@@ -141,7 +143,7 @@ var Game;
             }, function (rdata) { return __awaiter(_this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
                     Log(rdata);
-                    cor.MainScene.instance().addChild(new Game.RecodePage(rdata, "USDT"));
+                    cor.MainScene.instance().addChild(new Game.RecodePage(this.usdt_info_btn['money'].text, rdata, "USDT"));
                     return [2 /*return*/];
                 });
             }); }, this);
@@ -156,7 +158,7 @@ var Game;
             }
         };
         PursePage.prototype.output = function () {
-            cor.MainScene.instance().addChild(new Game.Purse_outputPage());
+            // cor.MainScene.instance().addChild(new Purse_outputPage());
         };
         PursePage.prototype.exchange = function () {
             cor.MainScene.instance().addChild(new Game.Purse_exchangePage(this._rateInfo, this._purseInfo));

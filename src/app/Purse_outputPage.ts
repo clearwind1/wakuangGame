@@ -26,7 +26,8 @@ namespace Game {
             }
             this.money_input.restrict = "0-9";
             this._selectType = type;
-            this.gst_select.selected = true;
+            this.gst_select.selected = (type=="GST");
+            this.usdt_select.selected = (type=="USDT");
             this._radioGroup = new eui.RadioButtonGroup();
             this.gst_select.group = this._radioGroup;
             this.usdt_select.group = this._radioGroup;
