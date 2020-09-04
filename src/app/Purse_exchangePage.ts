@@ -16,6 +16,10 @@ namespace Game {
         public rate_type: eui.Label;
         public change_all_btn: eui.Button;
         public scan_btn: eui.Button;
+        public sure_group: eui.Group;
+        public back_btn: eui.Button;
+        public sure_btn: eui.Button;
+        public tips: eui.Label;
 
         private _rateInfo;
         private _purseInfo;
@@ -32,21 +36,35 @@ namespace Game {
             // init
             this._rateInfo = rateinfo;
             this._purseInfo = purseInfo;
-            this._isGST = true;
+            this._isGST = false;
 
             this.showInfo();
         }
 
         private initEvent() {
             this.addEvent(this.close_btn, egret.TouchEvent.TOUCH_TAP, this, this.dispose);
-            this.addEvent(this.change_btn, egret.TouchEvent.TOUCH_TAP, this, this.change);
-            this.addEvent(this.exchange_btn, egret.TouchEvent.TOUCH_TAP, this, this.exchange);
+            // this.addEvent(this.change_btn, egret.TouchEvent.TOUCH_TAP, this, this.change);
+            this.addEvent(this.exchange_btn, egret.TouchEvent.TOUCH_TAP, this, this.show_sure_group);
             this.addEvent(this.change_all_btn, egret.TouchEvent.TOUCH_TAP, this, this.change_all);
             this.addEvent(this.scan_btn, egret.TouchEvent.TOUCH_TAP, this, this.scan);
+            this.addEvent(this.back_btn, egret.TouchEvent.TOUCH_TAP, this, () => { this.sure_group.visible = false; });
+            this.addEvent(this.sure_btn, egret.TouchEvent.TOUCH_TAP, this, this.exchange);
         }
 
         private scan() {
             egret.ExternalInterface.call("scanQRCode", "");
+        }
+
+        private show_sure_group() {
+            this.sure_group.visible = true;
+            let r = 0;
+            if (this._isGST) {
+                r = (Number(this.money_input.text) * this._rateInfo.usdt) / this._rateInfo.gst;
+            } else {
+                r = (Number(this.money_input.text) * this._rateInfo.gst) / this._rateInfo.usdt;
+            }
+
+            this.tips.text = `是否确定使用${Number(this.money_input.text)}枚USDT兑换${r.toString().length > 4 ? r.toFixed(4) : r}枚GST`;
         }
 
         private exchange() {
@@ -74,7 +92,7 @@ namespace Game {
             } else {
                 r = (this._money0 * this._rateInfo.gst) / this._rateInfo.usdt;
             }
-            this.money_input.text = Math.floor(r) + "";
+            this.money_input.text = Math.floor(this._money0) + "";
         }
 
         private showInfo() {

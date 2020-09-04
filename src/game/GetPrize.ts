@@ -29,8 +29,8 @@ namespace Game {
         }
 
         private initEvent() {
-            this.addEvent(this.close_btn, egret.TouchEvent.TOUCH_TAP, this, this.showMove);
-            this.addEvent(this.sure_btn, egret.TouchEvent.TOUCH_TAP, this, this.showMove);
+            this.addEvent(this.close_btn, egret.TouchEvent.TOUCH_TAP, this, this.showMove, null, GETPRIZEEFFECT);
+            this.addEvent(this.sure_btn, egret.TouchEvent.TOUCH_TAP, this, this.showMove, null, GETPRIZEEFFECT);
         }
 
         private comein() {

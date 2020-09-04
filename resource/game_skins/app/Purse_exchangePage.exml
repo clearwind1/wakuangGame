@@ -29,13 +29,13 @@
 		</e:Skin>
 		</e:skinName>
 	</e:Button>
-	<e:Button id="change_btn" label="" y="268" x="346">
+	<e:Button id="change_btn" label="" y="292" horizontalCenter="0">
 		<e:skinName>
-		<e:Skin states="up,down,disabled">
-			<e:Image width="100%" height="100%" source="appIcon_json.Icon_Duihuan01_png"/>
+			<e:Skin states="up,down,disabled">
+			<e:Image source="appIcon_json.Bg_Wallet121_png"/>
+	<e:Image source="appIcon_json.Bg_Wallet121_png" x="0" y="17" scaleY="-1"/>
 			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" fontFamily="myFont" textColor="0x5e9afc" size="20"/>
-			<e:Image source="appIcon_json.Icon_Duihuan02_png" x="0" y="0"/>
-		</e:Skin>
+			</e:Skin>
 		</e:skinName>
 	</e:Button>
 	<e:Button id="change_all_btn" label="全部兑换" x="531" y="614">
@@ -47,4 +47,29 @@
 		</e:skinName>
 	</e:Button>
 	<e:EditableText id="money_input" width="632" height="28" text="" y="413" fontFamily="myFont" size="28" verticalAlign="bottom" prompt="请输入需要兑换的数量" promptColor="0x9B9B9B" textAlign="center" horizontalCenter="0" textColor="0xffffff"/>
+	<e:Group id="sure_group" width="100%" height="100%" x="0" y="0" visible="false">
+		<e:Rect width="100%" height="100%" x="0" y="0" fillAlpha="0.7"/>
+	<e:Group width="750" height="1334" horizontalCenter="0" verticalCenter="0">
+		<e:Image width="576" height="341" horizontalCenter="0" verticalCenter="0" source="Bg_Wallet01_png" scale9Grid="34,48,31,17"/>
+		<e:Image source="appIcon_json.Line_Personal02_png" y="559" width="576" horizontalCenter="0"/>
+		<e:Label text="确认兑换" y="515" fontFamily="myFont" bold="true" horizontalCenter="0" textColor="0x353535"/>
+		<e:Label id="tips" text="" y="627" fontFamily="myFont" size="28" horizontalCenter="0" width="564" textAlign="center" verticalAlign="middle" textColor="0x353535"/>
+		<e:Button id="back_btn" label="" x="624" y="515">
+			<e:skinName>
+				<e:Skin states="up,down,disabled">
+				<e:Image width="100%" height="100%" source="Bg_Wallet10_png"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+				</e:Skin>
+			</e:skinName>
+		</e:Button>
+		<e:Button id="sure_btn" label="确定" y="757" horizontalCenter="0">
+			<e:skinName>
+				<e:Skin states="up,down,disabled">
+				<e:Image width="100%" height="100%" source="Btn_Wallet04_png"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+				</e:Skin>
+			</e:skinName>
+		</e:Button>
+	</e:Group>
+	</e:Group>
 </e:Skin>

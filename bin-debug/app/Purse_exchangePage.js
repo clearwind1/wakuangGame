@@ -23,18 +23,32 @@ var Game;
             // init
             this._rateInfo = rateinfo;
             this._purseInfo = purseInfo;
-            this._isGST = true;
+            this._isGST = false;
             this.showInfo();
         };
         Purse_exchangePage.prototype.initEvent = function () {
+            var _this = this;
             this.addEvent(this.close_btn, egret.TouchEvent.TOUCH_TAP, this, this.dispose);
-            this.addEvent(this.change_btn, egret.TouchEvent.TOUCH_TAP, this, this.change);
-            this.addEvent(this.exchange_btn, egret.TouchEvent.TOUCH_TAP, this, this.exchange);
+            // this.addEvent(this.change_btn, egret.TouchEvent.TOUCH_TAP, this, this.change);
+            this.addEvent(this.exchange_btn, egret.TouchEvent.TOUCH_TAP, this, this.show_sure_group);
             this.addEvent(this.change_all_btn, egret.TouchEvent.TOUCH_TAP, this, this.change_all);
             this.addEvent(this.scan_btn, egret.TouchEvent.TOUCH_TAP, this, this.scan);
+            this.addEvent(this.back_btn, egret.TouchEvent.TOUCH_TAP, this, function () { _this.sure_group.visible = false; });
+            this.addEvent(this.sure_btn, egret.TouchEvent.TOUCH_TAP, this, this.exchange);
         };
         Purse_exchangePage.prototype.scan = function () {
             egret.ExternalInterface.call("scanQRCode", "");
+        };
+        Purse_exchangePage.prototype.show_sure_group = function () {
+            this.sure_group.visible = true;
+            var r = 0;
+            if (this._isGST) {
+                r = (Number(this.money_input.text) * this._rateInfo.usdt) / this._rateInfo.gst;
+            }
+            else {
+                r = (Number(this.money_input.text) * this._rateInfo.gst) / this._rateInfo.usdt;
+            }
+            this.tips.text = "\u662F\u5426\u786E\u5B9A\u4F7F\u7528" + Number(this.money_input.text) + "\u679AUSDT\u5151\u6362" + (r.toString().length > 4 ? r.toFixed(4) : r) + "\u679AGST";
         };
         Purse_exchangePage.prototype.exchange = function () {
             var _this = this;
@@ -61,7 +75,7 @@ var Game;
             else {
                 r = (this._money0 * this._rateInfo.gst) / this._rateInfo.usdt;
             }
-            this.money_input.text = Math.floor(r) + "";
+            this.money_input.text = Math.floor(this._money0) + "";
         };
         Purse_exchangePage.prototype.showInfo = function () {
             var rateinfo = this._rateInfo;

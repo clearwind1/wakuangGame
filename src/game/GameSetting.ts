@@ -10,7 +10,6 @@ namespace Game {
         public nickname_edt: eui.EditableText;
         public music_switch: eui.ToggleSwitch;
 
-
         constructor() {
             super();
 
@@ -21,7 +20,7 @@ namespace Game {
         public init() {
             // init
             this.nickname_edt.text = GameData.UserInfo.nickname;
-            if (readLocalData(GameMusic) && readLocalData(GameMusic) == '1') {
+            if (readLocalData(GameMusic) == '1') {
                 this.music_switch.selected = true;
             } else {
                 this.music_switch.selected = false;
@@ -57,6 +56,12 @@ namespace Game {
             Log(e.target.selected);
             let saveStr = e.target.selected ? "1" : "0";
             saveLocalData(GameMusic, saveStr);
+
+            if (saveStr == "1") {
+                cor.MainScene.instance().playbgm(MAINSCENEBGM);
+            } else {
+                cor.MainScene.instance().stopbgm();
+            }
         }
     }
 }

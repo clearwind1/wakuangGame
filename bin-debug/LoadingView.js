@@ -84,10 +84,13 @@ var Game;
         };
         LoadingView.prototype.initEnent = function () {
         };
+        LoadingView.prototype.setType = function (type) {
+            this._type = type;
+        };
         LoadingView.prototype.onProgress = function (current, total) {
             this.loadingTx.text = Math.floor(current / total * 100) + "%";
             this.getSectorProgress(360 * (current / total) - 90);
-            if (total == current) {
+            if (total == current && this._type == "Done") {
                 // this.showMove();
                 var role = this.addDB(this.lock_group, "dutiao", { x: this.lock_group.width / 2, y: 0 }, { x: 2, y: 2 });
                 role.animation.reset();

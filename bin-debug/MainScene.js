@@ -44,6 +44,13 @@ var cor;
                 page.dispose();
             }
         };
+        MainScene.prototype.playbgm = function (name) {
+            if (this._bgmSoundChannel) {
+                this._bgmSoundChannel.stop();
+            }
+            var sound = RES.getRes(name);
+            this._bgmSoundChannel = sound.play(0, -1);
+        };
         MainScene.instance = function () {
             return this._i || (this._i = new MainScene);
         };

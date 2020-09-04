@@ -54,7 +54,7 @@ module cor {
 		/**
 		 * 添加龙骨
 		 */
-		public addDB(target, name, position?,scale?) {
+		public addDB(target, name, position?, scale?) {
 			let role = createDB(name);
 			role.x = role.width / 2;
 			if (position) {
@@ -131,8 +131,8 @@ module cor {
 		/**
 		 * 添加事件
 		 */
-		public addEvent(target, event, obj, fun, parmar?) {
-			let parm = { target: target, event: event, obj: obj, fun: fun, parmar: parmar };
+		public addEvent(target, event, obj, fun, parmar?, bindeffect?) {
+			let parm = { target: target, event: event, obj: obj, fun: fun, parmar: parmar, bindeffect: bindeffect };
 			this.eventList.push(parm);
 			target.addEventListener(event, this.touchEnd, obj);
 		}
@@ -155,6 +155,13 @@ module cor {
 				parm.parmar.push(event);
 			} else {
 				parm.parmar = [event];
+			}
+			if (parm.bindeffect) {
+				if (readLocalData(GameMusic) != "1") {
+					return;
+				}
+				var sound: egret.Sound = RES.getRes(parm.bindeffect);
+				sound.play(0, 1);
 			}
 			(<Function>parm.fun).apply(parm.obj, parm.parmar);
 		}

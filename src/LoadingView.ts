@@ -10,6 +10,7 @@ namespace Game {
         public light_group: eui.Group;
         public lock_group: eui.Group;
 
+        private _type;
         constructor() {
             super();
 
@@ -55,11 +56,15 @@ namespace Game {
 
         }
 
+        public setType(type) {
+            this._type = type;
+        }
+
         public onProgress(current: number, total: number): void {
             this.loadingTx.text = `${Math.floor(current / total * 100)}%`;
             this.getSectorProgress(360 * (current / total) - 90);
 
-            if (total == current) {
+            if (total == current && this._type == "Done") {
                 // this.showMove();
                 let role = this.addDB(this.lock_group, "dutiao", { x: this.lock_group.width / 2, y: 0 }, { x: 2, y: 2 });
                 role.animation.reset();

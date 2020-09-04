@@ -32,7 +32,7 @@ namespace Game {
         }
 
         private initEnent() {
-            this.addEvent(this.toolsList, eui.ItemTapEvent.ITEM_TAP, this, this.toolsInfo);
+            this.addEvent(this.toolsList, eui.ItemTapEvent.ITEM_TAP, this, this.toolsInfo, null, MANAGECENTERCLICK);
         }
 
         private toolsInfo(e: eui.ItemTapEvent) {

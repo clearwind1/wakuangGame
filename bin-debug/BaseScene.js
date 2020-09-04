@@ -134,8 +134,8 @@ var cor;
         /**
          * 添加事件
          */
-        BaseScene.prototype.addEvent = function (target, event, obj, fun, parmar) {
-            var parm = { target: target, event: event, obj: obj, fun: fun, parmar: parmar };
+        BaseScene.prototype.addEvent = function (target, event, obj, fun, parmar, bindeffect) {
+            var parm = { target: target, event: event, obj: obj, fun: fun, parmar: parmar, bindeffect: bindeffect };
             this.eventList.push(parm);
             target.addEventListener(event, this.touchEnd, obj);
         };
@@ -157,6 +157,10 @@ var cor;
             }
             else {
                 parm.parmar = [event];
+            }
+            if (parm.bindeffect) {
+                var sound = RES.getRes(parm.bindeffect);
+                sound.play(0, 1);
             }
             parm.fun.apply(parm.obj, parm.parmar);
         };

@@ -33,7 +33,7 @@ namespace Game {
         }
 
         private initEvent() {
-            this.addEvent(this.seach_btn, egret.TouchEvent.TOUCH_TAP, this, this.seach);
+            this.addEvent(this.seach_btn, egret.TouchEvent.TOUCH_TAP, this, this.seach, null, MANAGECENTERCLICK);
             this.addEvent(cor.EventManage.instance(), OwnerListUpdata, this, this.refresh);
         }
 

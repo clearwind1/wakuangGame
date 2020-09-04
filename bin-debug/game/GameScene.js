@@ -60,6 +60,7 @@ var Game;
         }
         GameScene.prototype.init = function () {
             // init
+            cor.MainScene.instance().playbgm(MAINSCENEBGM);
             if (GameData.UserInfo.identity == IDENTITY.Miner) {
                 this.owner_icon.visible = false;
                 this.level.text = "";
@@ -109,19 +110,19 @@ var Game;
             }, 600);
         };
         GameScene.prototype.initEnent = function () {
-            this.addEvent(this.exitbtn, egret.TouchEvent.TOUCH_TAP, this, this.exitGame);
-            this.addEvent(this.manager_btn, egret.TouchEvent.TOUCH_TAP, this, this.showManager);
-            this.addEvent(this.manageCenter_btn, egret.TouchEvent.TOUCH_TAP, this, this.showManageCenter);
-            this.addEvent(this.mine_btn, egret.TouchEvent.TOUCH_TAP, this, this.showMine);
-            this.addEvent(this.exchange_center_btn, egret.TouchEvent.TOUCH_TAP, this, this.showExchange_center);
-            this.addEvent(this.server_center_btn, egret.TouchEvent.TOUCH_TAP, this, this.showServer_center);
-            this.addEvent(this.tools_store_btn, egret.TouchEvent.TOUCH_TAP, this, this.showToolsStore);
-            this.addEvent(this.warehouse_btn, egret.TouchEvent.TOUCH_TAP, this, this.showWarehouse);
-            this.addEvent(this.email_btn, egret.TouchEvent.TOUCH_TAP, this, this.tapNotice);
-            this.addEvent(this.setting_btn, egret.TouchEvent.TOUCH_TAP, this, this.showSetting);
+            this.addEvent(this.exitbtn, egret.TouchEvent.TOUCH_TAP, this, this.exitGame, null, MAINSCENECLICK);
+            this.addEvent(this.manager_btn, egret.TouchEvent.TOUCH_TAP, this, this.showManager, null, MAINSCENECLICK);
+            this.addEvent(this.manageCenter_btn, egret.TouchEvent.TOUCH_TAP, this, this.showManageCenter, null, MAINSCENECLICK);
+            this.addEvent(this.mine_btn, egret.TouchEvent.TOUCH_TAP, this, this.showMine, null, MAINSCENECLICK);
+            this.addEvent(this.exchange_center_btn, egret.TouchEvent.TOUCH_TAP, this, this.showExchange_center, null, MAINSCENECLICK);
+            this.addEvent(this.server_center_btn, egret.TouchEvent.TOUCH_TAP, this, this.showServer_center, null, MAINSCENECLICK);
+            this.addEvent(this.tools_store_btn, egret.TouchEvent.TOUCH_TAP, this, this.showToolsStore, null, MAINSCENECLICK);
+            this.addEvent(this.warehouse_btn, egret.TouchEvent.TOUCH_TAP, this, this.showWarehouse, null, MAINSCENECLICK);
+            this.addEvent(this.email_btn, egret.TouchEvent.TOUCH_TAP, this, this.tapNotice, null, MAINSCENECLICK);
+            this.addEvent(this.setting_btn, egret.TouchEvent.TOUCH_TAP, this, this.showSetting, null, MAINSCENECLICK);
             // this.addEvent(this.share_btn, egret.TouchEvent.TOUCH_TAP, this, this.showShare);
-            this.addEvent(this.friend_btn, egret.TouchEvent.TOUCH_TAP, this, this.showFriend);
-            this.addEvent(this.headImg, egret.TouchEvent.TOUCH_TAP, this, this.showSetting);
+            this.addEvent(this.friend_btn, egret.TouchEvent.TOUCH_TAP, this, this.showFriend, null, MAINSCENECLICK);
+            this.addEvent(this.headImg, egret.TouchEvent.TOUCH_TAP, this, this.showSetting, null, MAINSCENECLICK);
             this.addEvent(cor.EventManage.instance(), ChangeIdentity, this, this.changeIdentity);
             this.addEvent(cor.EventManage.instance(), ExitGame, this, this.exitGame);
             this.addEvent(cor.EventManage.instance(), UpdataUserInfo, this, this.updata_info);
@@ -187,6 +188,7 @@ var Game;
          * 新的管理中心：商店，打工
          */
         GameScene.prototype.showManageCenter = function () {
+            cor.MainScene.instance().playbgm(MANAGECENTERBGM);
             if (GameData.UserInfo.identity == IDENTITY.Miner) {
                 this.showServer_center();
             }
@@ -253,6 +255,7 @@ var Game;
         GameScene.prototype.showExchange_center = function () {
             cor.Socket.getIntance().sendmsg('EVERY_CONVERT_RECORD', {}, function (rdata) {
                 Log(rdata);
+                cor.MainScene.instance().playbgm(EXCHANGEBGM);
                 cor.MainScene.instance().addChild(new Game.ExchangeCenter(rdata));
             }, this);
         };
