@@ -54,9 +54,17 @@ module cor {
 		/**
 		 * 添加龙骨
 		 */
-		public addDB(target, name) {
+		public addDB(target, name, position?,scale?) {
 			let role = createDB(name);
 			role.x = role.width / 2;
+			if (position) {
+				role.x = position.x;
+				role.y = position.y;
+			}
+			if (scale) {
+				role.scaleX = scale.x;
+				role.scaleY = scale.y;
+			}
 			target.addChild(role);
 			role.touchEnabled = false;
 			role.animation.play();
@@ -64,6 +72,8 @@ module cor {
 				db: role,
 				target: target
 			});
+
+			return role;
 		}
 		/**
 		 * 清除龙骨
@@ -113,7 +123,7 @@ module cor {
 			} else {
 				for (let i in this.IntervalList) {
 					clearInterval(this.IntervalList[i].inter);
-				}	
+				}
 				this.IntervalList = [];
 			}
 

@@ -183,6 +183,9 @@ var Main = (function (_super) {
      * Create scene interface
      */
     Main.prototype.createGameScene = function () {
+        if (!readLocalData(PurseShowInfo)) {
+            saveLocalData(PurseShowInfo, "1");
+        }
         this.addChild(cor.MainScene.instance());
         this.addChild(Game.TipsSkin.instance());
         var cs = new Game.LoginSkin();

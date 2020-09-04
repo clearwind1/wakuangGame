@@ -62,6 +62,10 @@ var Game;
             this._index = 0;
             this._shape = new egret.Shape();
             this.hideGroup.addChildAt(this._shape, 2);
+            for (var i = 0; i < 8; i++) {
+                var li = this.addDB(this.light_group, "light", { x: 100 + RandomUtils.limit(0, 50) + i * 150, y: 200 + RandomUtils.limit(0, 50) });
+                li.animation.timeScale = RandomUtils.limit(0.5, 1.5);
+            }
             this.showTip();
         };
         LoadingView.prototype.showTip = function () {
@@ -84,7 +88,11 @@ var Game;
             this.loadingTx.text = Math.floor(current / total * 100) + "%";
             this.getSectorProgress(360 * (current / total) - 90);
             if (total == current) {
-                this.showMove();
+                // this.showMove();
+                var role = this.addDB(this.lock_group, "dutiao", { x: this.lock_group.width / 2, y: 0 }, { x: 2, y: 2 });
+                role.animation.reset();
+                role.animation.play("newAnimation", 1);
+                role.addEvent("complete", this.showMove, this);
             }
         };
         LoadingView.prototype.getSectorProgress = function (angle) {
@@ -96,25 +104,20 @@ var Game;
             this._shape.graphics.lineTo(667, 375);
             this._shape.graphics.endFill();
         };
-        LoadingView.prototype.showMove = function () {
+        LoadingView.prototype.showMove = function (event) {
             return __awaiter(this, void 0, void 0, function () {
                 var _this = this;
                 var index;
                 return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0:
-                            index = cor.MainScene.instance().numChildren - 1;
-                            cor.MainScene.instance().addChildAt(new Game.GameScene(), index);
-                            return [4 /*yield*/, wait(300)];
-                        case 1:
-                            _a.sent();
-                            egret.Tween.get(this.top_img).to({ y: -375 }, 500);
-                            egret.Tween.get(this.bottom_img).to({ y: 750 }, 500);
-                            egret.Tween.get(this.hideGroup).to({ alpha: 0 }, 500).call(function () {
-                                _this.dispose();
-                            });
-                            return [2 /*return*/];
-                    }
+                    index = cor.MainScene.instance().numChildren - 1;
+                    cor.MainScene.instance().addChildAt(new Game.GameScene(), index);
+                    // await wait(300);
+                    egret.Tween.get(this.top_img).to({ y: -375 }, 500);
+                    egret.Tween.get(this.bottom_img).to({ y: 750 }, 500);
+                    egret.Tween.get(this.hideGroup).to({ alpha: 0 }, 500).call(function () {
+                        _this.dispose();
+                    });
+                    return [2 /*return*/];
                 });
             });
         };

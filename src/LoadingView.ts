@@ -7,6 +7,8 @@ namespace Game {
         public hideGroup: eui.Group;
         public top_img: eui.Image;
         public bottom_img: eui.Image;
+        public light_group: eui.Group;
+        public lock_group: eui.Group;
 
         constructor() {
             super();
@@ -25,6 +27,10 @@ namespace Game {
 
             this._shape = new egret.Shape();
             this.hideGroup.addChildAt(this._shape, 2);
+            for (let i = 0; i < 8; i++) {
+               let li = this.addDB(this.light_group, "light", { x: 100 + RandomUtils.limit(0, 50) + i * 150, y: 200 + RandomUtils.limit(0, 50) });
+               li.animation.timeScale = RandomUtils.limit(0.5, 1.5);
+            }
 
             this.showTip();
         }
@@ -54,7 +60,11 @@ namespace Game {
             this.getSectorProgress(360 * (current / total) - 90);
 
             if (total == current) {
-                this.showMove();
+                // this.showMove();
+                let role = this.addDB(this.lock_group, "dutiao", { x: this.lock_group.width / 2, y: 0 }, { x: 2, y: 2 });
+                role.animation.reset();
+                role.animation.play("newAnimation", 1);
+                role.addEvent("complete", this.showMove, this);
             }
         }
         private _shape: egret.Shape;
@@ -68,13 +78,14 @@ namespace Game {
             this._shape.graphics.endFill();
         }
 
-        private async showMove() {
+        private async showMove(event) {
+
             let index = cor.MainScene.instance().numChildren - 1;
             cor.MainScene.instance().addChildAt(new GameScene(), index);
-            await wait(300);
+            // await wait(300);
             egret.Tween.get(this.top_img).to({ y: -375 }, 500);
             egret.Tween.get(this.bottom_img).to({ y: 750 }, 500);
-            egret.Tween.get(this.hideGroup).to({ alpha: 0 }, 500).call(() => { 
+            egret.Tween.get(this.hideGroup).to({ alpha: 0 }, 500).call(() => {
                 this.dispose();
             });
         }

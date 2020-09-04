@@ -75,6 +75,13 @@ var Game;
                 // this.exchange_btn['num'].text = rdata.usdt + "USDT:" + rdata.gst + "GST";
                 // cor.MainScene.instance().addChild(new RecodePage(rdata, "USDT"));
             }, this);
+            var is_show = readLocalData(PurseShowInfo);
+            if (is_show == "0") {
+                this.money.text = "******";
+                this.address.text = "******";
+                this.gst_info_btn['money'].text = "******";
+                this.usdt_info_btn['money'].text = "******";
+            }
         };
         PursePage.prototype.updataInfo = function () {
             var _this = this;
@@ -107,6 +114,7 @@ var Game;
             this.addEvent(this.income_btn, egret.TouchEvent.TOUCH_TAP, this, this.income);
             this.addEvent(this.address, egret.TouchEvent.TOUCH_TAP, this, this.income);
             this.addEvent(this.output_btn, egret.TouchEvent.TOUCH_TAP, this, this.output);
+            this.addEvent(this.money, egret.TouchEvent.TOUCH_TAP, this, this.showHide);
             this.addEvent(cor.EventManage.instance(), PurseUpdataInfo, this, this.updataInfo);
             egret.ExternalInterface.addCallback("scanResult", function (message) {
                 // TipsSkin.instance().show(message);
@@ -116,6 +124,30 @@ var Game;
                 }
                 cor.MainScene.instance().addChild(new Game.Purse_outputPage("GST", message));
             });
+        };
+        PursePage.prototype.showHide = function () {
+            var is_show = readLocalData(PurseShowInfo);
+            if (is_show == "0") {
+                var purseInfo = this._purseInfo;
+                for (var k in purseInfo) {
+                    if (purseInfo[k].coin_name == "GST") {
+                        this.gst_info_btn['money'].text = toThousands(purseInfo[k].available_balance);
+                        this.address.text = purseInfo[k].bind_address;
+                        this.money.text = toThousands(purseInfo[k].available_balance);
+                    }
+                    else {
+                        this.usdt_info_btn['money'].text = toThousands(purseInfo[k].available_balance);
+                    }
+                }
+                saveLocalData(PurseShowInfo, "1");
+            }
+            else {
+                this.money.text = "******";
+                this.address.text = "******";
+                this.gst_info_btn['money'].text = "******";
+                this.usdt_info_btn['money'].text = "******";
+                saveLocalData(PurseShowInfo, "0");
+            }
         };
         PursePage.prototype.scan = function () {
             egret.ExternalInterface.call("scanQRCode", "");

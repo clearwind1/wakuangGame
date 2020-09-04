@@ -10,6 +10,7 @@ var StartDigMine = 'StartDigMine';
 var DigMineTime = 'DigMineTime';
 var PursePassword = 'PursePassword';
 var PurseUpdataInfo = 'PurseUpdataInfo';
+var PurseShowInfo = 'PurseShowInfo';
 var OwnerListUpdata = 'OwnerListUpdata';
 /**
  * 性别：男：1，女：2

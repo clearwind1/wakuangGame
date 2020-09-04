@@ -15,6 +15,7 @@ const DigMineTime = 'DigMineTime';
 
 const PursePassword = 'PursePassword';
 const PurseUpdataInfo = 'PurseUpdataInfo';
+const PurseShowInfo = 'PurseShowInfo';
 
 const OwnerListUpdata = 'OwnerListUpdata';
 /**
