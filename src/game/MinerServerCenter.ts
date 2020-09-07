@@ -19,6 +19,7 @@ namespace Game {
         public init(info) {
             // init
             this.addDB(this.role_group, 'Kuangquguangli');
+            this.role_group.addChild(new DialogComment('打工后记得按时来领取打工收益哦！', {x:380,y:-638}));
 
             this.head_group.addChild(new headComment(this, '矿工管理处', 'MINER'));
             this.ownerList.itemRenderer = OwnerItem;

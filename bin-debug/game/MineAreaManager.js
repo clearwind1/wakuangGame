@@ -31,6 +31,8 @@ var Game;
             this.owner_detai_group.x = this.width + 10;
             this.warehouse_group.x = this.width - 470;
             this._areaInfo = areainfo;
+            this._dialogPage = new Game.DialogComment('', { x: 380, y: -638 });
+            this.role_group.addChild(this._dialogPage);
             if (GameData.UserInfo.identity == IDENTITY.Owner) {
                 // cor.Socket.getIntance().sendmsg('GET_USER_HOLD_AREA_CONFIG', {}, (rdata) => {
                 //     Log(rdata);
@@ -59,9 +61,22 @@ var Game;
                 _this.deposit_tips_btn.visible = false;
             });
             this.addEvent(this.machine_list, eui.ItemTapEvent.ITEM_TAP, this, this.addMachine);
+            this.addEvent(this.close_sure_btn, egret.TouchEvent.TOUCH_TAP, this, function () { _this.sure_group.visible = false; });
+            this.addEvent(this.cancel_sure_btn, egret.TouchEvent.TOUCH_TAP, this, function () { _this.sure_group.visible = false; });
+            this.addEvent(this.sure_buy_btn, egret.TouchEvent.TOUCH_TAP, this, this.Sure_buy);
         };
         MineAreaManager.prototype.set_deposit = function (e) {
             Log(e.target.selected);
+            if (e.target.selected) {
+                cor.Socket.getIntance().sendmsg("OPEN_USER_HOLD_AREA_DEPOSIT", {}, function (rdata) {
+                    Game.TipsSkin.instance().show("已成功开启托管");
+                }, this);
+            }
+            else {
+                cor.Socket.getIntance().sendmsg("CLOSE_USER_HOLD_AREA_DEPOSIT", {}, function (rdata) {
+                    Game.TipsSkin.instance().show("已成功关闭托管");
+                }, this);
+            }
         };
         MineAreaManager.prototype.showTips = function () {
             var _this = this;
@@ -136,7 +151,6 @@ var Game;
         };
         //购买矿区
         MineAreaManager.prototype.buyMine = function () {
-            var _this = this;
             var mineData;
             for (var k in this._areaInfo) {
                 if (this._areaInfo[k].grade == this._currentIndex) {
@@ -148,6 +162,12 @@ var Game;
                 Game.TipsSkin.instance().show('已售罄');
                 return;
             }
+            this.sure_group.visible = true;
+            this.sure_price.text = "立即开采需要" + Number(mineData.price.split('.')[0]);
+            this.setParmByTarget(this.sure_buy_btn, [mineData]);
+        };
+        MineAreaManager.prototype.Sure_buy = function (mineData) {
+            var _this = this;
             var id = mineData.id;
             var grade = mineData.grade;
             var price = Number(mineData.price.split('.')[0]);
@@ -155,6 +175,7 @@ var Game;
                 "hold_area_id": id
             }, function (rdata) {
                 Game.TipsSkin.instance().show('购买成功');
+                _this.sure_group.visible = false;
                 GameData.UserInfo.gst -= price;
                 GameData.UserInfo.current_hold_area_grade = grade;
                 GameData.UserInfo.identity = IDENTITY.Owner;
@@ -165,20 +186,20 @@ var Game;
             }, this);
         };
         MineAreaManager.prototype.showOwnerCard = function (is_buy) {
-            var _this = this;
             if (is_buy === void 0) { is_buy = false; }
             var pos = [{ x: 1104, y: 582 }, { x: 262, y: 452 }, { x: 1097, y: 426 }, { x: 1115, y: 79 }, { x: 182, y: 105 }, { x: 644, y: 163 }];
             this.owner_card.visible = true;
             this.owner_card.x = pos[GameData.UserInfo.current_hold_area_grade - 1].x;
             this.owner_card.y = pos[GameData.UserInfo.current_hold_area_grade - 1].y;
+            var self = this;
             if (is_buy) {
                 var effect = this.addDB(this.panning_group, "machine_effect", pos[GameData.UserInfo.current_hold_area_grade - 1]);
                 effect.animation.reset();
                 effect.animation.play("animation", 1);
-                effect.addEvent("complete", function () {
-                    _this.removeDB("machine_effect");
-                    _this.showPanning(pos);
-                }, this);
+                setTimeout(function () {
+                    self.removeDB("machine_effect");
+                    self.showPanning(pos);
+                }, 1000);
             }
             else {
                 this.showPanning(pos);
@@ -196,9 +217,9 @@ var Game;
             // this.showOwnerCard(true);
             // return;
             var _this = this;
-            if (GameData.UserInfo.identity == IDENTITY.Owner && level != GameData.UserInfo.current_hold_area_grade) {
-                return;
-            }
+            // if (GameData.UserInfo.identity == IDENTITY.Owner && level != GameData.UserInfo.current_hold_area_grade) {
+            //     return;
+            // }
             if (GameData.UserInfo.identity == IDENTITY.Owner) {
                 cor.Socket.getIntance().sendmsg('GET_USER_HOLD_AREA_CONFIG', {}, function (rdata) {
                     Log(rdata);
@@ -225,7 +246,17 @@ var Game;
             this.total_output.text = mineData.total_output + '矿石';
             this.daily_output.text = mineData.day_income + '矿石';
             this.addDB(this.role_group, "Lv" + mineData.grade);
+            this.role_group.setChildIndex(this._dialogPage, 1);
+            if (level == 4) {
+                this._dialogPage.setPos({ x: 200, y: -638 });
+            }
+            else {
+                this._dialogPage.setPos({ x: 380, y: -638 });
+            }
             if (GameData.UserInfo.identity == IDENTITY.Owner) {
+                var dialogtx = ['欢迎回来，我就知道你想我了', '你......回来啦，今天要做些什么？', '欢迎回来，主人！',
+                    '嗨，你回来了！Emmmmm，都叫你别老这么盯着我了！', '你果然喜欢我和我的矿区对不，我就知道你肯定喜欢的！', '你来了，今天希望我做些什么呢？嘿嘿！'];
+                this._dialogPage.setDialog(dialogtx[level - 1]);
                 this.detai_group.visible = false;
                 this.owner_detai_group.visible = true;
                 egret.Tween.get(this.owner_detai_group).to({ x: this.width - 470 }, 350);
@@ -238,7 +269,7 @@ var Game;
                         name: config[k].good.name
                     });
                 }
-                this.deposit_group.visible = (this._areaConfig.is_can_open_deposit == 0);
+                this.deposit_group.visible = (this._areaConfig.is_can_open_deposit != 0);
                 this.deposit_switch_btn.selected = (this._areaConfig.is_open_deposit != 0);
                 this.dig_output.text = this._areaConfig.output + "矿石";
                 this.machine_datagroup.dataProvider = new eui.ArrayCollection(excavateData);
@@ -255,6 +286,9 @@ var Game;
                 }, this);
             }
             else {
+                var dialogtx = ['我的矿区和我一样可爱哦，选我吧', '嗯，我应该可以帮到你的！', '你就是我的主人吗？请让我来服侍你吧！',
+                    '别盯我看太久啦，我会害羞的！', '你看上我了么？我可真有眼光哦！', '我能为你了做些什么呢？当然，可以做很多事情哦！'];
+                this._dialogPage.setDialog(dialogtx[level - 1]);
                 this.detai_group.visible = true;
                 this.owner_detai_group.visible = false;
                 egret.Tween.get(this.detai_group).to({ x: this.width - 470 }, 350);

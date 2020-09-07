@@ -17,8 +17,10 @@ namespace Game {
         public init(warehouseData) {
             // init
             this.head_group.addChild(new headComment(this, '仓库', 'WAREHOUSE'));
-            // this._warehousedata = warehouseData;
             this.addDB(this.role_group, "cangkunv");
+            this.role_group.addChild(new DialogComment('有我来帮你看管仓库，请你就放心吧！', {x:280,y:-638}));
+            // this._warehousedata = warehouseData;
+            
             for (var k in warehouseData) {
                 if (warehouseData[k].good.type == 3) {
                     warehouseData[k].total = warehouseData[k].content.value + "吨";
