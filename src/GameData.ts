@@ -21,7 +21,7 @@ class GameData {
 	public static HeigthOFFY: number = 0;
 	/**服务器连接地址 */
 	public static ServerUrl: string = "http://148.70.80.204:8082/";
-	public static ServerSocketUrl: string = "ws://148.70.80.204:9001/app";
+	public static ServerSocketUrl: string = "ws://game.test:9001/app";
 	///
 	/**游戏界面 */
 	public static BGame: boolean = false;
@@ -57,8 +57,18 @@ class GameData {
 
 	public static Share_config = {
 		"link": "http://hardymonkey.cn:8081/download/app?code=178f3735",
-        "app": "我正在有矿APP测试，快来和我一起玩耍吧，点击下方链接注册：\r\n\r\nhttp://hardymonkey.cn:8081/download/app?code=178f3735\r\n\r\n输入邀请码立即获取矿区，邀请码：178f3735",
-        "game": "我正在有矿APP里玩挖矿游戏，快来和我一起挖矿吧，点击下方链接注册：\r\n\r\nhttp://hardymonkey.cn:8081/download/app?code=178f3735\r\n\r\n输入邀请码立即获取矿区，邀请码：178f3735"
+		"app": "我正在有矿APP测试，快来和我一起玩耍吧，点击下方链接注册：\r\n\r\nhttp://hardymonkey.cn:8081/download/app?code=178f3735\r\n\r\n输入邀请码立即获取矿区，邀请码：178f3735",
+		"game": "我正在有矿APP里玩挖矿游戏，快来和我一起挖矿吧，点击下方链接注册：\r\n\r\nhttp://hardymonkey.cn:8081/download/app?code=178f3735\r\n\r\n输入邀请码立即获取矿区，邀请码：178f3735"
+	}
+
+	public static Mine_area_config = {
+		"hold_area_start_time": "00:00:00",
+		"hold_area_end_time": "08:00:00",
+		"hold_area_work_start_time": "00:00:00",
+		"hold_area_work_end_time": "08:00:00",
+		"user_work_hour": "4",
+		"hold_area_is_close": true,
+		"user_work_is_close": true
 	}
 
 }

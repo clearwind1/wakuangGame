@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="WorkerItem" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Group x="0" y="0" width="111" height="111" scaleX="0.6" scaleY="0.6">
+		<e:Image source="gameRes_json.Head_Main_02_png" x="0" y="0" scaleX="1" scaleY="1"/>
+		<e:Image id="headMask" source="gameRes_json.Head_Main_01_png" x="0" y="0" scaleX="1" scaleY="1"/>
+		<e:Image id="headImg" x="0" y="0" width="111" height="111" scaleX="1" scaleY="1" mask="{this.headMask}" source="{data.picture}"/>
+	</e:Group>
+</e:Skin>

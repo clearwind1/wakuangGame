@@ -8,7 +8,7 @@ namespace Game {
         public seach_btn: eui.Button;
         public code: eui.EditableText;
         public searchTips: eui.Label;
-      
+
         constructor(info) {
             super();
 
@@ -22,14 +22,24 @@ namespace Game {
 
             this.head_group.addChild(new headComment(this, '矿工管理处', 'MINER'));
             this.ownerList.itemRenderer = OwnerItem;
-            for (var k in info) {
-                info[k].code = info[k].code + "矿区";
-                info[k].user_nickname = "矿主：" + info[k].user_nickname;
-                info[k].name = "矿区等级：" + info[k].name;
-                info[k].miner_num = info[k].current_work_count + '/' + info[k].max_work_count;
-                info[k].earnings = info[k].can_get_income;
-            }
-            this.ownerList.dataProvider = new eui.ArrayCollection(info);
+
+            cor.Socket.getIntance().sendmsg('GET_HOLD_AREA_AND_WORK_CONFIG', {}, (rdata) => {
+                Log(rdata);
+                GameData.Mine_area_config = rdata;
+                if (rdata.user_work_is_close) {
+                    this.ownerList.dataProvider = new eui.ArrayCollection([]);
+                    this.searchTips.text = "矿工管理处休息中,休息时间：\n" + rdata.hold_area_work_start_time + "~" + rdata.hold_area_work_end_time;
+                } else {
+                    for (var k in info) {
+                        info[k].code = info[k].code + "矿区";
+                        info[k].user_nickname = "矿主：" + info[k].user_nickname;
+                        info[k].name = "矿区等级：" + info[k].name;
+                        info[k].miner_num = info[k].current_work_count + '/' + info[k].max_work_count;
+                        info[k].earnings = info[k].can_get_income;
+                    }
+                    this.ownerList.dataProvider = new eui.ArrayCollection(info);
+                }
+            }, this)
         }
 
         private initEvent() {
@@ -54,6 +64,12 @@ namespace Game {
         }
 
         private seach() {
+
+            if (GameData.Mine_area_config.user_work_is_close) {
+                TipsSkin.instance().show("矿工管理处休息中");
+                return;
+            }
+
             if (this.code.text == "") {
                 TipsSkin.instance().show("请输入要搜索的矿区编号");
                 return;
@@ -73,12 +89,12 @@ namespace Game {
                     info[k].miner_num = info[k].current_work_count + '/' + info[k].max_work_count;
                     info[k].earnings = info[k].can_get_income;
                 }
-                if (info.length == 0) { 
+                if (info.length == 0) {
                     TipsSkin.instance().show("没有找到该矿区");
                 } else {
                     this.ownerList.dataProvider = new eui.ArrayCollection(info);
                 }
-                
+
                 this.code.text = "";
                 // if (info.length == 0) {
                 //     this.searchTips.text = "没有找到该矿区";

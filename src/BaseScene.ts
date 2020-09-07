@@ -157,11 +157,10 @@ module cor {
 				parm.parmar = [event];
 			}
 			if (parm.bindeffect) {
-				if (readLocalData(GameMusic) != "1") {
-					return;
+				if (readLocalData(GameMusic) == "1") {
+					var sound: egret.Sound = RES.getRes(parm.bindeffect);
+					sound.play(0, 1);
 				}
-				var sound: egret.Sound = RES.getRes(parm.bindeffect);
-				sound.play(0, 1);
 			}
 			(<Function>parm.fun).apply(parm.obj, parm.parmar);
 		}

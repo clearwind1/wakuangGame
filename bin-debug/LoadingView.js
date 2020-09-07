@@ -57,7 +57,7 @@ var Game;
         }
         LoadingView.prototype.init = function () {
             // init
-            this.loadingTx.text = "";
+            this.loadingTx.text = "0%";
             this.tipTx.text = "";
             this._index = 0;
             this._shape = new egret.Shape();
@@ -117,7 +117,7 @@ var Game;
                     // await wait(300);
                     egret.Tween.get(this.top_img).to({ y: -375 }, 500);
                     egret.Tween.get(this.bottom_img).to({ y: 750 }, 500);
-                    egret.Tween.get(this.hideGroup).to({ alpha: 0 }, 500).call(function () {
+                    egret.Tween.get(this.hideGroup).to({ alpha: 0 }, 100).wait(600).call(function () {
                         _this.dispose();
                     });
                     return [2 /*return*/];

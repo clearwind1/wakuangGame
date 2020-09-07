@@ -108,7 +108,11 @@ declare class GoodsItem extends eui.Skin{
 }
 declare class headComment extends eui.Skin{
 }
+declare class MachineItem extends eui.Skin{
+}
 declare class MineArea extends eui.Skin{
+}
+declare class MineAreaManager extends eui.Skin{
 }
 declare class MineManager extends eui.Skin{
 }
@@ -123,6 +127,8 @@ declare class ToolsItem extends eui.Skin{
 declare class ToolsStore extends eui.Skin{
 }
 declare class Warehouse extends eui.Skin{
+}
+declare class WorkerItem extends eui.Skin{
 }
 declare class LoadingLogo extends eui.Skin{
 }

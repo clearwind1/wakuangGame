@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="MineAreaManager" width="1334" height="750" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Image x="0" y="0" height="750" source="Bg_Kuangqu01_jpg"/>
+	<e:Button id="mine_area_6_btn" label="" x="379" y="57.67" width="548.26" height="445.94" anchorOffsetX="0" anchorOffsetY="0">
+		<e:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image id="img" width="100%" height="100%" source="appIcon_json.Line_Information01_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			<e:Image visible.up="false" x="0" y="0" source="gameRes_json.Choose_Lv6_png"/>
+		</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Button id="mine_area_5_btn" label="" x="16" y="8.67" width="451.29" height="302" anchorOffsetX="0">
+		<e:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image id="img" width="100%" height="100%" source="appIcon_json.Line_Information01_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			<e:Image visible.up="false" x="0" y="0" source="gameRes_json.Choose_Lv5_png"/>
+		</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Button id="mine_area_4_btn" label="" x="880.34" y="37.67" width="449.29" height="286" anchorOffsetX="0">
+		<e:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image id="img" width="100%" height="100%" source="appIcon_json.Line_Information01_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			<e:Image visible.up="false" x="0" y="0" source="gameRes_json.Choose_Lv4_png"/>
+		</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Button id="mine_area_3_btn" label="" x="929.34" y="314.67" width="449.29" height="286" anchorOffsetX="0">
+		<e:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image id="img" width="100%" height="100%" source="appIcon_json.Line_Information01_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			<e:Image visible.up="false" x="0" source="gameRes_json.Choose_Lv3_png" y="0"/>
+		</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Button id="mine_area_2_btn" label="" x="15.34" y="331.67" width="449.29" height="363" anchorOffsetX="0">
+		<e:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image id="img" width="100%" height="100%" source="appIcon_json.Line_Information01_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			<e:Image visible.up="false" source="gameRes_json.Choose_Lv2_png" verticalCenter="0" x="0"/>
+		</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Button id="mine_area_1_btn" label="" x="1097.67" y="608.67">
+		<e:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image id="img" width="100%" height="100%" source="appIcon_json.Line_Information01_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			<e:Image source="gameRes_json.Choose_Lv1_png" x="0" y="0" visible.up="false"/>
+		</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Button id="lv1_card" label="Button" y="560.19" width="71" height="100" touchEnabled="false" x="1234">
+		<e:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image source="gameRes_json.Bg_Kuangqu05_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" fontFamily="myFont" visible="false"/>
+			<e:Label text="VIP1矿区" x="9.04" y="15" fontFamily="myFont" size="18" width="54" textAlign="center" stroke="2" strokeColor="0x8e592e"/>
+		</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Button label="Button" x="368.38" y="141.31" width="71" height="100" touchEnabled="false">
+		<e:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image source="gameRes_json.Bg_Kuangqu05_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" fontFamily="myFont" visible="false"/>
+			<e:Label text="VIP5矿区" x="9.04" y="15" fontFamily="myFont" size="18" width="54" textAlign="center" stroke="2" strokeColor="0x8e592e"/>
+		</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Button label="Button" x="431.82" y="462.71" width="71" height="100" touchEnabled="false">
+		<e:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image source="gameRes_json.Bg_Kuangqu05_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" fontFamily="myFont" visible="false"/>
+			<e:Label text="VIP2矿区" x="9.04" y="15" fontFamily="myFont" size="18" width="54" textAlign="center" stroke="2" strokeColor="0x8e592e"/>
+		</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Button label="Button" x="1062.56" y="199.19" width="71" height="100" touchEnabled="false">
+		<e:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image source="gameRes_json.Bg_Kuangqu05_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" fontFamily="myFont" visible="false"/>
+			<e:Label text="VIP4矿区" x="9.04" y="15" fontFamily="myFont" size="18" width="54" textAlign="center" stroke="2" strokeColor="0x8e592e"/>
+		</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Button label="Button" x="993.08" y="470.74" width="71" height="100" touchEnabled="false">
+		<e:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image source="gameRes_json.Bg_Kuangqu05_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" fontFamily="myFont" visible="false"/>
+			<e:Label text="VIP3矿区" x="9.04" y="15" fontFamily="myFont" size="18" width="54" textAlign="center" stroke="2" strokeColor="0x8e592e"/>
+		</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Button label="Button" x="777" y="155.11" width="71" height="100" touchEnabled="false">
+		<e:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image source="gameRes_json.Bg_Kuangqu05_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" fontFamily="myFont" visible="false"/>
+			<e:Label text="VIP6矿区" x="9.04" y="15" fontFamily="myFont" size="18" width="54" textAlign="center" stroke="2" strokeColor="0x8e592e"/>
+		</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Button id="owner_card" label="Button" x="644" y="163.19" width="119" height="36" touchEnabled="false" visible="false">
+		<e:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image source="gameRes_json.Bg_Kuangqu03_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" fontFamily="myFont" visible="false"/>
+			<e:Label text="我的矿区" fontFamily="myFont" size="20" textAlign="center" horizontalCenter="0" verticalCenter="0"/>
+		</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Button id="back_btn" label="Button" x="740.58" y="525.17" width="71" height="100" touchEnabled="true">
+		<e:skinName>
+		<e:Skin states="up,down,disabled">
+			<e:Image source="gameRes_json.Bg_Kuangqu05_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" fontFamily="myFont" visible="false"/>
+			<e:Label text="返回" x="9.04" y="24" fontFamily="myFont" size="20" width="54" textAlign="center" stroke="2" strokeColor="0x8e592e" textColor="0x48ffa2"/>
+		</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Group id="info_group" width="100%" height="750" x="0" y="0" visible="false">
+		<e:Group id="touch_group" width="100%" height="100%" x="0" y="0"/>
+		<e:Group id="role_group" width="644" bottom="0" touchEnabled="false" x="-700" y="750" scaleX="1" scaleY="1"/>
+		<e:Group id="detai_group" height="750" y="0" anchorOffsetX="0" width="464" x="864" visible="false" locked="true">
+			<e:Image anchorOffsetX="0" anchorOffsetY="0" left="0" source="gameRes_json.Bg_Kuangqu02_png" scale9Grid="4,239,459,74" verticalCenter="0"/>
+			<e:Image source="gameRes_json.Bg_Kuangqu04_png" y="399" horizontalCenter="0"/>
+			<e:Label id="mine_level" text="v1" y="196" textAlign="center" size="30" fontFamily="myFont" horizontalCenter="0"/>
+			<e:Label text="矿区信息:" x="72" y="275.15" textAlign="center" fontFamily="myFont" size="22" textColor="0x8fbeff"/>
+			<e:Label text="总产量:" x="72" y="314" textAlign="center" fontFamily="myFont" size="22" textColor="0x8FBEFF"/>
+			<e:Label text="每日可产出:" x="72" y="352.15" textAlign="center" fontFamily="myFont" size="22" textColor="0x8FBEFF"/>
+			<e:Label id="total_output" text="总产量:" x="225" y="314" textAlign="center" fontFamily="myFont" size="22"/>
+			<e:Label id="daily_output" text="每日可产出:" x="225" y="352.15" textAlign="center" fontFamily="myFont" size="22"/>
+			<e:Group height="45.46" y="415.09" anchorOffsetY="0" anchorOffsetX="0" horizontalCenter="0">
+				<e:Label text="开采矿区需要" x="4" y="11.909999999999968" textAlign="center" fontFamily="myFont" size="22" textColor="0x8FBEFF" scaleX="1" scaleY="1"/>
+				<e:Label id="need_gst" text="125" y="11.909999999999968" textAlign="center" fontFamily="myFont" size="22" textColor="0xffe076" x="147" scaleX="1" scaleY="1"/>
+				<e:Image source="gameRes_json.Icon_G_png" x="209" y="-12.090000000000032" scaleX="0.62" scaleY="0.62"/>
+				<e:layout>
+					<e:HorizontalLayout verticalAlign="middle" gap="1"/>
+				</e:layout>
+			</e:Group>
+			<e:Button id="buy_now_btn" label="立即开采" y="470" horizontalCenter="0">
+				<e:skinName>
+					<e:Skin states="up,down,disabled">
+					<e:Image width="100%" height="100%" source="gameRes_json.Btn_Yellow_01_png"/>
+					<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="-5" fontFamily="myFont" visible="false"/>
+					<e:Label id="tx" text="立即开采" horizontalCenter="0" fontFamily="myFont" verticalCenter="-5" stroke="2" strokeColor="#E99652"/>
+					</e:Skin>
+				</e:skinName>
+			</e:Button>
+		</e:Group>
+		<e:Group id="owner_detai_group" height="750" y="0" anchorOffsetX="0" width="464" x="864" locked="true">
+			<e:Image anchorOffsetX="0" anchorOffsetY="0" left="0" source="gameRes_json.Bg_Kuangqu02_png" scale9Grid="4,239,459,74" verticalCenter="0" height="750"/>
+			<e:Label text="我的矿区" y="15" textAlign="center" size="30" fontFamily="myFont" horizontalCenter="0"/>
+			<e:Label id="is_work" text="开采中" x="42" y="79.99" textAlign="center" fontFamily="myFont" size="22" textColor="0x8FBEFF"/>
+			<e:Label text="已开采:" x="42" y="118.99" textAlign="center" fontFamily="myFont" size="22" textColor="0x8FBEFF"/>
+			<e:Label text="已配置设备:" x="42" y="160.84" textAlign="center" fontFamily="myFont" size="22" textColor="0x8FBEFF"/>
+			<e:Label text="当前打工矿工:" x="42" y="611.84" textAlign="center" fontFamily="myFont" size="22" textColor="0x8FBEFF"/>
+			<e:Label id="dig_output" text="总产量:" x="141" y="118.99" textAlign="center" fontFamily="myFont" size="22"/>
+			<e:Image source="gameRes_json.Frame_02_png" y="203.76" width="418" height="390" scale9Grid="7,7,42,42" horizontalCenter="0"/>
+			<e:Image id="add_machine_btn" source="gameRes_json.Btn_Shop04_png" x="370" y="156.84" scaleX="0.66" scaleY="0.66"/>
+			<e:DataGroup id="machine_datagroup" width="418" height="390" y="203.76" horizontalCenter="0" itemRendererSkinName="MachineItem">
+				<e:ArrayCollection>
+					<e:Array>
+						<e:Object a="null"/>
+						<e:Object a="null"/>
+						<e:Object a="null"/>
+						<e:Object a="null"/>
+						<e:Object a="null"/>
+					</e:Array>
+				</e:ArrayCollection>
+				<e:layout>
+					<e:VerticalLayout gap="15" paddingTop="10"/>
+				</e:layout>
+			</e:DataGroup>
+			<e:DataGroup id="worker_datagroup" width="416" height="68" y="647.92" horizontalCenter="0" itemRendererSkinName="WorkerItem">
+				<e:ArrayCollection>
+					<e:Array>
+						<e:Object a="null"/>
+						<e:Object a="null"/>
+						<e:Object a="null"/>
+						<e:Object a="null"/>
+						<e:Object a="null"/>
+					</e:Array>
+				</e:ArrayCollection>
+				<e:layout>
+					<e:HorizontalLayout gap="20"/>
+				</e:layout>
+			</e:DataGroup>
+		</e:Group>
+		<e:Group id="warehouse_group" height="750" y="0" anchorOffsetX="0" width="464" x="864" visible="false">
+			<e:Image anchorOffsetX="0" anchorOffsetY="0" left="0" source="gameRes_json.Bg_Kuangqu02_png" scale9Grid="4,239,459,74" verticalCenter="0" height="750"/>
+			<e:Image source="gameRes_json.Frame_02_png" y="77.68" width="418" height="556" scale9Grid="7,7,42,42" horizontalCenter="0" anchorOffsetY="0"/>
+			<e:Label text="我的机器" y="15" textAlign="center" size="30" fontFamily="myFont" horizontalCenter="0"/>
+			<e:Button id="close_machine_btn" label="完成配置" y="662.44" horizontalCenter="0.5" scaleX="0.86" scaleY="0.86">
+				<e:skinName>
+					<e:Skin states="up,down,disabled">
+					<e:Image width="100%" height="100%" source="gameRes_json.btn_green_png"/>
+					<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="-5" fontFamily="myFont" size="30" stroke="2" strokeColor="#3ca5a1"/>
+					</e:Skin>
+				</e:skinName>
+			</e:Button>
+			<e:Scroller width="432" height="556" x="25" y="79.92" anchorOffsetY="0">
+				<e:List id="machine_list" itemRendererSkinName="MachineItem">
+					<e:ArrayCollection>
+						<e:Array>
+							<e:Object a="null"/>
+							<e:Object a="null"/>
+							<e:Object a="null"/>
+							<e:Object a="null"/>
+							<e:Object a="null"/>
+							<e:Object a="null"/>
+							<e:Object a="null"/>
+							<e:Object a="null"/>
+							<e:Object a="null"/>
+						</e:Array>
+					</e:ArrayCollection>
+					<e:layout>
+						<e:VerticalLayout gap="10" paddingTop="0"/>
+					</e:layout>
+				</e:List>
+			</e:Scroller>
+		</e:Group>
+	</e:Group>
+</e:Skin>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="MachineItem" xmlns:e="http://ns.egret.com/eui">
+	<e:Image source="gameRes_json.Item_Haoyou01_png" x="0" y="0" width="418" height="63"/>
+	<e:Image x="16" y="8" width="45.5" height="43" source="{data.id_card}"/>
+	<e:Group height="36" x="104" verticalCenter="0">
+		<e:Label text="{data.name}" x="2" verticalCenter="0" size="20" fontFamily="myFont" y="8" scaleX="1" scaleY="1"/>
+		<e:Label text="{data.can_use_day}" x="56" y="15" size="18" textColor="0x70cd8c" fontFamily="myFont"/>
+		<e:layout>
+			<e:HorizontalLayout verticalAlign="middle"/>
+		</e:layout>
+	</e:Group>
+</e:Skin>

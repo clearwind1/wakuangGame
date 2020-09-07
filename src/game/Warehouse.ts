@@ -4,6 +4,7 @@ namespace Game {
 
         public warehouseList: eui.List;
         public head_group: eui.Group;
+        public role_group: eui.Group;
 
         private _warehousedata = [];
         constructor(warehouseData) {
@@ -17,6 +18,7 @@ namespace Game {
             // init
             this.head_group.addChild(new headComment(this, '仓库', 'WAREHOUSE'));
             // this._warehousedata = warehouseData;
+            this.addDB(this.role_group, "cangkunv");
             for (var k in warehouseData) {
                 if (warehouseData[k].good.type == 3) {
                     warehouseData[k].total = warehouseData[k].content.value + "吨";
