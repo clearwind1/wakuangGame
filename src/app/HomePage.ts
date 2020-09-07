@@ -83,6 +83,9 @@ namespace Game {
                 "page_size": 10,
                 "is_index": 1
             }, (rdata) => {
+                for (let k in rdata) {
+                    rdata[k].imgwd = rdata[k].thumb == null ? 0 : 292;
+                }
                 this.news_list.dataProvider = new eui.ArrayCollection(rdata);
             }, this)
         }
@@ -217,6 +220,9 @@ namespace Game {
                 "is_index": 0
             }, (rdata) => {
                 Log(rdata);
+                for (let k in rdata) {
+                    rdata[k].imgwd = rdata[k].thumb == null ? 0 : 292;
+                }
                 this.news_list0.dataProvider = new eui.ArrayCollection(rdata);
                 if (this.changeBtnState(this.news_btn)) {
                     this.cureentPage.visible = false;

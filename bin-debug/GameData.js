@@ -52,7 +52,9 @@ var GameData = (function () {
         "dig_time": -1,
         "current_hold_area_code": "",
         "hold_area_reward": 10000,
-        "hold_area_work_reward": 1000
+        "hold_area_work_reward": 1000,
+        "yesterday_distribution_income": 0,
+        "total_distribution_income": 0
     };
     GameData.Share_config = {
         "link": "http://hardymonkey.cn:8081/download/app?code=178f3735",

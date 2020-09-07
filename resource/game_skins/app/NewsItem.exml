@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="NewsItem" width="750" height="245" xmlns:e="http://ns.egret.com/eui">
 	<e:Image source="appIcon_json.Line_Main01_png" y="0" scale9Grid="8,0,8,1" horizontalCenter="0" width="680"/>
-	<e:Image width="292" height="178" x="23" verticalCenter="0" source="{data.thumb}"/>
-	<e:Label text="{data.title}" x="340.5" y="52" size="28" textColor="0xdfe8ff" fontFamily="myFont" width="373"/>
-	<e:Label x="340.5" y="156" size="22" fontFamily="myFont" textColor="0x535b70" width="372" text="{data.description}"/>
+	<e:Group width="100%" height="100%" x="0" y="0" anchorOffsetX="0">
+		<e:Image width="{data.imgwd}" height="178" x="23" verticalCenter="0" source="{data.thumb}"/>
+		<e:Group width="418" height="200" x="331" y="24" anchorOffsetX="0">
+			<e:Label text="{data.title}" x="9.5" y="28" size="28" textColor="0xdfe8ff" fontFamily="myFont" width="373" scaleX="1" scaleY="1"/>
+			<e:Label x="9.5" y="132" size="22" fontFamily="myFont" textColor="0x535b70" width="372" text="{data.description}" scaleX="1" scaleY="1"/>
+		</e:Group>
+		<e:layout>
+			<e:HorizontalLayout verticalAlign="middle"/>
+		</e:layout>
+	</e:Group>
 </e:Skin>

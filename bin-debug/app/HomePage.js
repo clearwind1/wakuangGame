@@ -94,6 +94,9 @@ var Game;
                 "page_size": 10,
                 "is_index": 1
             }, function (rdata) {
+                for (var k in rdata) {
+                    rdata[k].imgwd = rdata[k].thumb == null ? 0 : 292;
+                }
                 _this.news_list.dataProvider = new eui.ArrayCollection(rdata);
             }, this);
         };
@@ -227,6 +230,9 @@ var Game;
                 "is_index": 0
             }, function (rdata) {
                 Log(rdata);
+                for (var k in rdata) {
+                    rdata[k].imgwd = rdata[k].thumb == null ? 0 : 292;
+                }
                 _this.news_list0.dataProvider = new eui.ArrayCollection(rdata);
                 if (_this.changeBtnState(_this.news_btn)) {
                     _this.cureentPage.visible = false;

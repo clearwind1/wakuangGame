@@ -33,6 +33,18 @@ module cor {
 			}
 		}
 
+		private _topPageList = [];
+		public addTopPage(page: cor.BaseScene) {
+			this._topPageList.push(page);
+		}
+		public showTopPage() {
+			if (this._topPageList.length == 0) {
+				return;
+			}
+			let page = this._topPageList.pop();
+			this.addChild(page);
+		}
+
 		private _bgmSoundChannel: egret.SoundChannel;
 		public playbgm(name) {
 			if (readLocalData(GameMusic) != "1") {

@@ -29,6 +29,11 @@ namespace Game {
         public warehouse_group: eui.Group;
         public machine_list: eui.List;
         public close_machine_btn: eui.Button;
+        public panning_group: eui.Group;
+        public deposit_group: eui.Group;
+        public deposit_switch_btn: eui.ToggleSwitch;
+        public tips_btn: eui.Image;
+        public deposit_tips_btn: eui.Button;
 
         private _areaInfo;
         private _areaConfig;
@@ -58,6 +63,7 @@ namespace Game {
                 //     this._areaConfig = rdata;
                 // }, this)
                 this.showOwnerCard();
+                // if(areainfo.)
             }
 
         }
@@ -74,7 +80,33 @@ namespace Game {
             this.addEvent(this.buy_now_btn, egret.TouchEvent.TOUCH_TAP, this, this.buyMine);
             this.addEvent(this.add_machine_btn, egret.TouchEvent.TOUCH_TAP, this, this.showMachine);
             this.addEvent(this.close_machine_btn, egret.TouchEvent.TOUCH_TAP, this, () => { this.warehouse_group.visible = false; });
+            this.addEvent(this.deposit_switch_btn, eui.UIEvent.CHANGE, this, this.set_deposit);
+            this.addEvent(this.tips_btn, egret.TouchEvent.TOUCH_TAP, this, this.showTips);
+            this.addEvent(this.deposit_tips_btn, egret.TouchEvent.TOUCH_TAP, this, () => {
+                this.deposit_tips_btn.visible = false;
+            });
             this.addEvent(this.machine_list, eui.ItemTapEvent.ITEM_TAP, this, this.addMachine);
+        }
+
+        private set_deposit(e: eui.UIEvent) {
+            Log(e.target.selected);
+            if (e.target.selected) {
+                cor.Socket.getIntance().sendmsg("OPEN_USER_HOLD_AREA_DEPOSIT", {
+                }, (rdata) => {
+                    TipsSkin.instance().show("已成功开启托管");
+                }, this)
+            } else {
+                cor.Socket.getIntance().sendmsg("CLOSE_USER_HOLD_AREA_DEPOSIT", {
+                }, (rdata) => {
+                    TipsSkin.instance().show("已成功关闭托管");
+                }, this)
+            }
+        }
+        private showTips() {
+            this.deposit_tips_btn.visible = true;
+            setTimeout(() => {
+                this.deposit_tips_btn.visible = false;
+            }, 3000);
         }
 
         private addMachine(e: eui.ItemTapEvent) {
@@ -113,7 +145,7 @@ namespace Game {
                 for (let k in config) {
                     excavateData.push({
                         id_card: config[k].good.id_card,
-                        can_use_day: `(可使用${config[k].good.content.rent_day}天)`,
+                        can_use_day: `(可使用${config[k].good_content.rent_day}天)`,
                         name: config[k].good.name
                     });
                 }
@@ -130,7 +162,7 @@ namespace Game {
                         excavateData.push({
                             id: rdata[k].id,
                             id_card: rdata[k].good.id_card,
-                            can_use_day: `(可使用${rdata[k].good.content.rent_day}天)`,
+                            can_use_day: `(可使用${rdata[k].content.rent_day}天)`,
                             name: rdata[k].good.name
                         });
                     }
@@ -167,18 +199,44 @@ namespace Game {
                 GameData.UserInfo.identity = IDENTITY.Owner;
                 cor.EventManage.instance().sendEvent(ChangeIdentity);
                 cor.EventManage.instance().sendEvent(UpdataGameInfo);
-                this.showOwnerCard();
+                this.showOwnerCard(true);
                 this.hideAreaInfo();
             }, this)
         }
 
-        private showOwnerCard() {
+        private showOwnerCard(is_buy = false) {
             let pos = [{ x: 1104, y: 582 }, { x: 262, y: 452 }, { x: 1097, y: 426 }, { x: 1115, y: 79 }, { x: 182, y: 105 }, { x: 644, y: 163 }];
             this.owner_card.visible = true;
             this.owner_card.x = pos[GameData.UserInfo.current_hold_area_grade - 1].x;
             this.owner_card.y = pos[GameData.UserInfo.current_hold_area_grade - 1].y;
+
+            if (is_buy) {
+                let effect = this.addDB(this.panning_group, "machine_effect", pos[GameData.UserInfo.current_hold_area_grade - 1]);
+                effect.animation.reset();
+                effect.animation.play("animation", 1);
+                effect.addEvent("complete", () => {
+                    this.removeDB("machine_effect");
+                    this.showPanning(pos);
+                }, this);
+            } else {
+                this.showPanning(pos);
+            }
+
         }
+        private showPanning(pos) {
+
+            let panning = createMC("panninMC_json", "panninMC_png", "panning");
+            this.panning_group.addChild(panning);
+            panning.x = pos[GameData.UserInfo.current_hold_area_grade - 1].x;
+            panning.y = pos[GameData.UserInfo.current_hold_area_grade - 1].y;
+            panning.gotoAndPlay("work", -1);
+        }
+
         private checkOwner(level) {
+            // GameData.UserInfo.current_hold_area_grade = level;
+            // this.showOwnerCard(true);
+            // return;
+
             if (GameData.UserInfo.identity == IDENTITY.Owner && level != GameData.UserInfo.current_hold_area_grade) {
                 return;
             }
@@ -206,7 +264,7 @@ namespace Game {
             }
             this.mine_level.text = mineData.name;
             this.total_output.text = mineData.total_output + '矿石';
-            this.daily_output.text = mineData.total_output + '矿石';
+            this.daily_output.text = mineData.day_income + '矿石';
 
             this.addDB(this.role_group, `Lv${mineData.grade}`);
 
@@ -220,12 +278,15 @@ namespace Game {
                 for (let k in config) {
                     excavateData.push({
                         id_card: config[k].good.id_card,
-                        can_use_day: `(可使用${config[k].good.content.rent_day}天)`,
+                        can_use_day: `(可使用${config[k].good_content.rent_day}天)`,
                         name: config[k].good.name
                     });
                 }
+                this.deposit_group.visible = (this._areaConfig.is_can_open_deposit != 0);
+                this.deposit_switch_btn.selected = (this._areaConfig.is_open_deposit != 0);
+                this.dig_output.text = this._areaConfig.output + "矿石";
                 this.machine_datagroup.dataProvider = new eui.ArrayCollection(excavateData);
-                this.worker_datagroup.dataProvider = new eui.ArrayCollection([]);
+                this.worker_datagroup.dataProvider = new eui.ArrayCollection(this._areaConfig.user_works);
                 cor.Socket.getIntance().sendmsg('GET_HOLD_AREA_AND_WORK_CONFIG', {}, (rdata) => {
                     Log(rdata);
                     GameData.Mine_area_config = rdata;

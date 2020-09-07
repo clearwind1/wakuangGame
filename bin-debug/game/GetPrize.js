@@ -24,7 +24,7 @@ var Game;
             // init
             this.prize_group.x = this.width / 2;
             this.prizeNum.text = '+' + toThousands(num);
-            var tips = ["矿区产出收益", "矿工产出收益", "打工获得"];
+            var tips = ["矿区产出收益", "矿工产出收益", "打工获得", "昨日分销收益", "今日分销收益"];
             this.prizeTip.text = tips[type - 1];
             this._type = type;
         };
@@ -47,9 +47,7 @@ var Game;
             var w = this.hideGroup.width;
             egret.Tween.get(this.prize_group).to({ x: w - 263, y: 41, scaleX: 0.2, scaleY: 0.2 }, 500).call(function () {
                 _this.dispose();
-                if (_this._type == 1 && GameData.UserInfo.hold_area_work_reward > 0) {
-                    cor.MainScene.instance().addChild(new GetPrize(GameData.UserInfo.hold_area_work_reward, 2));
-                }
+                cor.MainScene.instance().showTopPage();
             });
         };
         return GetPrize;
