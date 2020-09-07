@@ -12,7 +12,7 @@
 				</e:Skin>
 			</e:skinName>
 		</e:Button>
-		<e:Button id="shareUrl_btn" label="复制链接" x="798" y="462">
+		<e:Button id="shareUrl_btn" label="复制链接" y="462" x="606">
 			<e:skinName>
 			<e:Skin states="up,down,disabled" height="123" width="123">
 				<e:Image width="100%" height="100%" source="gameRes_json.Btn_Fenxiang_bg_png"/>
@@ -21,7 +21,7 @@
 			</e:Skin>
 			</e:skinName>
 		</e:Button>
-		<e:Button id="shareFriend_btn" label="微信消息" x="408" y="462">
+		<e:Button id="shareFriend_btn" label="微信消息" x="408" y="462" visible="false">
 			<e:skinName>
 			<e:Skin states="up,down,disabled" height="123" width="123">
 				<e:Image width="100%" height="100%" source="gameRes_json.Btn_Fenxiang_bg_png"/>
@@ -30,7 +30,7 @@
 			</e:Skin>
 			</e:skinName>
 		</e:Button>
-		<e:Button id="shareGroup_btn" label="微信朋友圈" x="604" y="462">
+		<e:Button id="shareGroup_btn" label="微信朋友圈" x="604" y="462" visible="false">
 			<e:skinName>
 			<e:Skin states="up,down,disabled" height="123" width="123">
 				<e:Image width="100%" height="100%" source="gameRes_json.Btn_Fenxiang_bg_png"/>

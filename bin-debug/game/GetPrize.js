@@ -29,8 +29,8 @@ var Game;
             this._type = type;
         };
         GetPrize.prototype.initEvent = function () {
-            this.addEvent(this.close_btn, egret.TouchEvent.TOUCH_TAP, this, this.showMove);
-            this.addEvent(this.sure_btn, egret.TouchEvent.TOUCH_TAP, this, this.showMove);
+            this.addEvent(this.close_btn, egret.TouchEvent.TOUCH_TAP, this, this.showMove, null, GETPRIZEEFFECT);
+            this.addEvent(this.sure_btn, egret.TouchEvent.TOUCH_TAP, this, this.showMove, null, GETPRIZEEFFECT);
         };
         GetPrize.prototype.comein = function () {
             var _this = this;

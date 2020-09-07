@@ -279,8 +279,10 @@ namespace Game {
                 let loadingScene = new LoadingView();
                 loadingScene.setType("sound");
                 cor.MainScene.instance().addChild(loadingScene);
+                RES.setMaxLoadingThread(1);
                 await RES.loadGroup("sound", 0, loadingScene);
                 loadingScene.setType("Done");
+                RES.setMaxLoadingThread(4);
                 await RES.loadGroup("gameres", 0, loadingScene);
                 // loadingScene.dispose();
                 // cor.MainScene.instance().addChild(new GameScene);
@@ -300,7 +302,7 @@ namespace Game {
         }
         //复制邀请码
         private copyCode() {
-            egret.ExternalInterface.call("sendToNative", "copyStr$" + GameData.UserInfo.invitation_code);
+            egret.ExternalInterface.call("sendToNative", "copyStr$" + GameData.Share_config.app);
         }
         //设置界面
         private showSettingPage() {

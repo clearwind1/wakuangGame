@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="GameScene" width="1334" height="750" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
-	<e:Image id="bg" x="0" fillMode="scale" source="Bg_Main_01_jpg" bottom="0" height="687" width="1332"/>
+	<e:Image id="bg" x="0" fillMode="scale" height="750" width="100%" source="Bg_Main_jpg" y="0"/>
 	<e:Image source="gameRes_json.Bg_down_png" bottom="0" right="0"/>
 	<e:Image source="gameRes_json.Bg_up_png" y="0"/>
 	<e:Image source="gameRes_json.Head_Main_01_png" x="6.32" y="0"/>
@@ -77,10 +77,10 @@
 		</e:Button>
 		<e:Button id="warehouse_btn" label="" x="15.65" y="0" scaleX="1" scaleY="1">
 			<e:skinName>
-			<e:Skin states="up,down,disabled">
-				<e:Image width="100%" height="100%" source="gameRes_json.Btn_Fenxiang_png"/>
+				<e:Skin states="up,down,disabled">
+				<e:Image width="100%" height="100%" source="gameRes_json.Btn_Cangku_png"/>
 				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
-			</e:Skin>
+				</e:Skin>
 			</e:skinName>
 		</e:Button>
 		<e:Button id="friend_btn" label="" x="217.17" y="0" scaleX="1" scaleY="1">
@@ -91,12 +91,12 @@
 			</e:Skin>
 			</e:skinName>
 		</e:Button>
-		<e:Button id="setting_btn" label="" x="419.17" y="0" scaleX="1" scaleY="1">
+		<e:Button id="share_btn" label="" x="419.17" y="0" scaleX="1" scaleY="1">
 			<e:skinName>
-			<e:Skin states="up,down,disabled">
-				<e:Image width="100%" height="100%" source="gameRes_json.Btn_Shezhi_png"/>
+				<e:Skin states="up,down,disabled">
+				<e:Image width="100%" height="100%" source="gameRes_json.Btn_Fenxiang_png"/>
 				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
-			</e:Skin>
+				</e:Skin>
 			</e:skinName>
 		</e:Button>
 		<e:Button id="exitbtn" label="" x="620.67" y="0">
@@ -124,7 +124,7 @@
 		</e:Scroller>
 		<e:Image id="notic_tip_img" source="gameRes_json.Point_png" x="342.99" y="107.67" visible="false"/>
 	</e:Group>
-	<e:Group id="manageCenter_btn" width="154.54" height="110.61" x="335.94" y="94.24" anchorOffsetX="0" anchorOffsetY="0"/>
-	<e:Group id="mine_manageCenter_btn" width="301.51" height="150" x="164.67" y="541" anchorOffsetX="0" anchorOffsetY="0"/>
+	<e:Group id="manageCenter_btn" width="154.54" height="122.61" x="335.94" y="82.24" anchorOffsetX="0" anchorOffsetY="0"/>
+	<e:Group id="mine_manageCenter_btn" width="253.51" height="162" x="177.67" y="548" anchorOffsetX="0" anchorOffsetY="0"/>
 	<e:Group id="exchange_center_btn" width="396.33" height="329.67" x="729.94" y="267.24" anchorOffsetX="0" anchorOffsetY="0"/>
 </e:Skin>

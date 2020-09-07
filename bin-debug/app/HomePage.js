@@ -291,10 +291,12 @@ var Game;
                             loadingScene = new Game.LoadingView();
                             loadingScene.setType("sound");
                             cor.MainScene.instance().addChild(loadingScene);
+                            RES.setMaxLoadingThread(1);
                             return [4 /*yield*/, RES.loadGroup("sound", 0, loadingScene)];
                         case 1:
                             _a.sent();
                             loadingScene.setType("Done");
+                            RES.setMaxLoadingThread(4);
                             return [4 /*yield*/, RES.loadGroup("gameres", 0, loadingScene)];
                         case 2:
                             _a.sent();
@@ -320,7 +322,7 @@ var Game;
         };
         //复制邀请码
         HomePage.prototype.copyCode = function () {
-            egret.ExternalInterface.call("sendToNative", "copyStr$" + GameData.UserInfo.invitation_code);
+            egret.ExternalInterface.call("sendToNative", "copyStr$" + GameData.Share_config.app);
         };
         //设置界面
         HomePage.prototype.showSettingPage = function () {

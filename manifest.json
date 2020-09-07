@@ -51,6 +51,7 @@
 		"bin-debug/game/GoodsInfo.js",
 		"bin-debug/game/headComment.js",
 		"bin-debug/game/MineArea.js",
+		"bin-debug/game/MineAreaManager.js",
 		"bin-debug/game/MineManager.js",
 		"bin-debug/game/MinerServerCenter.js",
 		"bin-debug/game/ToolInfo.js",

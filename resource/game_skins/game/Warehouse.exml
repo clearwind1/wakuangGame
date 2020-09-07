@@ -2,7 +2,7 @@
 <e:Skin class="Warehouse" width="1334" height="750" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
 	<e:Image source="Bg_Shop01_jpg" x="0" y="0" width="100%"/>
 	<e:Image source="gameRes_json.Bg_Shop04_png" y="80" scale9Grid="12,13,72,81" width="922" height="624" right="19"/>
-	<e:Image source="Role_02_png" x="-58" bottom="0"/>
+	<e:Group id="role_group" x="10" bottom="0" y="10"/>
 	<e:Scroller height="592.58" y="95" anchorOffsetX="0" anchorOffsetY="0" width="886" right="30">
 		<e:List id="warehouseList" itemRendererSkinName="GoodsItem">
 		<e:layout>

@@ -24,6 +24,7 @@ var Game;
             // init
             this.head_group.addChild(new Game.headComment(this, '仓库', 'WAREHOUSE'));
             // this._warehousedata = warehouseData;
+            this.addDB(this.role_group, "cangkunv");
             for (var k in warehouseData) {
                 if (warehouseData[k].good.type == 3) {
                     warehouseData[k].total = warehouseData[k].content.value + "吨";

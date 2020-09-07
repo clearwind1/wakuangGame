@@ -58,7 +58,9 @@
 		"resource/game_skins/game/GoodsInfo.exml",
 		"resource/game_skins/game/GoodsItem.exml",
 		"resource/game_skins/game/headComment.exml",
+		"resource/game_skins/game/MachineItem.exml",
 		"resource/game_skins/game/MineArea.exml",
+		"resource/game_skins/game/MineAreaManager.exml",
 		"resource/game_skins/game/MineManager.exml",
 		"resource/game_skins/game/MinerServerCenter.exml",
 		"resource/game_skins/game/OwnerItem.exml",
@@ -66,6 +68,7 @@
 		"resource/game_skins/game/ToolsItem.exml",
 		"resource/game_skins/game/ToolsStore.exml",
 		"resource/game_skins/game/Warehouse.exml",
+		"resource/game_skins/game/WorkerItem.exml",
 		"resource/game_skins/LoadingLogo.exml",
 		"resource/game_skins/LoadingView.exml",
 		"resource/game_skins/TipsSkin.exml"

@@ -35,7 +35,7 @@ var Game;
             egret.ExternalInterface.call("sendToNative", "shareGroup$" + GameData.UserInfo.invitation_code);
         };
         GameShare.prototype.shareUrl = function () {
-            egret.ExternalInterface.call("sendToNative", "copyStr$" + GameData.UserInfo.invitation_code);
+            egret.ExternalInterface.call("sendToNative", "copyStr$" + GameData.Share_config.game);
         };
         return GameShare;
     }(cor.BaseScene));

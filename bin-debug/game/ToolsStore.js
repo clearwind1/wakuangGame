@@ -35,7 +35,7 @@ var Game;
             this.toolsList.dataProvider = new eui.ArrayCollection(this._toolsdata);
         };
         ToolsStore.prototype.initEnent = function () {
-            this.addEvent(this.toolsList, eui.ItemTapEvent.ITEM_TAP, this, this.toolsInfo);
+            this.addEvent(this.toolsList, eui.ItemTapEvent.ITEM_TAP, this, this.toolsInfo, null, MANAGECENTERCLICK);
         };
         ToolsStore.prototype.toolsInfo = function (e) {
             this.addChild(new Game.ToolInfo(e.item));

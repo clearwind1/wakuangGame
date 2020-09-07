@@ -45,11 +45,19 @@ var cor;
             }
         };
         MainScene.prototype.playbgm = function (name) {
+            if (readLocalData(GameMusic) != "1") {
+                return;
+            }
             if (this._bgmSoundChannel) {
                 this._bgmSoundChannel.stop();
             }
             var sound = RES.getRes(name);
             this._bgmSoundChannel = sound.play(0, -1);
+        };
+        MainScene.prototype.stopbgm = function () {
+            if (this._bgmSoundChannel) {
+                this._bgmSoundChannel.stop();
+            }
         };
         MainScene.instance = function () {
             return this._i || (this._i = new MainScene);

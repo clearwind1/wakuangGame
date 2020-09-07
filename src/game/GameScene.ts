@@ -20,9 +20,9 @@ namespace Game {
         public manager_btn: eui.Button;
         public warehouse_btn: eui.Button;
         public server_center_btn: eui.Button;
-        // public share_btn: eui.Button;
+        public share_btn: eui.Button;
         public friend_btn: eui.Button;
-        public setting_btn: eui.Button;
+        // public setting_btn: eui.Button;
         public notice_group: eui.Group;
         public email_btn: eui.Button;
         public notice_info: eui.Label;
@@ -107,10 +107,12 @@ namespace Game {
             this.addEvent(this.tools_store_btn, egret.TouchEvent.TOUCH_TAP, this, this.showToolsStore, null, MAINSCENECLICK);
             this.addEvent(this.warehouse_btn, egret.TouchEvent.TOUCH_TAP, this, this.showWarehouse, null, MAINSCENECLICK);
             this.addEvent(this.email_btn, egret.TouchEvent.TOUCH_TAP, this, this.tapNotice, null, MAINSCENECLICK);
-            this.addEvent(this.setting_btn, egret.TouchEvent.TOUCH_TAP, this, this.showSetting, null, MAINSCENECLICK);
-            // this.addEvent(this.share_btn, egret.TouchEvent.TOUCH_TAP, this, this.showShare);
+            // this.addEvent(this.setting_btn, egret.TouchEvent.TOUCH_TAP, this, this.showSetting, null, MAINSCENECLICK);
+            this.addEvent(this.share_btn, egret.TouchEvent.TOUCH_TAP, this, this.showShare);
             this.addEvent(this.friend_btn, egret.TouchEvent.TOUCH_TAP, this, this.showFriend, null, MAINSCENECLICK);
             this.addEvent(this.headImg, egret.TouchEvent.TOUCH_TAP, this, this.showSetting, null, MAINSCENECLICK);
+            this.addEvent(this.mine_manageCenter_btn, egret.TouchEvent.TOUCH_TAP, this, this.mine_manageCenter, null, MAINSCENECLICK);
+            
 
             this.addEvent(cor.EventManage.instance(), ChangeIdentity, this, this.changeIdentity);
             this.addEvent(cor.EventManage.instance(), ExitGame, this, this.exitGame);
@@ -184,6 +186,15 @@ namespace Game {
             } else {
                 this.showToolsStore();
             }
+        }
+        /**
+         * 新的矿区
+         */
+        private mine_manageCenter() {
+            cor.Socket.getIntance().sendmsg('HOLD_AREA_LIST', {}, (rdata) => {
+                Log(rdata);
+                cor.MainScene.instance().addChild(new MineAreaManager(rdata));
+            }, this)
         }
         /**
          * 矿区管理处
@@ -264,8 +275,8 @@ namespace Game {
             // GameData.UserInfo.identity = IDENTITY.Owner;
             // cor.EventManage.instance().sendEvent(ChangeIdentity);
             // cor.EventManage.instance().sendEvent(UpdataGameInfo);
-            TipsSkin.instance().show("暂未开放");
-            return;
+            // TipsSkin.instance().show("暂未开放");
+            // return;
             this.addChild(new GameShare);
         }
         /**

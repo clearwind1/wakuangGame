@@ -20,21 +20,32 @@ var Game;
             return _this;
         }
         MinerServerCenter.prototype.init = function (info) {
+            var _this = this;
             // init
             this.addDB(this.role_group, 'Kuangquguangli');
             this.head_group.addChild(new Game.headComment(this, '矿工管理处', 'MINER'));
             this.ownerList.itemRenderer = OwnerItem;
-            for (var k in info) {
-                info[k].code = info[k].code + "矿区";
-                info[k].user_nickname = "矿主：" + info[k].user_nickname;
-                info[k].name = "矿区等级：" + info[k].name;
-                info[k].miner_num = info[k].current_work_count + '/' + info[k].max_work_count;
-                info[k].earnings = info[k].can_get_income;
-            }
-            this.ownerList.dataProvider = new eui.ArrayCollection(info);
+            cor.Socket.getIntance().sendmsg('GET_HOLD_AREA_AND_WORK_CONFIG', {}, function (rdata) {
+                Log(rdata);
+                GameData.Mine_area_config = rdata;
+                if (rdata.user_work_is_close) {
+                    _this.ownerList.dataProvider = new eui.ArrayCollection([]);
+                    _this.searchTips.text = "矿工管理处休息中,休息时间：\n" + rdata.hold_area_work_start_time + "~" + rdata.hold_area_work_end_time;
+                }
+                else {
+                    for (var k in info) {
+                        info[k].code = info[k].code + "矿区";
+                        info[k].user_nickname = "矿主：" + info[k].user_nickname;
+                        info[k].name = "矿区等级：" + info[k].name;
+                        info[k].miner_num = info[k].current_work_count + '/' + info[k].max_work_count;
+                        info[k].earnings = info[k].can_get_income;
+                    }
+                    _this.ownerList.dataProvider = new eui.ArrayCollection(info);
+                }
+            }, this);
         };
         MinerServerCenter.prototype.initEvent = function () {
-            this.addEvent(this.seach_btn, egret.TouchEvent.TOUCH_TAP, this, this.seach);
+            this.addEvent(this.seach_btn, egret.TouchEvent.TOUCH_TAP, this, this.seach, null, MANAGECENTERCLICK);
             this.addEvent(cor.EventManage.instance(), OwnerListUpdata, this, this.refresh);
         };
         MinerServerCenter.prototype.refresh = function () {
@@ -54,6 +65,10 @@ var Game;
         };
         MinerServerCenter.prototype.seach = function () {
             var _this = this;
+            if (GameData.Mine_area_config.user_work_is_close) {
+                Game.TipsSkin.instance().show("矿工管理处休息中");
+                return;
+            }
             if (this.code.text == "") {
                 Game.TipsSkin.instance().show("请输入要搜索的矿区编号");
                 return;

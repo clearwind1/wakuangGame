@@ -159,8 +159,10 @@ var cor;
                 parm.parmar = [event];
             }
             if (parm.bindeffect) {
-                var sound = RES.getRes(parm.bindeffect);
-                sound.play(0, 1);
+                if (readLocalData(GameMusic) == "1") {
+                    var sound = RES.getRes(parm.bindeffect);
+                    sound.play(0, 1);
+                }
             }
             parm.fun.apply(parm.obj, parm.parmar);
         };
