@@ -58,6 +58,7 @@ var Game;
             _this.initEnent();
             _this.getNews();
             _this.getBanners();
+            _this.getShareConfig();
             return _this;
         }
         HomePage.prototype.init = function () {
@@ -201,6 +202,13 @@ var Game;
             this.currentNav = btn;
             cor.MainScene.instance().clearPage();
             return true;
+        };
+        //获取分享配置
+        HomePage.prototype.getShareConfig = function () {
+            cor.Socket.getIntance().sendmsg('GET_SHARE_CONFIG', {}, function (rdata) {
+                Log(rdata);
+                GameData.Share_config = rdata;
+            }, this);
         };
         //显示主页
         HomePage.prototype.showHome = function () {

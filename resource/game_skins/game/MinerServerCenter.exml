@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="MinerServerCenter" width="1334" height="750" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:Game="Game.*">
 	<e:Image source="Bg_Shop01_jpg" x="0" y="0" width="100%"/>
-	<e:Group id="head_group" x="0" y="0"/>
 	<e:Group id="role_group" x="0" bottom="0"/>
 	<e:Image source="gameRes_json.Bg_Shop04_png" scale9Grid="12,13,72,81" width="940" height="588" right="19" y="142"/>
-	<e:Scroller width="936" height="569.58" anchorOffsetX="0" anchorOffsetY="0" right="19" y="149.41999999999996">
+	<e:Scroller width="936" height="569.58" anchorOffsetX="0" anchorOffsetY="0" right="19" y="149.41999999999996" locked="true">
 		<e:List id="ownerList" itemRendererSkinName="OwnerItem" useVirtualLayout="false">
 			<e:layout>
 				<e:VerticalLayout horizontalAlign="center" gap="10"/>
@@ -22,4 +21,6 @@
 		</e:skinName>
 	</e:Button>
 	<e:EditableText id="code" width="354" height="29" text="" y="93" anchorOffsetY="0" size="28" fontFamily="myFont" right="212" textColor="0xa5ccfb" prompt="请输入矿区编号" promptColor="0x9b9b9b"/>
+	<e:Label id="searchTips" text="" width="612" textAlign="center" verticalAlign="middle" right="178" size="42" fontFamily="myFont" verticalCenter="68"/>
+	<e:Group id="head_group" x="0" y="0"/>
 </e:Skin>
