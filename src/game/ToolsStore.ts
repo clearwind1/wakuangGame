@@ -4,6 +4,7 @@ namespace Game {
 
         public head_group: eui.Group;
         public toolsList: eui.List;
+        public role_group: eui.Group;
 
         private _toolsdata = [];
         constructor(toolsData) {
@@ -16,7 +17,8 @@ namespace Game {
         public init(toolsData) {
             // init
 
-            this.head_group.addChild(new headComment(this,'工具商店','TOOL SHOP'));
+            this.head_group.addChild(new headComment(this, '工具商店', 'TOOL SHOP'));
+            this.addDB(this.role_group, "Gongjushangdian");
 
             this._toolsdata = [];
             for (var k in toolsData) {
@@ -30,7 +32,7 @@ namespace Game {
         }
 
         private initEnent() {
-            this.addEvent(this.toolsList, eui.ItemTapEvent.ITEM_TAP, this, this.toolsInfo);
+            this.addEvent(this.toolsList, eui.ItemTapEvent.ITEM_TAP, this, this.toolsInfo, null, MANAGECENTERCLICK);
         }
 
         private toolsInfo(e: eui.ItemTapEvent) {

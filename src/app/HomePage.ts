@@ -277,7 +277,10 @@ namespace Game {
                 GameData.BGame = true;
                 GameData.UserInfo = rdata;
                 let loadingScene = new LoadingView();
+                loadingScene.setType("sound");
                 cor.MainScene.instance().addChild(loadingScene);
+                await RES.loadGroup("sound", 0, loadingScene);
+                loadingScene.setType("Done");
                 await RES.loadGroup("gameres", 0, loadingScene);
                 // loadingScene.dispose();
                 // cor.MainScene.instance().addChild(new GameScene);

@@ -9,6 +9,7 @@ namespace Game {
         public send_code_btn: eui.Button;
         public cancel_btn: eui.Button;
         public sure_btn: eui.Button;
+        public input_check_password: eui.EditableText;
 
         private regist_code_time = 0;
         private code_key;
@@ -58,6 +59,10 @@ namespace Game {
         private send_set_password() {
             if (!checkPhone(this.input_phone.text)) {
                 TipsSkin.instance().show('手机格式不正确');
+                return;
+            }
+            if (this.input_password.text != this.input_check_password.text){
+                TipsSkin.instance().show("两次输入的密码不一致");
                 return;
             }
             cor.Socket.getIntance().sendmsg('RESET_PAY_PASSWORD', {

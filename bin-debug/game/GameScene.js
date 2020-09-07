@@ -60,16 +60,17 @@ var Game;
         }
         GameScene.prototype.init = function () {
             // init
+            cor.MainScene.instance().playbgm(MAINSCENEBGM);
             if (GameData.UserInfo.identity == IDENTITY.Miner) {
                 this.owner_icon.visible = false;
-                this.level.text = GameData.UserInfo.grade;
-                this.bg.source = "Bg_MiningArea_Lv1_png";
+                this.level.text = "";
+                // this.bg.source = `Bg_MiningArea_Lv1_png`
                 this.addDB(this.role_group, "Kuangquguangli");
             }
             else {
                 this.mine_group.visible = false;
                 this.level.text = 'v' + GameData.UserInfo.current_hold_area_grade;
-                this.bg.source = "Bg_MiningArea_Lv" + GameData.UserInfo.current_hold_area_grade + "_png";
+                // this.bg.source = `Bg_MiningArea_Lv${GameData.UserInfo.current_hold_area_grade}_png`;
                 this.addDB(this.role_group, "Lv" + GameData.UserInfo.current_hold_area_grade);
             }
             this.headImg.source = GameData.UserInfo.picture;
@@ -86,7 +87,7 @@ var Game;
             ];
             var colorFlilter = new egret.ColorMatrixFilter(colorMatrix);
             // this.friend_btn.filters = [colorFlilter];
-            this.share_btn.filters = [colorFlilter];
+            // this.share_btn.filters = [colorFlilter];
             // this.exchange_center_btn.filters = [colorFlilter];
             // this.server_center_btn.filters = [colorFlilter];
             // this.mine_btn.filters = [colorFlilter];
@@ -102,23 +103,26 @@ var Game;
             // if (GameData.UserInfo.dig_time > 0) {
             //     this.startDigMine();
             // }
-            if (GameData.UserInfo.hold_area_reward > 0) {
-                cor.MainScene.instance().addChild(new Game.GetPrize(GameData.UserInfo.hold_area_reward, 1));
-            }
+            setTimeout(function () {
+                if (GameData.UserInfo.hold_area_reward > 0) {
+                    cor.MainScene.instance().addChild(new Game.GetPrize(GameData.UserInfo.hold_area_reward, 1));
+                }
+            }, 600);
         };
         GameScene.prototype.initEnent = function () {
-            this.addEvent(this.exitbtn, egret.TouchEvent.TOUCH_TAP, this, this.exitGame);
-            this.addEvent(this.manager_btn, egret.TouchEvent.TOUCH_TAP, this, this.showManager);
-            this.addEvent(this.mine_btn, egret.TouchEvent.TOUCH_TAP, this, this.showMine);
-            this.addEvent(this.exchange_center_btn, egret.TouchEvent.TOUCH_TAP, this, this.showExchange_center);
-            this.addEvent(this.server_center_btn, egret.TouchEvent.TOUCH_TAP, this, this.showServer_center);
-            this.addEvent(this.tools_store_btn, egret.TouchEvent.TOUCH_TAP, this, this.showToolsStore);
-            this.addEvent(this.warehouse_btn, egret.TouchEvent.TOUCH_TAP, this, this.showWarehouse);
-            this.addEvent(this.email_btn, egret.TouchEvent.TOUCH_TAP, this, this.tapNotice);
-            this.addEvent(this.setting_btn, egret.TouchEvent.TOUCH_TAP, this, this.showSetting);
-            this.addEvent(this.share_btn, egret.TouchEvent.TOUCH_TAP, this, this.showShare);
-            this.addEvent(this.friend_btn, egret.TouchEvent.TOUCH_TAP, this, this.showFriend);
-            this.addEvent(this.headImg, egret.TouchEvent.TOUCH_TAP, this, this.showSetting);
+            this.addEvent(this.exitbtn, egret.TouchEvent.TOUCH_TAP, this, this.exitGame, null, MAINSCENECLICK);
+            this.addEvent(this.manager_btn, egret.TouchEvent.TOUCH_TAP, this, this.showManager, null, MAINSCENECLICK);
+            this.addEvent(this.manageCenter_btn, egret.TouchEvent.TOUCH_TAP, this, this.showManageCenter, null, MAINSCENECLICK);
+            this.addEvent(this.mine_btn, egret.TouchEvent.TOUCH_TAP, this, this.showMine, null, MAINSCENECLICK);
+            this.addEvent(this.exchange_center_btn, egret.TouchEvent.TOUCH_TAP, this, this.showExchange_center, null, MAINSCENECLICK);
+            this.addEvent(this.server_center_btn, egret.TouchEvent.TOUCH_TAP, this, this.showServer_center, null, MAINSCENECLICK);
+            this.addEvent(this.tools_store_btn, egret.TouchEvent.TOUCH_TAP, this, this.showToolsStore, null, MAINSCENECLICK);
+            this.addEvent(this.warehouse_btn, egret.TouchEvent.TOUCH_TAP, this, this.showWarehouse, null, MAINSCENECLICK);
+            this.addEvent(this.email_btn, egret.TouchEvent.TOUCH_TAP, this, this.tapNotice, null, MAINSCENECLICK);
+            this.addEvent(this.setting_btn, egret.TouchEvent.TOUCH_TAP, this, this.showSetting, null, MAINSCENECLICK);
+            // this.addEvent(this.share_btn, egret.TouchEvent.TOUCH_TAP, this, this.showShare);
+            this.addEvent(this.friend_btn, egret.TouchEvent.TOUCH_TAP, this, this.showFriend, null, MAINSCENECLICK);
+            this.addEvent(this.headImg, egret.TouchEvent.TOUCH_TAP, this, this.showSetting, null, MAINSCENECLICK);
             this.addEvent(cor.EventManage.instance(), ChangeIdentity, this, this.changeIdentity);
             this.addEvent(cor.EventManage.instance(), ExitGame, this, this.exitGame);
             this.addEvent(cor.EventManage.instance(), UpdataUserInfo, this, this.updata_info);
@@ -181,6 +185,18 @@ var Game;
             egret.Tween.get(this.notic_tip_img).wait(400).to({ alpha: 0 }).wait(100).to({ alpha: 1 }).wait(400).to({ alpha: 0 }).wait(100).to({ alpha: 1 });
         };
         /**
+         * 新的管理中心：商店，打工
+         */
+        GameScene.prototype.showManageCenter = function () {
+            cor.MainScene.instance().playbgm(MANAGECENTERBGM);
+            if (GameData.UserInfo.identity == IDENTITY.Miner) {
+                this.showServer_center();
+            }
+            else {
+                this.showToolsStore();
+            }
+        };
+        /**
          * 矿区管理处
          */
         GameScene.prototype.showManager = function () {
@@ -206,10 +222,10 @@ var Game;
          * 工具商店
          */
         GameScene.prototype.showToolsStore = function () {
-            if (GameData.UserInfo.identity == IDENTITY.Miner) {
-                Game.TipsSkin.instance().show("暂时不对矿工开放");
-                return;
-            }
+            // if (GameData.UserInfo.identity == IDENTITY.Miner) {
+            //     TipsSkin.instance().show("暂时不对矿工开放");
+            //     return;
+            // }
             cor.Socket.getIntance().sendmsg('STORE_GOOD_LIST', {}, function (rdata) {
                 Log(rdata);
                 cor.MainScene.instance().addChild(new Game.ToolsStore(rdata));
@@ -239,6 +255,7 @@ var Game;
         GameScene.prototype.showExchange_center = function () {
             cor.Socket.getIntance().sendmsg('EVERY_CONVERT_RECORD', {}, function (rdata) {
                 Log(rdata);
+                cor.MainScene.instance().playbgm(EXCHANGEBGM);
                 cor.MainScene.instance().addChild(new Game.ExchangeCenter(rdata));
             }, this);
         };
@@ -282,6 +299,7 @@ var Game;
             if (this._dig_time_int != -1) {
                 clearInterval(this._dig_time_int);
             }
+            cor.MainScene.instance().stopbgm();
             this.dispose();
         };
         /**

@@ -58,9 +58,17 @@ var cor;
         /**
          * 添加龙骨
          */
-        BaseScene.prototype.addDB = function (target, name) {
+        BaseScene.prototype.addDB = function (target, name, position, scale) {
             var role = createDB(name);
             role.x = role.width / 2;
+            if (position) {
+                role.x = position.x;
+                role.y = position.y;
+            }
+            if (scale) {
+                role.scaleX = scale.x;
+                role.scaleY = scale.y;
+            }
             target.addChild(role);
             role.touchEnabled = false;
             role.animation.play();
@@ -68,6 +76,7 @@ var cor;
                 db: role,
                 target: target
             });
+            return role;
         };
         /**
          * 清除龙骨
@@ -125,8 +134,8 @@ var cor;
         /**
          * 添加事件
          */
-        BaseScene.prototype.addEvent = function (target, event, obj, fun, parmar) {
-            var parm = { target: target, event: event, obj: obj, fun: fun, parmar: parmar };
+        BaseScene.prototype.addEvent = function (target, event, obj, fun, parmar, bindeffect) {
+            var parm = { target: target, event: event, obj: obj, fun: fun, parmar: parmar, bindeffect: bindeffect };
             this.eventList.push(parm);
             target.addEventListener(event, this.touchEnd, obj);
         };
@@ -148,6 +157,13 @@ var cor;
             }
             else {
                 parm.parmar = [event];
+            }
+            if (parm.bindeffect) {
+                if (readLocalData(GameMusic) != "1") {
+                    return;
+                }
+                var sound = RES.getRes(parm.bindeffect);
+                sound.play(0, 1);
             }
             parm.fun.apply(parm.obj, parm.parmar);
         };

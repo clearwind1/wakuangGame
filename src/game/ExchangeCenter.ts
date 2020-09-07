@@ -83,10 +83,10 @@ namespace Game {
         }
 
         private initEvent() {
-            this.addEvent(this.recode_btn, egret.TouchEvent.TOUCH_TAP, this, this.showRecode);
-            this.addEvent(this.exchange_btn, egret.TouchEvent.TOUCH_TAP, this, this.exchange);
-            this.addEvent(this.exchange_num, eui.UIEvent.CHANGE, this, this.showExchangeRate);
-            this.addEvent(this.close_btn, egret.TouchEvent.TOUCH_TAP, this, () => { this.rdcode_group.visible = false;});
+            this.addEvent(this.recode_btn, egret.TouchEvent.TOUCH_TAP, this, this.showRecode, null, EXCHANGECLICK);
+            this.addEvent(this.exchange_btn, egret.TouchEvent.TOUCH_TAP, this, this.exchange, null, EXCHANGECLICK);
+            this.addEvent(this.exchange_num, eui.UIEvent.CHANGE, this, this.showExchangeRate, null, EXCHANGECLICK);
+            this.addEvent(this.close_btn, egret.TouchEvent.TOUCH_TAP, this, () => { this.rdcode_group.visible = false;}, null, EXCHANGECLICK);
         }
 
         private showExchangeRate(e: eui.UIEvent) {

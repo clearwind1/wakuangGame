@@ -12,21 +12,22 @@ var Game;
 (function (Game) {
     var Purse_outputPage = (function (_super) {
         __extends(Purse_outputPage, _super);
-        function Purse_outputPage(address) {
+        function Purse_outputPage(type, address) {
             var _this = _super.call(this) || this;
             _this.skinName = "Purse_outputPage";
-            _this.init(address);
+            _this.init(type, address);
             _this.initEvent();
             return _this;
         }
-        Purse_outputPage.prototype.init = function (address) {
+        Purse_outputPage.prototype.init = function (type, address) {
             // init
             if (address) {
                 this.address_input.text = address;
             }
             this.money_input.restrict = "0-9";
-            this._selectType = "GST";
-            this.gst_select.selected = true;
+            this._selectType = type;
+            this.gst_select.selected = (type == "GST");
+            this.usdt_select.selected = (type == "USDT");
             this._radioGroup = new eui.RadioButtonGroup();
             this.gst_select.group = this._radioGroup;
             this.usdt_select.group = this._radioGroup;
@@ -50,10 +51,6 @@ var Game;
             this.addEvent(this._radioGroup, eui.UIEvent.CHANGE, this, function (evt) {
                 var radioGroup = evt.target;
                 _this._selectType = radioGroup.selectedValue;
-            });
-            egret.ExternalInterface.addCallback("scanResult", function (message) {
-                // TipsSkin.instance().show(message);
-                _this.address_input.text = message;
             });
         };
         Purse_outputPage.prototype.scan = function () {

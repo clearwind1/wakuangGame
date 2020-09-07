@@ -33,6 +33,23 @@ module cor {
 			}
 		}
 
+		private _bgmSoundChannel: egret.SoundChannel;
+		public playbgm(name) {
+			if (readLocalData(GameMusic) != "1") {
+				return;
+			}
+			if (this._bgmSoundChannel) {
+				this._bgmSoundChannel.stop();
+			}
+			var sound: egret.Sound = RES.getRes(name);
+			this._bgmSoundChannel = sound.play(0, -1);
+		}
+		public stopbgm() {
+			if (this._bgmSoundChannel) {
+				this._bgmSoundChannel.stop();
+			}
+		}
+
 		private static _i: MainScene;
 		public static instance(): MainScene {
 			return this._i || (this._i = new MainScene);

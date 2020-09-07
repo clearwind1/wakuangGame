@@ -23,7 +23,7 @@
 			</e:Skin>
 		</e:skinName>
 	</e:Button>
-	<e:Group id="time_group" width="197" height="69" x="687" y="69" touchEnabled="false" touchChildren="false">
+	<e:Group id="time_group" width="197" height="69" x="687" y="69" touchEnabled="false" touchChildren="false" visible="false">
 		<e:Label text="取消打工" y="9" horizontalCenter="0" size="22" fontFamily="myFont" stroke="2" strokeColor="0x5276e9" textColor="0xffffff"/>
 		<e:Label id="time" text="03:25:36" y="38" horizontalCenter="0" size="24" fontFamily="myFont" stroke="0" strokeColor="0x505153" textColor="0xa1ffb7"/>
 	</e:Group>

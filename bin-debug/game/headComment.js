@@ -32,6 +32,7 @@ var Game;
             this.addEvent(this.back_btn, egret.TouchEvent.TOUCH_TAP, this, function () {
                 _this.dispose();
                 parent.dispose();
+                cor.MainScene.instance().playbgm(MAINSCENEBGM);
             });
             this.addEvent(cor.EventManage.instance(), UpdataGameInfo, this, this.updata_gameinfo);
         };

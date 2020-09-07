@@ -22,7 +22,7 @@ var Game;
         GameSetting.prototype.init = function () {
             // init
             this.nickname_edt.text = GameData.UserInfo.nickname;
-            if (readLocalData(GameMusic) && readLocalData(GameMusic) == '1') {
+            if (readLocalData(GameMusic) == '1') {
                 this.music_switch.selected = true;
             }
             else {
@@ -55,6 +55,12 @@ var Game;
             Log(e.target.selected);
             var saveStr = e.target.selected ? "1" : "0";
             saveLocalData(GameMusic, saveStr);
+            if (saveStr == "1") {
+                cor.MainScene.instance().playbgm(MAINSCENEBGM);
+            }
+            else {
+                cor.MainScene.instance().stopbgm();
+            }
         };
         return GameSetting;
     }(cor.BaseScene));

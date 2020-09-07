@@ -1,0 +1,1 @@
+{"name":"light","imagePath":"light_tex.png","height":256,"SubTexture":[{"name":"光条","x":1,"height":223,"y":1,"width":7},{"name":"xingguang2","x":10,"frameY":0,"height":32,"y":1,"frameWidth":32,"frameHeight":32,"frameX":-1,"width":32}],"width":64}

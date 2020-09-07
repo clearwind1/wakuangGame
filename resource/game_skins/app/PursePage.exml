@@ -2,55 +2,49 @@
 <e:Skin class="PursePage" width="750" height="1334" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
 	<e:Rect width="100%" height="100%" x="0" y="0" fillColor="0xffffff"/>
 	<e:Label text="我的钱包" y="27" textColor="0x353535" fontFamily="myFont" size="34" x="307"/>
+	<e:Label text="资产" y="523" fontFamily="myFont" size="32" x="36" textColor="0x353535" bold="true"/>
 	<e:Group id="close_btn" width="78" height="76" x="7" y="6" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Image source="appIcon_json.Banner_Personal_Back01_png" x="23" y="22" scaleX="1" scaleY="1"/>
 	</e:Group>
 	<e:Image id="scan_btn" source="appIcon_json.Icon_Saoma_png" y="30" x="672"/>
 	<e:Image source="appIcon_json.Line_Personal01_png" y="89" width="690" horizontalCenter="0"/>
-	<e:Button id="gst_info_btn" label="" x="42" y="257">
+	<e:Button id="gst_info_btn" label="GST" x="38" y="603" anchorOffsetX="0" width="674">
 		<e:skinName>
-			<e:Skin states="up,down,disabled">
-			<e:Image width="100%" height="100%" source="appIcon_json.Bg_Wallet02_png"/>
-			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
-	<e:Label text="GST余额" y="48" fontFamily="myFont" textColor="0x353535" size="26" horizontalCenter="0"/>
-	<e:Label id="num" text="" y="137" fontFamily="myFont" horizontalCenter="0" textColor="0x3d9fff" bold="true" size="46"/>
-	<e:Image source="appIcon_json.Banner_Personal_Back02_png" x="245" y="51"/>
+			<e:Skin states="up,down,disabled" width="674" height="46">
+			<e:Image source="appIcon_json.Icon_Gbi_png"/>
+	<e:Image source="appIcon_json.Line_Personal01_png" width="674" horizontalCenter="0" bottom="-12"/>
+			<e:Label id="labelDisplay" x="61" text="gst" verticalCenter="0" textColor="0x353535" size="28" fontFamily="myFont"/>
+	<e:Label id="money" text="" bold="true" size="40" verticalCenter="0" fontFamily="myFont" textColor="0x3d9fff" right="20"/>
 			</e:Skin>
 		</e:skinName>
 	</e:Button>
-	<e:Button id="usdt_info_btn" label="" y="257" x="388">
+	<e:Button id="usdt_info_btn" label="USDT" x="38" y="699" anchorOffsetX="0" width="674">
 		<e:skinName>
-		<e:Skin states="up,down,disabled">
-			<e:Image width="100%" height="100%" source="appIcon_json.Bg_Wallet02_png"/>
-			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
-			<e:Label text="USDT余额" y="48" fontFamily="myFont" textColor="0x353535" size="26" horizontalCenter="0"/>
-			<e:Label id="num" text="" y="137" fontFamily="myFont" horizontalCenter="0" textColor="0x3d9fff" bold="true" size="46"/>
-			<e:Image source="appIcon_json.Banner_Personal_Back02_png" x="245" y="51"/>
+		<e:Skin states="up,down,disabled" width="674" height="46">
+			<e:Image source="appIcon_json.Icon_Ubi_png"/>
+			<e:Image source="appIcon_json.Line_Personal01_png" width="674" horizontalCenter="0" bottom="-12"/>
+			<e:Label id="labelDisplay" x="61" text="gst" verticalCenter="0" textColor="0x353535" size="28" fontFamily="myFont"/>
+			<e:Label id="money" text="" bold="true" size="40" verticalCenter="0" fontFamily="myFont" textColor="0x3d9fff" right="20"/>
 		</e:Skin>
 		</e:skinName>
 	</e:Button>
-	<e:Button id="exchange_btn" label="" y="540" horizontalCenter="0" width="690" height="218">
-		<e:skinName>
-		<e:Skin states="up,down,disabled" width="690" height="218">
-			<e:Image width="100%" height="100%" source="appIcon_json.Bg_Wallet02_png" scale9Grid="127,55,96,113"/>
-			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
-			<e:Label text="USDT兑换GST比例" y="48" fontFamily="myFont" textColor="0x353535" size="26" x="70"/>
-			<e:Label id="num" text="" y="109" fontFamily="myFont" textColor="0x3d9fff" bold="true" size="40" x="71"/>
-			<e:Image source="appIcon_json.Banner_Personal_Back02_png" x="305" y="51"/>
-	<e:Image source="appIcon_json.Btn_Wallet05_png" x="468" y="75"/>
-	<e:Label text="货币兑换" x="471" size="28" fontFamily="myFont" width="177" textAlign="center" y="91" textColor="0x5e9afc"/>
-		</e:Skin>
-		</e:skinName>
-	</e:Button>
-	<e:Button id="income_btn" label="收钱" horizontalCenter="0" bottom="319">
+	<e:Button id="exchange_btn" label="GST" y="149" horizontalCenter="0">
 		<e:skinName>
 			<e:Skin states="up,down,disabled">
-			<e:Image width="100%" height="100%" source="appIcon_json.Btn_Wallet01_png"/>
+			<e:Image width="100%" height="100%" source="appIcon_json.Bg_Wallet11_png"/>
+			<e:Label id="labelDisplay" text="GST" fontFamily="myFont" size="42" x="62" y="54"/>
+			</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Button id="income_btn" label="" y="198" x="645">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="appIcon_json.Bg_Wallet12_png"/>
 			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" fontFamily="myFont" size="34"/>
 			</e:Skin>
 		</e:skinName>
 	</e:Button>
-	<e:Button id="output_btn" label="转出" horizontalCenter="0" bottom="199">
+	<e:Button id="output_btn" label="转出" horizontalCenter="0" bottom="27" visible="false">
 		<e:skinName>
 			<e:Skin states="up,down,disabled">
 			<e:Image width="100%" height="100%" source="appIcon_json.Btn_Wallet02_png"/>
@@ -58,4 +52,6 @@
 			</e:Skin>
 		</e:skinName>
 	</e:Button>
+	<e:Label id="address" text="0xfffffff" y="297" fontFamily="myFont" size="27" textColor="0x6680c7" horizontalCenter="0"/>
+	<e:Label id="money" text="150,000" y="364" fontFamily="myFont" size="60" horizontalCenter="0" bold="true" textColor="0xffffff"/>
 </e:Skin>

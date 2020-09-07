@@ -143,6 +143,14 @@ class Main extends eui.UILayer {
      * Create scene interface
      */
     protected createGameScene(): void {
+
+        if (!readLocalData(PurseShowInfo)) {
+            saveLocalData(PurseShowInfo, "1");
+        }
+        if (!readLocalData(GameMusic)) {
+            saveLocalData(GameMusic, "1");
+        }
+
         this.addChild(cor.MainScene.instance());
         this.addChild(Game.TipsSkin.instance());
 

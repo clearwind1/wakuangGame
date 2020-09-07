@@ -60,6 +60,10 @@ var Game;
                 Game.TipsSkin.instance().show('手机格式不正确');
                 return;
             }
+            if (this.input_password.text != this.input_check_password.text) {
+                Game.TipsSkin.instance().show("两次输入的密码不一致");
+                return;
+            }
             cor.Socket.getIntance().sendmsg('SET_PAY_PASSWORD', {
                 "mobile": this.input_phone.text,
                 "code": this.input_code.text,

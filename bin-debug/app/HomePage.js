@@ -289,9 +289,14 @@ var Game;
                             GameData.BGame = true;
                             GameData.UserInfo = rdata;
                             loadingScene = new Game.LoadingView();
+                            loadingScene.setType("sound");
                             cor.MainScene.instance().addChild(loadingScene);
-                            return [4 /*yield*/, RES.loadGroup("gameres", 0, loadingScene)];
+                            return [4 /*yield*/, RES.loadGroup("sound", 0, loadingScene)];
                         case 1:
+                            _a.sent();
+                            loadingScene.setType("Done");
+                            return [4 /*yield*/, RES.loadGroup("gameres", 0, loadingScene)];
+                        case 2:
                             _a.sent();
                             return [2 /*return*/];
                     }

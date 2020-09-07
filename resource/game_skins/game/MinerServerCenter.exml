@@ -11,6 +11,7 @@
 		</e:List>
 	</e:Scroller>
 	<e:Image source="gameRes_json.Frame_02_png" y="80" width="374" scale9Grid="7,7,42,42" right="204"/>
+	<e:Group id="head_group" x="0" y="0"/>
 	<e:Button id="seach_btn" label="" y="84" scaleX="0.65" scaleY="0.65" right="61">
 		<e:skinName>
 		<e:Skin states="up,down,disabled">
@@ -22,5 +23,4 @@
 	</e:Button>
 	<e:EditableText id="code" width="354" height="29" text="" y="93" anchorOffsetY="0" size="28" fontFamily="myFont" right="212" textColor="0xa5ccfb" prompt="请输入矿区编号" promptColor="0x9b9b9b"/>
 	<e:Label id="searchTips" text="" width="612" textAlign="center" verticalAlign="middle" right="178" size="42" fontFamily="myFont" verticalCenter="68"/>
-	<e:Group id="head_group" x="0" y="0"/>
 </e:Skin>

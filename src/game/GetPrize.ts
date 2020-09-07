@@ -8,6 +8,7 @@ namespace Game {
         public sure_btn: eui.Button;
         public prize_group: eui.Group;
         public prizeNum: eui.Label;
+        public windows_group: eui.Group;
 
         private _type;
         constructor(num, type) {
@@ -15,6 +16,7 @@ namespace Game {
 
             this.init(num, type);
             this.initEvent();
+            this.comein();
         }
 
         public init(num, type) {
@@ -27,8 +29,17 @@ namespace Game {
         }
 
         private initEvent() {
-            this.addEvent(this.close_btn, egret.TouchEvent.TOUCH_TAP, this, this.showMove);
-            this.addEvent(this.sure_btn, egret.TouchEvent.TOUCH_TAP, this, this.showMove);
+            this.addEvent(this.close_btn, egret.TouchEvent.TOUCH_TAP, this, this.showMove, null, GETPRIZEEFFECT);
+            this.addEvent(this.sure_btn, egret.TouchEvent.TOUCH_TAP, this, this.showMove, null, GETPRIZEEFFECT);
+        }
+
+        private comein() {
+            this.windows_group.scaleX = 0;
+            this.windows_group.scaleY = 0;
+            this.prize_group.visible = false;
+            egret.Tween.get(this.windows_group).to({ scaleX: 1, scaleY: 1 }, 300).call(() => { 
+                this.prize_group.visible = true;
+            });
         }
 
         private showMove() {
