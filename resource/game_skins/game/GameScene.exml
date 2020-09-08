@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="GameScene" width="1334" height="750" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
-	<e:Image id="bg" x="0" fillMode="scale" height="750" width="100%" source="Bg_Main_jpg" y="0"/>
+	<e:Image id="bg" x="0" fillMode="scale" height="850" width="1625" source="Bg_Main_jpg" y="-50"/>
 	<e:Image source="gameRes_json.Bg_down_png" bottom="0" right="0"/>
 	<e:Image source="gameRes_json.Bg_up_png" y="0"/>
 	<e:Image source="gameRes_json.Head_Main_01_png" x="6.32" y="0"/>
@@ -124,7 +124,13 @@
 		</e:Scroller>
 		<e:Image id="notic_tip_img" source="gameRes_json.Point_png" x="342.99" y="107.67" visible="false"/>
 	</e:Group>
-	<e:Group id="manageCenter_btn" width="154.54" height="122.61" x="335.94" y="82.24" anchorOffsetX="0" anchorOffsetY="0"/>
-	<e:Group id="mine_manageCenter_btn" width="253.51" height="162" x="177.67" y="548" anchorOffsetX="0" anchorOffsetY="0"/>
-	<e:Group id="exchange_center_btn" width="396.33" height="329.67" x="729.94" y="267.24" anchorOffsetX="0" anchorOffsetY="0"/>
+	<e:Group id="manageCenter_btn" width="154.54" height="153.61" y="56.24" anchorOffsetX="0" anchorOffsetY="0" x="426.46">
+		<e:Image source="gameRes_json.Btn_Main_Kuanggong_png" x="-51" y="101"/>
+	</e:Group>
+	<e:Group id="mine_manageCenter_btn" width="253.51" height="162" x="249.67" y="548" anchorOffsetX="0" anchorOffsetY="0">
+		<e:Image source="gameRes_json.Btn_Main_Kuangqu_png" x="-5.67" y="46" scaleX="1" scaleY="1"/>
+	</e:Group>
+	<e:Group id="exchange_center_btn" width="396.33" height="329.67" y="290.24" anchorOffsetX="0" anchorOffsetY="0" x="924.67">
+		<e:Image source="gameRes_json.Btn_Main_Jiaoyisuo_png" x="50" y="272"/>
+	</e:Group>
 </e:Skin>

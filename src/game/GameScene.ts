@@ -89,10 +89,23 @@ namespace Game {
             // if (GameData.UserInfo.dig_time > 0) {
             //     this.startDigMine();
             // }
+
+            //收益弹窗
+            if (GameData.UserInfo.hold_area_reward > 0) {
+                cor.MainScene.instance().addTopPage(new GetPrize(GameData.UserInfo.hold_area_reward, 1));
+            }
+            if (GameData.UserInfo.hold_area_work_reward > 0) {
+                cor.MainScene.instance().addTopPage(new GetPrize(GameData.UserInfo.hold_area_reward, 2));
+            }
+            if (GameData.UserInfo.total_distribution_income > 0) {
+                cor.MainScene.instance().addTopPage(new GetPrize(GameData.UserInfo.hold_area_reward, 5));
+            }
+            if (GameData.UserInfo.yesterday_distribution_income > 0) {
+                cor.MainScene.instance().addTopPage(new GetPrize(GameData.UserInfo.hold_area_reward, 4));
+            }
+
             setTimeout(() => {
-                if (GameData.UserInfo.hold_area_reward > 0) {
-                    cor.MainScene.instance().addChild(new GetPrize(GameData.UserInfo.hold_area_reward, 1));
-                }
+                cor.MainScene.instance().showTopPage();
             }, 600);
 
         }

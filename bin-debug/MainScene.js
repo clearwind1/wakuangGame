@@ -14,6 +14,7 @@ var cor;
         __extends(MainScene, _super);
         function MainScene() {
             var _this = _super.call(this) || this;
+            _this._topPageList = [];
             egret.ExternalInterface.addCallback("back", function (message) {
                 // alert("MainScene numChildren = " + this.numChildren);
                 if (_this.numChildren == 1) {
@@ -43,6 +44,16 @@ var cor;
                 var page = this.getChildAt(i);
                 page.dispose();
             }
+        };
+        MainScene.prototype.addTopPage = function (page) {
+            this._topPageList.push(page);
+        };
+        MainScene.prototype.showTopPage = function () {
+            if (this._topPageList.length == 0) {
+                return;
+            }
+            var page = this._topPageList.pop();
+            this.addChild(page);
         };
         MainScene.prototype.playbgm = function (name) {
             if (readLocalData(GameMusic) != "1") {
