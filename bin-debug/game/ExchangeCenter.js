@@ -26,7 +26,8 @@ var Game;
             this._exchangedata = exchangedata;
             this.head_group.addChild(new Game.headComment(this, '矿石交易所', 'ORE EXCHANGE'));
             this.addDB(this.role_group, "Jiaoyisuo");
-            this.role_group.addChild(new Game.DialogComment('今天的价格，像我一样合乎你的心意么？', { x: 380, y: -638 }));
+            var dc = new Game.DialogComment('今天的价格，像我一样合乎你的心意么？', { x: 320, y: 120 });
+            this.head_group.addChild(dc);
             var sortexd = [];
             for (var i = 0; i < 7; i++) {
                 sortexd.push(exchangedata[i]);

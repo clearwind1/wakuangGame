@@ -14,6 +14,7 @@ namespace Game {
 
         private _recodeInfo;
         private _currentSelect;
+        private _rateInfo;
         constructor(money, recodeInfo, type) {
             super();
 

@@ -31,6 +31,7 @@ var Game;
             this._radioGroup = new eui.RadioButtonGroup();
             this.gst_select.group = this._radioGroup;
             this.usdt_select.group = this._radioGroup;
+            this.rate_tips.text = "";
             cor.Socket.getIntance().sendmsg('CHECK_IS_SET_PAY_PASSWORD', {}, function (rdata) {
                 Log(rdata);
                 if (!rdata) {
@@ -51,7 +52,14 @@ var Game;
             this.addEvent(this._radioGroup, eui.UIEvent.CHANGE, this, function (evt) {
                 var radioGroup = evt.target;
                 _this._selectType = radioGroup.selectedValue;
+                _this.money_input.text = "";
+                _this.rate_tips.text = "";
             });
+            this.addEvent(this.money_input, eui.UIEvent.CHANGE, this, this.showExchangeRate);
+        };
+        Purse_outputPage.prototype.showExchangeRate = function (e) {
+            var rate = this._selectType == "GST" ? GameData.Puser_rate.transfer_out.gst : GameData.Puser_rate.transfer_out.usdt;
+            this.rate_tips.text = "\u8F6C\u51FA\u5C06\u4EA7\u751F" + rate + "%\u7684\u624B\u7EED\u8D39\uFF0C\u4F60\u5C06\u5B9E\u9645\u5F97\u5230" + Number(e.target.text) * (1 - rate / 100) + "\u7684" + this._selectType;
         };
         Purse_outputPage.prototype.scan = function () {
             egret.ExternalInterface.call("scanQRCode", "");

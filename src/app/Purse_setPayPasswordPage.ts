@@ -69,7 +69,8 @@ namespace Game {
                 "mobile": this.input_phone.text,
                 "code": this.input_code.text,
                 "key": this.code_key,
-                "password": this.input_password.text
+                "password": this.input_password.text,
+                "password_confirmation": this.input_check_password.text
             }, (rdata) => {
                 TipsSkin.instance().show("设置密码成功");
                 this.dispose();

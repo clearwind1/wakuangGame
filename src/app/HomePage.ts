@@ -221,7 +221,7 @@ namespace Game {
             }, (rdata) => {
                 Log(rdata);
                 for (let k in rdata) {
-                    rdata[k].imgwd = rdata[k].thumb == null ? 0 : 292;
+                    rdata[k].imgwd = rdata[k].thumb == null ? 0 : 284;
                 }
                 this.news_list0.dataProvider = new eui.ArrayCollection(rdata);
                 if (this.changeBtnState(this.news_btn)) {

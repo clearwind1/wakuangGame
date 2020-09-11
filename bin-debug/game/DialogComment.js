@@ -20,6 +20,7 @@ var Game;
             return _this;
         }
         DialogComment.prototype.init = function (dialog, pos) {
+            var _this = this;
             // init
             this.width = 182;
             this.height = 118;
@@ -29,6 +30,9 @@ var Game;
             if (this.dialog_tx.height > 90) {
                 this.height = this.dialog_tx.height + 48;
             }
+            setTimeout(function () {
+                _this.visible = false;
+            }, 3000);
         };
         DialogComment.prototype.setDialog = function (tx) {
             this.dialog_tx.text = tx;
@@ -40,7 +44,19 @@ var Game;
             this.x = pos.x;
             this.y = pos.y;
         };
+        DialogComment.prototype.setImageScale = function (sx) {
+            this.frame.scaleX = sx;
+        };
         DialogComment.prototype.initEvent = function () {
+            var _this = this;
+            var to = -1;
+            this.addEvent(cor.EventManage.instance(), ShowDialog, this, function () {
+                _this.visible = true;
+                clearTimeout(to);
+                to = setTimeout(function () {
+                    _this.visible = false;
+                }, 3000);
+            });
         };
         return DialogComment;
     }(cor.BaseScene));

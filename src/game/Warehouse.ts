@@ -18,7 +18,7 @@ namespace Game {
             // init
             this.head_group.addChild(new headComment(this, '仓库', 'WAREHOUSE'));
             this.addDB(this.role_group, "cangkunv");
-            this.role_group.addChild(new DialogComment('有我来帮你看管仓库，请你就放心吧！', {x:280,y:-638}));
+            this.head_group.addChild(new DialogComment('有我来帮你看管仓库，请你就放心吧！', {x:280,y:120}));
             // this._warehousedata = warehouseData;
             
             for (var k in warehouseData) {
@@ -26,6 +26,11 @@ namespace Game {
                     warehouseData[k].total = warehouseData[k].content.value + "吨";
                 } else {
                     warehouseData[k].total = warehouseData[k].total + "个";
+                }
+                if (warehouseData[k].good.type == 7) {
+                    warehouseData[k].lock = true;
+                } else {
+                    warehouseData[k].lock = false;
                 }
             }
             this.warehouseList.dataProvider = new eui.ArrayCollection(warehouseData);

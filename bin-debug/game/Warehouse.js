@@ -24,7 +24,7 @@ var Game;
             // init
             this.head_group.addChild(new Game.headComment(this, '仓库', 'WAREHOUSE'));
             this.addDB(this.role_group, "cangkunv");
-            this.role_group.addChild(new Game.DialogComment('有我来帮你看管仓库，请你就放心吧！', { x: 280, y: -638 }));
+            this.head_group.addChild(new Game.DialogComment('有我来帮你看管仓库，请你就放心吧！', { x: 280, y: 120 }));
             // this._warehousedata = warehouseData;
             for (var k in warehouseData) {
                 if (warehouseData[k].good.type == 3) {
@@ -32,6 +32,12 @@ var Game;
                 }
                 else {
                     warehouseData[k].total = warehouseData[k].total + "个";
+                }
+                if (warehouseData[k].good.type == 7) {
+                    warehouseData[k].lock = true;
+                }
+                else {
+                    warehouseData[k].lock = false;
                 }
             }
             this.warehouseList.dataProvider = new eui.ArrayCollection(warehouseData);

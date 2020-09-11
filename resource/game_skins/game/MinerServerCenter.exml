@@ -11,7 +11,7 @@
 		</e:List>
 	</e:Scroller>
 	<e:Image source="gameRes_json.Frame_02_png" y="80" width="374" scale9Grid="7,7,42,42" right="204"/>
-	<e:Group id="head_group" x="0" y="0"/>
+	<e:Group id="head_group" x="0" y="0" touchEnabled="false"/>
 	<e:Button id="seach_btn" label="" y="84" scaleX="0.65" scaleY="0.65" right="61">
 		<e:skinName>
 		<e:Skin states="up,down,disabled">

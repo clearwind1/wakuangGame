@@ -95,13 +95,13 @@ namespace Game {
                 cor.MainScene.instance().addTopPage(new GetPrize(GameData.UserInfo.hold_area_reward, 1));
             }
             if (GameData.UserInfo.hold_area_work_reward > 0) {
-                cor.MainScene.instance().addTopPage(new GetPrize(GameData.UserInfo.hold_area_reward, 2));
+                cor.MainScene.instance().addTopPage(new GetPrize(GameData.UserInfo.hold_area_work_reward, 2));
             }
             if (GameData.UserInfo.total_distribution_income > 0) {
-                cor.MainScene.instance().addTopPage(new GetPrize(GameData.UserInfo.hold_area_reward, 5));
+                cor.MainScene.instance().addTopPage(new GetPrize(GameData.UserInfo.total_distribution_income, 5));
             }
             if (GameData.UserInfo.yesterday_distribution_income > 0) {
-                cor.MainScene.instance().addTopPage(new GetPrize(GameData.UserInfo.hold_area_reward, 4));
+                cor.MainScene.instance().addTopPage(new GetPrize(GameData.UserInfo.yesterday_distribution_income, 4));
             }
 
             setTimeout(() => {
@@ -206,6 +206,7 @@ namespace Game {
         private mine_manageCenter() {
             cor.Socket.getIntance().sendmsg('HOLD_AREA_LIST', {}, (rdata) => {
                 Log(rdata);
+                cor.MainScene.instance().playbgm(MINEAREABGM);
                 cor.MainScene.instance().addChild(new MineAreaManager(rdata));
             }, this)
         }

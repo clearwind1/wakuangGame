@@ -27,7 +27,7 @@ namespace Game {
         public invite_group: eui.Group;
         public invite_input: eui.EditableText;
 
-        private regist_state = 0;
+        private regist_state = 1;
         private isRestPsw = false;
 
         private code_key = '';
@@ -67,7 +67,6 @@ namespace Game {
 
         private backHome() {
             switch (this.regist_state) {
-                case 1:
                 case 2:
                     this.regist_state--;
                     break;
@@ -241,8 +240,10 @@ namespace Game {
                 this.login_group.visible = true;
                 this.lg_group.visible = false;
             }
+            this.back_btn.visible = true;
             switch (this.regist_state) {
                 case 1:
+                    this.back_btn.visible = false;    
                     this.phone_group.visible = true;
                     this.password_group.visible = this.regist_group.visible = false;
                     break;

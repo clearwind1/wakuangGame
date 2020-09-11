@@ -19,6 +19,7 @@ const PurseShowInfo = 'PurseShowInfo';
 
 const OwnerListUpdata = 'OwnerListUpdata';
 
+const ShowDialog = 'ShowDialog';
 /**
  * 音乐音效
  */

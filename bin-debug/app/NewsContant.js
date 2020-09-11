@@ -21,6 +21,9 @@ var Game;
         }
         NewsContant.prototype.init = function (newsData) {
             // init
+            if (newsData.thumb == null) {
+                this.contentScroller.y -= 250;
+            }
             this.contentScroller.height = this.height - this.contentScroller.y - 10;
             Log(newsData);
             this.title.text = newsData.title;

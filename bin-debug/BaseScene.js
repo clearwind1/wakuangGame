@@ -70,11 +70,14 @@ var cor;
                 role.scaleY = scale.y;
             }
             target.addChild(role);
-            role.touchEnabled = false;
+            role.touchEnabled = true;
             role.animation.play();
             this.dbList.push({
                 db: role,
                 target: target
+            });
+            this.addEvent(role, egret.TouchEvent.TOUCH_TAP, this, function () {
+                cor.EventManage.instance().sendEvent(ShowDialog);
             });
             return role;
         };

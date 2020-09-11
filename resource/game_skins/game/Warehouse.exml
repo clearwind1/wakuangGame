@@ -10,5 +10,5 @@
 		</e:layout>
 		</e:List>
 	</e:Scroller>
-	<e:Group id="head_group" x="0" y="0"/>
+	<e:Group id="head_group" x="0" y="0" touchEnabled="false"/>
 </e:Skin>

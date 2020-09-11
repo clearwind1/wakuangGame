@@ -15,7 +15,7 @@ var Game;
         function LoginSkin() {
             var _this = _super.call(this) || this;
             _this.skinName = "LoginSkin";
-            _this.regist_state = 0;
+            _this.regist_state = 1;
             _this.isRestPsw = false;
             _this.code_key = '';
             _this.regist_code_Int = -1;
@@ -48,7 +48,6 @@ var Game;
         };
         LoginSkin.prototype.backHome = function () {
             switch (this.regist_state) {
-                case 1:
                 case 2:
                     this.regist_state--;
                     break;
@@ -227,8 +226,10 @@ var Game;
                 this.login_group.visible = true;
                 this.lg_group.visible = false;
             }
+            this.back_btn.visible = true;
             switch (this.regist_state) {
                 case 1:
+                    this.back_btn.visible = false;
                     this.phone_group.visible = true;
                     this.password_group.visible = this.regist_group.visible = false;
                     break;
