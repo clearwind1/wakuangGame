@@ -12,6 +12,7 @@ var PursePassword = 'PursePassword';
 var PurseUpdataInfo = 'PurseUpdataInfo';
 var PurseShowInfo = 'PurseShowInfo';
 var OwnerListUpdata = 'OwnerListUpdata';
+var ShowDialog = 'ShowDialog';
 /**
  * 音乐音效
  */

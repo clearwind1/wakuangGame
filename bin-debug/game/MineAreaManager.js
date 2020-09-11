@@ -44,26 +44,29 @@ var Game;
         };
         MineAreaManager.prototype.initEvent = function () {
             var _this = this;
-            this.addEvent(this.back_btn, egret.TouchEvent.TOUCH_TAP, this, this.dispose);
-            this.addEvent(this.mine_area_1_btn, egret.TouchEvent.TOUCH_TAP, this, this.checkOwner, [1]);
-            this.addEvent(this.mine_area_2_btn, egret.TouchEvent.TOUCH_TAP, this, this.checkOwner, [2]);
-            this.addEvent(this.mine_area_3_btn, egret.TouchEvent.TOUCH_TAP, this, this.checkOwner, [3]);
-            this.addEvent(this.mine_area_4_btn, egret.TouchEvent.TOUCH_TAP, this, this.checkOwner, [4]);
-            this.addEvent(this.mine_area_5_btn, egret.TouchEvent.TOUCH_TAP, this, this.checkOwner, [5]);
-            this.addEvent(this.mine_area_6_btn, egret.TouchEvent.TOUCH_TAP, this, this.checkOwner, [6]);
-            this.addEvent(this.touch_group, egret.TouchEvent.TOUCH_TAP, this, this.hideAreaInfo);
-            this.addEvent(this.buy_now_btn, egret.TouchEvent.TOUCH_TAP, this, this.buyMine);
-            this.addEvent(this.add_machine_btn, egret.TouchEvent.TOUCH_TAP, this, this.showMachine);
-            this.addEvent(this.close_machine_btn, egret.TouchEvent.TOUCH_TAP, this, function () { _this.warehouse_group.visible = false; });
-            this.addEvent(this.deposit_switch_btn, eui.UIEvent.CHANGE, this, this.set_deposit);
-            this.addEvent(this.tips_btn, egret.TouchEvent.TOUCH_TAP, this, this.showTips);
+            this.addEvent(this.back_btn, egret.TouchEvent.TOUCH_TAP, this, function () {
+                _this.dispose();
+                cor.MainScene.instance().playbgm(MAINSCENEBGM);
+            }, null, MINEAREACLICK);
+            this.addEvent(this.mine_area_1_btn, egret.TouchEvent.TOUCH_TAP, this, this.checkOwner, [1], MINEAREACLICK);
+            this.addEvent(this.mine_area_2_btn, egret.TouchEvent.TOUCH_TAP, this, this.checkOwner, [2], MINEAREACLICK);
+            this.addEvent(this.mine_area_3_btn, egret.TouchEvent.TOUCH_TAP, this, this.checkOwner, [3], MINEAREACLICK);
+            this.addEvent(this.mine_area_4_btn, egret.TouchEvent.TOUCH_TAP, this, this.checkOwner, [4], MINEAREACLICK);
+            this.addEvent(this.mine_area_5_btn, egret.TouchEvent.TOUCH_TAP, this, this.checkOwner, [5], MINEAREACLICK);
+            this.addEvent(this.mine_area_6_btn, egret.TouchEvent.TOUCH_TAP, this, this.checkOwner, [6], MINEAREACLICK);
+            this.addEvent(this.touch_group, egret.TouchEvent.TOUCH_TAP, this, this.hideAreaInfo, null, MINEAREACLICK);
+            this.addEvent(this.buy_now_btn, egret.TouchEvent.TOUCH_TAP, this, this.buyMine, null, MINEAREACLICK);
+            this.addEvent(this.add_machine_btn, egret.TouchEvent.TOUCH_TAP, this, this.showMachine, null, MINEAREACLICK);
+            this.addEvent(this.close_machine_btn, egret.TouchEvent.TOUCH_TAP, this, function () { _this.warehouse_group.visible = false; }, null, MINEAREACLICK);
+            this.addEvent(this.deposit_switch_btn, eui.UIEvent.CHANGE, this, this.set_deposit, null, MINEAREACLICK);
+            this.addEvent(this.tips_btn, egret.TouchEvent.TOUCH_TAP, this, this.showTips, null, MINEAREACLICK);
             this.addEvent(this.deposit_tips_btn, egret.TouchEvent.TOUCH_TAP, this, function () {
                 _this.deposit_tips_btn.visible = false;
-            });
+            }, null, MINEAREACLICK);
             this.addEvent(this.machine_list, eui.ItemTapEvent.ITEM_TAP, this, this.addMachine);
-            this.addEvent(this.close_sure_btn, egret.TouchEvent.TOUCH_TAP, this, function () { _this.sure_group.visible = false; });
-            this.addEvent(this.cancel_sure_btn, egret.TouchEvent.TOUCH_TAP, this, function () { _this.sure_group.visible = false; });
-            this.addEvent(this.sure_buy_btn, egret.TouchEvent.TOUCH_TAP, this, this.Sure_buy);
+            this.addEvent(this.close_sure_btn, egret.TouchEvent.TOUCH_TAP, this, function () { _this.sure_group.visible = false; }, null, MINEAREACLICK);
+            this.addEvent(this.cancel_sure_btn, egret.TouchEvent.TOUCH_TAP, this, function () { _this.sure_group.visible = false; }, null, MINEAREACLICK);
+            this.addEvent(this.sure_buy_btn, egret.TouchEvent.TOUCH_TAP, this, this.Sure_buy, null, MINEAREACLICK);
         };
         MineAreaManager.prototype.set_deposit = function (e) {
             Log(e.target.selected);
@@ -90,7 +93,7 @@ var Game;
             Log(e);
             var config_goodsID = e.item.id;
             if (this._areaConfig.goods.length == 5) {
-                var goodsID = this._areaConfig.goods[0].id;
+                var goodsID = this._areaConfig.goods[4].id;
                 cor.Socket.getIntance().sendmsg("DELETE_EXCAVATE_ENGINE", {
                     "user_hold_area_good_id": goodsID
                 }, function (rdata) {
@@ -198,15 +201,16 @@ var Game;
                 effect.animation.play("animation", 1);
                 setTimeout(function () {
                     self.removeDB("machine_effect");
-                    self.showPanning(pos);
+                    self.showPanning();
                 }, 1000);
             }
             else {
-                this.showPanning(pos);
+                this.showPanning();
             }
         };
-        MineAreaManager.prototype.showPanning = function (pos) {
-            var panning = createMC("panninMC_json", "panninMC_png", "panning");
+        MineAreaManager.prototype.showPanning = function () {
+            var pos = [{ x: 1140, y: 590 }, { x: 322, y: 402 }, { x: 1190, y: 416 }, { x: 1088, y: 159 }, { x: 212, y: 145 }, { x: 600, y: 190 }];
+            var panning = createMC("planningMC_json", "planningMC_png", "planning");
             this.panning_group.addChild(panning);
             panning.x = pos[GameData.UserInfo.current_hold_area_grade - 1].x;
             panning.y = pos[GameData.UserInfo.current_hold_area_grade - 1].y;
@@ -247,6 +251,7 @@ var Game;
             this.daily_output.text = mineData.day_income + '矿石';
             this.addDB(this.role_group, "Lv" + mineData.grade);
             this.role_group.setChildIndex(this._dialogPage, 1);
+            cor.EventManage.instance().sendEvent(ShowDialog);
             if (level == 4) {
                 this._dialogPage.setPos({ x: 200, y: -638 });
             }
@@ -260,6 +265,7 @@ var Game;
                 this.detai_group.visible = false;
                 this.owner_detai_group.visible = true;
                 egret.Tween.get(this.owner_detai_group).to({ x: this.width - 470 }, 350);
+                this.area_code.text = '矿区编号' + GameData.UserInfo.current_hold_area_code;
                 var config = this._areaConfig.goods;
                 var excavateData = [];
                 for (var k in config) {

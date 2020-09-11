@@ -9,6 +9,7 @@
 	<e:Label text="温馨提示" textColor="0x9B9B9B" fontFamily="myFont" size="32" horizontalCenter="0" bottom="208"/>
 	<e:Label text="1.请妥善保管您的支付密码，保护好您的个人资产" textColor="0x9B9B9B" fontFamily="myFont" size="24" bottom="150" x="65"/>
 	<e:Label text="2.转出前，请仔细检查对方的钱包地址是否正确，以免对您造成不必要的损失" textColor="0x9B9B9B" fontFamily="myFont" size="24" x="65" width="623" lineSpacing="20" bottom="60"/>
+	<e:Label id="rate_tips" text="转出将产生X%的手续费，你将实际得到N的GST" textColor="0x9B9B9B" fontFamily="myFont" size="18" width="682" lineSpacing="20" x="33" y="561"/>
 	<e:Group id="close_btn" width="78" height="74" x="8" y="8" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Image source="appIcon_json.Banner_Personal_Back01_png" x="22" y="20" scaleX="1" scaleY="1"/>
 	</e:Group>
@@ -43,6 +44,6 @@
 		</e:Skin>
 		</e:skinName>
 	</e:RadioButton>
-	<e:EditableText id="address_input" width="690" height="27" text="" x="30" y="321" textColor="0x353535" fontFamily="myFont" size="26" verticalAlign="bottom" prompt="请填写地址" promptColor="0x9b9b9b"/>
+	<e:EditableText id="address_input" width="690" height="24" text="" x="30" y="321" textColor="0x353535" fontFamily="myFont" size="24" verticalAlign="bottom" prompt="请填写地址" promptColor="0x9b9b9b"/>
 	<e:EditableText id="money_input" width="690" height="37" text="" x="30" y="445" textColor="0x353535" fontFamily="myFont" size="36" verticalAlign="bottom" prompt="请输入额度" promptColor="0x9B9B9B"/>
 </e:Skin>

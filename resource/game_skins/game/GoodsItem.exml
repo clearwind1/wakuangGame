@@ -3,6 +3,7 @@
 	<e:Image source="Bg_Shop02_png" x="0" y="0"/>
 	<e:Image verticalCenter="-26" horizontalCenter="0.5" source="{data.good.id_card}"/>
 	<e:Image y="236" source="gameRes_json.Bg_Cangku_png" horizontalCenter="0"/>
+	<e:Image source="appIcon_json.Bg_Dutiao5_png" horizontalCenter="0" verticalCenter="0" alpha="0.6" scaleX="2" scaleY="2" visible="{data.lock}"/>
 	<e:Label y="25" size="22" horizontalCenter="0.5" fontFamily="myFont" textColor="0xB1D0E8" text="{data.good.name}"/>
 	<e:Label size="28" fontFamily="myFont" stroke="0" strokeColor="0x9541C0" horizontalCenter="0.5" text="{data.total}" y="240" textColor="0xd2ebff"/>
 </e:Skin>

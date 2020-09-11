@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="AllNewsItem" width="750" height="386" xmlns:e="http://ns.egret.com/eui">
-	<e:Image width="690" source="appIcon_json.Line_Main01_png" bottom="0" x="30" scale9Grid="7,0,8,3"/>
-	<e:Image width="702" height="248" x="30" y="76" source="{data.thumb}"/>
+<e:Skin class="AllNewsItem" width="750" xmlns:e="http://ns.egret.com/eui">
+	<e:Image width="690" source="appIcon_json.Line_Main01_png" x="30" scale9Grid="7,0,8,3" top="0"/>
+	<e:Group width="713" x="31" y="77" anchorOffsetX="0" anchorOffsetY="0">
+		<e:Image width="702" height="{data.imgwd}" x="7" y="52" source="{data.thumb}" scaleX="1" scaleY="1"/>
+		<e:Label text="{data.publish_at}" x="7" size="22" fontFamily="myFont" textColor="0x535b70" y="321" scaleX="1" scaleY="1"/>
+		<e:layout>
+			<e:VerticalLayout gap="10"/>
+		</e:layout>
+	</e:Group>
 	<e:Label text="{data.title}" x="30" y="32" size="28" fontFamily="myFont" textColor="0xebf0ff"/>
-	<e:Label text="{data.publish_at}" x="30" size="22" fontFamily="myFont" y="334" textColor="0x535b70"/>
 </e:Skin>

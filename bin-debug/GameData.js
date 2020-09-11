@@ -56,6 +56,14 @@ var GameData = (function () {
         "yesterday_distribution_income": 0,
         "total_distribution_income": 0
     };
+    GameData.Puser_rate = {
+        "gst": 1,
+        "usdt": 0.7,
+        "transfer_out": {
+            "gst": 30.15,
+            "usdt": 20.18
+        }
+    };
     GameData.Share_config = {
         "link": "http://hardymonkey.cn:8081/download/app?code=178f3735",
         "app": "我正在有矿APP测试，快来和我一起玩耍吧，点击下方链接注册：\r\n\r\nhttp://hardymonkey.cn:8081/download/app?code=178f3735\r\n\r\n输入邀请码立即获取矿区，邀请码：178f3735",

@@ -108,13 +108,13 @@ var Game;
                 cor.MainScene.instance().addTopPage(new Game.GetPrize(GameData.UserInfo.hold_area_reward, 1));
             }
             if (GameData.UserInfo.hold_area_work_reward > 0) {
-                cor.MainScene.instance().addTopPage(new Game.GetPrize(GameData.UserInfo.hold_area_reward, 2));
+                cor.MainScene.instance().addTopPage(new Game.GetPrize(GameData.UserInfo.hold_area_work_reward, 2));
             }
             if (GameData.UserInfo.total_distribution_income > 0) {
-                cor.MainScene.instance().addTopPage(new Game.GetPrize(GameData.UserInfo.hold_area_reward, 5));
+                cor.MainScene.instance().addTopPage(new Game.GetPrize(GameData.UserInfo.total_distribution_income, 5));
             }
             if (GameData.UserInfo.yesterday_distribution_income > 0) {
-                cor.MainScene.instance().addTopPage(new Game.GetPrize(GameData.UserInfo.hold_area_reward, 4));
+                cor.MainScene.instance().addTopPage(new Game.GetPrize(GameData.UserInfo.yesterday_distribution_income, 4));
             }
             setTimeout(function () {
                 cor.MainScene.instance().showTopPage();
@@ -214,6 +214,7 @@ var Game;
         GameScene.prototype.mine_manageCenter = function () {
             cor.Socket.getIntance().sendmsg('HOLD_AREA_LIST', {}, function (rdata) {
                 Log(rdata);
+                cor.MainScene.instance().playbgm(MINEAREABGM);
                 cor.MainScene.instance().addChild(new Game.MineAreaManager(rdata));
             }, this);
         };

@@ -72,6 +72,7 @@ var Game;
             cor.Socket.getIntance().sendmsg('GET_GST_USDT_RATE', {}, function (rdata) {
                 Log(rdata);
                 _this._rateInfo = rdata;
+                GameData.Puser_rate = rdata;
                 // this.exchange_btn['num'].text = rdata.usdt + "USDT:" + rdata.gst + "GST";
                 // cor.MainScene.instance().addChild(new RecodePage(rdata, "USDT"));
             }, this);

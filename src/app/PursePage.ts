@@ -38,6 +38,7 @@ namespace Game {
             }, (rdata) => {
                 Log(rdata);
                 this._rateInfo = rdata;
+                GameData.Puser_rate = rdata;
                 // this.exchange_btn['num'].text = rdata.usdt + "USDT:" + rdata.gst + "GST";
                 // cor.MainScene.instance().addChild(new RecodePage(rdata, "USDT"));
             }, this)
