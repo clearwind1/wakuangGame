@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="MineAreaManager" width="1334" height="750" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
 	<e:Image x="0" y="0" height="750" source="Bg_Kuangqu01_jpg"/>
-	<e:Group id="panning_group" width="100%" height="100%" x="0" y="0" touchEnabled="false" touchChildren="false"/>
+	<e:Group id="panning_group" width="100%" height="100%" x="0" y="0" touchEnabled="false" touchChildren="false">
+	</e:Group>
 	<e:Button id="mine_area_6_btn" label="" x="379" y="57.67" width="548.26" height="445.94" anchorOffsetX="0" anchorOffsetY="0">
 		<e:skinName>
 		<e:Skin states="up,down,disabled">
@@ -208,15 +209,15 @@
 				</e:ToggleSwitch>
 				<e:Image id="tips_btn" source="gameRes_json.Bg_Kuangqu06_png" x="195" y="8"/>
 			</e:Group>
-		</e:Group>
-		<e:Button id="deposit_tips_btn" label="托管功能开启增加您的矿区开采速度，但将收取您收益的5%作为手续费" x="792" y="585" visible="false">
-			<e:skinName>
+			<e:Button id="deposit_tips_btn" label="托管功能开启增加您的矿区开采速度，但将收取您收益的5%作为手续费" x="-110" y="585" visible="false">
+				<e:skinName>
 				<e:Skin states="up,down,disabled">
-				<e:Image width="100%" height="100%" source="gameRes_json.Bg_Kuangqu07_png"/>
-				<e:Label id="labelDisplay" horizontalCenter="11" verticalCenter="-3" fontFamily="myFont" size="20" width="357" text="托管功能开启增加您的矿区开采速度，但将收取您收益的5%作为手续费"/>
+					<e:Image width="100%" height="100%" source="gameRes_json.Bg_Kuangqu07_png"/>
+					<e:Label id="labelDisplay" horizontalCenter="11" verticalCenter="-3" fontFamily="myFont" size="20" width="357" text="托管功能开启增加您的矿区开采速度，但将收取您收益的5%作为手续费"/>
 				</e:Skin>
-			</e:skinName>
-		</e:Button>
+				</e:skinName>
+			</e:Button>
+		</e:Group>
 		<e:Group id="warehouse_group" height="750" y="0" anchorOffsetX="0" width="464" x="864" visible="false" locked="true">
 			<e:Image anchorOffsetX="0" anchorOffsetY="0" left="0" source="gameRes_json.Bg_Kuangqu02_png" scale9Grid="4,239,459,74" verticalCenter="0" height="750"/>
 			<e:Image source="gameRes_json.Frame_02_png" y="77.68" width="418" height="556" scale9Grid="7,7,42,42" horizontalCenter="0" anchorOffsetY="0"/>
@@ -249,6 +250,38 @@
 					</e:layout>
 				</e:List>
 			</e:Scroller>
+		</e:Group>
+	</e:Group>
+	<e:Group id="sure_group" width="100%" height="100%" x="0" y="0" visible="false">
+		<e:Rect width="100%" height="100%" x="0" y="0" fillAlpha="0.6"/>
+		<e:Group width="1334" height="750" horizontalCenter="0" verticalCenter="0">
+			<e:Image source="gameRes_json.Frame_01_png" scale9Grid="343,218,38,27" width="813" height="439" x="261" y="156"/>
+			<e:Image id="close_sure_btn" source="gameRes_json.close_png" x="992" y="173"/>
+			<e:Label text="立即开采" y="179" horizontalCenter="0" fontFamily="myFont" textColor="0x92b5f0"/>
+			<e:Group height="98.48" y="304" anchorOffsetY="0" horizontalCenter="0">
+				<e:Label id="sure_price" text="立即开采" y="-154" horizontalCenter="0" fontFamily="myFont" x="306" scaleX="1" scaleY="1" size="32" textColor="0xb4dfea"/>
+				<e:Image source="gameRes_json.Icon_G_png" x="223" y="20" scaleX="0.72" scaleY="0.72"/>
+				<e:Label text="，是否继续开启？" y="-144" horizontalCenter="0" fontFamily="myFont" x="316" scaleX="1" scaleY="1" size="32" textColor="0xb4dfea"/>
+				<e:layout>
+					<e:HorizontalLayout verticalAlign="middle" gap="0"/>
+				</e:layout>
+			</e:Group>
+			<e:Button id="cancel_sure_btn" label="取消" y="461" x="386">
+				<e:skinName>
+				<e:Skin states="up,down,disabled">
+					<e:Image width="100%" height="100%" source="gameRes_json.Btn_Blue_01_png"/>
+					<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="-5" fontFamily="myFont" size="28" stroke="2" strokeColor="#5276e9"/>
+				</e:Skin>
+				</e:skinName>
+			</e:Button>
+			<e:Button id="sure_buy_btn" label="确定" y="461" x="746">
+				<e:skinName>
+				<e:Skin states="up,down,disabled">
+					<e:Image width="100%" height="100%" source="gameRes_json.Btn_Yellow_01_png"/>
+					<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="-5" fontFamily="myFont" size="28" stroke="2" strokeColor="#e99652"/>
+				</e:Skin>
+				</e:skinName>
+			</e:Button>
 		</e:Group>
 	</e:Group>
 </e:Skin>

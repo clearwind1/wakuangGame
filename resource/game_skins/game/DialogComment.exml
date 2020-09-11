@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="DialogComment" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Image source="dialog_frame_png" x="0" y="0" touchEnabled="false" height="100%" scale9Grid="88,41,23,13"/>
+	<e:Label id="dialog_tx" text="Label" fontFamily="myFont" size="24" textColor="0x000000" width="176" horizontalCenter="0" verticalCenter="-14" touchEnabled="false"/>
+</e:Skin>

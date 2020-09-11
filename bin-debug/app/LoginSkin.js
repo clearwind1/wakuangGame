@@ -64,8 +64,8 @@ var Game;
             // TipsSkin.instance().show("暂未开放,请使用手机账号登录");
             // return;
             cor.Socket.getIntance().sendmsg('LOGIN', {
-                "mobile": '15017557351',
-                "password": '15017557351'
+                "mobile": '15017557354',
+                "password": '15017557354'
             }, function (rdata) {
                 Game.TipsSkin.instance().show("登录成功");
                 _this.dispose();

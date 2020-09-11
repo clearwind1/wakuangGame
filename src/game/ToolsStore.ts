@@ -19,6 +19,7 @@ namespace Game {
 
             this.head_group.addChild(new headComment(this, '工具商店', 'TOOL SHOP'));
             this.addDB(this.role_group, "Gongjushangdian");
+            this.role_group.addChild(new DialogComment('有什么需要的尽管跟我说，我这里的物品可齐全了！', {x:330,y:-638}));
 
             this._toolsdata = [];
             for (var k in toolsData) {

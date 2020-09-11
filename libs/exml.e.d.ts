@@ -86,6 +86,8 @@ declare class ResetPassword extends eui.Skin{
 }
 declare class SettingPage extends eui.Skin{
 }
+declare class DialogComment extends eui.Skin{
+}
 declare class ExchangeCenter extends eui.Skin{
 }
 declare class ExchangeItem extends eui.Skin{

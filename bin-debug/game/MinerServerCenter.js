@@ -23,6 +23,7 @@ var Game;
             var _this = this;
             // init
             this.addDB(this.role_group, 'Kuangquguangli');
+            this.role_group.addChild(new Game.DialogComment('打工后记得按时来领取打工收益哦！', { x: 380, y: -638 }));
             this.head_group.addChild(new Game.headComment(this, '矿工管理处', 'MINER'));
             this.ownerList.itemRenderer = OwnerItem;
             cor.Socket.getIntance().sendmsg('GET_HOLD_AREA_AND_WORK_CONFIG', {}, function (rdata) {

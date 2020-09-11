@@ -34,10 +34,16 @@ namespace Game {
         public deposit_switch_btn: eui.ToggleSwitch;
         public tips_btn: eui.Image;
         public deposit_tips_btn: eui.Button;
+        public sure_group: eui.Group;
+        public close_sure_btn: eui.Group;
+        public sure_price: eui.Label;
+        public cancel_sure_btn: eui.Button;
+        public sure_buy_btn: eui.Button;
 
         private _areaInfo;
         private _areaConfig;
         private _currentIndex;
+        private _dialogPage: DialogComment;
         constructor(areainfo) {
             super();
 
@@ -57,6 +63,8 @@ namespace Game {
             this.owner_detai_group.x = this.width + 10;
             this.warehouse_group.x = this.width - 470;
             this._areaInfo = areainfo;
+            this._dialogPage = new DialogComment('', { x: 380, y: -638 });
+            this.role_group.addChild(this._dialogPage);
             if (GameData.UserInfo.identity == IDENTITY.Owner) {
                 // cor.Socket.getIntance().sendmsg('GET_USER_HOLD_AREA_CONFIG', {}, (rdata) => {
                 //     Log(rdata);
@@ -86,6 +94,9 @@ namespace Game {
                 this.deposit_tips_btn.visible = false;
             });
             this.addEvent(this.machine_list, eui.ItemTapEvent.ITEM_TAP, this, this.addMachine);
+            this.addEvent(this.close_sure_btn, egret.TouchEvent.TOUCH_TAP, this, () => { this.sure_group.visible = false; });
+            this.addEvent(this.cancel_sure_btn, egret.TouchEvent.TOUCH_TAP, this, () => { this.sure_group.visible = false; });
+            this.addEvent(this.sure_buy_btn, egret.TouchEvent.TOUCH_TAP, this, this.Sure_buy);
         }
 
         private set_deposit(e: eui.UIEvent) {
@@ -187,6 +198,13 @@ namespace Game {
                 return;
             }
 
+            this.sure_group.visible = true;
+            this.sure_price.text = "立即开采需要" + Number(mineData.price.split('.')[0]);
+            this.setParmByTarget(this.sure_buy_btn, [mineData]);
+
+        }
+
+        private Sure_buy(mineData) {
             let id = mineData.id;
             let grade = mineData.grade;
             let price = Number(mineData.price.split('.')[0]);
@@ -194,6 +212,7 @@ namespace Game {
                 "hold_area_id": id
             }, (rdata) => {
                 TipsSkin.instance().show('购买成功');
+                this.sure_group.visible = false;
                 GameData.UserInfo.gst -= price;
                 GameData.UserInfo.current_hold_area_grade = grade;
                 GameData.UserInfo.identity = IDENTITY.Owner;
@@ -209,15 +228,16 @@ namespace Game {
             this.owner_card.visible = true;
             this.owner_card.x = pos[GameData.UserInfo.current_hold_area_grade - 1].x;
             this.owner_card.y = pos[GameData.UserInfo.current_hold_area_grade - 1].y;
-
+            let self = this;
             if (is_buy) {
                 let effect = this.addDB(this.panning_group, "machine_effect", pos[GameData.UserInfo.current_hold_area_grade - 1]);
                 effect.animation.reset();
                 effect.animation.play("animation", 1);
-                effect.addEvent("complete", () => {
-                    this.removeDB("machine_effect");
-                    this.showPanning(pos);
-                }, this);
+                setTimeout(() => {
+                    self.removeDB("machine_effect");
+                    self.showPanning(pos);
+                }, 1000);
+
             } else {
                 this.showPanning(pos);
             }
@@ -267,8 +287,18 @@ namespace Game {
             this.daily_output.text = mineData.day_income + '矿石';
 
             this.addDB(this.role_group, `Lv${mineData.grade}`);
-
+            this.role_group.setChildIndex(this._dialogPage, 1);
+            if (level == 4) {
+                this._dialogPage.setPos({ x: 200, y: -638 });
+            } else {
+                this._dialogPage.setPos({ x: 380, y: -638 });
+            }
             if (GameData.UserInfo.identity == IDENTITY.Owner) {
+                let dialogtx = ['欢迎回来，我就知道你想我了', '你......回来啦，今天要做些什么？', '欢迎回来，主人！',
+                    '嗨，你回来了！Emmmmm，都叫你别老这么盯着我了！', '你果然喜欢我和我的矿区对不，我就知道你肯定喜欢的！', '你来了，今天希望我做些什么呢？嘿嘿！'];
+
+                this._dialogPage.setDialog(dialogtx[level - 1]);
+
                 this.detai_group.visible = false;
                 this.owner_detai_group.visible = true;
                 egret.Tween.get(this.owner_detai_group).to({ x: this.width - 470 }, 350);
@@ -297,6 +327,9 @@ namespace Game {
                     }
                 }, this)
             } else {
+                let dialogtx = ['我的矿区和我一样可爱哦，选我吧', '嗯，我应该可以帮到你的！', '你就是我的主人吗？请让我来服侍你吧！',
+                    '别盯我看太久啦，我会害羞的！', '你看上我了么？我可真有眼光哦！', '我能为你了做些什么呢？当然，可以做很多事情哦！'];
+                this._dialogPage.setDialog(dialogtx[level - 1]);
                 this.detai_group.visible = true;
                 this.owner_detai_group.visible = false;
                 egret.Tween.get(this.detai_group).to({ x: this.width - 470 }, 350);

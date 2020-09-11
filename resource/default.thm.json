@@ -47,6 +47,7 @@
 		"resource/game_skins/app/RecodePage.exml",
 		"resource/game_skins/app/ResetPassword.exml",
 		"resource/game_skins/app/SettingPage.exml",
+		"resource/game_skins/game/DialogComment.exml",
 		"resource/game_skins/game/ExchangeCenter.exml",
 		"resource/game_skins/game/ExchangeItem.exml",
 		"resource/game_skins/game/FriendItem.exml",

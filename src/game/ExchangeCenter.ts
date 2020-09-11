@@ -34,6 +34,7 @@ namespace Game {
             this.head_group.addChild(new headComment(this, '矿石交易所', 'ORE EXCHANGE'));
 
             this.addDB(this.role_group, "Jiaoyisuo");
+            this.role_group.addChild(new DialogComment('今天的价格，像我一样合乎你的心意么？', {x:380,y:-638}));
 
             let sortexd = [];
             for (let i = 0; i < 7; i++) {

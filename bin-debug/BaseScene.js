@@ -139,6 +139,18 @@ var cor;
             this.eventList.push(parm);
             target.addEventListener(event, this.touchEnd, obj);
         };
+        /**
+         * 为事件添加参数
+         */
+        BaseScene.prototype.setParmByTarget = function (target, parm) {
+            for (var i in this.eventList) {
+                if (this.eventList[i].target == target) {
+                    var eventTarget = this.eventList[i];
+                    eventTarget.parmar = parm;
+                    break;
+                }
+            }
+        };
         /**绑定事件回调 */
         BaseScene.prototype.touchEnd = function (event) {
             var parm;
