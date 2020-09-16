@@ -153,6 +153,7 @@ class Main extends eui.UILayer {
 
         this.addChild(cor.MainScene.instance());
         this.addChild(Game.TipsSkin.instance());
+        this.addChild(core.Covershap.getInstance());
 
         let cs = new Game.LoginSkin();
         cor.MainScene.instance().addChild(cs);

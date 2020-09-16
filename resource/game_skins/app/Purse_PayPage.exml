@@ -2,34 +2,37 @@
 <e:Skin class="Purse_PayPage" width="750" height="1334" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
 	<e:Group width="100%" height="100%" x="0" y="0">
 		<e:Rect width="100%" height="100%" x="0" y="0" fillAlpha="0.6"/>
-		<e:Group width="750" height="1334" horizontalCenter="0" verticalCenter="0">
-		<e:Image source="appIcon_json.Bg_Wallet01_png" scale9Grid="12,12,76,76" width="576" height="508" scaleX="1" scaleY="1" x="87" y="413"/>
-		<e:Image source="appIcon_json.Line_Personal02_png" y="496" width="576" horizontalCenter="0"/>
-		<e:Image source="appIcon_json.Line_Personal02_png" y="846" width="576" horizontalCenter="0"/>
-		<e:Image source="appIcon_json.Bg_Wallet03_png" x="268" y="702" scale9Grid="7,7,44,44" width="356" height="58"/>
-		<e:Label text="支付" y="438" textColor="0x353535" fontFamily="myFont" scaleX="1" scaleY="1" size="34" horizontalCenter="0"/>
-		<e:Label text="转出货币：" y="544" textColor="0x353535" fontFamily="myFont" scaleX="1" scaleY="1" size="26" x="136"/>
-		<e:Label text="转出地址：" y="609" textColor="0x353535" fontFamily="myFont" scaleX="1" scaleY="1" size="26" x="136"/>
-			<e:Group x="268" y="538" anchorOffsetX="0" anchorOffsetY="0">
+		<e:Group verticalCenter="0" horizontalCenter="0" width="576">
+		<e:Image id="bg" source="appIcon_json.Bg_Wallet01_png" scale9Grid="12,12,76,76" width="576" height="533" scaleX="1" scaleY="1" x="0" y="0"/>
+		<e:Image source="appIcon_json.Line_Personal02_png" y="78" width="576" x="0"/>
+		<e:Label text="支付" y="20" textColor="0x353535" fontFamily="myFont" scaleX="1" scaleY="1" size="34" x="254"/>
+		<e:Label text="转出货币：" y="132" textColor="0x353535" fontFamily="myFont" scaleX="1" scaleY="1" size="26" x="47"/>
+		<e:Label text="转出地址：" y="197" textColor="0x353535" fontFamily="myFont" scaleX="1" scaleY="1" size="26" x="47"/>
+			<e:Group x="179" y="126" anchorOffsetX="0" anchorOffsetY="0">
 				<e:Label id="coin_num" text="100" y="2" textColor="0x353535" fontFamily="myFont" scaleX="1" scaleY="1" size="38" x="3" bold="true"/>
 				<e:Label id="coin_type" text="GST" y="12" textColor="0x353535" fontFamily="myFont" scaleX="1" scaleY="1" size="24" x="13"/>
 				<e:layout>
 					<e:HorizontalLayout verticalAlign="bottom" gap="10"/>
 				</e:layout>
 			</e:Group>
-			<e:Label id="address" text="转出地址：转出地址：转出地址：转出地址：转出地址：转出地址：" textColor="0x353535" fontFamily="myFont" scaleX="1" scaleY="1" size="26" x="271" bold="true" y="609" width="354"/>
-		<e:Label text="支付密码：" y="717" textColor="0x353535" fontFamily="myFont" scaleX="1" scaleY="1" size="26" x="136"/>
-			<e:Label id="reset_password_btn" text="忘记密码?" y="777" fontFamily="myFont" scaleX="1" scaleY="1" size="22" x="526" textColor="0x3a98ff"/>
-		<e:EditableText id="input_password" width="196" height="23" text="" x="288" y="720" anchorOffsetX="0" textColor="0x353535" size="22" fontFamily="myFont" prompt="请输入支付密码" promptColor="0xB1B1B1"/>
-		<e:Button id="sure_btn" label="确认" y="847" horizontalCenter="0">
-			<e:skinName>
-				<e:Skin states="up,down,disabled">
-				<e:Image width="100%" height="100%" source="appIcon_json.Btn_Wallet04_png"/>
-				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" fontFamily="myFont" textColor="0xffffff"/>
-				</e:Skin>
-			</e:skinName>
-		</e:Button>
-			<e:Image id="close_btn" source="appIcon_json.Bg_Wallet10_png" x="115" y="443"/>
+			<e:Label id="address" text="转出地址：转出地址：转出地址：转出地址：转出地址：" textColor="0x353535" fontFamily="myFont" scaleX="1" scaleY="1" size="26" x="182" bold="true" y="197" width="354"/>
+			<e:Image id="close_btn" source="appIcon_json.Bg_Wallet10_png" x="44" y="25"/>
+			<e:Group width="576" height="296" x="0" bottom="0">
+				<e:Image source="appIcon_json.Bg_Wallet03_png" x="180" scale9Grid="7,7,44,44" width="356" height="58" y="20" scaleX="1" scaleY="1"/>
+				<e:Image source="appIcon_json.Line_Personal02_png" y="212" width="576" x="0" scaleX="1" scaleY="1"/>
+				<e:Label text="温馨提示：本钱包目前仅支持Erc20合约发行的USDT管理，请确认您转出的USDT地址属于Erc20合约类型，以保护您的个人财产安全免受损失。" fontFamily="myFont" scaleX="1" scaleY="1" size="18" textColor="0x9B9B9B" width="509" y="146" x="34"/>
+				<e:Label text="支付密码：" textColor="0x353535" fontFamily="myFont" scaleX="1" scaleY="1" size="26" x="47" y="33"/>
+				<e:Label id="reset_password_btn" text="忘记密码?" fontFamily="myFont" scaleX="1" scaleY="1" size="22" x="437" textColor="0x3a98ff" y="93"/>
+				<e:EditableText id="input_password" width="308" text="" x="199" anchorOffsetX="0" textColor="0x353535" size="24" fontFamily="myFont" prompt="请输入支付密码" promptColor="0xB1B1B1" y="36" scaleX="1" scaleY="1" inputType="password" displayAsPassword="true"/>
+				<e:Button id="sure_btn" label="确认" y="213" x="0" scaleX="1" scaleY="1">
+					<e:skinName>
+					<e:Skin states="up,down,disabled">
+						<e:Image width="100%" height="100%" source="appIcon_json.Btn_Wallet04_png"/>
+						<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" fontFamily="myFont" textColor="0xffffff"/>
+					</e:Skin>
+					</e:skinName>
+				</e:Button>
+			</e:Group>
 		</e:Group>
 	</e:Group>
 </e:Skin>

@@ -18,6 +18,7 @@
 	<e:Label text="收钱" y="28" size="34" horizontalCenter="0" fontFamily="myFont"/>
 	<e:Label text="扫二维码，转入资产" y="314" size="26" horizontalCenter="0" fontFamily="myFont" textColor="0x9b9b9b"/>
 	<e:Label text="钱包地址" y="827" size="26" horizontalCenter="0" fontFamily="myFont" textColor="0x9b9b9b"/>
+	<e:Label text="本钱包目前仅支持Erc20合约发行的USDT转入，请核对您转入的USDT合约类型，以保护您的个人财产安全免受损失。" y="1167" size="22" horizontalCenter="0" fontFamily="myFont" textColor="0x70ecff" width="597"/>
 	<e:Label id="address" text="钱包地址" y="879" size="24" horizontalCenter="0" fontFamily="myFont" textColor="0x353535"/>
 	<e:Group id="address_group" y="1025" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0">
 		<e:Image source="appIcon_json.Icon_QbFuzhi_png" x="11" y="15"/>

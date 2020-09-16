@@ -78,6 +78,7 @@ module core {
 			let self = this;
 			this.timeoutInt = setTimeout(() => {
 				self.alpha = 1;
+				self.visible = true;
 				clearTimeout(self.timeoutInt);
 			}, 500)
 		}

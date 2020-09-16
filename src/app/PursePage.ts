@@ -29,8 +29,10 @@ namespace Game {
                     this.gst_info_btn['money'].text = toThousands(purseInfo[k].available_balance);
                     this.address.text = purseInfo[k].bind_address;
                     this.money.text = toThousands(purseInfo[k].available_balance);
+                    GameData.Puser_Money.gst = purseInfo[k].available_balance;
                 } else {
                     this.usdt_info_btn['money'].text = toThousands(purseInfo[k].available_balance);
+                    GameData.Puser_Money.usdt = purseInfo[k].available_balance;
                 }
             }
             // this.exchange_btn['num'].text = "";
@@ -61,8 +63,10 @@ namespace Game {
                         this.gst_info_btn['money'].text = toThousands(rdata[k].available_balance);
                         this.address.text = rdata[k].address;
                         this.money.text = toThousands(rdata[k].available_balance);
+                        GameData.Puser_Money.gst = rdata[k].available_balance;
                     } else {
                         this.usdt_info_btn['money'].text = toThousands(rdata[k].available_balance);
+                        GameData.Puser_Money.usdt = rdata[k].available_balance;
                     }
                 }
             }, this)

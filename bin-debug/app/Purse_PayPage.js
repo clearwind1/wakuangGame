@@ -25,6 +25,7 @@ var Game;
             this.coin_num.text = toThousands(info.coin_num);
             this.coin_type.text = info.coin_type;
             this.address.text = info.address;
+            this.bg.height = this.address.height > 40 ? 485 + this.address.height : 533;
         };
         Purse_PayPage.prototype.initEvent = function () {
             this.addEvent(this.close_btn, egret.TouchEvent.TOUCH_TAP, this, this.dispose);
@@ -48,7 +49,7 @@ var Game;
                 Game.TipsSkin.instance().show("已提交");
                 cor.EventManage.instance().sendEvent(PurseUpdataInfo);
                 _this.dispose();
-            }, this);
+            }, this, false);
         };
         return Purse_PayPage;
     }(cor.BaseScene));

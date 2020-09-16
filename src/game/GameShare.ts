@@ -7,7 +7,7 @@ namespace Game {
         public shareUrl_btn: eui.Button;
         public shareFriend_btn: eui.Button;
         public shareGroup_btn: eui.Button;
-
+        public share_img: eui.Image;
 
         constructor() {
             super();
@@ -18,6 +18,14 @@ namespace Game {
 
         public init() {
             // init
+            if (GameData.Share_config.img != "") {
+                try {
+                    this.share_img.source = GameData.Share_config.img;
+                } catch (error) {
+                    Log(error);
+                }
+            }
+
         }
 
         private initEvent() {

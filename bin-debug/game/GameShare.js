@@ -21,6 +21,14 @@ var Game;
         }
         GameShare.prototype.init = function () {
             // init
+            if (GameData.Share_config.img != "") {
+                try {
+                    this.share_img.source = GameData.Share_config.img;
+                }
+                catch (error) {
+                    Log(error);
+                }
+            }
         };
         GameShare.prototype.initEvent = function () {
             this.addEvent(this.back_btn, egret.TouchEvent.TOUCH_TAP, this, this.dispose);

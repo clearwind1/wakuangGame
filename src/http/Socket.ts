@@ -44,7 +44,7 @@ module cor {
 
 		}
 
-		public sendmsg(action: string, msg: any, callback: (data: any) => void, obj: any, isHide?: boolean) {
+		public sendmsg(action: string, msg: any, callback: (data: any) => void, obj: any, isHide: boolean = true) {
 
 			if (!this.webSocket.connected) {
 				Game.TipsSkin.instance().show('网络重连中...');
@@ -82,8 +82,10 @@ module cor {
 				if (!isHide) {
 					core.Covershap.getInstance().show();
 					this.inteval = setTimeout(() => {
+						Game.TipsSkin.instance().show("网络请求失败，请稍候重试");
 						core.Covershap.getInstance().hide();
-					}, 10000);
+						this.param.pop();
+					}, 20000);
 				}
 			}
 
@@ -93,6 +95,7 @@ module cor {
 			console.log("连接websocket成功");
 			// alert('success')
 			Game.TipsSkin.instance().hide();
+			core.Covershap.getInstance().hide();
 			this.connetCB.apply(this.connetObj);
 			this.param = [];
 			this._bchange = false;
@@ -101,7 +104,7 @@ module cor {
 				cor.Socket.getIntance().sendmsg('LOGIN', {
 					"mobile": GameData.UserPhone,
 					"password": GameData.UserPassword
-				}, (rdata) => {}, this)
+				}, (rdata) => { }, this)
 			}
 			// for (let i = 0; i < this.param.length; i++){
 			// 	let item = this.param[i];
@@ -118,10 +121,10 @@ module cor {
 
 			switch (msgarr.cmd) {
 				case 'NEW_NOTICE':
-					cor.EventManage.instance().sendEvent(NEW_NOTICE,msgarr.data);	
+					cor.EventManage.instance().sendEvent(NEW_NOTICE, msgarr.data);
 					return;
 			}
-			
+
 			for (let i = 0; i < this.param.length; i++) {
 				let item = this.param[i];
 				if (item && item.action == msgarr.cmd) {

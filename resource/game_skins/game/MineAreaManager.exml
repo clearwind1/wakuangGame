@@ -130,9 +130,9 @@
 		</e:skinName>
 	</e:Button>
 	<e:Group id="info_group" width="100%" height="750" x="0" y="0" visible="false">
-		<e:Group id="touch_group" width="100%" height="100%" x="0" y="0">
+		<e:Group id="touch_group" width="100%" height="100%" x="0" y="0" locked="true">
 		</e:Group>
-		<e:Group id="role_group" width="644" bottom="0" touchEnabled="false" x="-700" y="750" scaleX="1" scaleY="1"/>
+		<e:Group id="role_group" width="644" bottom="0" touchEnabled="false" x="-700" y="750" scaleX="1" scaleY="1" locked="true"/>
 		<e:Group id="detai_group" height="750" y="0" anchorOffsetX="0" width="464" x="864" visible="false" locked="true">
 			<e:Image anchorOffsetX="0" anchorOffsetY="0" left="0" source="gameRes_json.Bg_Kuangqu02_png" scale9Grid="4,239,459,74" verticalCenter="0"/>
 			<e:Image source="gameRes_json.Bg_Kuangqu04_png" y="399" horizontalCenter="0"/>
@@ -218,15 +218,23 @@
 				</e:skinName>
 			</e:Button>
 		</e:Group>
-		<e:Group id="warehouse_group" height="750" y="0" anchorOffsetX="0" width="464" x="864" visible="false" locked="true">
+		<e:Group id="warehouse_group" height="750" y="0" anchorOffsetX="0" width="464" x="864" visible="false">
 			<e:Image anchorOffsetX="0" anchorOffsetY="0" left="0" source="gameRes_json.Bg_Kuangqu02_png" scale9Grid="4,239,459,74" verticalCenter="0" height="750"/>
 			<e:Image source="gameRes_json.Frame_02_png" y="77.68" width="418" height="556" scale9Grid="7,7,42,42" horizontalCenter="0" anchorOffsetY="0"/>
 			<e:Label text="我的机器" y="15" textAlign="center" size="30" fontFamily="myFont" horizontalCenter="0"/>
-			<e:Button id="close_machine_btn" label="完成配置" y="662.44" horizontalCenter="0.5" scaleX="0.86" scaleY="0.86">
+			<e:Button id="close_machine_btn" label="返回" y="662.44" scaleX="0.86" scaleY="0.86" width="149" x="77">
 				<e:skinName>
 					<e:Skin states="up,down,disabled">
 					<e:Image width="100%" height="100%" source="gameRes_json.btn_green_png"/>
 					<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="-5" fontFamily="myFont" size="30" stroke="2" strokeColor="#3ca5a1"/>
+					</e:Skin>
+				</e:skinName>
+			</e:Button>
+			<e:Button id="delete_machine_btn" label="撤消" y="662.44" scaleX="0.86" scaleY="0.86" x="275" width="149">
+				<e:skinName>
+					<e:Skin states="up,down,disabled">
+					<e:Image width="100%" height="100%" source="gameRes_json.Btn_Blue_01_png"/>
+					<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="-5" fontFamily="myFont" size="30" stroke="2" strokeColor="#5276e9"/>
 					</e:Skin>
 				</e:skinName>
 			</e:Button>

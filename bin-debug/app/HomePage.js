@@ -192,6 +192,10 @@ var Game;
                     break;
                 case 2:
                     // Log(this.banner_urls[this.banner_currentIndex]);
+                    if (null == this.banner_urls[this.banner_currentIndex]) {
+                        return;
+                    }
+                    Log('有广告链接');
                     egret.ExternalInterface.call("sendToNative", "webview$" + this.banner_urls[this.banner_currentIndex]);
                     break;
             }

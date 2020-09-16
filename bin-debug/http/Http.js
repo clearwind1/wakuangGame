@@ -83,6 +83,7 @@ var core;
             var self = this;
             this.timeoutInt = setTimeout(function () {
                 self.alpha = 1;
+                self.visible = true;
                 clearTimeout(self.timeoutInt);
             }, 500);
         };
