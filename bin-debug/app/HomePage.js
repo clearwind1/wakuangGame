@@ -106,7 +106,8 @@ var Game;
                 "id": e.item.id
             }, function (rdata) {
                 // Log(rdata);
-                cor.MainScene.instance().addChild(new Game.NewsContant(rdata));
+                // cor.MainScene.instance().addChild(new NewsContant(rdata));
+                egret.ExternalInterface.call("sendToNative", "newsInfo$" + JSON.stringify(rdata));
             }, this);
         };
         //获取banner信息

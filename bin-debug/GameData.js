@@ -23,7 +23,7 @@ var GameData = (function () {
     GameData.HeigthOFFY = 0;
     /**服务器连接地址 */
     GameData.ServerUrl = "http://148.70.80.204:8082/";
-    GameData.ServerSocketUrl = "ws://148.70.80.204:9001/app";
+    GameData.ServerSocketUrl = "ws://47.106.15.227:9001/app";
     ///
     /**游戏界面 */
     GameData.BGame = false;

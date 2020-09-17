@@ -95,7 +95,9 @@ namespace Game {
                 "id": e.item.id
             }, (rdata) => {
                 // Log(rdata);
-                cor.MainScene.instance().addChild(new NewsContant(rdata));
+                // cor.MainScene.instance().addChild(new NewsContant(rdata));
+                egret.ExternalInterface.call("sendToNative", "newsInfo$"+JSON.stringify(rdata));
+
             }, this)
         }
         //获取banner信息
@@ -202,7 +204,7 @@ namespace Game {
             return true;
         }
         //获取分享配置
-        private getShareConfig() { 
+        private getShareConfig() {
             cor.Socket.getIntance().sendmsg('GET_SHARE_CONFIG', {}, (rdata) => {
                 Log(rdata);
                 GameData.Share_config = rdata;
