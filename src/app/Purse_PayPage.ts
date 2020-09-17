@@ -9,6 +9,7 @@ namespace Game {
         public input_password: eui.EditableText;
         public sure_btn: eui.Button;
         public close_btn: eui.Image;
+        public bg: eui.Image;
 
         private _info;
         constructor(info) {
@@ -24,6 +25,7 @@ namespace Game {
             this.coin_num.text = toThousands(info.coin_num);
             this.coin_type.text = info.coin_type;
             this.address.text = info.address;
+            this.bg.height = this.address.height > 40 ? 485 + this.address.height : 533;
         }
 
         private initEvent() {
@@ -48,7 +50,7 @@ namespace Game {
                 TipsSkin.instance().show("已提交");
                 cor.EventManage.instance().sendEvent(PurseUpdataInfo);
                 this.dispose();
-            }, this)
+            }, this, false);
         }
     }
 }

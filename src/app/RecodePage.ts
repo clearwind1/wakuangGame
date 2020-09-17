@@ -77,6 +77,21 @@ namespace Game {
             this.addEvent(this.all_info_btn, egret.TouchEvent.TOUCH_TAP, this, this.showInfo, [0]);
             this.addEvent(this.in_info_btn, egret.TouchEvent.TOUCH_TAP, this, this.showInfo, [1]);
             this.addEvent(this.out_info_btn, egret.TouchEvent.TOUCH_TAP, this, this.showInfo, [2]);
+            this.addEvent(cor.EventManage.instance(), PurseUpdataInfo, this, this.updataInfo);
+        }
+
+        private updataInfo() {
+            cor.Socket.getIntance().sendmsg('TRANSACTION_RECORDS', {
+                "coin_name": this.exchange_btn.label,
+                "page": 1,
+                "page_size": 100
+            }, async (rdata) => {
+                Log(rdata);
+                this._recodeInfo = rdata;
+                this.showInfo(0);
+                this.money.text = this.exchange_btn.label == "GST" ? toThousands(GameData.Puser_Money.gst) : toThousands(GameData.Puser_Money.usdt);
+            }, this);
+
         }
 
         private out_put() {

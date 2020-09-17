@@ -67,6 +67,15 @@ var Game;
             this.addEvent(this.close_sure_btn, egret.TouchEvent.TOUCH_TAP, this, function () { _this.sure_group.visible = false; }, null, MINEAREACLICK);
             this.addEvent(this.cancel_sure_btn, egret.TouchEvent.TOUCH_TAP, this, function () { _this.sure_group.visible = false; }, null, MINEAREACLICK);
             this.addEvent(this.sure_buy_btn, egret.TouchEvent.TOUCH_TAP, this, this.Sure_buy, null, MINEAREACLICK);
+            this.addEvent(this.delete_machine_btn, egret.TouchEvent.TOUCH_TAP, this, this.delect_machine, null, MINEAREACLICK);
+        };
+        MineAreaManager.prototype.delect_machine = function () {
+            var _this = this;
+            cor.Socket.getIntance().sendmsg("DELETE_ALL_EXCAVATE_ENGINE", {}, function (rdata) {
+                Game.TipsSkin.instance().show("已成功卸下机器");
+                _this.warehouse_group.visible = false;
+                _this.refresh();
+            }, this);
         };
         MineAreaManager.prototype.set_deposit = function (e) {
             Log(e.target.selected);

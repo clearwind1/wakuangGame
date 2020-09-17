@@ -31,7 +31,7 @@ namespace Game {
             // init
             this.exchange_num.restrict = "0-9";
             this._exchangedata = exchangedata;
-            this.head_group.addChild(new headComment(this, '矿石交易所', 'ORE EXCHANGE'));
+            this.head_group.addChild(new headComment(this, '礦石交易所', 'ORE EXCHANGE'));
 
             this.addDB(this.role_group, "Jiaoyisuo");
             let dc = new DialogComment('今天的价格，像我一样合乎你的心意么？', { x: 320, y: 120 });

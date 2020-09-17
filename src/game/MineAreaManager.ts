@@ -40,6 +40,7 @@ namespace Game {
         public cancel_sure_btn: eui.Button;
         public sure_buy_btn: eui.Button;
         public area_code: eui.Label;
+        public delete_machine_btn: eui.Button;
 
         private _areaInfo;
         private _areaConfig;
@@ -101,6 +102,16 @@ namespace Game {
             this.addEvent(this.close_sure_btn, egret.TouchEvent.TOUCH_TAP, this, () => { this.sure_group.visible = false; }, null, MINEAREACLICK);
             this.addEvent(this.cancel_sure_btn, egret.TouchEvent.TOUCH_TAP, this, () => { this.sure_group.visible = false; }, null, MINEAREACLICK);
             this.addEvent(this.sure_buy_btn, egret.TouchEvent.TOUCH_TAP, this, this.Sure_buy, null, MINEAREACLICK);
+            this.addEvent(this.delete_machine_btn, egret.TouchEvent.TOUCH_TAP, this, this.delect_machine, null, MINEAREACLICK);
+        }
+
+        private delect_machine() {
+            cor.Socket.getIntance().sendmsg("DELETE_ALL_EXCAVATE_ENGINE", {
+                }, (rdata) => {
+                    TipsSkin.instance().show("已成功卸下机器");
+                    this.warehouse_group.visible = false;
+                    this.refresh();
+                }, this)
         }
 
         private set_deposit(e: eui.UIEvent) {

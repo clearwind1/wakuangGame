@@ -72,6 +72,21 @@ namespace Game {
             egret.ExternalInterface.call("scanQRCode", "");
         }
         private pay() {
+
+            if (this.address_input.text == "") {
+                TipsSkin.instance().show("请填写地址");
+                return;
+            }
+            if (this.money_input.text == "") {
+                TipsSkin.instance().show("请输入额度");
+                return;
+            }
+            let money = Number(this.money_input.text);
+            if (money > (this._selectType == "GST" ? GameData.Puser_Money.gst : GameData.Puser_Money.usdt)) {
+                TipsSkin.instance().show("输入额度大于现有" + this._selectType);
+                return;
+            }
+
             cor.Socket.getIntance().sendmsg('CHECK_IS_SET_PAY_PASSWORD', {}, (rdata) => {
                 Log(rdata);
                 if (!rdata) {

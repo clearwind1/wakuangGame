@@ -77,6 +77,8 @@ var cor;
             this.connetObj = obj;
         };
         Socket.prototype.sendmsg = function (action, msg, callback, obj, isHide) {
+            var _this = this;
+            if (isHide === void 0) { isHide = true; }
             if (!this.webSocket.connected) {
                 Game.TipsSkin.instance().show('网络重连中...');
                 this.refreshLogin();
@@ -109,8 +111,10 @@ var cor;
                 if (!isHide) {
                     core.Covershap.getInstance().show();
                     this.inteval = setTimeout(function () {
+                        Game.TipsSkin.instance().show("网络请求失败，请稍候重试");
                         core.Covershap.getInstance().hide();
-                    }, 10000);
+                        _this.param.pop();
+                    }, 20000);
                 }
             }
         };
@@ -118,6 +122,7 @@ var cor;
             console.log("连接websocket成功");
             // alert('success')
             Game.TipsSkin.instance().hide();
+            core.Covershap.getInstance().hide();
             this.connetCB.apply(this.connetObj);
             this.param = [];
             this._bchange = false;

@@ -78,7 +78,7 @@
 			</e:skinName>
 		</e:Button>
 	</e:Group>
-	<e:Group id="change_sex_group" width="100%" height="100%" x="0" y="0" visible="false" locked="true">
+	<e:Group id="change_sex_group" width="100%" height="100%" x="0" y="0" locked="true" visible="false">
 		<e:Rect width="100%" height="100%" x="0" y="0" fillAlpha="0.6"/>
 		<e:Image source="appIcon_json.Bg_Personal02_png" y="321" scale9Grid="24,9,26,56" width="465" horizontalCenter="0.5" x="1" scaleX="1" scaleY="1"/>
 		<e:Button id="changeSex_btn" label="确认修改" horizontalCenter="0" y="531">
@@ -101,7 +101,7 @@
 		</e:RadioButton>
 		<e:RadioButton id="rdb_woman" label="女" x="406" y="338" anchorOffsetX="0" width="70" anchorOffsetY="0" height="50" value="2"/>
 	</e:Group>
-	<e:Group id="change_birth_group" width="100%" height="100%" x="0" y="0" visible="false" locked="true">
+	<e:Group id="change_birth_group" width="100%" height="100%" x="0" y="0" locked="true" visible="false">
 		<e:Rect width="100%" height="100%" x="0" y="0" fillAlpha="0.6"/>
 		<e:Image source="appIcon_json.Bg_Personal02_png" y="321" scale9Grid="24,9,26,56" width="465" horizontalCenter="0.5" x="1" scaleX="1" scaleY="1"/>
 		<e:Button id="changeBirth_btn" label="确认修改" horizontalCenter="0" y="531">
