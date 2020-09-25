@@ -21,7 +21,7 @@ class GameData {
 	public static HeigthOFFY: number = 0;
 	/**服务器连接地址 */
 	public static ServerUrl: string = "http://148.70.80.204:8082/";
-	public static ServerSocketUrl: string = "ws://game.test:9001/app";
+	public static ServerSocketUrl: string = "ws://47.106.15.227:9001/app";
 	///
 	/**游戏界面 */
 	public static BGame: boolean = false;

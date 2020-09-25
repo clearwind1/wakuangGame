@@ -5,7 +5,7 @@
 		<e:Image source="appIcon_json.Bg_Main02_png" x="0" y="0" scaleX="1" scaleY="1"/>
 		<e:Image source="appIcon_json.Line_Main01_png" y="202" width="690" scale9Grid="6,0,10,3" horizontalCenter="0"/>
 		<e:Image id="img" width="702" height="248" x="30" y="218"/>
-		<e:Label id="title" text="Label" x="30" y="96" size="36" textColor="0xebf0ff" fontFamily="myFont"/>
+		<e:Label id="title" text="Label" x="30" y="96" size="36" fontFamily="myFont" textColor="0xebf0ff"/>
 		<e:Label id="time" x="30" size="22" fontFamily="myFont" y="164" textColor="0x535B70" text="time"/>
 		<e:Button id="back" label="" x="30" y="17">
 			<e:skinName>
