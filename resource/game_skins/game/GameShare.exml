@@ -12,12 +12,12 @@
 				</e:Skin>
 			</e:skinName>
 		</e:Button>
-		<e:Button id="shareUrl_btn" label="复制链接" y="462" x="606">
+		<e:Button id="shareUrl_btn" label="复制链接，分享Richman" y="462" x="606">
 			<e:skinName>
 			<e:Skin states="up,down,disabled" height="123" width="123">
 				<e:Image width="100%" height="100%" source="gameRes_json.Btn_Fenxiang_bg_png"/>
 				<e:Image source="gameRes_json.Icon_Lianjie_png" horizontalCenter="0" verticalCenter="0"/>
-				<e:Label id="labelDisplay" horizontalCenter="0" fontFamily="myFont" size="24" bold="true" text="复制链接" y="136"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" fontFamily="myFont" size="20" bold="true" text="复制链接，分享Richman" y="136"/>
 			</e:Skin>
 			</e:skinName>
 		</e:Button>

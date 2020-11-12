@@ -26,6 +26,7 @@ var Game;
             egret.Tween.get(this.logo).to({ alpha: 1 }, 500).call(function () {
                 _this.isEnd = true;
             });
+            this.version.text = "V" + GameData.GAMEVERSION;
         };
         LoadingLogo.prototype.initEnent = function () {
         };

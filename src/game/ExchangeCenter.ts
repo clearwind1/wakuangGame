@@ -34,20 +34,22 @@ namespace Game {
             this.head_group.addChild(new headComment(this, '礦石交易所', 'ORE EXCHANGE'));
 
             this.addDB(this.role_group, "Jiaoyisuo");
-            let dc = new DialogComment('今天的价格，像我一样合乎你的心意么？', { x: 320, y: 120 });
+            let dc = new DialogComment('今天的矿石价格很令人满意呢？让我看看你手里的宝贝吧。', { x: 320, y: 120 });
             this.head_group.addChild(dc);
 
+            let len = exchangedata.length > 7 ? 7 : exchangedata.length;
             let sortexd = [];
-            for (let i = 0; i < 7; i++) {
+            for (let i = 0; i < len; i++) {
                 sortexd.push(exchangedata[i]);
             }
             sortexd.sort(compare('value', false));
             Log(sortexd);
 
             let lastSY = 0;
-            for (let i = 0; i < 7; i++) {
+            for (let i = 0; i < len; i++) {
                 let datelb = this.date_group.getChildAt(i) as eui.Label;
                 datelb.text = exchangedata[i].date.substr(5);
+                datelb.visible = true;
                 let exchangeratelb = this.rate_group.getChildAt(i) as eui.Label;
                 exchangeratelb.text = exchangedata[i].value + '';
                 let sharp = this.sharp_group.getChildAt(i) as eui.Image;
@@ -76,11 +78,24 @@ namespace Game {
                 lastSY = putY;
             }
 
+            //颜色矩阵数组
+            var colorMatrix = [
+                0.3, 0.3, 0, 0, 0,
+                0.3, 0.3, 0, 0, 0,
+                0.3, 0.3, 0, 0, 0,
+                0, 0, 0, 1, 0
+            ];
+
+            var colorFlilter = new egret.ColorMatrixFilter(colorMatrix);
+            if (GameData.UserInfo.is_lock_exchange == 1) {
+                this.exchange_btn.filters = [colorFlilter];
+            }
+
 
             cor.Socket.getIntance().sendmsg('GET_EXCHANGE_CONFIG', {}, (rdata) => {
                 Log(rdata);
                 this._today_rate = rdata;
-                this.rateTx.text = this.rateTx.text.replace('@num', rdata);
+                this.rateTx.text = `今日矿石兑换比例：1GST=${rdata}矿石`;
             }, this)
         }
 
@@ -88,14 +103,26 @@ namespace Game {
             this.addEvent(this.recode_btn, egret.TouchEvent.TOUCH_TAP, this, this.showRecode, null, EXCHANGECLICK);
             this.addEvent(this.exchange_btn, egret.TouchEvent.TOUCH_TAP, this, this.exchange, null, EXCHANGECLICK);
             this.addEvent(this.exchange_num, eui.UIEvent.CHANGE, this, this.showExchangeRate, null, EXCHANGECLICK);
-            this.addEvent(this.close_btn, egret.TouchEvent.TOUCH_TAP, this, () => { this.rdcode_group.visible = false;}, null, EXCHANGECLICK);
+            this.addEvent(this.close_btn, egret.TouchEvent.TOUCH_TAP, this, () => { this.rdcode_group.visible = false; }, null, EXCHANGECLICK);
+            this.addEvent(cor.EventManage.instance(), UPDATE_EXCHANGE_RATE, this, (evedata) => {
+                Log('evedata:', evedata.data);
+                cor.Socket.getIntance().sendmsg('GET_EXCHANGE_CONFIG', {}, (rdata) => {
+                    Log('GET_EXCHANGE_CONFIG:',rdata);
+                    this._today_rate = rdata;
+                    this.rateTx.text = `今日矿石兑换比例：1GST=${rdata}矿石`;
+                }, this)
+            });
         }
 
         private showExchangeRate(e: eui.UIEvent) {
-            this.exchangeRate.text = "GST=" + Number(e.target.text)*this._today_rate + "矿石";
+            this.exchangeRate.text = "GST=" + Number(e.target.text) * this._today_rate + "矿石";
         }
 
         private exchange() {
+            if (GameData.UserInfo.is_lock_exchange == 1) {
+                return;
+            }
+
             cor.Socket.getIntance().sendmsg('EXCHANGE_GST', {
                 "number": Number(this.exchange_num.text)
             }, (rdata) => {

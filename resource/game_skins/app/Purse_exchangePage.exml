@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="Purse_exchangePage" width="750" height="1334" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
 	<e:Rect width="100%" height="100%" x="0" y="0" fillColor="0xFFFFFF"/>
-	<e:Group id="close_btn" width="78" height="74" x="8" y="8" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="close_btn" width="172" height="74" x="8" y="8" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Image source="appIcon_json.Banner_Personal_Back01_png" x="22" y="20" scaleX="1" scaleY="1"/>
 	</e:Group>
 	<e:Image source="appIcon_json.Bg_Wallet13_png" y="124" horizontalCenter="0" height="412" scale9Grid="88,152,532,20"/>
@@ -46,7 +46,7 @@
 		</e:Skin>
 		</e:skinName>
 	</e:Button>
-	<e:EditableText id="money_input" width="632" height="28" text="" y="413" fontFamily="myFont" size="28" verticalAlign="bottom" prompt="请输入需要兑换的数量" promptColor="0x9B9B9B" textAlign="center" horizontalCenter="0" textColor="0xffffff"/>
+	<e:EditableText id="money_input" width="632" height="28" text="" y="413" fontFamily="myFont" size="28" verticalAlign="bottom" prompt="请输入需要兑换的GST数量" promptColor="0x9B9B9B" textAlign="center" horizontalCenter="0" textColor="0xffffff" restrict="&quot;0-9&quot;"/>
 	<e:Group id="sure_group" width="100%" height="100%" x="0" y="0" visible="false">
 		<e:Rect width="100%" height="100%" x="0" y="0" fillAlpha="0.7"/>
 	<e:Group width="750" height="1334" horizontalCenter="0" verticalCenter="0">

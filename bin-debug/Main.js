@@ -183,18 +183,47 @@ var Main = (function (_super) {
      * Create scene interface
      */
     Main.prototype.createGameScene = function () {
-        if (!readLocalData(PurseShowInfo)) {
-            saveLocalData(PurseShowInfo, "1");
-        }
-        if (!readLocalData(GameMusic)) {
-            saveLocalData(GameMusic, "1");
-        }
-        this.addChild(cor.MainScene.instance());
-        this.addChild(Game.TipsSkin.instance());
-        this.addChild(core.Covershap.getInstance());
-        var cs = new Game.LoginSkin();
-        cor.MainScene.instance().addChild(cs);
-        cor.Socket.getIntance().ProConnet();
+        return __awaiter(this, void 0, void 0, function () {
+            var cs;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (!readLocalData(PurseShowInfo)) {
+                            saveLocalData(PurseShowInfo, "1");
+                        }
+                        if (!readLocalData(GameMusic)) {
+                            saveLocalData(GameMusic, "1");
+                        }
+                        this.addChild(cor.MainScene.instance());
+                        this.addChild(Game.TipsSkin.instance());
+                        this.addChild(core.Covershap.getInstance());
+                        cs = new Game.LoginSkin();
+                        cor.MainScene.instance().addChild(cs);
+                        return [4 /*yield*/, cor.Socket.getIntance().ProConnet()];
+                    case 1:
+                        _a.sent();
+                        this.checkVersion();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    Main.prototype.checkVersion = function () {
+        var _this = this;
+        cor.Socket.getIntance().sendmsg('GET_VERSION', {}, function (rdata) {
+            Log(rdata);
+            GameData.Force_Update = rdata.force_update;
+            GameData.SERVERVERSION = rdata.version;
+            GameData.DOWNLOADURL = rdata.download_url;
+            if (GameData.GAMEVERSION != rdata.version) {
+                var askinfo = {
+                    tip: "版本更新，是否前往下载最新版",
+                    fun: function () { egret.ExternalInterface.call("sendToNative", "downNewApp$" + rdata.download_url); },
+                    obj: _this
+                };
+                cor.MainScene.instance().addChild(new Game.AppAskPage(askinfo));
+            }
+        }, this);
     };
     /**
      * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。

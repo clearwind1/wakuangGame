@@ -7,6 +7,8 @@ namespace Game {
         public output_btn: eui.Button;
         public gst_select: eui.RadioButton;
         public usdt_select: eui.RadioButton;
+        public gst_select_tx: eui.Label;
+        public usdt_select_tx: eui.Label;
         public address_input: eui.EditableText;
         public money_input: eui.EditableText;
         public rate_tips: eui.Label;
@@ -59,6 +61,20 @@ namespace Game {
                 this.money_input.text = "";
                 this.rate_tips.text = "";
             })
+            this.addEvent(this.gst_select_tx, egret.TouchEvent.TOUCH_TAP, this, () => { 
+                this.gst_select.selected = true;
+                this.usdt_select.selected = false;
+                this._selectType = "GST";
+                this.money_input.text = "";
+                this.rate_tips.text = "";
+            });
+            this.addEvent(this.usdt_select_tx, egret.TouchEvent.TOUCH_TAP, this, () => { 
+                this.gst_select.selected = false;
+                this.usdt_select.selected = true;
+                this._selectType = "USDT";
+                this.money_input.text = "";
+                this.rate_tips.text = "";
+            });
 
             this.addEvent(this.money_input, eui.UIEvent.CHANGE, this, this.showExchangeRate);
         }

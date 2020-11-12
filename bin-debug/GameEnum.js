@@ -4,6 +4,7 @@ var UpdataUserInfo = 'UpdataUserInfo';
 var ChangeIdentity = 'ChangeIdentity';
 var ExitGame = 'ExitGame';
 var NEW_NOTICE = 'NEW_NOTICE';
+var UPDATE_EXCHANGE_RATE = 'UPDATE_EXCHANGE_RATE';
 var GameMusic = 'GameMusic';
 var UpdataGameInfo = 'UpdataGameInfo';
 var StartDigMine = 'StartDigMine';

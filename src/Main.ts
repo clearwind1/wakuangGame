@@ -79,7 +79,7 @@ class Main extends eui.UILayer {
         new Promise((resolve, reject) => {
             egret.MainContext.instance.stage.orientation = egret.OrientationMode.PORTRAIT;
             egret.MainContext.instance.stage.scaleMode = egret.StageScaleMode.FIXED_WIDTH;
-            
+
             GameData.GameWidth = egret.MainContext.instance.stage.stageWidth;
             GameData.GameHeigth = egret.MainContext.instance.stage.stageHeight;
 
@@ -99,7 +99,7 @@ class Main extends eui.UILayer {
         await this.loadResource();
         this.showLogo();
         await RES.loadGroup("preload", 0);
-        this.loadinglogo.hideAndShow(this.createGameScene,this);
+        this.loadinglogo.hideAndShow(this.createGameScene, this);
         // this.createGameScene();
     }
 
@@ -132,17 +132,17 @@ class Main extends eui.UILayer {
         })
     }
 
-    private loadinglogo: Game.LoadingLogo;    
+    private loadinglogo: Game.LoadingLogo;
     private showLogo() {
         this.loadinglogo = new Game.LoadingLogo();
         this.addChild(this.loadinglogo);
-    }    
+    }
 
     /**
      * 创建场景界面
      * Create scene interface
      */
-    protected createGameScene(): void {
+    protected async createGameScene() {
 
         if (!readLocalData(PurseShowInfo)) {
             saveLocalData(PurseShowInfo, "1");
@@ -158,7 +158,25 @@ class Main extends eui.UILayer {
         let cs = new Game.LoginSkin();
         cor.MainScene.instance().addChild(cs);
 
-        cor.Socket.getIntance().ProConnet();
+        await cor.Socket.getIntance().ProConnet();
+        this.checkVersion();
+    }
+
+    private checkVersion() {
+        cor.Socket.getIntance().sendmsg('GET_VERSION', {}, (rdata) => {
+            Log(rdata);
+            GameData.Force_Update = rdata.force_update;
+            GameData.SERVERVERSION = rdata.version;
+            GameData.DOWNLOADURL = rdata.download_url;
+            if (GameData.GAMEVERSION != rdata.version) {
+                let askinfo = {
+                    tip: "版本更新，是否前往下载最新版",
+                    fun: () => { egret.ExternalInterface.call("sendToNative", "downNewApp$" + rdata.download_url); },
+                    obj: this
+                }
+                cor.MainScene.instance().addChild(new Game.AppAskPage(askinfo));
+            }
+        }, this)
     }
     /**
      * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。

@@ -68,6 +68,8 @@ var Game;
             this.currentNav = this.home_btn;
             this.cureentPage = this.home_group;
             this.headImg.mask = this.headMask;
+            var pushAlias = "userid_" + GameData.UserInfo.mobile;
+            egret.ExternalInterface.call("sendToNative", "pushAlias$" + pushAlias);
         };
         HomePage.prototype.initEnent = function () {
             this.addEvent(this.home_btn, egret.TouchEvent.TOUCH_TAP, this, this.showHome);
@@ -162,6 +164,9 @@ var Game;
             var cur_lineItem = this.bannerIndex_group.getChildAt(this.banner_currentIndex);
             switch (cmd) {
                 case 0:
+                    if (this.banner_group.numChildren == 1) {
+                        return;
+                    }
                     if (this.banner_currentIndex > 0) {
                         this.banner_currentIndex--;
                     }
@@ -177,6 +182,9 @@ var Game;
                     next_lineItem.source = "Banner_Switch_png";
                     break;
                 case 1:
+                    if (this.banner_group.numChildren == 1) {
+                        return;
+                    }
                     if (this.banner_currentIndex < this.banner_group.numChildren - 1) {
                         this.banner_currentIndex++;
                     }
@@ -248,9 +256,20 @@ var Game;
         };
         //显示交易所
         HomePage.prototype.showExchange = function () {
-            Game.TipsSkin.instance().show("暂未开放");
-            return;
-            this.changeBtnState(this.exchange_btn);
+            // TipsSkin.instance().show("暂未开放");
+            var _this = this;
+            // return;
+            cor.Socket.getIntance().sendmsg('EXCHANGES', {
+                "page": 1,
+                "page_size": 100
+            }, function (rdata) { return __awaiter(_this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    Log(rdata);
+                    this.changeBtnState(this.exchange_btn);
+                    cor.MainScene.instance().addChild(new Game.ExchangePage(rdata));
+                    return [2 /*return*/];
+                });
+            }); }, this);
         };
         //显示个人中心
         HomePage.prototype.showPersonal = function () {

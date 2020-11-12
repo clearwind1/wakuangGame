@@ -218,18 +218,28 @@ namespace Game {
         }
         //手机登录
         private sendLogin() {
-            cor.Socket.getIntance().sendmsg('LOGIN', {
-                "mobile": this.phone_input.text,
-                "password": this.paswd_input.text
-            }, (rdata) => {
-                TipsSkin.instance().show("登录成功");
-                GameData.UserPhone = this.phone_input.text;
-                GameData.UserPassword = this.paswd_input.text;
-                saveLocalData(UserPhone, GameData.UserPhone);
-                this.dispose();
-                cor.MainScene.instance().addChild(new HomePage());
-            }, this)
 
+            if (GameData.GAMEVERSION != GameData.SERVERVERSION && GameData.Force_Update == 1) {
+                let askinfo = {
+                    tip: "版本更新，是否前往下载最新版",
+                    fun: () => { egret.ExternalInterface.call("sendToNative", "downNewApp$" + GameData.DOWNLOADURL); },
+                    obj: this
+                }
+                cor.MainScene.instance().addChild(new Game.AppAskPage(askinfo));
+                
+            } else {
+                cor.Socket.getIntance().sendmsg('LOGIN', {
+                    "mobile": this.phone_input.text,
+                    "password": this.paswd_input.text
+                }, (rdata) => {
+                    TipsSkin.instance().show("登录成功");
+                    GameData.UserPhone = this.phone_input.text;
+                    GameData.UserPassword = this.paswd_input.text;
+                    saveLocalData(UserPhone, GameData.UserPhone);
+                    this.dispose();
+                    cor.MainScene.instance().addChild(new HomePage());
+                }, this)
+            }
         }
 
         private showPhoneLgRe() {
@@ -243,7 +253,7 @@ namespace Game {
             this.back_btn.visible = true;
             switch (this.regist_state) {
                 case 1:
-                    this.back_btn.visible = false;    
+                    this.back_btn.visible = false;
                     this.phone_group.visible = true;
                     this.password_group.visible = this.regist_group.visible = false;
                     break;

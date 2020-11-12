@@ -22,6 +22,7 @@ var cor;
                 }
                 else if (GameData.BGame) {
                     //询问退出游戏
+                    console.log("询问退出游戏");
                 }
                 else {
                     var index = _this.numChildren - 1;

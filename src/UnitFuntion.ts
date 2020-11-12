@@ -1230,7 +1230,10 @@ function checkPhone(phone) {
 }
 //检测密码
 function checkPassword(psw) {
-    if (!(/^(\w){6,8}$/.exec(psw))) {
+    // if (!(/^(\w){6,8}$/.exec(psw))) {
+    //     return false;
+    // }
+    if (psw.length < 6) {
         return false;
     }
 

@@ -49,6 +49,15 @@ namespace Game {
             this.addEvent(this.scan_btn, egret.TouchEvent.TOUCH_TAP, this, this.scan);
             this.addEvent(this.back_btn, egret.TouchEvent.TOUCH_TAP, this, () => { this.sure_group.visible = false; });
             this.addEvent(this.sure_btn, egret.TouchEvent.TOUCH_TAP, this, this.exchange);
+            
+            this.addEvent(cor.EventManage.instance(), UPDATE_EXCHANGE_RATE, this, (evedata) => {
+                Log('evedata:', evedata.data);
+                cor.Socket.getIntance().sendmsg('GET_GST_USDT_RATE', {
+                }, async (rdata) => {
+                    this._rateInfo = rdata;
+                    this.showInfo();
+                }, this)
+            });
         }
 
         private scan() {
@@ -58,13 +67,13 @@ namespace Game {
         private show_sure_group() {
             this.sure_group.visible = true;
             let r = 0;
-            if (this._isGST) {
+            if (!this._isGST) {
                 r = (Number(this.money_input.text) * this._rateInfo.usdt) / this._rateInfo.gst;
             } else {
                 r = (Number(this.money_input.text) * this._rateInfo.gst) / this._rateInfo.usdt;
             }
 
-            this.tips.text = `是否确定使用${Number(this.money_input.text)}枚USDT兑换${r.toString().length > 4 ? r.toFixed(4) : r}枚GST`;
+            this.tips.text = `是否确定使用${r.toString().length > 4 ? r.toFixed(4) : r}枚USDT兑换${Number(this.money_input.text)}枚GST`;
         }
 
         private exchange() {

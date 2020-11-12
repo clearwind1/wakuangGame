@@ -51,6 +51,8 @@ namespace Game {
             this.currentNav = this.home_btn;
             this.cureentPage = this.home_group;
             this.headImg.mask = this.headMask;
+            let pushAlias = "userid_" + GameData.UserInfo.mobile;
+            egret.ExternalInterface.call("sendToNative", "pushAlias$" + pushAlias);
         }
 
         private initEnent() {
@@ -96,7 +98,7 @@ namespace Game {
             }, (rdata) => {
                 // Log(rdata);
                 // cor.MainScene.instance().addChild(new NewsContant(rdata));
-                egret.ExternalInterface.call("sendToNative", "newsInfo$"+JSON.stringify(rdata));
+                egret.ExternalInterface.call("sendToNative", "newsInfo$" + JSON.stringify(rdata));
 
             }, this)
         }
@@ -155,6 +157,9 @@ namespace Game {
             let cur_lineItem = this.bannerIndex_group.getChildAt(this.banner_currentIndex) as eui.Image;
             switch (cmd) {
                 case 0:
+                    if (this.banner_group.numChildren == 1) {
+                        return;
+                    }
                     if (this.banner_currentIndex > 0) {
                         this.banner_currentIndex--;
                     } else {
@@ -169,6 +174,9 @@ namespace Game {
                     next_lineItem.source = "Banner_Switch_png";
                     break;
                 case 1:
+                    if (this.banner_group.numChildren == 1) {
+                        return;
+                    }
                     if (this.banner_currentIndex < this.banner_group.numChildren - 1) {
                         this.banner_currentIndex++;
                     } else {
@@ -239,9 +247,18 @@ namespace Game {
         }
         //显示交易所
         private showExchange() {
-            TipsSkin.instance().show("暂未开放");
-            return;
-            this.changeBtnState(this.exchange_btn);
+            // TipsSkin.instance().show("暂未开放");
+
+            // return;
+            cor.Socket.getIntance().sendmsg('EXCHANGES', {
+                "page": 1,
+                "page_size": 100
+            }, async (rdata) => {
+                Log(rdata);
+                this.changeBtnState(this.exchange_btn);
+                cor.MainScene.instance().addChild(new ExchangePage(rdata));
+            }, this)
+
         }
         //显示个人中心
         private showPersonal() {

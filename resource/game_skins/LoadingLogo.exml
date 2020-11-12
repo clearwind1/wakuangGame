@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="LoadingLogo" width="750" height="1134" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
 	<e:Image id="logo" horizontalCenter="0" verticalCenter="0" alpha="0" source="logo_name_png"/>
+	<e:Label id="version" text="V1.0.1" fontFamily="myFont" size="24" bottom="44" horizontalCenter="0"/>
 </e:Skin>

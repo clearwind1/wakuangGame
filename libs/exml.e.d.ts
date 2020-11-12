@@ -52,7 +52,13 @@ declare module skins{
 }
 declare class AllNewsItem extends eui.Skin{
 }
+declare class AppAskPage extends eui.Skin{
+}
+declare class AppExchangeItem extends eui.Skin{
+}
 declare class BirthItem extends eui.Skin{
+}
+declare class ExchangePage extends eui.Skin{
 }
 declare class HomePage extends eui.Skin{
 }

@@ -3,7 +3,7 @@
 	<e:Image source="Bg_Shop01_jpg" x="0" y="0" width="100%"/>
 	<e:Group id="role_group" x="0" bottom="0"/>
 	<e:Image source="gameRes_json.Bg_Shop04_png" scale9Grid="12,13,72,81" width="940" height="588" right="19" y="142"/>
-	<e:Scroller width="936" height="569.58" anchorOffsetX="0" anchorOffsetY="0" right="19" y="149.41999999999996" locked="true">
+	<e:Scroller id="ownerScroller" width="936" height="569.58" anchorOffsetX="0" anchorOffsetY="0" right="19" y="149.41999999999996">
 		<e:List id="ownerList" itemRendererSkinName="OwnerItem" useVirtualLayout="false">
 			<e:layout>
 				<e:VerticalLayout horizontalAlign="center" gap="10"/>

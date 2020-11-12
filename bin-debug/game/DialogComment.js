@@ -55,7 +55,7 @@ var Game;
                 clearTimeout(to);
                 to = setTimeout(function () {
                     _this.visible = false;
-                }, 3000);
+                }, 4000);
             });
         };
         return DialogComment;

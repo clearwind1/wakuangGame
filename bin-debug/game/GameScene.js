@@ -62,17 +62,20 @@ var Game;
             // init
             cor.MainScene.instance().playbgm(MAINSCENEBGM);
             if (GameData.UserInfo.identity == IDENTITY.Miner) {
-                this.owner_icon.visible = false;
-                this.level.text = "";
+                this.owner_icon.visible = GameData.UserInfo.is_plus == 0 ? true : false;
+                this.owner_icon.source = "Icon_uplevel_png";
+                this.level.text = GameData.UserInfo.is_plus == 0 ? "" : "Plus";
                 // this.bg.source = `Bg_MiningArea_Lv1_png`
                 this.addDB(this.role_group, "Kuangquguangli");
             }
             else {
                 this.mine_group.visible = false;
+                this.owner_icon.source = "gameRes_json.Icon_level01_png";
                 this.level.text = 'v' + GameData.UserInfo.current_hold_area_grade;
                 // this.bg.source = `Bg_MiningArea_Lv${GameData.UserInfo.current_hold_area_grade}_png`;
                 this.addDB(this.role_group, "Lv" + GameData.UserInfo.current_hold_area_grade);
             }
+            this.notice_group.x = this.width;
             this.headImg.source = GameData.UserInfo.picture;
             this.nickname.text = GameData.UserInfo.nickname;
             this.gst_num.text = GameData.UserInfo.gst + '';
@@ -86,13 +89,6 @@ var Game;
                 0, 0, 0, 1, 0
             ];
             var colorFlilter = new egret.ColorMatrixFilter(colorMatrix);
-            // this.friend_btn.filters = [colorFlilter];
-            // this.share_btn.filters = [colorFlilter];
-            // this.exchange_center_btn.filters = [colorFlilter];
-            // this.server_center_btn.filters = [colorFlilter];
-            // this.mine_btn.filters = [colorFlilter];
-            // this.tools_store_btn.filters = [colorFlilter];
-            // this.warehouse_btn.filters = [colorFlilter];
             if (GameData.UserInfo.identity == IDENTITY.Miner) {
                 this.tools_store_btn.filters = [colorFlilter];
                 this.mine_btn.filters = [colorFlilter];
@@ -135,6 +131,7 @@ var Game;
             this.addEvent(this.friend_btn, egret.TouchEvent.TOUCH_TAP, this, this.showFriend, null, MAINSCENECLICK);
             this.addEvent(this.headImg, egret.TouchEvent.TOUCH_TAP, this, this.showSetting, null, MAINSCENECLICK);
             this.addEvent(this.mine_manageCenter_btn, egret.TouchEvent.TOUCH_TAP, this, this.mine_manageCenter, null, MAINSCENECLICK);
+            this.addEvent(this.owner_icon, egret.TouchEvent.TOUCH_TAP, this, this.upLevelMiner, null, MAINSCENECLICK);
             this.addEvent(cor.EventManage.instance(), ChangeIdentity, this, this.changeIdentity);
             this.addEvent(cor.EventManage.instance(), ExitGame, this, this.exitGame);
             this.addEvent(cor.EventManage.instance(), UpdataUserInfo, this, this.updata_info);
@@ -144,6 +141,24 @@ var Game;
         };
         GameScene.prototype.setExpbar = function () {
             this.expbar.width = (GameData.UserInfo.experience / GameData.UserInfo.current_grade_max_experience) * 248;
+        };
+        GameScene.prototype.upLevelMiner = function () {
+            var _this = this;
+            if (GameData.UserInfo.identity == IDENTITY.Miner) {
+                cor.Socket.getIntance().sendmsg('BECOME_PLUS', {}, function (rdata) {
+                    Log(rdata);
+                    _this.owner_icon.visible = false;
+                    _this.level.text = "Plus";
+                    Game.TipsSkin.instance().show("恭喜升级为PLUS");
+                    cor.Socket.getIntance().sendmsg('GET_USER_BASE_INFO', {}, function (srdata) { return __awaiter(_this, void 0, void 0, function () {
+                        return __generator(this, function (_a) {
+                            GameData.UserInfo = srdata;
+                            cor.EventManage.instance().sendEvent(UpdataGameInfo);
+                            return [2 /*return*/];
+                        });
+                    }); }, _this);
+                }, this);
+            }
         };
         /**
          * 公告
@@ -166,18 +181,20 @@ var Game;
         GameScene.prototype.showNotice = function () {
             var _this = this;
             this._notice_move = true;
-            egret.Tween.get(this.notice_group).to({ x: 0 }, 300).call(function () { _this._notice_move = false; });
+            var tox = this.width - 311;
+            egret.Tween.get(this.notice_group).to({ x: tox }, 300).call(function () { _this._notice_move = false; });
         };
         GameScene.prototype.hideNotice = function () {
             var _this = this;
             this._notice_move = true;
-            egret.Tween.get(this.notice_group).to({ x: -311 }, 300).call(function () { _this._notice_move = false; });
+            var tox = this.width;
+            egret.Tween.get(this.notice_group).to({ x: tox }, 300).call(function () { _this._notice_move = false; });
         };
         GameScene.prototype.tapNotice = function () {
             if (this._notice_move) {
                 return;
             }
-            if (this.notice_group.x == 0) {
+            if (this.notice_group.x == this.width - 311) {
                 if (this._notice_timeTag != null) {
                     clearTimeout(this._notice_timeTag);
                     this._notice_timeTag = null;
@@ -322,7 +339,9 @@ var Game;
                 clearInterval(this._dig_time_int);
             }
             cor.MainScene.instance().stopbgm();
-            this.dispose();
+            GameData.BGame = false;
+            // this.dispose();
+            cor.MainScene.instance().clearPage();
         };
         /**
          * 改变身份事件

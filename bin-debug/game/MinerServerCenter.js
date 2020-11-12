@@ -15,6 +15,8 @@ var Game;
         function MinerServerCenter(info) {
             var _this = _super.call(this) || this;
             _this.skinName = "MinerServerCenter";
+            _this.listPage = 1;
+            _this.listInfoData = [];
             _this.init(info);
             _this.initEvent();
             return _this;
@@ -22,10 +24,11 @@ var Game;
         MinerServerCenter.prototype.init = function (info) {
             // init
             var _this = this;
-            this.head_group.addChild(new Game.headComment(this, '矿工管理处', 'MINER'));
+            this.head_group.addChild(new Game.headComment(this, '礦工管理处', 'MINER'));
             this.addDB(this.role_group, 'Kuangquguangli');
-            this.head_group.addChild(new Game.DialogComment('打工后记得按时来领取打工收益哦！', { x: 380, y: 120 }));
+            this.head_group.addChild(new Game.DialogComment('勤劳矿工的基本修养就是按时来打工，也千万不要忘了按时来领取报酬。', { x: 380, y: 120 }));
             this.ownerList.itemRenderer = OwnerItem;
+            // this.listInfoData = info;
             cor.Socket.getIntance().sendmsg('GET_HOLD_AREA_AND_WORK_CONFIG', {}, function (rdata) {
                 Log(rdata);
                 GameData.Mine_area_config = rdata;
@@ -34,34 +37,70 @@ var Game;
                     _this.searchTips.text = "矿工管理处休息中,休息时间：\n" + rdata.hold_area_work_start_time + "~" + rdata.hold_area_work_end_time;
                 }
                 else {
+                    var listData = _this.listInfoData;
                     for (var k in info) {
+                        if (info[k].current_work_count == info[k].max_work_count) {
+                            continue;
+                        }
                         info[k].code = info[k].code + "矿区";
                         info[k].user_nickname = "矿主：" + info[k].user_nickname;
                         info[k].name = "矿区等级：" + info[k].name;
                         info[k].miner_num = info[k].current_work_count + '/' + info[k].max_work_count;
                         info[k].earnings = info[k].can_get_income;
+                        listData.push(info[k]);
                     }
-                    _this.ownerList.dataProvider = new eui.ArrayCollection(info);
+                    _this.ownerList.dataProvider = new eui.ArrayCollection(listData);
                 }
             }, this);
         };
         MinerServerCenter.prototype.initEvent = function () {
             this.addEvent(this.seach_btn, egret.TouchEvent.TOUCH_TAP, this, this.seach, null, MANAGECENTERCLICK);
+            this.addEvent(this.ownerScroller, eui.UIEvent.CHANGE_END, this, this.checkUpdata);
             this.addEvent(cor.EventManage.instance(), OwnerListUpdata, this, this.refresh);
         };
+        MinerServerCenter.prototype.checkUpdata = function (e) {
+            var sc = this.ownerScroller;
+            if ((sc.viewport.scrollV + sc.height) >= sc.viewport.contentHeight) {
+                console.log("滚动到底部了:", sc.viewport.scrollV);
+                this.listPage++;
+                this.getHoldAreaList();
+            }
+        };
         MinerServerCenter.prototype.refresh = function () {
+            this.listPage = 1;
+            this.listInfoData = [];
+            this.getHoldAreaList();
+        };
+        MinerServerCenter.prototype.getHoldAreaList = function () {
             var _this = this;
-            cor.Socket.getIntance().sendmsg('USER_HOLD_AREA_LIST', {}, function (rdata) {
+            var page = this.listPage;
+            cor.Socket.getIntance().sendmsg('USER_HOLD_AREA_LIST', {
+                "page": page,
+                "page_size": 10
+            }, function (rdata) {
                 Log(rdata);
-                var info = rdata;
-                for (var k in info) {
-                    info[k].code = info[k].code + "矿区";
-                    info[k].user_nickname = "矿主：" + info[k].user_nickname;
-                    info[k].name = "矿区等级：" + info[k].name;
-                    info[k].miner_num = info[k].current_work_count + '/' + info[k].max_work_count;
-                    info[k].earnings = info[k].can_get_income;
+                if (rdata.length == 0) {
+                    _this.listPage--;
                 }
-                _this.ownerList.dataProvider = new eui.ArrayCollection(info);
+                else {
+                    var info = rdata;
+                    var listData = _this.listInfoData;
+                    for (var k in info) {
+                        if (info[k].current_work_count == info[k].max_work_count) {
+                            continue;
+                        }
+                        info[k].code = info[k].code + "矿区";
+                        info[k].user_nickname = "矿主：" + info[k].user_nickname;
+                        info[k].name = "矿区等级：" + info[k].name;
+                        info[k].miner_num = info[k].current_work_count + '/' + info[k].max_work_count;
+                        info[k].earnings = info[k].can_get_income;
+                        listData.push(info[k]);
+                    }
+                    _this.ownerList.dataProvider = new eui.ArrayCollection(listData);
+                    setTimeout(function () {
+                        _this.ownerScroller.viewport.scrollV = (page - 1) * 1130;
+                    }, 200);
+                }
             }, this);
         };
         MinerServerCenter.prototype.seach = function () {
@@ -208,6 +247,11 @@ var Game;
                     this.time.text = numberToTime(this._leftTime, 1);
                     this._time_inter = setInterval(function () {
                         _this._leftTime -= 1000;
+                        if (_this._leftTime <= 0) {
+                            _this._leftTime = 0;
+                            clearInterval(_this._time_inter);
+                            cor.EventManage.instance().sendEvent(OwnerListUpdata);
+                        }
                         _this.time.text = numberToTime(_this._leftTime, 1);
                     }, 1000);
                     break;

@@ -57,7 +57,7 @@
 		</e:Skin>
 		</e:skinName>
 	</e:Button>
-	<e:Button id="lv1_card" label="Button" y="560.19" width="71" height="100" touchEnabled="false" x="1234">
+	<e:Button id="lv1_card" label="Button" y="538.88" width="71" height="100" touchEnabled="false" x="1231.33" scaleX="1.2" scaleY="1.2">
 		<e:skinName>
 		<e:Skin states="up,down,disabled">
 			<e:Image source="gameRes_json.Bg_Kuangqu05_png"/>
@@ -66,7 +66,7 @@
 		</e:Skin>
 		</e:skinName>
 	</e:Button>
-	<e:Button label="Button" x="368.38" y="141.31" width="71" height="100" touchEnabled="false">
+	<e:Button label="Button" x="365.71" y="120" width="71" height="100" touchEnabled="false" scaleX="1.2" scaleY="1.2">
 		<e:skinName>
 		<e:Skin states="up,down,disabled">
 			<e:Image source="gameRes_json.Bg_Kuangqu05_png"/>
@@ -75,7 +75,7 @@
 		</e:Skin>
 		</e:skinName>
 	</e:Button>
-	<e:Button label="Button" x="431.82" y="462.71" width="71" height="100" touchEnabled="false">
+	<e:Button label="Button" x="429.15" y="441.4" width="71" height="100" touchEnabled="false" scaleX="1.2" scaleY="1.2">
 		<e:skinName>
 		<e:Skin states="up,down,disabled">
 			<e:Image source="gameRes_json.Bg_Kuangqu05_png"/>
@@ -84,7 +84,7 @@
 		</e:Skin>
 		</e:skinName>
 	</e:Button>
-	<e:Button label="Button" x="1062.56" y="199.19" width="71" height="100" touchEnabled="false">
+	<e:Button label="Button" x="1059.89" y="177.88" width="71" height="100" touchEnabled="false" scaleX="1.2" scaleY="1.2">
 		<e:skinName>
 		<e:Skin states="up,down,disabled">
 			<e:Image source="gameRes_json.Bg_Kuangqu05_png"/>
@@ -93,7 +93,7 @@
 		</e:Skin>
 		</e:skinName>
 	</e:Button>
-	<e:Button label="Button" x="993.08" y="470.74" width="71" height="100" touchEnabled="false">
+	<e:Button label="Button" x="990.41" y="449.43" width="71" height="100" touchEnabled="false" scaleX="1.2" scaleY="1.2">
 		<e:skinName>
 		<e:Skin states="up,down,disabled">
 			<e:Image source="gameRes_json.Bg_Kuangqu05_png"/>
@@ -102,7 +102,7 @@
 		</e:Skin>
 		</e:skinName>
 	</e:Button>
-	<e:Button label="Button" x="777" y="155.11" width="71" height="100" touchEnabled="false">
+	<e:Button label="Button" x="774.33" y="133.8" width="71" height="100" touchEnabled="false" scaleX="1.2" scaleY="1.2">
 		<e:skinName>
 		<e:Skin states="up,down,disabled">
 			<e:Image source="gameRes_json.Bg_Kuangqu05_png"/>
@@ -120,7 +120,7 @@
 		</e:Skin>
 		</e:skinName>
 	</e:Button>
-	<e:Button id="back_btn" label="Button" x="740.58" y="500.17" width="71" height="100" touchEnabled="true" scaleX="1.5" scaleY="1.5">
+	<e:Button id="back_btn" label="Button" x="742.58" y="533.17" width="71" height="100" touchEnabled="true">
 		<e:skinName>
 		<e:Skin states="up,down,disabled">
 			<e:Image source="gameRes_json.Bg_Kuangqu05_png"/>

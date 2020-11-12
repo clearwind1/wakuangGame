@@ -123,6 +123,9 @@ module cor {
 				case 'NEW_NOTICE':
 					cor.EventManage.instance().sendEvent(NEW_NOTICE, msgarr.data);
 					return;
+				case 'UPDATE_EXCHANGE_RATE':
+					cor.EventManage.instance().sendEvent(UPDATE_EXCHANGE_RATE, msgarr.data);
+					return;
 			}
 
 			for (let i = 0; i < this.param.length; i++) {
@@ -153,11 +156,20 @@ module cor {
 			Log('重连++++++', this.connectCount, "次");
 			if (this.connectCount >= 12) {
 				this.connectCount = 0;
-				core.Covershap.getInstance().hide();
-				Game.TipsSkin.instance().hide();
+				setTimeout(() => {
+					core.Covershap.getInstance().hide();
+					Game.TipsSkin.instance().show("网络连接失败，请稍候");
+				}, 1000);
+
+				setTimeout(() => {
+					this.refreshLogin();
+				}, 60000);
+
 			} else {
 				// this.webSocket.connectByUrl(GameData.ServerSocketUrl);
-				this.refreshLogin();
+				setTimeout(() => {
+					this.refreshLogin();
+				}, 1000);
 			}
 		}
 

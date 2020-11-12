@@ -24,7 +24,7 @@ var Game;
             // init
             this.head_group.addChild(new Game.headComment(this, '工具商店', 'TOOL SHOP'));
             this.addDB(this.role_group, "Gongjushangdian");
-            this.head_group.addChild(new Game.DialogComment('有什么需要的尽管跟我说，我这里的物品可齐全了！', { x: 340, y: 120 }));
+            this.head_group.addChild(new Game.DialogComment('少量的金币就能够得到高级的设备，能够让你的矿加速生产，当然不要忘记给设备买燃油补给哦。', { x: 340, y: 120 }));
             this._toolsdata = [];
             for (var k in toolsData) {
                 if (toolsData[k].buy_user_type == 0 || toolsData[k].buy_user_type == GameData.UserInfo.identity) {

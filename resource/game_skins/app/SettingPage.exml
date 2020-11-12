@@ -6,7 +6,7 @@
 			<e:Image width="785" height="414" y="0" source="appIcon_json.Bg_Personal02_png" scale9Grid="11,11,66,66" horizontalCenter="0"/>
 		</e:Group>
 	</e:Scroller>
-	<e:Image id="back_btn" source="appIcon_json.Banner_Personal_Back01_png" x="30" y="28"/>
+	<e:Image source="appIcon_json.Banner_Personal_Back01_png" x="30" y="28"/>
 	<e:Image source="appIcon_json.Line_Personal01_png" y="90" horizontalCenter="0" width="690"/>
 	<e:Image source="appIcon_json.Line_Personal02_png" y="198" horizontalCenter="0" width="690"/>
 	<e:Image source="appIcon_json.Line_Personal02_png" y="306" horizontalCenter="0" width="690"/>
@@ -45,6 +45,7 @@
 		</e:Skin>
 		</e:skinName>
 	</e:Button>
+	<e:Group id="back_btn" width="180" height="76" x="14" y="7" anchorOffsetX="0" anchorOffsetY="0"/>
 	<e:Label text="设置" y="28" horizontalCenter="0" textColor="0x353535" size="34" fontFamily="myFont"/>
 	<e:Label text="修改密码" textColor="0x353535" size="28" fontFamily="myFont" x="36" y="129"/>
 	<e:Label text="账号设置" textColor="0x353535" size="28" fontFamily="myFont" x="36" y="237"/>

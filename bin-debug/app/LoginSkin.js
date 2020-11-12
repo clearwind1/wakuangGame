@@ -205,17 +205,27 @@ var Game;
         //手机登录
         LoginSkin.prototype.sendLogin = function () {
             var _this = this;
-            cor.Socket.getIntance().sendmsg('LOGIN', {
-                "mobile": this.phone_input.text,
-                "password": this.paswd_input.text
-            }, function (rdata) {
-                Game.TipsSkin.instance().show("登录成功");
-                GameData.UserPhone = _this.phone_input.text;
-                GameData.UserPassword = _this.paswd_input.text;
-                saveLocalData(UserPhone, GameData.UserPhone);
-                _this.dispose();
-                cor.MainScene.instance().addChild(new Game.HomePage());
-            }, this);
+            if (GameData.GAMEVERSION != GameData.SERVERVERSION && GameData.Force_Update == 1) {
+                var askinfo = {
+                    tip: "版本更新，是否前往下载最新版",
+                    fun: function () { egret.ExternalInterface.call("sendToNative", "downNewApp$" + GameData.DOWNLOADURL); },
+                    obj: this
+                };
+                cor.MainScene.instance().addChild(new Game.AppAskPage(askinfo));
+            }
+            else {
+                cor.Socket.getIntance().sendmsg('LOGIN', {
+                    "mobile": this.phone_input.text,
+                    "password": this.paswd_input.text
+                }, function (rdata) {
+                    Game.TipsSkin.instance().show("登录成功");
+                    GameData.UserPhone = _this.phone_input.text;
+                    GameData.UserPassword = _this.paswd_input.text;
+                    saveLocalData(UserPhone, GameData.UserPhone);
+                    _this.dispose();
+                    cor.MainScene.instance().addChild(new Game.HomePage());
+                }, this);
+            }
         };
         LoginSkin.prototype.showPhoneLgRe = function () {
             if (this.regist_state == 0) {

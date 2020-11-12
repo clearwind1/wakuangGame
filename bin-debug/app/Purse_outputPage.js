@@ -55,6 +55,20 @@ var Game;
                 _this.money_input.text = "";
                 _this.rate_tips.text = "";
             });
+            this.addEvent(this.gst_select_tx, egret.TouchEvent.TOUCH_TAP, this, function () {
+                _this.gst_select.selected = true;
+                _this.usdt_select.selected = false;
+                _this._selectType = "GST";
+                _this.money_input.text = "";
+                _this.rate_tips.text = "";
+            });
+            this.addEvent(this.usdt_select_tx, egret.TouchEvent.TOUCH_TAP, this, function () {
+                _this.gst_select.selected = false;
+                _this.usdt_select.selected = true;
+                _this._selectType = "USDT";
+                _this.money_input.text = "";
+                _this.rate_tips.text = "";
+            });
             this.addEvent(this.money_input, eui.UIEvent.CHANGE, this, this.showExchangeRate);
         };
         Purse_outputPage.prototype.showExchangeRate = function (e) {

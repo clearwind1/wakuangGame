@@ -147,6 +147,9 @@ var cor;
                 case 'NEW_NOTICE':
                     cor.EventManage.instance().sendEvent(NEW_NOTICE, msgarr.data);
                     return;
+                case 'UPDATE_EXCHANGE_RATE':
+                    cor.EventManage.instance().sendEvent(UPDATE_EXCHANGE_RATE, msgarr.data);
+                    return;
             }
             for (var i = 0; i < this.param.length; i++) {
                 var item = this.param[i];
@@ -170,16 +173,24 @@ var cor;
             }
         };
         Socket.prototype.onSocketClose = function () {
+            var _this = this;
             this.connectCount++;
             Log('重连++++++', this.connectCount, "次");
             if (this.connectCount >= 12) {
                 this.connectCount = 0;
-                core.Covershap.getInstance().hide();
-                Game.TipsSkin.instance().hide();
+                setTimeout(function () {
+                    core.Covershap.getInstance().hide();
+                    Game.TipsSkin.instance().show("网络连接失败，请稍候");
+                }, 1000);
+                setTimeout(function () {
+                    _this.refreshLogin();
+                }, 60000);
             }
             else {
                 // this.webSocket.connectByUrl(GameData.ServerSocketUrl);
-                this.refreshLogin();
+                setTimeout(function () {
+                    _this.refreshLogin();
+                }, 1000);
             }
         };
         Socket.prototype.refreshLogin = function () {

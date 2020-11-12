@@ -6,7 +6,9 @@
 		<e:Image id="headMask" source="gameRes_json.Head_Main_01_png" x="0" y="0" scaleX="1" scaleY="1"/>
 		<e:Image id="headImg" x="0" y="0" width="111" height="111" scaleX="1" scaleY="1" mask="{this.headMask}" source="{data.picture}"/>
 	</e:Group>
-	<e:Label text="{data.nickname}" x="172" y="42" bold="true" size="26" fontFamily="myFont"/>
-	<e:Label y="42" bold="true" size="26" fontFamily="myFont" right="163" text="{data.curLevel}"/>
-	<e:Image id="owner_icon" source="gameRes_json.Icon_level01_png" x="554" y="43" scaleX="0.8" scaleY="0.8" visible="{data.isower}"/>
+	<e:Label text="{data.nickname}" x="144" y="21" bold="true" size="26" fontFamily="myFont"/>
+	<e:Label x="493" y="19" bold="true" size="22" fontFamily="myFont" text="昨日奖励矿石:"/>
+	<e:Label y="62" bold="true" size="22" fontFamily="myFont" text="{data.curLevel}" x="144" textColor="0x4de4ff"/>
+	<e:Label y="57" bold="true" size="24" fontFamily="myFont" x="444" textColor="0x4DE4FF" text="{data.yesterday_distribution_income}" width="246" textAlign="center"/>
+	<e:Image id="owner_icon" source="gameRes_json.Icon_level01_png" x="331" y="20" scaleX="0.8" scaleY="0.8"/>
 </e:Skin>

@@ -7,6 +7,12 @@ class GameData {
 
 	/**游戏名称 */
 	public static GAMENAME: string = "RichManGame";
+	/**版本号 */
+	public static GAMEVERSION: string = '1.0.0';
+	public static SERVERVERSION: string = '1.0.1';
+	public static DOWNLOADURL: string = '';
+	/**下载 */
+	public static Force_Update = 0;//强制更新：1.是，0.否
 	/**游戏设计宽度 */
 	public static GameDesignWidth: number = 750;
 	/**游戏设计高度 */
@@ -21,7 +27,8 @@ class GameData {
 	public static HeigthOFFY: number = 0;
 	/**服务器连接地址 */
 	public static ServerUrl: string = "http://148.70.80.204:8082/";
-	public static ServerSocketUrl: string = "ws://47.106.15.227:9001/app";
+	// public static ServerSocketUrl: string = "ws://47.106.15.227:9001/app";
+	public static ServerSocketUrl: string = "ws://148.70.80.204:9001/app";
 	///
 	/**游戏界面 */
 	public static BGame: boolean = false;
@@ -54,7 +61,9 @@ class GameData {
 		"hold_area_reward": 10000,
 		"hold_area_work_reward": 1000,
 		"yesterday_distribution_income": 0,
-		"total_distribution_income": 0
+		"total_distribution_income": 0,
+		"is_lock_exchange": 0,
+		"is_plus": 0
 	}
 
 	public static Puser_rate = {

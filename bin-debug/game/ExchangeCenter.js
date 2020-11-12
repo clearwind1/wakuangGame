@@ -26,18 +26,20 @@ var Game;
             this._exchangedata = exchangedata;
             this.head_group.addChild(new Game.headComment(this, '礦石交易所', 'ORE EXCHANGE'));
             this.addDB(this.role_group, "Jiaoyisuo");
-            var dc = new Game.DialogComment('今天的价格，像我一样合乎你的心意么？', { x: 320, y: 120 });
+            var dc = new Game.DialogComment('今天的矿石价格很令人满意呢？让我看看你手里的宝贝吧。', { x: 320, y: 120 });
             this.head_group.addChild(dc);
+            var len = exchangedata.length > 7 ? 7 : exchangedata.length;
             var sortexd = [];
-            for (var i = 0; i < 7; i++) {
+            for (var i = 0; i < len; i++) {
                 sortexd.push(exchangedata[i]);
             }
             sortexd.sort(compare('value', false));
             Log(sortexd);
             var lastSY = 0;
-            for (var i = 0; i < 7; i++) {
+            for (var i = 0; i < len; i++) {
                 var datelb = this.date_group.getChildAt(i);
                 datelb.text = exchangedata[i].date.substr(5);
+                datelb.visible = true;
                 var exchangeratelb = this.rate_group.getChildAt(i);
                 exchangeratelb.text = exchangedata[i].value + '';
                 var sharp = this.sharp_group.getChildAt(i);
@@ -62,10 +64,21 @@ var Game;
                 }
                 lastSY = putY;
             }
+            //颜色矩阵数组
+            var colorMatrix = [
+                0.3, 0.3, 0, 0, 0,
+                0.3, 0.3, 0, 0, 0,
+                0.3, 0.3, 0, 0, 0,
+                0, 0, 0, 1, 0
+            ];
+            var colorFlilter = new egret.ColorMatrixFilter(colorMatrix);
+            if (GameData.UserInfo.is_lock_exchange == 1) {
+                this.exchange_btn.filters = [colorFlilter];
+            }
             cor.Socket.getIntance().sendmsg('GET_EXCHANGE_CONFIG', {}, function (rdata) {
                 Log(rdata);
                 _this._today_rate = rdata;
-                _this.rateTx.text = _this.rateTx.text.replace('@num', rdata);
+                _this.rateTx.text = "\u4ECA\u65E5\u77FF\u77F3\u5151\u6362\u6BD4\u4F8B\uFF1A1GST=" + rdata + "\u77FF\u77F3";
             }, this);
         };
         ExchangeCenter.prototype.initEvent = function () {
@@ -74,12 +87,23 @@ var Game;
             this.addEvent(this.exchange_btn, egret.TouchEvent.TOUCH_TAP, this, this.exchange, null, EXCHANGECLICK);
             this.addEvent(this.exchange_num, eui.UIEvent.CHANGE, this, this.showExchangeRate, null, EXCHANGECLICK);
             this.addEvent(this.close_btn, egret.TouchEvent.TOUCH_TAP, this, function () { _this.rdcode_group.visible = false; }, null, EXCHANGECLICK);
+            this.addEvent(cor.EventManage.instance(), UPDATE_EXCHANGE_RATE, this, function (evedata) {
+                Log('evedata:', evedata.data);
+                cor.Socket.getIntance().sendmsg('GET_EXCHANGE_CONFIG', {}, function (rdata) {
+                    Log('GET_EXCHANGE_CONFIG:', rdata);
+                    _this._today_rate = rdata;
+                    _this.rateTx.text = "\u4ECA\u65E5\u77FF\u77F3\u5151\u6362\u6BD4\u4F8B\uFF1A1GST=" + rdata + "\u77FF\u77F3";
+                }, _this);
+            });
         };
         ExchangeCenter.prototype.showExchangeRate = function (e) {
             this.exchangeRate.text = "GST=" + Number(e.target.text) * this._today_rate + "矿石";
         };
         ExchangeCenter.prototype.exchange = function () {
             var _this = this;
+            if (GameData.UserInfo.is_lock_exchange == 1) {
+                return;
+            }
             cor.Socket.getIntance().sendmsg('EXCHANGE_GST', {
                 "number": Number(this.exchange_num.text)
             }, function (rdata) {

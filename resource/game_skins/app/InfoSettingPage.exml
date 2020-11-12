@@ -42,7 +42,7 @@
 		</e:Skin>
 		</e:skinName>
 	</e:Button>
-	<e:Image id="back_btn" source="appIcon_json.Banner_Personal_Back01_png" x="30" y="28"/>
+	<e:Image source="appIcon_json.Banner_Personal_Back01_png" x="30" y="28"/>
 	<e:Image source="appIcon_json.Line_Personal01_png" y="90" horizontalCenter="0" width="690"/>
 	<e:Image source="appIcon_json.Line_Personal02_png" y="198" horizontalCenter="0" width="690"/>
 	<e:Image source="appIcon_json.Line_Personal02_png" y="306" horizontalCenter="0" width="690"/>
@@ -57,6 +57,7 @@
 	<e:Label id="nickname" text="男" size="28" fontFamily="myFont" textColor="0x9b9b9b" y="237" right="78"/>
 	<e:Label id="sex" text="男" size="28" fontFamily="myFont" x="644" textColor="0x9B9B9B" y="345"/>
 	<e:Label id="birth" text="1900-01-01" size="28" fontFamily="myFont" textColor="0x9B9B9B" y="453" right="78"/>
+	<e:Group id="back_btn" width="183" height="71" x="18" y="10" anchorOffsetX="0" anchorOffsetY="0"/>
 	<e:Group id="change_nickname_group" width="100%" height="100%" x="0" y="0" visible="false">
 		<e:Rect width="100%" height="100%" x="0" y="0" fillAlpha="0.6"/>
 		<e:Image y="321" width="465" horizontalCenter="0.5" x="1" scaleX="1" scaleY="1" source="appIcon_json.Bg_Personal02_png" scale9Grid="24,9,26,56"/>

@@ -4,6 +4,7 @@ namespace Game {
 
         public logo: eui.Image;
         private isEnd: boolean = false;
+        public version: eui.Label;
 
         constructor() {
             super();
@@ -17,6 +18,8 @@ namespace Game {
             egret.Tween.get(this.logo).to({ alpha: 1 }, 500).call(() => {
                 this.isEnd = true;
             });
+
+            this.version.text = "V" + GameData.GAMEVERSION;
         }
 
         private initEnent() {

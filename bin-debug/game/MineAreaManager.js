@@ -68,6 +68,18 @@ var Game;
             this.addEvent(this.cancel_sure_btn, egret.TouchEvent.TOUCH_TAP, this, function () { _this.sure_group.visible = false; }, null, MINEAREACLICK);
             this.addEvent(this.sure_buy_btn, egret.TouchEvent.TOUCH_TAP, this, this.Sure_buy, null, MINEAREACLICK);
             this.addEvent(this.delete_machine_btn, egret.TouchEvent.TOUCH_TAP, this, this.delect_machine, null, MINEAREACLICK);
+            this.addEvent(cor.EventManage.instance(), UPDATE_EXCHANGE_RATE, this, function (evedata) {
+                Log('evedata:', evedata.data);
+                if (GameData.UserInfo.identity != IDENTITY.Owner) {
+                    cor.Socket.getIntance().sendmsg('HOLD_AREA_LIST', {}, function (rdata) {
+                        Log('HOLD_AREA_LIST:', rdata);
+                        _this._areaInfo = rdata;
+                        if (_this.info_group.visible) {
+                            _this.showAreaInfo(_this._currentIndex);
+                        }
+                    }, _this);
+                }
+            });
         };
         MineAreaManager.prototype.delect_machine = function () {
             var _this = this;
@@ -268,8 +280,8 @@ var Game;
                 this._dialogPage.setPos({ x: 380, y: -638 });
             }
             if (GameData.UserInfo.identity == IDENTITY.Owner) {
-                var dialogtx = ['欢迎回来，我就知道你想我了', '你......回来啦，今天要做些什么？', '欢迎回来，主人！',
-                    '嗨，你回来了！Emmmmm，都叫你别老这么盯着我了！', '你果然喜欢我和我的矿区对不，我就知道你肯定喜欢的！', '你来了，今天希望我做些什么呢？嘿嘿！'];
+                var dialogtx = ['就是这样！就是这样！怎么样？矿主收矿的感觉很棒不是吗？告诉别的矿工也赶快“变身”吧，悄悄地告诉你，那样你会有更多的矿石收益哦。', '您，您有没有把矿石按时收进仓库呢？每、每天登陆一次就好了，矿主不需要太频繁光顾的。太、太长时间不来的话，我会、想、想念主人。', '抱歉……刚刚发呆了，因为矿石哗啦啦地产出来的样子太壮观了，不由得……对不起，主人。',
+                    '“矿主”什么的还真是好呢，没什么我自言自语，毕竟看到这么多金灿灿的矿石，任谁都会动心吧。', '是是，有在听矿主大人说话啦，可是，收集矿石才是更主要的事情不是吗？每天把那么多的矿石都搬进仓库，真是贪婪的主人呢。', '又是这么多的矿石开采完成了？仓库还有没有位置了我需要去核实一下，主人记得每天来收矿哦，我会整理仓库等您来的。'];
                 this._dialogPage.setDialog(dialogtx[level - 1]);
                 this.detai_group.visible = false;
                 this.owner_detai_group.visible = true;
@@ -301,8 +313,8 @@ var Game;
                 }, this);
             }
             else {
-                var dialogtx = ['我的矿区和我一样可爱哦，选我吧', '嗯，我应该可以帮到你的！', '你就是我的主人吗？请让我来服侍你吧！',
-                    '别盯我看太久啦，我会害羞的！', '你看上我了么？我可真有眼光哦！', '我能为你了做些什么呢？当然，可以做很多事情哦！'];
+                var dialogtx = ['选择了这座矿区你就是矿主啦，看到右边了吗？只需要这样少量的金币，身份就不一样啦，不用再每天按时上来抢工位打工啦！', '您好，听说您……您即将成为我的矿主吗？嗯，这个矿虽、虽然不大，但、但是我相信您、您会是一个好矿主的。', '主人，您看这座矿区非常适合您，我来帮您照看这座矿区可以吗？那样少的金币对您不是问题的，您将成为一个优秀的矿主和优秀的主人。',
+                    '不要盯着我看嘛，要看就看矿好了，这里面的矿石好多好闪耀啊。这座矿区产出很高，让您真正过上“矿主”的生活！', '对我着迷了吗？还是对后面金灿灿的金矿着迷呢？这可是VIP5级的金矿哦，收益率很高呢，想象一下大把大把矿石采出的场景吧。', '知道拥有了这座矿区意为着什么吗？那些矿工们会争先恐后地来帮您打工，有了它，您才是这片矿区真正的主人。'];
                 this._dialogPage.setDialog(dialogtx[level - 1]);
                 this.detai_group.visible = true;
                 this.owner_detai_group.visible = false;

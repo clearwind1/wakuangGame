@@ -2,16 +2,16 @@
 <e:Skin class="Purse_outputPage" width="750" height="1334" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
 	<e:Rect width="100%" height="100%" x="0" y="0" fillColor="0xFFFFFF"/>
 	<e:Label text="转出" y="27" textColor="0x353535" fontFamily="myFont" size="34" x="341"/>
-	<e:Label text="GST" y="145" textColor="0x353535" fontFamily="myFont" size="32" x="224"/>
-	<e:Label text="USDT" y="145" textColor="0x353535" fontFamily="myFont" size="32" x="566"/>
+	<e:Label id="gst_select_tx" text="GST" y="145" textColor="0x353535" fontFamily="myFont" size="32" x="224"/>
+	<e:Label id="usdt_select_tx" text="USDT" y="145" textColor="0x353535" fontFamily="myFont" size="32" x="566"/>
 	<e:Label text="钱包地址：" y="257" fontFamily="myFont" size="26" x="30" textColor="0x9b9b9b"/>
-	<e:Label text="转出额度：" y="384" textColor="0x9B9B9B" fontFamily="myFont" size="26" x="30"/>
+	<e:Label text="转出额度：" y="390" textColor="0x9B9B9B" fontFamily="myFont" size="26" x="30"/>
 	<e:Label text="温馨提示" textColor="0x9B9B9B" fontFamily="myFont" size="32" horizontalCenter="0" bottom="291"/>
 	<e:Label text="1.请妥善保管您的支付密码，保护好您的个人资产" textColor="0x9B9B9B" fontFamily="myFont" size="24" bottom="233" x="65"/>
 	<e:Label text="2.转出前，请仔细检查对方的钱包地址是否正确，以免对您造成不必要的损失" textColor="0x9B9B9B" fontFamily="myFont" size="24" x="65" width="623" lineSpacing="20" bottom="143"/>
 	<e:Label text="3.本钱包目前仅支持Erc20合约发行的USDT管理，请确认您转出的USDT地址属于Erc20合约类型，以保护您的个人财产安全免受损失。" textColor="0x9B9B9B" fontFamily="myFont" size="24" x="65" width="623" lineSpacing="20" bottom="5"/>
 	<e:Label id="rate_tips" text="转出将产生X%的手续费，你将实际得到N的GST" textColor="0x9B9B9B" fontFamily="myFont" size="18" width="682" lineSpacing="20" x="33" y="561"/>
-	<e:Group id="close_btn" width="78" height="74" x="8" y="8" anchorOffsetX="0" anchorOffsetY="0">
+	<e:Group id="close_btn" width="191" height="74" x="8" y="8" anchorOffsetX="0" anchorOffsetY="0">
 		<e:Image source="appIcon_json.Banner_Personal_Back01_png" x="22" y="20" scaleX="1" scaleY="1"/>
 	</e:Group>
 	<e:Image id="scan_btn" source="appIcon_json.Icon_Saoma_png" y="30" x="672"/>
@@ -46,5 +46,5 @@
 		</e:skinName>
 	</e:RadioButton>
 	<e:EditableText id="address_input" width="690" text="" x="30" y="317" textColor="0x353535" fontFamily="myFont" size="28" verticalAlign="bottom" prompt="请填写地址" promptColor="0x9b9b9b"/>
-	<e:EditableText id="money_input" width="690" text="" x="30" y="445" textColor="0x353535" fontFamily="myFont" size="36" verticalAlign="bottom" prompt="请输入额度" promptColor="0x9B9B9B" height="36"/>
+	<e:EditableText id="money_input" width="690" text="" x="30" textColor="0x353535" fontFamily="myFont" size="28" verticalAlign="bottom" prompt="请输入额度" promptColor="0x9B9B9B" height="28" restrict="&quot;0-9&quot;" y="453"/>
 </e:Skin>

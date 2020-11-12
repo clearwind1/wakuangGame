@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="AppAskPage" width="750" height="1334" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Group width="100%" height="100%" x="0" y="0">
+		<e:Rect width="100%" height="100%" x="0" y="0" fillAlpha="0.6"/>
+		<e:Group width="750" height="1334" horizontalCenter="0" verticalCenter="0">
+		<e:Image source="appIcon_json.Bg_Wallet01_png" scale9Grid="12,12,76,76" width="606" height="263" y="459" x="72" scaleX="1" scaleY="1" anchorOffsetY="0"/>
+		<e:Image source="appIcon_json.Line_Personal02_png" y="638" width="606" x="72"/>
+		<e:Button id="cancel_btn" label="取消" x="73" y="639" width="302" height="83">
+			<e:skinName>
+			<e:Skin states="up,down,disabled" xmlns:w="http://ns.egret.com/wing">
+				<e:Image width="100%" height="100%" source="appIcon_json.Line_Information01_png" visible="false"/>
+				<e:Rect width="302" height="79" x="0" y="0" ellipseWidth="30" fillColor="0xffffff"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" fontFamily="myFont" textColor="0x353535"/>
+			</e:Skin>
+			</e:skinName>
+		</e:Button>
+		<e:Button id="sure_btn" label="确认" x="376" y="639">
+			<e:skinName>
+			<e:Skin states="up,down,disabled" xmlns:w="http://ns.egret.com/wing">
+				<e:Image source="appIcon_json.Btn_Wallet03_png"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" fontFamily="myFont" textColor="0xffffff"/>
+			</e:Skin>
+			</e:skinName>
+		</e:Button>
+			<e:Label id="tips" text="" x="111" textColor="0x353535" fontFamily="myFont" verticalCenter="-126" anchorOffsetX="0" width="531"/>
+		</e:Group>
+	</e:Group>
+</e:Skin>

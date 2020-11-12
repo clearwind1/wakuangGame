@@ -9,6 +9,7 @@ module cor {
 					egret.ExternalInterface.call("sendToNative", "exit$0");
 				} else if (GameData.BGame) {
 					//询问退出游戏
+					console.log("询问退出游戏");
 				} else {
 					let index = this.numChildren - 1;
 					let lastScene = this.getChildAt(index) as cor.BaseScene;

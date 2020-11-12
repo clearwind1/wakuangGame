@@ -7,6 +7,7 @@ const ChangeIdentity = 'ChangeIdentity';
 const ExitGame = 'ExitGame';
 
 const NEW_NOTICE = 'NEW_NOTICE';
+const UPDATE_EXCHANGE_RATE = 'UPDATE_EXCHANGE_RATE';
 const GameMusic = 'GameMusic';
 const UpdataGameInfo = 'UpdataGameInfo';
 

@@ -52,7 +52,7 @@ namespace Game {
                 clearTimeout(to);
                 to = setTimeout(() => { 
                     this.visible = false;
-                }, 3000);
+                }, 4000);
             })
         }
     }

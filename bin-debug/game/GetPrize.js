@@ -24,7 +24,7 @@ var Game;
             // init
             this.prize_group.x = this.width / 2;
             this.prizeNum.text = '+' + toThousands(num);
-            var tips = ["矿区产出收益", "矿工产出收益", "打工获得", "昨日分销收益", "今日分销收益"];
+            var tips = ["矿区产出收益", "矿工产出收益", "打工获得", "昨日贡献矿石奖励", "今日贡献矿石奖励"];
             this.prizeTip.text = tips[type - 1];
             this._type = type;
         };
