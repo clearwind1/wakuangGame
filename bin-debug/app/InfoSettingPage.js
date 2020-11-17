@@ -26,7 +26,7 @@ var Game;
             this.nickname.text = GameData.UserInfo.nickname;
             this.sex.text = GameData.UserInfo.sex == SEX.Man ? "男" : "女";
             this.birth.text = GameData.UserInfo.birthday;
-            this.reset_head_btn.visible = false;
+            this.reset_head_btn.visible = true;
             this._radioGroup = new eui.RadioButtonGroup();
             this.rdb_man.group = this._radioGroup;
             this.rdb_woman.group = this._radioGroup;
@@ -55,6 +55,7 @@ var Game;
             this.addEvent(cor.EventManage.instance(), UpdataUserInfo, this, this.updata_head);
             egret.ExternalInterface.addCallback("selectImg_head_result", function (message) {
                 // TipsSkin.instance().show(message);
+                console.log('jsImagebase64:', message);
                 cor.Socket.getIntance().sendmsg('UPDATE_USER_PROFILE', {
                     "picture": "data:image/png;base64," + message
                 }, function (rdata) {

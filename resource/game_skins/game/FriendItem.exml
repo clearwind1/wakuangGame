@@ -10,5 +10,5 @@
 	<e:Label x="493" y="19" bold="true" size="22" fontFamily="myFont" text="昨日奖励矿石:"/>
 	<e:Label y="62" bold="true" size="22" fontFamily="myFont" text="{data.curLevel}" x="144" textColor="0x4de4ff"/>
 	<e:Label y="57" bold="true" size="24" fontFamily="myFont" x="444" textColor="0x4DE4FF" text="{data.yesterday_distribution_income}" width="246" textAlign="center"/>
-	<e:Image id="owner_icon" source="gameRes_json.Icon_level01_png" x="331" y="20" scaleX="0.8" scaleY="0.8"/>
+	<e:Image id="owner_icon" x="331" y="20" scaleX="0.8" scaleY="0.8" source="{data.icon}"/>
 </e:Skin>

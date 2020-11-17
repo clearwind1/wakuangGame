@@ -23,7 +23,11 @@ var Game;
             // init
             var friendData = rdata;
             for (var k in friendData) {
-                friendData[k].curLevel = rdata[k].identity == IDENTITY.Miner ? rdata[k].grade : 'v' + rdata[k].current_hold_area_grade;
+                friendData[k].curLevel = rdata[k].identity == IDENTITY.Miner ? "" : 'v' + rdata[k].current_hold_area_grade;
+                if (rdata[k].identity == IDENTITY.Miner && rdata[k].is_plus != 0) {
+                    friendData[k].curLevel = "PLUS";
+                }
+                friendData[k].icon = rdata[k].identity == IDENTITY.Miner ? "icon_kg_jpeg" : "gameRes_json.Icon_level01_png";
                 friendData[k].isower = (rdata[k].identity == IDENTITY.Owner);
             }
             this.friendList.dataProvider = new eui.ArrayCollection(friendData);

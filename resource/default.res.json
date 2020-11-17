@@ -9,7 +9,7 @@
 			"name": "loadlogo"
 		},
 		{
-			"keys": "egret_icon_png,description_json,gameRes_json,Role_02_png,Bg_Shop02_png,Bg_Shop01_jpg,role_01_png,Role_03_png,Banner_Kuangquguanli_lv.1_png,Banner_Kuangquguanli_lv.2_png,Banner_Kuangquguanli_lv.3_png,Banner_Kuangquguanli_lv.4_png,Banner_Kuangquguanli_lv.5_png,Banner_Kuangquguanli_lv.6_png,Bg_MiningArea_Lv1_png,Bg_MiningArea_Lv2_png,Bg_MiningArea_Lv3_png,Bg_MiningArea_Lv4_png,Bg_MiningArea_Lv5_png,Bg_MiningArea_Lv6_png,Btn_MiningArea01_png,Btn_MiningArea02_png,Frame_MiningArea_01_png,Bg_Mine01_png,Bg_Mine02_png,Bg_Mine03_png,Lv.1_png,Lv.2_png,Lv.3_png,Lv.4_png,Lv.5_png,Lv.6_png,Jiaoyisuo_png,Gongjushangdian_png,Kuangquguangli_png,Icon_Caikuanggongju_png,Icon_Jingyanquan_png,Icon_Ranliao1_png,Icon_Ranliao2_png,Icon_Ranliao3_png,Icon_Taoxiji_png,chongxingwajueji_png,daxingwajueji_png,miniwajueji_png,xiaoxingwajueji_png,zhongxingwajueji_png,Bg_Jiaoyisuo01_png,Lv1_tex_png,Lv1_ske_json,Lv1_tex_json,Lv2_tex_png,Lv3_tex_png,Lv4_tex_png,Lv5_tex_png,Lv6_tex_png,Lv2_ske_json,Lv3_tex_json,Lv3_ske_json,Lv4_ske_json,Lv4_tex_json,Lv5_ske_json,Lv6_tex_json,Lv5_tex_json,Lv6_ske_json,Lv2_tex_json,Jiaoyisuo_tex_png,Kuangquguangli_tex_png,Jiaoyisuo_ske_json,Kuangquguangli_ske_json,Kuangquguangli_tex_json,Jiaoyisuo_tex_json,Gongjushangdian_tex_png,Gongjushangdian_ske_json,Gongjushangdian_tex_json,Bg_Main_jpg,Bg_Kuangqu01_jpg,cangkunv_ske_json,cangkunv_tex_json,cangkunv_tex_png,machine_effect_ske_json,machine_effect_tex_json,machine_effect_tex_png,dialog_frame_png,planningMC_json,planningMC_png,Icon_uplevel_png",
+			"keys": "egret_icon_png,description_json,gameRes_json,Role_02_png,Bg_Shop02_png,Bg_Shop01_jpg,role_01_png,Role_03_png,Banner_Kuangquguanli_lv.1_png,Banner_Kuangquguanli_lv.2_png,Banner_Kuangquguanli_lv.3_png,Banner_Kuangquguanli_lv.4_png,Banner_Kuangquguanli_lv.5_png,Banner_Kuangquguanli_lv.6_png,Bg_MiningArea_Lv1_png,Bg_MiningArea_Lv2_png,Bg_MiningArea_Lv3_png,Bg_MiningArea_Lv4_png,Bg_MiningArea_Lv5_png,Bg_MiningArea_Lv6_png,Btn_MiningArea01_png,Btn_MiningArea02_png,Frame_MiningArea_01_png,Bg_Mine01_png,Bg_Mine02_png,Bg_Mine03_png,Lv.1_png,Lv.2_png,Lv.3_png,Lv.4_png,Lv.5_png,Lv.6_png,Jiaoyisuo_png,Gongjushangdian_png,Kuangquguangli_png,Icon_Caikuanggongju_png,Icon_Jingyanquan_png,Icon_Ranliao1_png,Icon_Ranliao2_png,Icon_Ranliao3_png,Icon_Taoxiji_png,chongxingwajueji_png,daxingwajueji_png,miniwajueji_png,xiaoxingwajueji_png,zhongxingwajueji_png,Bg_Jiaoyisuo01_png,Lv1_tex_png,Lv1_ske_json,Lv1_tex_json,Lv2_tex_png,Lv3_tex_png,Lv4_tex_png,Lv5_tex_png,Lv6_tex_png,Lv2_ske_json,Lv3_tex_json,Lv3_ske_json,Lv4_ske_json,Lv4_tex_json,Lv5_ske_json,Lv6_tex_json,Lv5_tex_json,Lv6_ske_json,Lv2_tex_json,Jiaoyisuo_tex_png,Kuangquguangli_tex_png,Jiaoyisuo_ske_json,Kuangquguangli_ske_json,Kuangquguangli_tex_json,Jiaoyisuo_tex_json,Gongjushangdian_tex_png,Gongjushangdian_ske_json,Gongjushangdian_tex_json,Bg_Main_jpg,Bg_Kuangqu01_jpg,cangkunv_ske_json,cangkunv_tex_json,cangkunv_tex_png,machine_effect_ske_json,machine_effect_tex_json,machine_effect_tex_png,dialog_frame_png,planningMC_json,planningMC_png,Icon_uplevel_png,icon_kg_jpeg,icon_gf_png",
 			"name": "gameres"
 		},
 		{
@@ -694,6 +694,16 @@
 			"url": "assets/edugameRes/Icon_uplevel.png",
 			"type": "image",
 			"name": "Icon_uplevel_png"
+		},
+		{
+			"url": "assets/edugameRes/icon_kg.jpeg",
+			"type": "image",
+			"name": "icon_kg_jpeg"
+		},
+		{
+			"url": "assets/edugameRes/icon_gf.png",
+			"type": "image",
+			"name": "icon_gf_png"
 		}
 	]
 }

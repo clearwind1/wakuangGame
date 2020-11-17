@@ -39,9 +39,9 @@ var Game;
                 else {
                     var listData = _this.listInfoData;
                     for (var k in info) {
-                        if (info[k].current_work_count == info[k].max_work_count) {
-                            continue;
-                        }
+                        // if (info[k].current_work_count == info[k].max_work_count) {
+                        //     continue;
+                        // }
                         info[k].code = info[k].code + "矿区";
                         info[k].user_nickname = "矿主：" + info[k].user_nickname;
                         info[k].name = "矿区等级：" + info[k].name;
@@ -86,9 +86,9 @@ var Game;
                     var info = rdata;
                     var listData = _this.listInfoData;
                     for (var k in info) {
-                        if (info[k].current_work_count == info[k].max_work_count) {
-                            continue;
-                        }
+                        // if (info[k].current_work_count == info[k].max_work_count) {
+                        //     continue;
+                        // }
                         info[k].code = info[k].code + "矿区";
                         info[k].user_nickname = "矿主：" + info[k].user_nickname;
                         info[k].name = "矿区等级：" + info[k].name;

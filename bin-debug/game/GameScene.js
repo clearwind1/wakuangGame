@@ -62,14 +62,16 @@ var Game;
             // init
             cor.MainScene.instance().playbgm(MAINSCENEBGM);
             if (GameData.UserInfo.identity == IDENTITY.Miner) {
-                this.owner_icon.visible = GameData.UserInfo.is_plus == 0 ? true : false;
-                this.owner_icon.source = "Icon_uplevel_png";
-                this.level.text = GameData.UserInfo.is_plus == 0 ? "" : "Plus";
+                // this.owner_icon.visible = GameData.UserInfo.is_plus == 0 ? true : false;
+                this.owner_icon.source = GameData.UserInfo.is_plus == 0 ? "Icon_uplevel_png" : "icon_kg_jpeg";
+                this.level.text = GameData.UserInfo.is_plus == 0 ? "" : "P";
+                this.plus_tx.visible = GameData.UserInfo.is_plus == 0 ? false : true;
                 // this.bg.source = `Bg_MiningArea_Lv1_png`
                 this.addDB(this.role_group, "Kuangquguangli");
             }
             else {
                 this.mine_group.visible = false;
+                this.plus_tx.visible = false;
                 this.owner_icon.source = "gameRes_json.Icon_level01_png";
                 this.level.text = 'v' + GameData.UserInfo.current_hold_area_grade;
                 // this.bg.source = `Bg_MiningArea_Lv${GameData.UserInfo.current_hold_area_grade}_png`;
@@ -148,7 +150,7 @@ var Game;
                 cor.Socket.getIntance().sendmsg('BECOME_PLUS', {}, function (rdata) {
                     Log(rdata);
                     _this.owner_icon.visible = false;
-                    _this.level.text = "Plus";
+                    _this.level.text = "P";
                     Game.TipsSkin.instance().show("恭喜升级为PLUS");
                     cor.Socket.getIntance().sendmsg('GET_USER_BASE_INFO', {}, function (srdata) { return __awaiter(_this, void 0, void 0, function () {
                         return __generator(this, function (_a) {
@@ -357,8 +359,9 @@ var Game;
             }); }, this);
             if (GameData.UserInfo.identity == IDENTITY.Owner) {
                 this.mine_group.visible = false;
-                this.owner_icon.visible = true;
                 this.level.text = 'v' + GameData.UserInfo.current_hold_area_grade;
+                this.owner_icon.source = "gameRes_json.Icon_level01_png";
+                this.plus_tx.visible = false;
                 this.tools_store_btn.filters = [];
                 this.mine_btn.filters = [];
                 this.removeDB();
@@ -366,8 +369,9 @@ var Game;
             }
             else {
                 this.mine_group.visible = true;
-                this.owner_icon.visible = false;
-                this.level.text = GameData.UserInfo.grade;
+                this.owner_icon.source = GameData.UserInfo.is_plus == 0 ? "Icon_uplevel_png" : "icon_kg_jpeg";
+                this.level.text = GameData.UserInfo.is_plus == 0 ? "" : "P";
+                this.plus_tx.visible = GameData.UserInfo.is_plus == 0 ? false : true;
                 this.removeDB();
                 this.addDB(this.role_group, "Kuangquguangli");
                 //颜色矩阵数组

@@ -25,6 +25,7 @@
 		<e:Label id="mine_num" text="9000000000" y="15" size="22" fontFamily="myFont" right="66" textColor="0xe5eeff"/>
 	</e:Group>
 	<e:Label id="level" text="99级" y="15" fontFamily="myFont" textColor="0x000000" size="22" x="82" textAlign="center" width="66"/>
+	<e:Label id="plus_tx" text="PLUS" y="15" fontFamily="myFont" size="22" x="391" textAlign="center" width="66" textColor="0xbd8840" bold="true"/>
 	<e:Label id="nickname" text="名字" y="15" textColor="0xfefeff" x="167" size="22" fontFamily="myFont"/>
 	<e:Group width="814.24" height="90.85" right="1" anchorOffsetY="0" bottom="0" anchorOffsetX="0">
 		<e:Button id="mine_btn" label="" x="15" y="39.3" scaleX="1" scaleY="1" visible="false">

@@ -38,4 +38,3 @@ var Game;
     Game.AppAskPage = AppAskPage;
     __reflect(AppAskPage.prototype, "Game.AppAskPage");
 })(Game || (Game = {}));
-//# sourceMappingURL=AppAskPage.js.map

@@ -101,7 +101,7 @@ namespace Game {
             } else {
                 r = (this._money0 * this._rateInfo.gst) / this._rateInfo.usdt;
             }
-            this.money_input.text = Math.floor(this._money0) + "";
+            this.money_input.text = Math.floor(r) + "";
         }
 
         private showInfo() {
