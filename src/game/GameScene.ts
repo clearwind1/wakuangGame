@@ -33,6 +33,12 @@ namespace Game {
         public mine_manageCenter_btn: eui.Group;
         public plus_tx: eui.Label;
 
+        public sure_group: eui.Group;
+        public close_sure_btn: eui.Group;
+        public plus_price: eui.Label;
+        public cancel_sure_btn: eui.Button;
+        public sure_buy_btn: eui.Button;
+
         private _dig_time_int = -1;
         constructor() {
             super();
@@ -125,6 +131,9 @@ namespace Game {
             this.addEvent(this.headImg, egret.TouchEvent.TOUCH_TAP, this, this.showSetting, null, MAINSCENECLICK);
             this.addEvent(this.mine_manageCenter_btn, egret.TouchEvent.TOUCH_TAP, this, this.mine_manageCenter, null, MAINSCENECLICK);
             this.addEvent(this.owner_icon, egret.TouchEvent.TOUCH_TAP, this, this.upLevelMiner, null, MAINSCENECLICK);
+            this.addEvent(this.close_sure_btn, egret.TouchEvent.TOUCH_TAP, this, () => { this.sure_group.visible = false; }, null, MAINSCENECLICK);
+            this.addEvent(this.cancel_sure_btn, egret.TouchEvent.TOUCH_TAP, this, () => { this.sure_group.visible = false; }, null, MAINSCENECLICK);
+            this.addEvent(this.sure_buy_btn, egret.TouchEvent.TOUCH_TAP, this, this.sure_upLevelMiner, null, MAINSCENECLICK);
 
             this.addEvent(cor.EventManage.instance(), ChangeIdentity, this, this.changeIdentity);
             this.addEvent(cor.EventManage.instance(), ExitGame, this, this.exitGame);
@@ -141,18 +150,29 @@ namespace Game {
 
         private upLevelMiner() {
             if (GameData.UserInfo.identity == IDENTITY.Miner) {
-                cor.Socket.getIntance().sendmsg('BECOME_PLUS', {}, (rdata) => {
-                    Log(rdata);
-                    this.owner_icon.visible = false;
-                    this.level.text = "P";
-                    TipsSkin.instance().show("恭喜升级为PLUS");
-                    cor.Socket.getIntance().sendmsg('GET_USER_BASE_INFO', {}, async (srdata) => {
-                        GameData.UserInfo = srdata;
-                        cor.EventManage.instance().sendEvent(UpdataGameInfo);
-                    }, this)
 
+                cor.Socket.getIntance().sendmsg('GET_SHARE_CONFIG', {}, (rdata) => {
+                    Log(rdata);
+                    // GameData.Share_config = rdata;
+                    this.sure_group.visible = true;
+                    this.plus_price.text = "升级需要" + rdata.plus_price;
                 }, this)
             }
+        }
+
+        private sure_upLevelMiner() {
+            this.sure_group.visible = false;
+            cor.Socket.getIntance().sendmsg('BECOME_PLUS', {}, (rdata) => {
+                Log(rdata);
+                this.owner_icon.visible = false;
+                this.level.text = "P";
+                TipsSkin.instance().show("恭喜升级为PLUS");
+                cor.Socket.getIntance().sendmsg('GET_USER_BASE_INFO', {}, async (srdata) => {
+                    GameData.UserInfo = srdata;
+                    cor.EventManage.instance().sendEvent(UpdataGameInfo);
+                }, this)
+
+            }, this)
         }
 
         /**

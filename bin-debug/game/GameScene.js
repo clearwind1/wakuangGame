@@ -119,6 +119,7 @@ var Game;
             }, 600);
         };
         GameScene.prototype.initEnent = function () {
+            var _this = this;
             this.addEvent(this.exitbtn, egret.TouchEvent.TOUCH_TAP, this, this.exitGame, null, MAINSCENECLICK);
             this.addEvent(this.manager_btn, egret.TouchEvent.TOUCH_TAP, this, this.showManager, null, MAINSCENECLICK);
             this.addEvent(this.manageCenter_btn, egret.TouchEvent.TOUCH_TAP, this, this.showManageCenter, null, MAINSCENECLICK);
@@ -134,6 +135,9 @@ var Game;
             this.addEvent(this.headImg, egret.TouchEvent.TOUCH_TAP, this, this.showSetting, null, MAINSCENECLICK);
             this.addEvent(this.mine_manageCenter_btn, egret.TouchEvent.TOUCH_TAP, this, this.mine_manageCenter, null, MAINSCENECLICK);
             this.addEvent(this.owner_icon, egret.TouchEvent.TOUCH_TAP, this, this.upLevelMiner, null, MAINSCENECLICK);
+            this.addEvent(this.close_sure_btn, egret.TouchEvent.TOUCH_TAP, this, function () { _this.sure_group.visible = false; }, null, MAINSCENECLICK);
+            this.addEvent(this.cancel_sure_btn, egret.TouchEvent.TOUCH_TAP, this, function () { _this.sure_group.visible = false; }, null, MAINSCENECLICK);
+            this.addEvent(this.sure_buy_btn, egret.TouchEvent.TOUCH_TAP, this, this.sure_upLevelMiner, null, MAINSCENECLICK);
             this.addEvent(cor.EventManage.instance(), ChangeIdentity, this, this.changeIdentity);
             this.addEvent(cor.EventManage.instance(), ExitGame, this, this.exitGame);
             this.addEvent(cor.EventManage.instance(), UpdataUserInfo, this, this.updata_info);
@@ -147,20 +151,30 @@ var Game;
         GameScene.prototype.upLevelMiner = function () {
             var _this = this;
             if (GameData.UserInfo.identity == IDENTITY.Miner) {
-                cor.Socket.getIntance().sendmsg('BECOME_PLUS', {}, function (rdata) {
+                cor.Socket.getIntance().sendmsg('GET_SHARE_CONFIG', {}, function (rdata) {
                     Log(rdata);
-                    _this.owner_icon.visible = false;
-                    _this.level.text = "P";
-                    Game.TipsSkin.instance().show("恭喜升级为PLUS");
-                    cor.Socket.getIntance().sendmsg('GET_USER_BASE_INFO', {}, function (srdata) { return __awaiter(_this, void 0, void 0, function () {
-                        return __generator(this, function (_a) {
-                            GameData.UserInfo = srdata;
-                            cor.EventManage.instance().sendEvent(UpdataGameInfo);
-                            return [2 /*return*/];
-                        });
-                    }); }, _this);
+                    // GameData.Share_config = rdata;
+                    _this.sure_group.visible = true;
+                    _this.plus_price.text = "升级需要" + rdata.plus_price;
                 }, this);
             }
+        };
+        GameScene.prototype.sure_upLevelMiner = function () {
+            var _this = this;
+            this.sure_group.visible = false;
+            cor.Socket.getIntance().sendmsg('BECOME_PLUS', {}, function (rdata) {
+                Log(rdata);
+                _this.owner_icon.visible = false;
+                _this.level.text = "P";
+                Game.TipsSkin.instance().show("恭喜升级为PLUS");
+                cor.Socket.getIntance().sendmsg('GET_USER_BASE_INFO', {}, function (srdata) { return __awaiter(_this, void 0, void 0, function () {
+                    return __generator(this, function (_a) {
+                        GameData.UserInfo = srdata;
+                        cor.EventManage.instance().sendEvent(UpdataGameInfo);
+                        return [2 /*return*/];
+                    });
+                }); }, _this);
+            }, this);
         };
         /**
          * 公告
@@ -419,3 +433,4 @@ var Game;
     Game.GameScene = GameScene;
     __reflect(GameScene.prototype, "Game.GameScene");
 })(Game || (Game = {}));
+//# sourceMappingURL=GameScene.js.map

@@ -61,3 +61,4 @@ var Game;
     Game.TipsSkin = TipsSkin;
     __reflect(TipsSkin.prototype, "Game.TipsSkin");
 })(Game || (Game = {}));
+//# sourceMappingURL=TipsSkin.js.map

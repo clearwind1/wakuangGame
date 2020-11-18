@@ -79,3 +79,4 @@ var Game;
     Game.Purse_resetPassword = Purse_resetPassword;
     __reflect(Purse_resetPassword.prototype, "Game.Purse_resetPassword");
 })(Game || (Game = {}));
+//# sourceMappingURL=Purse_resetPassword.js.map

@@ -39,3 +39,4 @@ var Game;
     Game.NewsContant = NewsContant;
     __reflect(NewsContant.prototype, "Game.NewsContant");
 })(Game || (Game = {}));
+//# sourceMappingURL=NewsContant.js.map

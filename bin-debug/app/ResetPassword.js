@@ -58,3 +58,4 @@ var Game;
     Game.ResetPassword = ResetPassword;
     __reflect(ResetPassword.prototype, "Game.ResetPassword");
 })(Game || (Game = {}));
+//# sourceMappingURL=ResetPassword.js.map

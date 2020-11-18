@@ -134,4 +134,36 @@
 		</e:Scroller>
 		<e:Image id="notic_tip_img" source="gameRes_json.Point_png" x="-72.01" y="107.67" visible="false"/>
 	</e:Group>
+	<e:Group id="sure_group" width="100%" height="100%" x="0" y="0" visible="false">
+		<e:Rect width="100%" height="100%" x="0" y="0" fillAlpha="0.6"/>
+		<e:Group width="1334" height="750" horizontalCenter="0" verticalCenter="0">
+		<e:Image source="gameRes_json.Frame_01_png" scale9Grid="343,218,38,27" width="813" height="439" x="261" y="156"/>
+		<e:Image id="close_sure_btn" source="gameRes_json.close_png" x="992" y="173"/>
+		<e:Label text="立即升级" y="179" horizontalCenter="0" fontFamily="myFont" textColor="0x92B5F0"/>
+		<e:Group height="98.48" y="304" anchorOffsetY="0" horizontalCenter="0">
+			<e:Label id="plus_price" text="升级需要" y="-154" horizontalCenter="0" fontFamily="myFont" x="306" scaleX="1" scaleY="1" size="32" textColor="0xB4DFEA"/>
+			<e:Image source="gameRes_json.Icon_G_png" x="223" y="20" scaleX="0.72" scaleY="0.72"/>
+			<e:Label text="，是否立即升级？" y="-144" horizontalCenter="0" fontFamily="myFont" x="316" scaleX="1" scaleY="1" size="32" textColor="0xB4DFEA"/>
+			<e:layout>
+			<e:HorizontalLayout verticalAlign="middle" gap="0"/>
+			</e:layout>
+		</e:Group>
+		<e:Button id="cancel_sure_btn" label="取消" y="461" x="386">
+			<e:skinName>
+			<e:Skin states="up,down,disabled">
+				<e:Image width="100%" height="100%" source="gameRes_json.Btn_Blue_01_png"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="-5" fontFamily="myFont" size="28" stroke="2" strokeColor="#5276e9"/>
+			</e:Skin>
+			</e:skinName>
+		</e:Button>
+		<e:Button id="sure_buy_btn" label="确定" y="461" x="746">
+			<e:skinName>
+			<e:Skin states="up,down,disabled">
+				<e:Image width="100%" height="100%" source="gameRes_json.Btn_Yellow_01_png"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="-5" fontFamily="myFont" size="28" stroke="2" strokeColor="#e99652"/>
+			</e:Skin>
+			</e:skinName>
+		</e:Button>
+		</e:Group>
+	</e:Group>
 </e:Skin>

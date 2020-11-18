@@ -55,3 +55,4 @@ var Game;
     Game.GetPrize = GetPrize;
     __reflect(GetPrize.prototype, "Game.GetPrize");
 })(Game || (Game = {}));
+//# sourceMappingURL=GetPrize.js.map

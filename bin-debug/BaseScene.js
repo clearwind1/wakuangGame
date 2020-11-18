@@ -219,3 +219,4 @@ var cor;
     cor.BaseScene = BaseScene;
     __reflect(BaseScene.prototype, "cor.BaseScene");
 })(cor || (cor = {}));
+//# sourceMappingURL=BaseScene.js.map

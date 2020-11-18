@@ -39,3 +39,4 @@ var Game;
     Game.NewsItem = NewsItem;
     __reflect(NewsItem.prototype, "Game.NewsItem");
 })(Game || (Game = {}));
+//# sourceMappingURL=NewsItem.js.map

@@ -80,3 +80,4 @@ var Game;
     Game.Purse_setPayPasswordPage = Purse_setPayPasswordPage;
     __reflect(Purse_setPayPasswordPage.prototype, "Game.Purse_setPayPasswordPage");
 })(Game || (Game = {}));
+//# sourceMappingURL=Purse_setPayPasswordPage.js.map

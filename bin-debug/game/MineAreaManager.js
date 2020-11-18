@@ -351,3 +351,4 @@ var Game;
     Game.MineAreaManager = MineAreaManager;
     __reflect(MineAreaManager.prototype, "Game.MineAreaManager");
 })(Game || (Game = {}));
+//# sourceMappingURL=MineAreaManager.js.map

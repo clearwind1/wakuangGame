@@ -281,3 +281,4 @@ var Game;
     }(eui.ItemRenderer));
     __reflect(OwnerItem.prototype, "OwnerItem");
 })(Game || (Game = {}));
+//# sourceMappingURL=MinerServerCenter.js.map

@@ -63,3 +63,4 @@ var Game;
     Game.DialogComment = DialogComment;
     __reflect(DialogComment.prototype, "Game.DialogComment");
 })(Game || (Game = {}));
+//# sourceMappingURL=DialogComment.js.map

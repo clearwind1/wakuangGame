@@ -53,3 +53,4 @@ var Game;
     Game.Warehouse = Warehouse;
     __reflect(Warehouse.prototype, "Game.Warehouse");
 })(Game || (Game = {}));
+//# sourceMappingURL=Warehouse.js.map

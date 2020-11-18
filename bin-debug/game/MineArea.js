@@ -153,3 +153,4 @@ var Game;
     Game.MineArea = MineArea;
     __reflect(MineArea.prototype, "Game.MineArea");
 })(Game || (Game = {}));
+//# sourceMappingURL=MineArea.js.map
