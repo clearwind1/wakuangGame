@@ -10,7 +10,7 @@ var GameData = (function () {
     /**游戏名称 */
     GameData.GAMENAME = "RichManGame";
     /**版本号 */
-    GameData.GAMEVERSION = '1.0.0';
+    GameData.GAMEVERSION = '1.0.2';
     GameData.SERVERVERSION = '1.0.1';
     GameData.DOWNLOADURL = '';
     /**下载 */
@@ -29,8 +29,8 @@ var GameData = (function () {
     GameData.HeigthOFFY = 0;
     /**服务器连接地址 */
     GameData.ServerUrl = "http://148.70.80.204:8082/";
-    // public static ServerSocketUrl: string = "ws://47.106.15.227:9001/app";
-    GameData.ServerSocketUrl = "ws://148.70.80.204:9001/app";
+    GameData.ServerSocketUrl = "ws://47.106.15.227:9001/app";
+    // public static ServerSocketUrl: string = "ws://148.70.80.204:9001/app";
     ///
     /**游戏界面 */
     GameData.BGame = false;

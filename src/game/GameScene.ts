@@ -149,7 +149,7 @@ namespace Game {
         }
 
         private upLevelMiner() {
-            if (GameData.UserInfo.identity == IDENTITY.Miner) {
+            if (GameData.UserInfo.identity == IDENTITY.Miner && GameData.UserInfo.is_plus == 0) {
 
                 cor.Socket.getIntance().sendmsg('GET_SHARE_CONFIG', {}, (rdata) => {
                     Log(rdata);
@@ -164,8 +164,9 @@ namespace Game {
             this.sure_group.visible = false;
             cor.Socket.getIntance().sendmsg('BECOME_PLUS', {}, (rdata) => {
                 Log(rdata);
-                this.owner_icon.visible = false;
-                this.level.text = "P";
+                // this.owner_icon.visible = false;
+                // this.level.text = "P";
+                cor.EventManage.instance().sendEvent(ChangeIdentity);
                 TipsSkin.instance().show("恭喜升级为PLUS");
                 cor.Socket.getIntance().sendmsg('GET_USER_BASE_INFO', {}, async (srdata) => {
                     GameData.UserInfo = srdata;

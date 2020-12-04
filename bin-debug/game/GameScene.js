@@ -150,7 +150,7 @@ var Game;
         };
         GameScene.prototype.upLevelMiner = function () {
             var _this = this;
-            if (GameData.UserInfo.identity == IDENTITY.Miner) {
+            if (GameData.UserInfo.identity == IDENTITY.Miner && GameData.UserInfo.is_plus == 0) {
                 cor.Socket.getIntance().sendmsg('GET_SHARE_CONFIG', {}, function (rdata) {
                     Log(rdata);
                     // GameData.Share_config = rdata;
@@ -164,8 +164,9 @@ var Game;
             this.sure_group.visible = false;
             cor.Socket.getIntance().sendmsg('BECOME_PLUS', {}, function (rdata) {
                 Log(rdata);
-                _this.owner_icon.visible = false;
-                _this.level.text = "P";
+                // this.owner_icon.visible = false;
+                // this.level.text = "P";
+                cor.EventManage.instance().sendEvent(ChangeIdentity);
                 Game.TipsSkin.instance().show("恭喜升级为PLUS");
                 cor.Socket.getIntance().sendmsg('GET_USER_BASE_INFO', {}, function (srdata) { return __awaiter(_this, void 0, void 0, function () {
                     return __generator(this, function (_a) {

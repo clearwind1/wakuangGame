@@ -318,17 +318,20 @@ var Game;
                             GameData.GameHeigth = egret.MainContext.instance.stage.stageHeight;
                             GameData.BGame = true;
                             GameData.UserInfo = rdata;
+                            return [4 /*yield*/, wait(200)];
+                        case 1:
+                            _a.sent();
                             loadingScene = new Game.LoadingView();
                             loadingScene.setType("sound");
                             cor.MainScene.instance().addChild(loadingScene);
                             RES.setMaxLoadingThread(1);
                             return [4 /*yield*/, RES.loadGroup("sound", 0, loadingScene)];
-                        case 1:
+                        case 2:
                             _a.sent();
                             loadingScene.setType("Done");
                             RES.setMaxLoadingThread(4);
                             return [4 /*yield*/, RES.loadGroup("gameres", 0, loadingScene)];
-                        case 2:
+                        case 3:
                             _a.sent();
                             return [2 /*return*/];
                     }

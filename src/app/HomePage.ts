@@ -305,6 +305,9 @@ namespace Game {
                 GameData.GameHeigth = egret.MainContext.instance.stage.stageHeight;
                 GameData.BGame = true;
                 GameData.UserInfo = rdata;
+
+                await wait(200);
+
                 let loadingScene = new LoadingView();
                 loadingScene.setType("sound");
                 cor.MainScene.instance().addChild(loadingScene);

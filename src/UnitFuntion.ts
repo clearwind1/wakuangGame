@@ -1215,7 +1215,7 @@ async function wait(time) {
     return new Promise((resolve, reject) => {
         setTimeout(function () {
             resolve();
-        }, time);
+        }, time); 
     })
 }
 //检测手机号码
